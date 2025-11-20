@@ -22,14 +22,14 @@ Before you begin, ensure you have:
 - **Node.js** (v18 or higher) - [Download here](https://nodejs.org/)
 - **npm** (comes with Node.js) or **yarn**
 - **Git** - [Download here](https://git-scm.com/)
-- **Backend API** running - [Backend Repository](https://github.com/YOUR_USERNAME/Real-Estate-CMS-Backend)
+- **Backend API** running - [Backend Repository](https://github.com/ensui-dev/Real-Estate-CMS-Backend)
 
 ## 🛠️ Installation & Setup
 
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/Real-Estate-CMS-Frontend.git
+git clone https://github.com/ensui-dev/Real-Estate-CMS-Frontend.git
 cd Real-Estate-CMS-Frontend
 ```
 
@@ -720,8 +720,7 @@ This project is licensed under the MIT License.
 ## 📞 Support
 
 For issues, questions, or contributions:
-- **GitHub Issues:** [Create an issue](https://github.com/YOUR_USERNAME/Real-Estate-CMS-Frontend/issues)
-- **Email:** support@realestate-cms.pt
+- **GitHub Issues:** [Create an issue](https://github.com/ensui-dev/Real-Estate-CMS-Frontend/issues)
 
 ## 🙏 Acknowledgments
 
@@ -735,4 +734,4 @@ For issues, questions, or contributions:
 
 **Built for the Portuguese real estate market with ❤️**
 
-Need the backend? Check out the [Backend Repository](https://github.com/YOUR_USERNAME/Real-Estate-CMS-Backend)
+Need the backend? Check out the [Backend Repository](https://github.com/ensui-dev/Real-Estate-CMS-Backend)
