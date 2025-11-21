@@ -57,6 +57,9 @@ const ImageUpload = ({ images, onChange, maxImages = 10 }) => {
         formData.append('images', file);
       });
 
+      console.log('Uploading to:', axios.defaults.baseURL || 'default URL');
+      console.log('Files to upload:', files.length);
+
       const response = await axios.post('/upload/property-images', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
@@ -68,6 +71,8 @@ const ImageUpload = ({ images, onChange, maxImages = 10 }) => {
           setUploadProgress({ percent: percentCompleted });
         }
       });
+
+      console.log('Upload successful, response:', response);
 
       // Axios interceptor already unwraps response.data
       // So 'response' is { success, message, data }
@@ -84,8 +89,15 @@ const ImageUpload = ({ images, onChange, maxImages = 10 }) => {
         toast.success(`${files.length} imagem(ns) carregada(s) com sucesso!`);
       }
     } catch (error) {
-      console.error('Upload error:', error);
-      toast.error(error.message || 'Erro ao carregar imagens');
+      console.error('Upload error - Full error object:', error);
+      console.error('Error message:', error.message);
+      console.error('Error response:', error.response);
+      console.error('Error request:', error.request);
+      console.error('Error config:', error.config);
+
+      // Show more detailed error in development
+      const errorMessage = error.message || 'Erro ao carregar imagens';
+      toast.error(errorMessage);
     } finally {
       setUploading(false);
       setUploadProgress({});
