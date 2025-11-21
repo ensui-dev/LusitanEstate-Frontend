@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import { PROPERTY_TYPES, PROPERTY_STATUS, ENERGY_RATINGS, PROPERTY_FEATURES } from '../utils/constants';
 import { PORTUGUESE_DISTRICTS } from '../utils/districts';
 import { FaHome, FaMapMarkerAlt, FaInfoCircle, FaImage, FaCheckCircle } from 'react-icons/fa';
+import ImageUpload from '../components/common/ImageUpload';
 
 const AddProperty = () => {
   const navigate = useNavigate();
@@ -46,7 +47,7 @@ const AddProperty = () => {
     features: [],
 
     // Images
-    images: [{ url: '', caption: '', isPrimary: true }]
+    images: []
   });
 
   const handleChange = (e) => {
@@ -87,26 +88,10 @@ const AddProperty = () => {
     }));
   };
 
-  const handleImageChange = (index, field, value) => {
+  const handleImagesChange = (newImages) => {
     setFormData(prev => ({
       ...prev,
-      images: prev.images.map((img, i) =>
-        i === index ? { ...img, [field]: value } : img
-      )
-    }));
-  };
-
-  const addImageField = () => {
-    setFormData(prev => ({
-      ...prev,
-      images: [...prev.images, { url: '', caption: '', isPrimary: false }]
-    }));
-  };
-
-  const removeImageField = (index) => {
-    setFormData(prev => ({
-      ...prev,
-      images: prev.images.filter((_, i) => i !== index)
+      images: newImages
     }));
   };
 
@@ -134,6 +119,18 @@ const AddProperty = () => {
           return false;
         }
         break;
+      case 5:
+        if (!formData.images || formData.images.length === 0) {
+          toast.error('Por favor carregue pelo menos uma imagem do imóvel');
+          return false;
+        }
+        // Verify all images have valid URLs
+        const validImages = formData.images.filter(img => img.url && img.url.trim() !== '');
+        if (validImages.length === 0) {
+          toast.error('Por favor carregue pelo menos uma imagem do imóvel');
+          return false;
+        }
+        break;
     }
     return true;
   };
@@ -148,9 +145,24 @@ const AddProperty = () => {
     setCurrentStep(prev => Math.max(prev - 1, 1));
   };
 
+  const handleKeyDown = (e) => {
+    // Prevent Enter key from submitting form on steps 1-4
+    if (e.key === 'Enter' && currentStep !== 5 && e.target.tagName !== 'TEXTAREA') {
+      e.preventDefault();
+      nextStep();
+    }
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Only allow submission on the final step (step 5)
+    if (currentStep !== 5) {
+      nextStep(); // If not on final step, just go to next step
+      return;
+    }
+
+    // Validate step 5 (images)
     if (!validateStep(currentStep)) return;
 
     try {
@@ -238,7 +250,7 @@ const AddProperty = () => {
         </div>
 
         {/* Form */}
-        <form onSubmit={handleSubmit} className="bg-white rounded-lg shadow-sm p-6">
+        <form onSubmit={handleSubmit} onKeyDown={handleKeyDown} className="bg-white rounded-lg shadow-sm p-6">
           {/* Step 1: Basic Info */}
           {currentStep === 1 && (
             <div className="space-y-6">
@@ -597,62 +609,29 @@ const AddProperty = () => {
           {/* Step 5: Images */}
           {currentStep === 5 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Imagens</h2>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">Imagens *</h2>
+                <p className="text-gray-600 mb-2">
+                  <span className="font-semibold text-red-600">Obrigatório:</span> Carregue pelo menos uma foto do imóvel.
+                </p>
+                <p className="text-sm text-gray-500 mb-6">
+                  A primeira imagem será definida como principal. Máximo de 10 imagens (5MB cada).
+                </p>
+              </div>
 
-              {formData.images.map((image, index) => (
-                <div key={index} className="p-4 border rounded-lg">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="font-medium">
-                      Imagem {index + 1} {image.isPrimary && '(Principal)'}
-                    </h3>
-                    {formData.images.length > 1 && (
-                      <button
-                        type="button"
-                        onClick={() => removeImageField(index)}
-                        className="text-red-600 hover:text-red-700"
-                      >
-                        Remover
-                      </button>
-                    )}
-                  </div>
+              <ImageUpload
+                images={formData.images}
+                onChange={handleImagesChange}
+                maxImages={10}
+              />
 
-                  <div className="space-y-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        URL da Imagem
-                      </label>
-                      <input
-                        type="url"
-                        value={image.url}
-                        onChange={(e) => handleImageChange(index, 'url', e.target.value)}
-                        className="input w-full"
-                        placeholder="https://exemplo.com/imagem.jpg"
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Legenda
-                      </label>
-                      <input
-                        type="text"
-                        value={image.caption}
-                        onChange={(e) => handleImageChange(index, 'caption', e.target.value)}
-                        className="input w-full"
-                        placeholder="Sala de estar"
-                      />
-                    </div>
-                  </div>
+              {formData.images.length === 0 && (
+                <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
+                  <p className="text-sm text-yellow-800">
+                    ⚠️ Você precisa carregar pelo menos uma imagem antes de criar o imóvel.
+                  </p>
                 </div>
-              ))}
-
-              <button
-                type="button"
-                onClick={addImageField}
-                className="btn-secondary w-full"
-              >
-                + Adicionar Imagem
-              </button>
+              )}
             </div>
           )}
 
@@ -680,8 +659,9 @@ const AddProperty = () => {
               ) : (
                 <button
                   type="submit"
-                  disabled={loading}
-                  className="btn-primary"
+                  disabled={loading || formData.images.length === 0}
+                  className={`btn-primary ${formData.images.length === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
+                  title={formData.images.length === 0 ? 'Carregue pelo menos uma imagem para continuar' : ''}
                 >
                   {loading ? 'A criar...' : 'Criar Imóvel'}
                 </button>
