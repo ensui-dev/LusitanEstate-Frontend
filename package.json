@@ -1,7 +1,7 @@
 {
-  "name": "portuguese-realestate-frontend",
+  "name": "lusitanestate-frontend",
   "version": "1.0.0",
-  "description": "Portuguese Real Estate CMS - React Frontend",
+  "description": "LusitanEstate - React Frontend",
   "type": "module",
   "scripts": {
     "dev": "vite",

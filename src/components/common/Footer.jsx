@@ -11,7 +11,7 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <FaHome className="text-primary-500 text-2xl" />
-              <span className="font-bold text-xl text-white">RealEstate PT</span>
+              <span className="font-bold text-xl text-white">LusitanEstate</span>
             </div>
             <p className="text-sm text-gray-400">
               Plataforma profissional de imóveis para o mercado português.
@@ -110,7 +110,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Portuguese Real Estate CMS. Todos os direitos reservados.</p>
+          <p>&copy; {new Date().getFullYear()} LusitanEstate. Todos os direitos reservados.</p>
         </div>
       </div>
     </footer>
