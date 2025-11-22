@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaInstagram, FaLinkedin, FaHome, FaHeart, FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaLinkedin, FaHome, FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
 const Footer = () => {
@@ -33,8 +33,8 @@ const Footer = () => {
                 </div>
               </Link>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                A sua plataforma de confianca para encontrar o imovel perfeito em Portugal.
-                De Lisboa ao Porto, do Algarve aos Acores.
+                A sua plataforma de confiança para encontrar o imóvel perfeito em Portugal.
+                De Lisboa ao Porto, do Algarve aos Açores.
               </p>
 
               {/* Social Links */}
@@ -64,13 +64,13 @@ const Footer = () => {
                 <li>
                   <Link to="/properties" className="text-gray-400 hover:text-primary-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Imoveis
+                    Imóveis
                   </Link>
                 </li>
                 <li>
                   <Link to="/agencies" className="text-gray-400 hover:text-primary-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Agencias
+                    Agências
                   </Link>
                 </li>
                 <li>
@@ -82,7 +82,7 @@ const Footer = () => {
                 <li>
                   <Link to="/about" className="text-gray-400 hover:text-primary-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Sobre Nos
+                    Sobre Nós
                   </Link>
                 </li>
               </ul>
@@ -104,13 +104,13 @@ const Footer = () => {
                 <li>
                   <Link to="/register?role=seller" className="text-gray-400 hover:text-terracotta-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-terracotta-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Anunciar Imovel
+                    Anunciar Imóvel
                   </Link>
                 </li>
                 <li>
                   <Link to="/pricing" className="text-gray-400 hover:text-terracotta-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-terracotta-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Planos e Precos
+                    Planos e Preços
                   </Link>
                 </li>
               </ul>
@@ -122,7 +122,7 @@ const Footer = () => {
                 <span className="w-8 h-0.5 bg-golden-500 mr-3"></span>
                 Contacto
               </h3>
-              <ul className="space-y-4 mb-8">
+              <ul className="space-y-4">
                 <li className="flex items-center text-gray-400">
                   <FaMapMarkerAlt className="text-golden-500 mr-3" />
                   <span>Lisboa, Portugal</span>
@@ -138,8 +138,14 @@ const Footer = () => {
                   <span>+351 21 000 0000</span>
                 </li>
               </ul>
+            </div>
+          </div>
+        </div>
 
-              {/* Legal Links */}
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-800/50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="flex flex-wrap gap-4 text-sm">
                 <Link to="/terms" className="text-gray-500 hover:text-gray-300 transition-colors">
                   Termos
@@ -151,19 +157,8 @@ const Footer = () => {
                   Cookies
                 </Link>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-800/50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <p className="text-gray-500 text-sm">
                 &copy; {new Date().getFullYear()} LusitanEstate. Todos os direitos reservados.
-              </p>
-              <p className="text-gray-500 text-sm flex items-center">
-                Feito com <FaHeart className="text-terracotta-500 mx-1.5 animate-pulse" /> em Portugal
               </p>
             </div>
           </div>
