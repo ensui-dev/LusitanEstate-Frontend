@@ -146,10 +146,14 @@ const AddProperty = () => {
   };
 
   const handleKeyDown = (e) => {
-    // Prevent Enter key from submitting form on steps 1-4
-    if (e.key === 'Enter' && currentStep !== 5 && e.target.tagName !== 'TEXTAREA') {
+    // Prevent Enter key from submitting form on ALL steps
+    // Form should only be submitted by clicking the "Criar Imóvel" button
+    if (e.key === 'Enter' && e.target.tagName !== 'TEXTAREA') {
       e.preventDefault();
-      nextStep();
+      // Only auto-advance on steps 1-4
+      if (currentStep < 5) {
+        nextStep();
+      }
     }
   };
 

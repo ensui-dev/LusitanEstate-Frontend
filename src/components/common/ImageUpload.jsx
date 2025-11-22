@@ -242,6 +242,12 @@ const ImageUpload = ({ images, onChange, maxImages = 10 }) => {
                   type="text"
                   value={image.caption}
                   onChange={(e) => updateCaption(index, e.target.value)}
+                  onKeyDown={(e) => {
+                    // Prevent Enter from submitting parent form
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                    }
+                  }}
                   placeholder="Legenda da imagem (opcional)"
                   className="input-field text-sm"
                 />
