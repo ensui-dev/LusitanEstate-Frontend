@@ -67,6 +67,15 @@ export const AuthProvider = ({ children }) => {
       }
       return { success: false, message: 'Login failed' };
     } catch (error) {
+      // Pass through email verification error details
+      if (error.code === 'EMAIL_NOT_VERIFIED') {
+        return {
+          success: false,
+          message: error.message || 'Email not verified',
+          code: 'EMAIL_NOT_VERIFIED',
+          email: error.email
+        };
+      }
       return { success: false, message: error.message || 'Login failed' };
     }
   };
@@ -74,13 +83,11 @@ export const AuthProvider = ({ children }) => {
   const register = async (userData) => {
     try {
       const response = await authAPI.register(userData);
-      if (response.success && response.data && response.data.token) {
-        localStorage.setItem('token', response.data.token);
-        setUser(response.data);
-        setIsAuthenticated(true);
-        return { success: true };
+      if (response.success) {
+        // Don't auto-login - user must verify email first
+        return { success: true, message: response.message };
       }
-      return { success: false, message: 'Registration failed' };
+      return { success: false, message: response.message || 'Registration failed' };
     } catch (error) {
       return { success: false, message: error.message || 'Registration failed' };
     }

@@ -13,6 +13,8 @@ import Footer from './components/common/Footer';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import VerifyEmail from './pages/VerifyEmail';
+import CheckEmail from './pages/CheckEmail';
 import Properties from './pages/Properties';
 import PropertyDetail from './pages/PropertyDetail';
 import Agents from './pages/Agents';
@@ -63,6 +65,8 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
+                <Route path="/verify-email" element={<VerifyEmail />} />
+                <Route path="/check-email" element={<CheckEmail />} />
                 <Route path="/properties" element={<Properties />} />
                 <Route path="/properties/:id" element={<PropertyDetail />} />
                 <Route path="/agents" element={<Agents />} />

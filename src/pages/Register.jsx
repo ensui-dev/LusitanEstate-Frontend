@@ -44,13 +44,13 @@ const Register = () => {
       const result = await register(registerData);
 
       if (result.success) {
-        toast.success('Conta criada com sucesso!');
-        navigate('/dashboard');
+        toast.success('Verifique o seu email para ativar a conta!');
+        navigate('/check-email', { state: { email: formData.email } });
       } else {
         toast.error(result.message || 'Erro ao criar conta');
       }
     } catch (error) {
-      toast.error('Erro ao criar conta');
+      toast.error(error.message || 'Erro ao criar conta');
     } finally {
       setLoading(false);
     }

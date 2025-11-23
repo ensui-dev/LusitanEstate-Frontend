@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { authAPI } from '../api/auth';
 import { toast } from 'react-toastify';
 
 const Login = () => {
@@ -9,6 +10,9 @@ const Login = () => {
     password: ''
   });
   const [loading, setLoading] = useState(false);
+  const [verificationNeeded, setVerificationNeeded] = useState(false);
+  const [unverifiedEmail, setUnverifiedEmail] = useState('');
+  const [resending, setResending] = useState(false);
   const { login } = useAuth();
   const navigate = useNavigate();
 
@@ -17,17 +21,44 @@ const Login = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+    // Reset verification state when user changes email
+    if (e.target.name === 'email' && verificationNeeded) {
+      setVerificationNeeded(false);
+    }
+  };
+
+  const handleResendVerification = async () => {
+    if (!unverifiedEmail || resending) return;
+
+    setResending(true);
+    try {
+      const response = await authAPI.resendVerification(unverifiedEmail);
+      if (response.success) {
+        toast.success('Email de verificacao reenviado! Verifique a sua caixa de entrada.');
+      } else {
+        toast.error(response.message || 'Erro ao reenviar email');
+      }
+    } catch (error) {
+      toast.error(error.message || 'Erro ao reenviar email');
+    } finally {
+      setResending(false);
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setVerificationNeeded(false);
 
     try {
       const result = await login(formData.email, formData.password);
       if (result.success) {
         toast.success('Login efetuado com sucesso!');
         navigate('/dashboard');
+      } else if (result.code === 'EMAIL_NOT_VERIFIED') {
+        setVerificationNeeded(true);
+        setUnverifiedEmail(result.email || formData.email);
+        toast.warning('Por favor verifique o seu email antes de fazer login.');
       } else {
         toast.error(result.message || 'Erro ao fazer login');
       }
@@ -54,6 +85,32 @@ const Login = () => {
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
         <div className="card rounded-2xl p-8">
+          {/* Email Verification Warning */}
+          {verificationNeeded && (
+            <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-xl">
+              <div className="flex items-start gap-3">
+                <svg className="h-5 w-5 text-amber-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                </svg>
+                <div className="flex-1">
+                  <h3 className="text-sm font-medium text-amber-800">
+                    Email nao verificado
+                  </h3>
+                  <p className="mt-1 text-sm text-amber-700">
+                    Verifique o seu email ({unverifiedEmail}) para ativar a sua conta.
+                  </p>
+                  <button
+                    onClick={handleResendVerification}
+                    disabled={resending}
+                    className="mt-2 text-sm font-medium text-amber-800 hover:text-amber-900 underline disabled:opacity-50"
+                  >
+                    {resending ? 'A enviar...' : 'Reenviar email de verificacao'}
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">

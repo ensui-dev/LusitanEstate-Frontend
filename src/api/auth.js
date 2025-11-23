@@ -23,5 +23,17 @@ export const authAPI = {
   updateProfile: async (userData) => {
     const response = await axios.put('/auth/updateprofile', userData);
     return response;
+  },
+
+  // Verify email with token
+  verifyEmail: async (token) => {
+    const response = await axios.post('/auth/verify-email', { token });
+    return response;
+  },
+
+  // Resend verification email
+  resendVerification: async (email) => {
+    const response = await axios.post('/auth/resend-verification', { email });
+    return response;
   }
 };

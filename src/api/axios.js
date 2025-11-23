@@ -38,6 +38,14 @@ axiosInstance.interceptors.response.use(
         window.location.href = '/login';
       }
 
+      // Handle 403 with EMAIL_NOT_VERIFIED code specially
+      if (error.response.status === 403 && error.response.data?.code === 'EMAIL_NOT_VERIFIED') {
+        const customError = new Error(error.response.data.message);
+        customError.code = 'EMAIL_NOT_VERIFIED';
+        customError.email = error.response.data.email;
+        return Promise.reject(customError);
+      }
+
       // Return error message from backend
       const message = error.response.data?.message || 'An error occurred';
       return Promise.reject(new Error(message));
