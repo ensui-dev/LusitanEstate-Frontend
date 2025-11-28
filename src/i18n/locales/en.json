@@ -1561,12 +1561,21 @@
     },
     "properties": {
       "title": "Property Management",
-      "subtitle": "View and manage all properties",
+      "subtitle": "View and manage all properties ({{count}} total)",
       "search": "Search properties...",
       "filterByStatus": "Filter by status",
       "filterByApproval": "Filter by approval",
       "allStatuses": "All Statuses",
       "allApprovals": "All Approvals",
+      "bulkApprove": "Approve {{count}} Selected",
+      "confirmBulkApprove": "Are you sure you want to approve {{count}} properties?",
+      "filters": {
+        "title": "Filters",
+        "allApprovalStatuses": "All Approval Statuses",
+        "allStatuses": "All Statuses",
+        "allTypes": "All Types",
+        "clearFilters": "Clear Filters"
+      },
       "table": {
         "property": "Property",
         "owner": "Owner",
@@ -1575,10 +1584,25 @@
         "approval": "Approval",
         "actions": "Actions"
       },
+      "status": {
+        "forSale": "For Sale",
+        "forRent": "For Rent",
+        "sold": "Sold",
+        "rented": "Rented",
+        "draft": "Draft",
+        "forsale": "For Sale",
+        "forrent": "For Rent"
+      },
       "approvalStatus": {
         "pending": "Pending",
         "approved": "Approved",
         "rejected": "Rejected"
+      },
+      "actions": {
+        "approve": "Approve",
+        "reject": "Reject",
+        "delete": "Delete",
+        "view": "View"
       },
       "approve": "Approve",
       "reject": "Reject",
@@ -1587,16 +1611,32 @@
       "confirmDelete": "Are you sure you want to delete this property? This action cannot be undone.",
       "confirmApprove": "Approve this property?",
       "confirmReject": "Reject this property?",
+      "pagination": {
+        "previous": "Previous",
+        "next": "Next",
+        "pageInfo": "Page {{page}} of {{pages}}"
+      },
+      "modal": {
+        "title": "Reject Property",
+        "subtitle": "Please provide a reason for rejection",
+        "reasonPlaceholder": "Enter rejection reason...",
+        "cancel": "Cancel",
+        "reject": "Reject Property"
+      },
       "success": {
         "approved": "Property approved successfully!",
         "rejected": "Property rejected successfully!",
-        "deleted": "Property deleted successfully!"
+        "deleted": "Property deleted successfully!",
+        "bulkApproved": "{{count}} properties approved successfully!"
       },
       "errors": {
         "loadProperties": "Error loading properties",
         "approve": "Error approving property",
         "reject": "Error rejecting property",
-        "delete": "Error deleting property"
+        "delete": "Error deleting property",
+        "selectAtLeastOne": "Please select at least one property",
+        "bulkApprove": "Error approving properties",
+        "provideReason": "Please provide a rejection reason"
       }
     },
     "inquiries": {

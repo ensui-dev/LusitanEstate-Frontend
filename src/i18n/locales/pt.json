@@ -1561,12 +1561,21 @@
     },
     "properties": {
       "title": "Gestão de Imóveis",
-      "subtitle": "Ver e gerir todos os imóveis",
+      "subtitle": "Ver e gerir todos os imóveis ({{count}} total)",
       "search": "Pesquisar imóveis...",
       "filterByStatus": "Filtrar por estado",
       "filterByApproval": "Filtrar por aprovação",
       "allStatuses": "Todos os Estados",
       "allApprovals": "Todas as Aprovações",
+      "bulkApprove": "Aprovar {{count}} Selecionados",
+      "confirmBulkApprove": "Tem a certeza que deseja aprovar {{count}} imóveis?",
+      "filters": {
+        "title": "Filtros",
+        "allApprovalStatuses": "Todos os Estados de Aprovação",
+        "allStatuses": "Todos os Estados",
+        "allTypes": "Todos os Tipos",
+        "clearFilters": "Limpar Filtros"
+      },
       "table": {
         "property": "Imóvel",
         "owner": "Proprietário",
@@ -1575,10 +1584,25 @@
         "approval": "Aprovação",
         "actions": "Ações"
       },
+      "status": {
+        "forSale": "Para Venda",
+        "forRent": "Para Arrendamento",
+        "sold": "Vendido",
+        "rented": "Arrendado",
+        "draft": "Rascunho",
+        "forsale": "Para Venda",
+        "forrent": "Para Arrendamento"
+      },
       "approvalStatus": {
         "pending": "Pendente",
         "approved": "Aprovado",
         "rejected": "Rejeitado"
+      },
+      "actions": {
+        "approve": "Aprovar",
+        "reject": "Rejeitar",
+        "delete": "Eliminar",
+        "view": "Ver"
       },
       "approve": "Aprovar",
       "reject": "Rejeitar",
@@ -1587,16 +1611,32 @@
       "confirmDelete": "Tem a certeza que deseja eliminar este imóvel? Esta ação não pode ser revertida.",
       "confirmApprove": "Aprovar este imóvel?",
       "confirmReject": "Rejeitar este imóvel?",
+      "pagination": {
+        "previous": "Anterior",
+        "next": "Seguinte",
+        "pageInfo": "Página {{page}} de {{pages}}"
+      },
+      "modal": {
+        "title": "Rejeitar Imóvel",
+        "subtitle": "Por favor, forneça um motivo para a rejeição",
+        "reasonPlaceholder": "Insira o motivo da rejeição...",
+        "cancel": "Cancelar",
+        "reject": "Rejeitar Imóvel"
+      },
       "success": {
         "approved": "Imóvel aprovado com sucesso!",
         "rejected": "Imóvel rejeitado com sucesso!",
-        "deleted": "Imóvel eliminado com sucesso!"
+        "deleted": "Imóvel eliminado com sucesso!",
+        "bulkApproved": "{{count}} imóveis aprovados com sucesso!"
       },
       "errors": {
         "loadProperties": "Erro ao carregar imóveis",
         "approve": "Erro ao aprovar imóvel",
         "reject": "Erro ao rejeitar imóvel",
-        "delete": "Erro ao eliminar imóvel"
+        "delete": "Erro ao eliminar imóvel",
+        "selectAtLeastOne": "Por favor, selecione pelo menos um imóvel",
+        "bulkApprove": "Erro ao aprovar imóveis",
+        "provideReason": "Por favor, forneça um motivo para a rejeição"
       }
     },
     "inquiries": {
