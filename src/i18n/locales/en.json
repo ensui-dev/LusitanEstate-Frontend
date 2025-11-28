@@ -89,6 +89,14 @@
     "sellerDesc": "Listing properties for sale",
     "agentDesc": "Real estate professional"
   },
+  "propertyTypes": {
+    "apartment": "Apartment",
+    "house": "House",
+    "villa": "Villa",
+    "townhouse": "Townhouse",
+    "land": "Land",
+    "commercial": "Commercial"
+  },
   "verifyEmail": {
     "verifying": "Verifying your email...",
     "success": "Email verified successfully!",

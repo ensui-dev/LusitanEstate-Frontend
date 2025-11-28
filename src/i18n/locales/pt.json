@@ -89,6 +89,14 @@
     "sellerDesc": "Listar propriedades para venda",
     "agentDesc": "Profissional imobiliário"
   },
+  "propertyTypes": {
+    "apartment": "Apartamento",
+    "house": "Moradia",
+    "villa": "Vivenda",
+    "townhouse": "Casa Geminada",
+    "land": "Terreno",
+    "commercial": "Comercial"
+  },
   "verifyEmail": {
     "verifying": "A verificar o seu email...",
     "success": "Email verificado com sucesso!",
