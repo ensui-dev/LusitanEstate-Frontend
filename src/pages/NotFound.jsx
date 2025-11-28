@@ -1,8 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { FaHome, FaMapMarkerAlt } from 'react-icons/fa';
 
 const NotFound = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-sand-50 flex flex-col justify-center items-center px-4 pt-28 relative overflow-hidden">
       {/* Portuguese pattern background */}
@@ -27,15 +30,15 @@ const NotFound = () => {
         </h1>
 
         <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mt-4 mb-3">
-          Página Não Encontrada
+          {t('notFound.title')}
         </h2>
 
         <p className="text-gray-600 mb-4 max-w-md mx-auto">
-          A página que procura não existe ou foi movida.
+          {t('notFound.subtitle')}
         </p>
 
         <p className="text-gray-500 text-sm mb-8 max-w-md mx-auto">
-          Parece que se perdeu no caminho. Não se preocupe, vamos ajudá-lo a encontrar o seu lar!
+          {t('notFound.description')}
         </p>
 
         <Link
@@ -43,7 +46,7 @@ const NotFound = () => {
           className="btn-primary inline-flex items-center space-x-2 group"
         >
           <FaHome className="transition-transform group-hover:scale-110" />
-          <span>Voltar ao Início</span>
+          <span>{t('notFound.backHome')}</span>
         </Link>
       </div>
     </div>

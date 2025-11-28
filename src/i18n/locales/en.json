@@ -1,0 +1,1637 @@
+{
+  "common": {
+    "welcome": "Welcome",
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "search": "Search",
+    "filter": "Filter",
+    "apply": "Apply",
+    "reset": "Reset",
+    "submit": "Submit",
+    "close": "Close",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "viewDetails": "View Details",
+    "learnMore": "Learn More",
+    "contactUs": "Contact Us"
+  },
+  "nav": {
+    "home": "Home",
+    "properties": "Properties",
+    "agents": "Agents",
+    "agencies": "Agencies",
+    "about": "About",
+    "contact": "Contact",
+    "pricing": "Pricing",
+    "login": "Login",
+    "register": "Sign Up",
+    "dashboard": "Dashboard",
+    "logout": "Logout",
+    "myAccount": "My Account",
+    "addProperty": "Add Property"
+  },
+  "footer": {
+    "tagline": "Find your dream property in Portugal",
+    "company": "Company",
+    "resources": "Resources",
+    "legal": "Legal",
+    "terms": "Terms of Service",
+    "privacy": "Privacy Policy",
+    "cookies": "Cookie Policy",
+    "copyright": "© {{year}} LusitanEstate. All rights reserved."
+  },
+  "auth": {
+    "welcomeBack": "Welcome back",
+    "createAccount": "Create a new account",
+    "email": "Email",
+    "password": "Password",
+    "confirmPassword": "Confirm Password",
+    "name": "Full Name",
+    "phone": "Phone Number",
+    "role": "Account Type",
+    "rememberMe": "Remember me",
+    "forgotPassword": "Forgot password?",
+    "login": "Login",
+    "loggingIn": "Logging in...",
+    "register": "Sign Up",
+    "registering": "Creating account...",
+    "orCreateAccount": "Or",
+    "createFreeAccount": "Create a free account",
+    "alreadyHaveAccount": "Already have an account?",
+    "newToLusitanEstate": "New to LusitanEstate?",
+    "loginSuccess": "Login successful!",
+    "registrationSuccess": "Check your email to activate your account!",
+    "loginError": "Error logging in",
+    "registrationError": "Error creating account",
+    "emailNotVerified": "Email not verified",
+    "verifyEmailFirst": "Please verify your email before logging in.",
+    "resendVerification": "Resend verification email",
+    "resending": "Sending...",
+    "verificationResent": "Verification email resent! Check your inbox.",
+    "verificationCheckEmail": "Verify your email ({{email}}) to activate your account.",
+    "agreeToThe": "I agree to the"
+  },
+  "roles": {
+    "buyer": "Buyer",
+    "seller": "Seller",
+    "agent": "Agent",
+    "admin": "Administrator",
+    "buyerDesc": "Looking to purchase property",
+    "sellerDesc": "Listing properties for sale",
+    "agentDesc": "Real estate professional"
+  },
+  "verifyEmail": {
+    "verifying": "Verifying your email...",
+    "success": "Email verified successfully!",
+    "welcomeMessage": "Welcome to LusitanEstate! You can now log in to your account.",
+    "error": "Verification failed",
+    "invalidToken": "The verification link is invalid or has expired.",
+    "tryAgain": "Please try registering again or contact support.",
+    "redirecting": "Redirecting to login...",
+    "goToLogin": "Go to Login"
+  },
+  "checkEmail": {
+    "title": "Check your email",
+    "message": "We've sent a verification link to",
+    "instructions": "Click the link in the email to activate your account and start using LusitanEstate.",
+    "notReceived": "Didn't receive the email?",
+    "checkSpam": "Check your spam folder",
+    "resend": "Resend verification email",
+    "waitSeconds": "Wait {{seconds}}s before resending",
+    "emailResent": "Verification email resent!"
+  },
+  "home": {
+    "hero": {
+      "badge": "#1 Real Estate Platform in Portugal",
+      "title1": "Find Your",
+      "title2": "Dream Property",
+      "title3": "in Portugal",
+      "subtitle": "The trusted platform for buying, selling and renting properties. From Lisbon to the Algarve, from Porto to the Azores.",
+      "searchProperties": "Search Properties",
+      "listProperty": "List Property",
+      "popular": "Popular",
+      "searchPlaceholder": "Search by location, property type...",
+      "searchButton": "Search Properties"
+    },
+    "stats": {
+      "properties": "Properties",
+      "agents": "Agents",
+      "districts": "Districts",
+      "satisfaction": "Satisfaction"
+    },
+    "whyChoose": {
+      "title": "Why Choose",
+      "subtitle": "We offer the best experience in finding your property in Portugal"
+    },
+    "features": {
+      "title": "Why Choose LusitanEstate",
+      "thousands": {
+        "title": "Thousands of Properties",
+        "description": "Access to properties in all 20 districts of Portugal, from the islands to the mainland."
+      },
+      "certified": {
+        "title": "Certified Agents",
+        "description": "Work with verified professionals certified by AMI."
+      },
+      "calculator": {
+        "title": "IMT Calculator",
+        "description": "Automatically calculate the Municipal Property Transfer Tax."
+      },
+      "security": {
+        "title": "Total Security",
+        "description": "Secure transactions and verification of all listed properties."
+      },
+      "verified": "Verified Listings",
+      "verifiedDesc": "All properties are verified by our team",
+      "experts": "Expert Agents",
+      "expertsDesc": "Connect with certified real estate professionals",
+      "support": "24/7 Support",
+      "supportDesc": "Always here to help you find your perfect property"
+    },
+    "cta": {
+      "title1": "Ready to Find Your",
+      "title2": "New Home",
+      "subtitle": "Join thousands of Portuguese who have already found their dream property.",
+      "createAccount": "Create Free Account",
+      "viewAll": "View All Properties",
+      "title": "Ready to find your perfect property?",
+      "button": "Get Started"
+    },
+    "trust": {
+      "trustedBy": "Trusted by",
+      "certified": "AMI Certified",
+      "rating": "4.9/5 Rating",
+      "users": "+50,000 Users"
+    }
+  },
+  "properties": {
+    "title": "Properties for Sale",
+    "propertiesFound": "properties found",
+    "error": "Error loading properties. Please try again later.",
+    "noResults": "No properties found",
+    "tryAdjusting": "Try adjusting your filters",
+    "loadMore": "Load More",
+    "filters": {
+      "title": "Filters",
+      "clear": "Clear Filters",
+      "district": "District",
+      "type": "Property Type",
+      "minPrice": "Min Price",
+      "maxPrice": "Max Price",
+      "noLimit": "No limit",
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "location": "Location",
+      "all": "All",
+      "allTypes": "All Types",
+      "any": "Any"
+    },
+    "types": {
+      "apartment": "Apartment",
+      "house": "House",
+      "villa": "Villa",
+      "townhouse": "Townhouse",
+      "land": "Land",
+      "commercial": "Commercial"
+    },
+    "pagination": {
+      "previous": "Previous",
+      "next": "Next",
+      "page": "Page",
+      "of": "of"
+    },
+    "empty": {
+      "title": "No properties match your criteria",
+      "subtitle": "Try adjusting your filters or clearing them to see more results"
+    },
+    "details": {
+      "overview": "Overview",
+      "features": "Features",
+      "description": "Description",
+      "location": "Location",
+      "contact": "Contact Agent",
+      "inquire": "Send Inquiry",
+      "share": "Share Property",
+      "favorite": "Add to Favorites",
+      "price": "Price",
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "area": "Area",
+      "yearBuilt": "Year Built",
+      "propertyId": "Property ID"
+    }
+  },
+  "dashboard": {
+    "welcome": "Hello, {{name}}!",
+    "welcomeMessage": "Welcome to your dashboard",
+    "myProperties": "My Properties",
+    "favorites": "Favorites",
+    "inquiries": "Inquiries",
+    "settings": "Settings",
+    "statistics": "Statistics",
+    "recentActivity": "Recent Activity",
+    "noProperties": "No properties yet",
+    "addFirstProperty": "Add your first property",
+    "stats": {
+      "myProperties": "My Properties",
+      "views": "Views",
+      "favorites": "Favorites"
+    },
+    "properties": {
+      "title": "My Properties",
+      "subtitle": "Manage your property listings",
+      "empty": {
+        "title": "You don't have any properties listed yet",
+        "subtitle": "Start advertising your properties and reach thousands of potential buyers and renters.",
+        "action": "Add First Property"
+      },
+      "addProperty": "Add Property"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contact Us",
+      "subtitle": "We're here to help! Get in touch with our team and we'll respond as soon as possible."
+    },
+    "form": {
+      "title": "Send us a Message",
+      "subtitle": "Fill out the form below and our team will get back to you within 24 hours",
+      "successMessage": "Message sent successfully! We'll get back to you soon.",
+      "submit": "Send Message",
+      "submitting": "Sending...",
+      "fields": {
+        "name": {
+          "label": "Full Name",
+          "placeholder": "Enter your full name"
+        },
+        "email": {
+          "label": "Email Address",
+          "placeholder": "your.email@example.com"
+        },
+        "phone": {
+          "label": "Phone Number",
+          "placeholder": "+351 912 345 678"
+        },
+        "category": {
+          "label": "Category"
+        },
+        "subject": {
+          "label": "Subject",
+          "placeholder": "How can we help you?"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Tell us more about your inquiry..."
+        }
+      },
+      "categories": {
+        "general": "General Inquiry",
+        "support": "Technical Support",
+        "sales": "Sales & Pricing",
+        "partnership": "Partnerships",
+        "press": "Press & Media",
+        "privacy": "Privacy & Data",
+        "complaint": "Complaint"
+      },
+      "privacyNotice": {
+        "text": "By submitting this form, you agree to our",
+        "link": "Privacy Policy",
+        "usage": "We'll only use your information to respond to your inquiry"
+      }
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": {
+        "label": "Email",
+        "general": "info@lusitanestate.pt",
+        "support": "support@lusitanestate.pt"
+      },
+      "phone": {
+        "label": "Phone",
+        "number": "+351 21 123 4567",
+        "note": "Mon-Fri, 9:00-18:00"
+      },
+      "address": {
+        "label": "Address",
+        "value": "Av. da Liberdade, 123\n1250-096 Lisboa, Portugal"
+      },
+      "hours": {
+        "label": "Business Hours",
+        "days": "Monday - Friday",
+        "time": "9:00 AM - 6:00 PM (GMT)"
+      }
+    },
+    "responseTime": {
+      "title": "Response Time",
+      "description": "We typically respond to all inquiries within 24 hours during business days. For urgent matters, please call us directly."
+    },
+    "dataProtection": {
+      "title": "Data Protection Officer",
+      "description": "For data protection and privacy-related inquiries, contact our DPO:",
+      "emailLabel": "Email",
+      "emailValue": "dpo@lusitanestate.pt",
+      "link": "View Privacy Policy"
+    },
+    "quickLinksSection": {
+      "title": "Quick Links",
+      "subtitle": "Looking for something specific? These links might help"
+    },
+    "quickLinks": {
+      "faq": {
+        "title": "Pricing & FAQ",
+        "description": "Find answers to common questions about our platform and pricing",
+        "cta": "View FAQ"
+      },
+      "agencies": {
+        "title": "Agency Solutions",
+        "description": "Enterprise plans and solutions for real estate agencies",
+        "cta": "Explore Plans"
+      },
+      "becomeAgent": {
+        "title": "Become an Agent",
+        "description": "Join our network of professional real estate agents",
+        "cta": "Register Now"
+      },
+      "listProperty": {
+        "title": "List a Property",
+        "description": "Start listing your property and reach thousands of buyers",
+        "cta": "Get Started"
+      }
+    },
+    "faqSection": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Quick answers to common questions"
+    },
+    "faq": {
+      "responseTime": {
+        "question": "How quickly will I receive a response?",
+        "answer": "We aim to respond to all inquiries within 24 hours during business days (Monday-Friday). For urgent technical issues, our support team is available via email and phone."
+      },
+      "technicalSupport": {
+        "question": "I'm having technical issues with the platform. How can I get help?",
+        "answer": "For technical support, please email support@lusitanestate.pt with a detailed description of the issue, including screenshots if possible. Our technical team will prioritize your request."
+      },
+      "pricing": {
+        "question": "Where can I find information about pricing and plans?",
+        "answer": "Visit our Pricing page for detailed information about all available plans, features, and pricing. For enterprise solutions, contact our sales team directly."
+      },
+      "dataRights": {
+        "question": "How can I exercise my data protection rights?",
+        "answer": "To exercise your rights under GDPR (access, rectification, deletion, etc.), please contact our Data Protection Officer at dpo@lusitanestate.pt. We'll respond within 30 days."
+      }
+    },
+    "disputeResolution": {
+      "title": "Alternative Dispute Resolution",
+      "description": "For consumer disputes, you can use these official platforms:",
+      "consumerPortal": "Consumer Dispute Portal (Portugal)",
+      "euPlatform": "European Online Dispute Resolution Platform"
+    }
+  },
+  "validation": {
+    "required": "This field is required",
+    "invalidEmail": "Invalid email address",
+    "passwordMin": "Password must be at least {{min}} characters",
+    "passwordMatch": "Passwords must match",
+    "phoneInvalid": "Invalid phone number"
+  },
+  "errors": {
+    "networkError": "Network error. Please check your connection.",
+    "serverError": "Server error. Please try again later.",
+    "unauthorized": "Unauthorized. Please log in.",
+    "notFound": "Page not found",
+    "goHome": "Go to Home"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "subtitle": "The page you're looking for doesn't exist or has been moved.",
+    "description": "Looks like you got lost along the way. Don't worry, we'll help you find your home!",
+    "backHome": "Back to Home"
+  },
+  "about": {
+    "hero": {
+      "title": "About",
+      "subtitle": "The leading platform for the Portuguese real estate market, connecting buyers, sellers, and industry professionals."
+    },
+    "mission": {
+      "title": "Simplifying the journey to find your",
+      "dreamHome": "dream home",
+      "description1": "To simplify and modernize the process of buying, selling, and renting properties in Portugal. We believe that finding the perfect home should be a transparent, efficient, and accessible experience for everyone.",
+      "description2": "We've developed a platform that combines cutting-edge technology with deep knowledge of the Portuguese real estate market, offering tools that empower both individuals and industry professionals.",
+      "values": {
+        "transparency": "Transparency",
+        "innovation": "Innovation",
+        "trust": "Trust"
+      }
+    },
+    "stats": {
+      "properties": "Listed Properties",
+      "agents": "Active Agents",
+      "users": "Users",
+      "districts": "Districts"
+    },
+    "values": {
+      "title": "Guiding Principles",
+      "subtitle": "Principles that guide every decision and interaction on our platform.",
+      "security": {
+        "title": "Security and Privacy",
+        "description": "We protect your data with the highest security standards, in full compliance with GDPR and Portuguese legislation."
+      },
+      "integrity": {
+        "title": "Integrity",
+        "description": "We verify all listings and promote ethical practices, ensuring a fair experience for all users."
+      },
+      "continuousInnovation": {
+        "title": "Continuous Innovation",
+        "description": "We constantly invest in new features and technologies to improve our users' experience."
+      }
+    },
+    "services": {
+      "title": "What We Offer",
+      "subtitle": "Complete solutions for all real estate market needs.",
+      "buyers": {
+        "title": "For Buyers",
+        "description": "Search thousands of properties with advanced filters. Save favorites, receive alerts, and contact advertisers directly.",
+        "cta": "View Properties"
+      },
+      "sellers": {
+        "title": "For Sellers",
+        "description": "Publish listings with unlimited photos, detailed descriptions, and reach thousands of potential buyers.",
+        "cta": "Start Selling"
+      },
+      "forAgents": {
+        "title": "For Agents",
+        "description": "Professional tools for portfolio management, integrated CRM, and increased visibility for your listings.",
+        "cta": "Register as Agent"
+      },
+      "agencies": {
+        "title": "For Agencies",
+        "description": "Business solutions with team management, analytical reports, and custom integrations.",
+        "cta": "Contact Us"
+      }
+    },
+    "coverage": {
+      "title": "National Coverage",
+      "subtitle": "Present in all 18 districts of mainland Portugal and autonomous regions.",
+      "autonomousRegions": "Including the Autonomous Regions of Madeira and Azores"
+    },
+    "cta": {
+      "badge": "Join thousands of satisfied users",
+      "title": "Ready to Start?",
+      "description": "Join thousands of users who have already found their ideal property through our platform.",
+      "exploreProperties": "Explore Properties",
+      "createAccount": "Create Free Account"
+    },
+    "contactCta": {
+      "question": "Have a question or suggestion?",
+      "link": "Get in touch with us"
+    }
+  },
+  "agencies": {
+    "title": "Real Estate Agencies",
+    "subtitle": "Connect with Portugal's leading real estate agencies and find your perfect property with trusted professionals.",
+    "error": "Error loading agencies. Please try again later.",
+    "searchAndFilter": "Search and Filter",
+    "clear": "Clear Filters",
+    "searchPlaceholder": "Search agencies by name...",
+    "results": {
+      "singular": "agency found",
+      "plural": "agencies found"
+    },
+    "empty": {
+      "title": "No agencies found",
+      "subtitle": "Try adjusting your search criteria or filters"
+    },
+    "hero": {
+      "title": "Featured Real Estate Agencies",
+      "subtitle": "Connect with Portugal's leading real estate agencies and find your perfect property with trusted professionals."
+    },
+    "search": {
+      "placeholder": "Search agencies by name or location...",
+      "button": "Search Agencies"
+    },
+    "filters": {
+      "title": "Filter Agencies",
+      "location": "Location",
+      "district": "District",
+      "specialization": "Specialization",
+      "sortBy": "Sort By",
+      "name": "Name",
+      "numAgents": "Number of Agents",
+      "newest": "Newest",
+      "verified": "Verification Status",
+      "all": "All Agencies",
+      "onlyVerified": "Verified Only",
+      "notVerified": "Not Verified",
+      "allDistricts": "All Districts",
+      "allSpecializations": "All Specializations",
+      "reset": "Reset Filters",
+      "apply": "Apply Filters"
+    },
+    "sorting": {
+      "newest": "Newest First",
+      "oldest": "Oldest First",
+      "mostProperties": "Most Properties",
+      "highestRated": "Highest Rated",
+      "alphabetical": "Alphabetical"
+    },
+    "specializations": {
+      "residential": "Residential",
+      "commercial": "Commercial",
+      "luxury": "Luxury Properties",
+      "investment": "Investment",
+      "vacation": "Vacation Rentals",
+      "land": "Land & Development"
+    },
+    "card": {
+      "properties": "{{count}} Properties",
+      "agents": "{{count}} Agents",
+      "since": "Since {{year}}",
+      "verified": "Verified Agency",
+      "viewProfile": "View Profile",
+      "viewProperties": "View Properties",
+      "contact": "Contact Agency"
+    },
+    "stats": {
+      "totalAgencies": "Total Agencies",
+      "verifiedAgencies": "Verified Agencies",
+      "totalProperties": "Listed Properties",
+      "activeAgents": "Active Agents"
+    },
+    "noResults": {
+      "title": "No agencies found",
+      "description": "Try adjusting your search criteria or filters",
+      "reset": "Reset Filters"
+    },
+    "loading": "Loading agencies...",
+    "loadMore": "Load More Agencies",
+    "profile": {
+      "overview": "Overview",
+      "properties": "Properties",
+      "agents": "Agents",
+      "reviews": "Reviews",
+      "contact": "Contact",
+      "about": "About",
+      "specializations": "Specializations",
+      "operatingRegions": "Operating Regions",
+      "languages": "Languages Spoken",
+      "certifications": "Certifications",
+      "founded": "Founded",
+      "employees": "Employees",
+      "headquarters": "Headquarters",
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website",
+      "socialMedia": "Social Media",
+      "sendMessage": "Send Message",
+      "requestInfo": "Request Information",
+      "scheduleVisit": "Schedule Visit"
+    },
+    "cta": {
+      "title": "Are you a real estate agency?",
+      "description": "Join LusitanEstate and gain access to thousands of potential clients across Portugal.",
+      "button": "Register Your Agency",
+      "benefits": "Agency Benefits"
+    }
+  },
+  "agents": {
+    "title": "Real Estate Agents",
+    "subtitle": "Connect with experienced and certified real estate professionals across Portugal.",
+    "error": "Error loading agents. Please try again later.",
+    "searchAndFilter": "Search and Filter",
+    "clear": "Clear Filters",
+    "searchPlaceholder": "Search agents by name or email...",
+    "hero": {
+      "title": "Find Your Perfect Real Estate Agent",
+      "subtitle": "Connect with experienced and certified real estate professionals across Portugal."
+    },
+    "search": {
+      "placeholder": "Search agents by name, location, or specialty...",
+      "button": "Search Agents"
+    },
+    "filters": {
+      "title": "Filter Agents",
+      "location": "Location",
+      "district": "District",
+      "specialty": "Specialty",
+      "specialization": "Specialization",
+      "language": "Language",
+      "experience": "Experience",
+      "sortBy": "Sort By",
+      "all": "All Specialties",
+      "allStatus": "All Status",
+      "allDistricts": "All Districts",
+      "allSpecializations": "All Specializations",
+      "allLanguages": "All Languages",
+      "verified": "Verification Status",
+      "onlyVerified": "Verified Only",
+      "notVerified": "Not Verified",
+      "rating": "Rating",
+      "sales": "Total Sales",
+      "name": "Name",
+      "newest": "Newest",
+      "reset": "Reset Filters",
+      "apply": "Apply Filters",
+      "specialties": {
+        "residential": "Residential",
+        "commercial": "Commercial",
+        "luxury": "Luxury",
+        "investment": "Investment"
+      }
+    },
+    "sorting": {
+      "relevance": "Most Relevant",
+      "newest": "Newest First",
+      "mostExperienced": "Most Experienced",
+      "highestRated": "Highest Rated",
+      "mostProperties": "Most Properties",
+      "alphabetical": "Alphabetical"
+    },
+    "specializations": {
+      "residential": "Residential Sales",
+      "commercial": "Commercial Properties",
+      "luxury": "Luxury Real Estate",
+      "rentals": "Rentals",
+      "investment": "Investment Properties",
+      "newDevelopments": "New Developments",
+      "landDevelopment": "Land & Development",
+      "international": "International Buyers"
+    },
+    "experience": {
+      "any": "Any Experience",
+      "lessThan2": "Less than 2 years",
+      "2to5": "2-5 years",
+      "5to10": "5-10 years",
+      "moreThan10": "10+ years"
+    },
+    "languages": {
+      "portuguese": "Portuguese",
+      "english": "English",
+      "french": "French",
+      "spanish": "Spanish",
+      "german": "German",
+      "dutch": "Dutch",
+      "italian": "Italian",
+      "chinese": "Chinese",
+      "russian": "Russian"
+    },
+    "card": {
+      "properties": "{{count}} Properties",
+      "yearsExperience": "{{count}} Years Experience",
+      "reviews": "{{count}} Reviews",
+      "rating": "Rating",
+      "verified": "Verified Agent",
+      "topPerformer": "Top Performer",
+      "speaks": "Speaks",
+      "viewProfile": "View Profile",
+      "viewProperties": "View Properties",
+      "contact": "Contact Agent",
+      "agency": "Agency"
+    },
+    "stats": {
+      "totalAgents": "Total Agents",
+      "verifiedAgents": "Verified Agents",
+      "averageExperience": "Average Experience",
+      "successfulSales": "Successful Sales"
+    },
+    "results": {
+      "singular": "agent found",
+      "plural": "agents found"
+    },
+    "empty": {
+      "title": "No agents found",
+      "subtitle": "Try adjusting your search criteria or filters"
+    },
+    "noResults": {
+      "title": "No agents found",
+      "description": "Try adjusting your search criteria or filters",
+      "reset": "Reset Filters"
+    },
+    "loading": "Loading agents...",
+    "loadMore": "Load More Agents",
+    "profile": {
+      "overview": "Overview",
+      "properties": "Properties",
+      "reviews": "Reviews",
+      "contact": "Contact",
+      "about": "About Me",
+      "specializations": "Specializations",
+      "certifications": "Certifications & Licenses",
+      "languages": "Languages",
+      "serviceAreas": "Service Areas",
+      "experience": "Experience",
+      "joinedDate": "Member Since",
+      "phone": "Phone",
+      "email": "Email",
+      "website": "Website",
+      "socialMedia": "Social Media",
+      "sendMessage": "Send Message",
+      "requestCallback": "Request Callback",
+      "scheduleConsultation": "Schedule Consultation",
+      "recentSales": "Recent Sales",
+      "activeListings": "Active Listings",
+      "soldProperties": "Sold Properties",
+      "clientTestimonials": "Client Testimonials"
+    },
+    "cta": {
+      "title": "Are you a real estate agent?",
+      "description": "Join LusitanEstate and expand your reach to thousands of potential clients.",
+      "button": "Register as Agent",
+      "benefits": "Agent Benefits"
+    }
+  },
+  "pricing": {
+    "hero": {
+      "title": "Simple, Transparent Pricing",
+      "subtitle": "Choose the perfect plan for your real estate needs. No hidden fees, cancel anytime."
+    },
+    "sections": {
+      "plansTitle": "Choose Your Plan",
+      "plansSubtitle": "Select the plan that best suits your needs"
+    },
+    "billing": {
+      "monthly": "Monthly",
+      "annual": "Annual",
+      "save": "Save {{percentage}}%"
+    },
+    "plans": {
+      "free": {
+        "name": "Free",
+        "description": "Perfect for individuals starting their property search",
+        "price": "€0",
+        "period": "forever",
+        "cta": "Get Started",
+        "features": {
+          "listings": "Browse all property listings",
+          "search": "Basic search and filters",
+          "favorites": "Save up to 10 favorites",
+          "alerts": "Email alerts for new listings",
+          "support": "Community support",
+          "properties": "View property details",
+          "contact": "Contact sellers/agents"
+        }
+      },
+      "basic": {
+        "name": "Basic",
+        "subtitle": "For Individual Sellers",
+        "price": "Free",
+        "period": "/month",
+        "description": "Perfect for individuals listing their own property",
+        "cta": "Start for Free",
+        "popular": "Most Popular",
+        "features": {
+          "listings": "Up to 2 active listings",
+          "photos": "5 photos per listing",
+          "basicListing": "Basic listing visibility",
+          "directContact": "Direct contact from buyers",
+          "emailSupport": "Email support",
+          "searchHighlight": "Highlighted in search results",
+          "advancedStats": "Advanced statistics",
+          "verificationBadge": "Verified seller badge",
+          "everything": "Everything in Free, plus:",
+          "favorites": "Unlimited saved favorites",
+          "alerts": "Advanced search alerts",
+          "priority": "Priority listing placement",
+          "analytics": "Property analytics",
+          "support": "Email support",
+          "reporting": "Basic reporting"
+        }
+      },
+      "professional": {
+        "name": "Professional",
+        "subtitle": "For Real Estate Agents",
+        "period": "/month",
+        "description": "All the tools you need to succeed as an agent",
+        "cta": "Get Started",
+        "popular": "Most Popular",
+        "features": {
+          "unlimitedListings": "Unlimited active listings",
+          "photos": "20 photos per listing",
+          "priorityListing": "Priority listing placement",
+          "verifiedProfile": "Verified agent profile",
+          "detailedStats": "Detailed performance statistics",
+          "searchHighlight": "Highlighted in search results",
+          "prioritySupport": "Priority customer support",
+          "basicCRM": "Basic CRM tools",
+          "everything": "Everything in Basic, plus:",
+          "listings": "Unlimited property listings",
+          "crm": "Integrated CRM system",
+          "leadManagement": "Lead management tools",
+          "analytics": "Advanced analytics",
+          "branding": "Custom branding",
+          "support": "Priority email & phone support",
+          "api": "API access",
+          "export": "Data export"
+        }
+      },
+      "enterprise": {
+        "name": "Enterprise",
+        "subtitle": "For Real Estate Agencies",
+        "price": "Custom",
+        "period": "",
+        "description": "Custom solutions for large agencies",
+        "cta": "Contact Sales",
+        "popular": "Most Popular",
+        "features": {
+          "everything": "Everything in Professional, plus:",
+          "teamManagement": "Multi-agent team management",
+          "customBranding": "Custom agency branding",
+          "integrationAPI": "API integration",
+          "advancedReports": "Advanced analytics and reports",
+          "dedicatedManager": "Dedicated account manager",
+          "teamTraining": "Team training and onboarding",
+          "guaranteedSLA": "Guaranteed SLA",
+          "users": "Unlimited team members",
+          "multiLocation": "Multi-location support",
+          "whiteLabel": "White-label solution",
+          "dedicated": "Dedicated account manager",
+          "support": "24/7 priority support",
+          "training": "Custom training",
+          "integration": "Custom integrations",
+          "sla": "SLA guarantees",
+          "compliance": "Advanced compliance tools"
+        }
+      }
+    },
+    "comparison": {
+      "title": "Detailed Feature Comparison",
+      "subtitle": "See all the features included in each plan",
+      "feature": "Feature",
+      "unlimited": "Unlimited",
+      "yes": "Yes",
+      "basic": "Basic",
+      "detailed": "Detailed",
+      "premium": "Premium",
+      "rows": {
+        "listings": "Active Listings",
+        "photos": "Photos per Listing",
+        "videos": "Videos",
+        "videoPerListing": "1 per listing",
+        "virtualTours": "Virtual Tours",
+        "searchHighlight": "Search Highlighting",
+        "statistics": "Statistics",
+        "advancedAPI": "Advanced + API Access",
+        "verificationBadge": "Verification Badge",
+        "amiAgent": "AMI Agent Badge",
+        "agency": "Agency Badge",
+        "support": "Customer Support",
+        "priority": "Priority (Email + Phone)",
+        "dedicated247": "Dedicated 24/7",
+        "integratedCRM": "Integrated CRM",
+        "complete": "Complete",
+        "teamManagement": "Team Management",
+        "integrationAPI": "API Integration",
+        "whiteLabel": "White Label"
+      }
+    },
+    "features": {
+      "title": "Compare Plans",
+      "all": "All Features"
+    },
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "subtitle": "Find answers to common questions about our pricing and plans",
+      "question1": "Can I change plans at any time?",
+      "answer1": "Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle.",
+      "question2": "Is there a free trial?",
+      "answer2": "Yes, we offer a 14-day free trial for our Basic and Professional plans. No credit card required.",
+      "question3": "What payment methods do you accept?",
+      "answer3": "We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and bank transfers for Enterprise plans.",
+      "question4": "Can I cancel my subscription?",
+      "answer4": "Yes, you can cancel your subscription at any time. You'll continue to have access until the end of your billing period.",
+      "question5": "Do you offer refunds?",
+      "answer5": "We offer a 30-day money-back guarantee on all paid plans. If you're not satisfied, contact us for a full refund.",
+      "question6": "Are there any setup fees?",
+      "answer6": "No, there are no setup fees or hidden charges. The price you see is the price you pay.",
+      "question7": "What happens to my listings if I downgrade?",
+      "answer7": "Your existing listings will remain active. However, you won't be able to add new listings beyond your plan's limit.",
+      "question8": "Do you offer discounts for annual billing?",
+      "answer8": "Yes, you save 20% when you choose annual billing instead of monthly."
+    },
+    "cta": {
+      "title": "Ready to Get Started?",
+      "description": "Join thousands of successful property buyers, sellers, and agents on LusitanEstate.",
+      "button": "Choose Your Plan",
+      "stillHaveQuestions": "Still Have Questions?",
+      "teamAvailable": "Our team is available to help you choose the right plan",
+      "talkToTeam": "Talk to Our Team",
+      "startNow": "Start Now"
+    },
+    "trustBadges": {
+      "securePayment": "Secure Payment",
+      "easyCancellation": "Easy Cancellation",
+      "noCommitment": "No Long-term Commitment",
+      "portugueseSupport": "Portuguese Support"
+    },
+    "guarantee": {
+      "title": "30-Day Money-Back Guarantee",
+      "description": "Try any paid plan risk-free. If you're not completely satisfied, we'll refund your money."
+    },
+    "contact": {
+      "title": "Need a custom solution?",
+      "description": "Contact our sales team to discuss enterprise options and custom pricing.",
+      "button": "Contact Sales"
+    }
+  },
+  "terms": {
+    "backLink": "Back to Home",
+    "header": {
+      "title": "Terms of Service",
+      "lastUpdated": "Last Updated",
+      "date": "January 2025",
+      "intro": "Please read these terms carefully before using our platform. By accessing or using LusitanEstate, you agree to be bound by these terms."
+    },
+    "section1": {
+      "title": "1. Definitions",
+      "platform": "\"Platform\": LusitanEstate website and mobile applications",
+      "user": "\"User\": Any person or entity accessing our services",
+      "services": "\"Services\": All features and functionalities provided by LusitanEstate",
+      "content": "\"Content\": Property listings, images, descriptions, and user-generated data",
+      "account": "\"Account\": User registration profile and associated data"
+    },
+    "section2": {
+      "title": "2. Acceptance of Terms",
+      "paragraph1": "By accessing and using LusitanEstate, you accept and agree to be bound by these Terms of Service and our Privacy Policy.",
+      "paragraph2": "If you do not agree to these terms, please do not use our platform.",
+      "paragraph3": "We reserve the right to modify these terms at any time. Continued use after changes constitutes acceptance of new terms."
+    },
+    "section3": {
+      "title": "3. User Accounts",
+      "subtitle1": "Registration",
+      "paragraph1": "To access certain features, you must create an account. You agree to provide accurate, current, and complete information during registration.",
+      "subtitle2": "User Types",
+      "buyer": "Buyer: Individuals searching for properties to purchase or rent",
+      "seller": "Seller: Property owners listing properties for sale or rent",
+      "agent": "Agent: Licensed real estate professionals representing clients",
+      "agency": "Agency: Real estate companies managing multiple agents and listings",
+      "subtitle3": "Account Security",
+      "paragraph2": "You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account. Notify us immediately of any unauthorized access."
+    },
+    "section4": {
+      "title": "4. User Conduct and Obligations",
+      "subtitle1": "Acceptable Use",
+      "intro1": "When using our platform, you agree to:",
+      "requirement1": "Provide accurate and truthful information in all listings and communications",
+      "requirement2": "Comply with all applicable laws and regulations",
+      "requirement3": "Respect the intellectual property rights of others",
+      "requirement4": "Use the platform only for lawful real estate transactions",
+      "requirement5": "Maintain professional and respectful communication with other users",
+      "subtitle2": "Prohibited Activities",
+      "intro2": "You agree NOT to:",
+      "prohibited1": "Post false, misleading, or fraudulent property listings",
+      "prohibited2": "Impersonate any person or entity",
+      "prohibited3": "Transmit spam, unsolicited advertisements, or bulk communications",
+      "prohibited4": "Use automated systems or bots to access the platform",
+      "prohibited5": "Interfere with or disrupt the platform's functionality or security",
+      "subtitle3": "Consequences",
+      "paragraph1": "Violation of these terms may result in account suspension or termination, removal of content, and legal action if necessary."
+    },
+    "section5": {
+      "title": "5. Property Listings",
+      "paragraph1": "All property listings must contain accurate, complete, and up-to-date information. Sellers and agents are responsible for the accuracy of their listings.",
+      "paragraph2": "Photos must be of the actual property and accurately represent its current condition. Misleading images are prohibited.",
+      "paragraph3": "Listings must be removed or marked as unavailable within 24 hours of sale, rental, or withdrawal from market. We reserve the right to remove listings that violate our policies."
+    },
+    "section6": {
+      "title": "6. Payments and Fees",
+      "subtitle1": "Service Fees",
+      "paragraph1": "Certain features and services require payment of fees as outlined in our Pricing page. All fees are stated in Euros (€) unless otherwise specified.",
+      "subtitle2": "Billing and Refunds",
+      "paragraph2": "Fees are non-refundable except as required by law or as explicitly stated in our refund policy. We reserve the right to change fees with 30 days advance notice.",
+      "subtitle3": "Third-Party Transactions",
+      "paragraph3": "LusitanEstate is not a party to any transactions between buyers, sellers, and agents. We do not handle property transactions or payments for properties."
+    },
+    "section7": {
+      "title": "7. Intellectual Property",
+      "paragraph1": "All content on LusitanEstate, including logos, text, graphics, software, and design elements, is owned by LusitanEstate or its licensors and is protected by Portuguese and international copyright and trademark laws. User-generated content remains the property of users, but you grant us a worldwide, non-exclusive license to use, display, and distribute your content on our platform."
+    },
+    "section8": {
+      "title": "8. Privacy and Data Protection",
+      "subtitle1": "Data Collection",
+      "paragraph1": "We collect and process personal data in accordance with our Privacy Policy and the General Data Protection Regulation (GDPR) and Portuguese data protection laws.",
+      "subtitle2": "Data Usage",
+      "paragraph2": "Your data is used to provide and improve our services, communicate with you, and comply with legal obligations. We do not sell your personal data to third parties.",
+      "subtitle3": "Your Rights",
+      "paragraph3": "You have the right to access, rectify, delete, and port your personal data. Contact our Data Protection Officer at dpo@lusitanestate.pt to exercise these rights."
+    },
+    "section9": {
+      "title": "9. Disclaimers and Limitations of Liability",
+      "paragraph1": "LusitanEstate is provided \"as is\" without warranties of any kind, express or implied. We do not guarantee the accuracy, completeness, or reliability of any property listings or user content.",
+      "paragraph2": "We are not responsible for the conduct of users, the quality of properties, or the outcome of transactions. Our liability is limited to the maximum extent permitted by Portuguese law."
+    },
+    "section10": {
+      "title": "10. Dispute Resolution",
+      "subtitle1": "Governing Law",
+      "paragraph1": "These Terms of Service are governed by the laws of Portugal. Any disputes shall be resolved in Portuguese courts.",
+      "subtitle2": "Alternative Dispute Resolution",
+      "paragraph2": "For consumer disputes, you may use the Portuguese Consumer Dispute Portal (www.consumidor.pt) or the European ODR Platform (ec.europa.eu/consumers/odr).",
+      "subtitle3": "Limitation Period",
+      "paragraph3": "Any claims must be filed within one year of the event giving rise to the claim, except where prohibited by law."
+    },
+    "section11": {
+      "title": "11. Contact Information",
+      "intro": "For questions, concerns, or notices regarding these Terms of Service, please contact us:",
+      "email": "Email",
+      "address": "Address",
+      "contactForm": "Contact Form",
+      "contactPage": "Contact Page"
+    },
+    "relatedDocs": {
+      "title": "Related Documents",
+      "privacy": "Privacy Policy",
+      "cookies": "Cookie Policy",
+      "contact": "Contact Us"
+    }
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "backLink": "Back to Home",
+    "lastUpdated": "Last updated: January 2025",
+    "intro": "At LusitanEstate, we take your privacy seriously. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform.",
+    "overview": {
+      "rights": {
+        "title": "Your Rights",
+        "subtitle": "Full control over your data"
+      },
+      "minimal": {
+        "title": "Minimal Data",
+        "subtitle": "We collect only what's necessary"
+      },
+      "security": {
+        "title": "Bank-Level Security",
+        "subtitle": "Your data is protected"
+      },
+      "transparency": {
+        "title": "Full Transparency",
+        "subtitle": "Clear and honest practices"
+      }
+    },
+    "section1": {
+      "title": "1. Data Controller",
+      "intro": "The data controller responsible for your personal information is:",
+      "entity": "Entity",
+      "address": "Address",
+      "email": "Email",
+      "website": "Website",
+      "contact": "For any questions about your data, please visit our",
+      "contactPage": "contact page"
+    },
+    "sections": {
+      "collection": {
+        "title": "2. Data We Collect",
+        "description": "We collect the following categories of information:",
+        "personal": {
+          "title": "Personal Information You Provide",
+          "items": {
+            "item1": "Name, email address, and phone number when you create an account",
+            "item2": "Account credentials and authentication information",
+            "item3": "Profile information and photos you choose to upload",
+            "item4": "Property listings, descriptions, and photos you submit",
+            "item5": "Payment and billing information for paid services",
+            "item6": "Communications with us or other users through the platform"
+          }
+        },
+        "automatic": {
+          "title": "Information Collected Automatically",
+          "items": {
+            "item1": "IP address, device type, and unique device identifiers",
+            "item2": "Browser type, version, and language preferences",
+            "item3": "Pages visited, time spent, and navigation patterns",
+            "item4": "Search queries, filters, and property views",
+            "item5": "Cookies and similar tracking technologies (see Cookie Policy)",
+            "item6": "Approximate location data (with your permission)"
+          }
+        }
+      },
+      "usage": {
+        "title": "3. How We Use Your Data",
+        "description": "We use the collected information for the following purposes:",
+        "purposes": {
+          "item1": "Provide, maintain, and improve our real estate platform services",
+          "item2": "Process transactions, send confirmations, and service notifications",
+          "item3": "Respond to your inquiries and provide customer support",
+          "item4": "Send marketing communications and property alerts (with your consent)",
+          "item5": "Detect, prevent, and address fraud, security issues, and abuse",
+          "item6": "Comply with legal obligations and enforce our Terms of Service",
+          "item7": "Analyze usage patterns to improve user experience and platform features",
+          "item8": "Personalize content, recommendations, and search results"
+        }
+      },
+      "sharing": {
+        "title": "4. Data Sharing",
+        "description": "We may share your information in the following circumstances:",
+        "parties": {
+          "item1": "With other users (agents, buyers, sellers) to facilitate property transactions",
+          "item2": "With service providers who assist with platform operations (hosting, analytics, email)",
+          "item3": "With payment processors to handle billing and subscription management",
+          "item4": "With analytics and advertising partners to improve our services",
+          "item5": "With legal authorities when required by law or to protect our rights",
+          "item6": "In connection with a business transfer, merger, or acquisition"
+        },
+        "note": "We do not sell your personal information to third parties for their marketing purposes."
+      },
+      "cookies": {
+        "title": "5. Cookies and Tracking",
+        "content": "We use cookies and similar technologies to enhance your experience, remember your preferences, and analyze platform usage. You can control cookies through your browser settings. For detailed information, please see our Cookie Policy."
+      },
+      "security": {
+        "title": "6. Data Security",
+        "content": "We implement industry-standard technical and organizational security measures to protect your information, including encryption, firewalls, and secure servers. However, no method of transmission over the internet is 100% secure, and we cannot guarantee absolute security of your data."
+      },
+      "rights": {
+        "title": "7. Your Rights (GDPR)",
+        "description": "Under the General Data Protection Regulation (GDPR), you have the following rights:",
+        "items": {
+          "access": {
+            "title": "Right of Access",
+            "description": "Request a copy of your personal data we hold"
+          },
+          "rectification": {
+            "title": "Right to Rectification",
+            "description": "Correct inaccurate or incomplete data"
+          },
+          "erasure": {
+            "title": "Right to Erasure",
+            "description": "Request deletion of your data ('right to be forgotten')"
+          },
+          "restriction": {
+            "title": "Right to Restriction",
+            "description": "Limit how we process your data"
+          },
+          "portability": {
+            "title": "Right to Data Portability",
+            "description": "Receive your data in a structured, machine-readable format"
+          },
+          "objection": {
+            "title": "Right to Object",
+            "description": "Object to processing based on legitimate interests"
+          }
+        },
+        "exercise": "To exercise these rights, contact us at privacidade@realestate-pt.com or through our contact page."
+      },
+      "retention": {
+        "title": "8. Data Retention",
+        "description": "We retain your personal information for as long as necessary to provide our services and comply with legal obligations. When you delete your account, we will delete or anonymize your information within 90 days, except where we are legally required to retain certain data (e.g., for tax or legal purposes)."
+      },
+      "transfers": {
+        "title": "9. International Data Transfers",
+        "description": "Your information may be transferred to and processed in countries outside of Portugal and the European Union. We ensure that such transfers comply with GDPR through appropriate safeguards such as Standard Contractual Clauses and adequacy decisions."
+      },
+      "minors": {
+        "title": "10. Children's Privacy",
+        "content": "Our service is not intended for individuals under 18 years of age. We do not knowingly collect personal information from minors. If you believe we have collected information from a child, please contact us immediately so we can delete it."
+      },
+      "changes": {
+        "title": "11. Policy Updates",
+        "description": "We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. We will notify you of material changes via email or a prominent notice on our platform. Your continued use of the service after changes constitutes acceptance of the updated policy."
+      },
+      "contact": {
+        "title": "12. Contact Information",
+        "description": "If you have any questions about this Privacy Policy or our data practices, please contact us:",
+        "emailPrivacy": "Privacy Email",
+        "emailGeneral": "General Email",
+        "form": "Contact Form",
+        "contactPage": "Contact Page"
+      }
+    },
+    "relatedDocs": {
+      "title": "Related Documents",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy",
+      "contact": "Contact Us"
+    }
+  },
+  "cookies": {
+    "backLink": "Back to Home",
+    "header": {
+      "title": "Cookie Policy",
+      "lastUpdated": "Last Updated",
+      "date": "January 2025",
+      "intro": "This Cookie Policy explains how LusitanEstate uses cookies and similar technologies when you visit our platform. We explain what these technologies are, why we use them, and your rights to control their use."
+    },
+    "categories": {
+      "essential": {
+        "name": "Essential",
+        "status": "Always Active"
+      },
+      "functional": {
+        "name": "Functional",
+        "status": "Optional"
+      },
+      "analytics": {
+        "name": "Analytics",
+        "status": "Optional"
+      },
+      "marketing": {
+        "name": "Marketing",
+        "status": "Optional"
+      }
+    },
+    "table": {
+      "cookie": "Cookie",
+      "purpose": "Purpose",
+      "duration": "Duration",
+      "type": "Type",
+      "own": "Own",
+      "thirdParty": "Third-Party"
+    },
+    "section1": {
+      "title": "1. What Are Cookies?",
+      "intro": "Cookies are small text files placed on your device when you visit a website. They are widely used to make websites work more efficiently and provide a better user experience.",
+      "types": "Cookies can be classified by duration:",
+      "session": "Session Cookies: Temporary cookies deleted when you close your browser",
+      "persistent": "Persistent Cookies: Remain on your device for a set period or until manually deleted",
+      "classification": "They can also be classified by origin:",
+      "firstParty": "First-Party Cookies: Set by the website you're visiting (LusitanEstate)",
+      "thirdParty": "Third-Party Cookies: Set by external services integrated into our platform"
+    },
+    "section2": {
+      "title": "2. Legal Basis for Using Cookies",
+      "intro": "Our use of cookies is based on Portuguese and European Union legislation, including the General Data Protection Regulation (GDPR) and the ePrivacy Directive.",
+      "legislation": "Under this legislation, cookies are classified into two categories:",
+      "essential": "Essential Cookies: Strictly necessary for the platform to function. These do not require consent as they are essential for providing the service you requested.",
+      "nonEssential": "Non-Essential Cookies: All other cookies (functional, analytics, marketing) require your explicit consent before being placed on your device.",
+      "consent": "When you first visit our platform, you'll see a cookie banner allowing you to accept or reject non-essential cookies. You can change your preferences at any time.",
+      "note": "Note: Blocking certain cookies may affect platform functionality and user experience."
+    },
+    "section3": {
+      "title": "3. Types of Cookies We Use",
+      "essential": {
+        "badge": "Always Active",
+        "title": "Essential Cookies",
+        "description": "These cookies are strictly necessary for the platform to function. They enable core features such as authentication, security, session management, and load balancing. Without these cookies, our services cannot be provided.",
+        "authToken": "Manages user authentication and login sessions",
+        "sessionId": "Maintains your session while navigating the platform",
+        "cookieConsent": "Stores your cookie consent preferences",
+        "csrfToken": "Protects against cross-site request forgery attacks",
+        "duration1": "Session",
+        "duration2": "Session",
+        "duration3": "1 year",
+        "duration4": "Session"
+      },
+      "functional": {
+        "badge": "Optional",
+        "title": "Functional Cookies",
+        "description": "These cookies enable enhanced functionality and personalization. They remember your choices (such as language preference) and provide improved, personalized features.",
+        "userPreferences": "Stores language, region, and display preferences",
+        "recentSearches": "Remembers your recent property searches",
+        "savedProperties": "Stores your saved/favorited properties",
+        "duration1": "1 year",
+        "duration2": "30 days",
+        "duration3": "6 months"
+      },
+      "analytics": {
+        "badge": "Optional",
+        "title": "Analytics Cookies",
+        "description": "These cookies help us understand how visitors interact with our platform by collecting and reporting information anonymously. This helps us improve our services.",
+        "ga": "Google Analytics - main cookie for user identification",
+        "gaSession": "Google Analytics - session and campaign tracking",
+        "gid": "Google Analytics - distinguishes users",
+        "duration1": "2 years",
+        "duration2": "2 years",
+        "duration3": "24 hours"
+      },
+      "marketing": {
+        "badge": "Optional",
+        "title": "Marketing/Advertising Cookies",
+        "description": "These cookies track visitors across websites to display relevant, personalized advertisements and measure the effectiveness of advertising campaigns.",
+        "fbp": "Facebook Pixel - tracks conversions and builds audiences",
+        "adsPrefs": "Stores advertising preferences and targeting information",
+        "duration1": "3 months",
+        "duration2": "1 year"
+      }
+    },
+    "section4": {
+      "title": "4. Managing Your Cookie Preferences",
+      "subtitle1": "Cookie Banner",
+      "banner": "When you first visit our platform, you'll see a cookie consent banner. You can choose to accept all cookies, reject non-essential cookies, or customize your preferences by cookie category.",
+      "subtitle2": "Changing Your Preferences",
+      "changePreferences": "You can change your cookie preferences at any time by clicking the 'Cookie Settings' link in our website footer or by clearing cookies through your browser settings.",
+      "subtitle3": "Browser Settings",
+      "browserSettings": "Most web browsers allow you to control cookies through their settings. You can typically find these in the 'Options' or 'Preferences' menu. Links to cookie management guides for popular browsers:",
+      "warning": "Important: Disabling cookies may impact your ability to use certain features of our platform. Essential cookies cannot be disabled as they are necessary for the platform to function."
+    },
+    "section5": {
+      "title": "5. Third-Party Cookies and Services",
+      "intro": "We use third-party services that may place cookies on your device. These services have their own privacy policies and cookie policies:",
+      "googlePrivacy": "Google Privacy Policy",
+      "metaPrivacy": "Meta (Facebook) Privacy Policy",
+      "optOut": "To opt out of interest-based advertising from participating companies, you can use these tools:"
+    },
+    "section6": {
+      "title": "6. Other Tracking Technologies",
+      "intro": "In addition to cookies, we use other similar tracking technologies:",
+      "localStorage": "Local Storage: HTML5 local storage for storing preferences and cached data locally in your browser",
+      "sessionStorage": "Session Storage: Temporary storage that is cleared when you close your browser",
+      "pixels": "Pixels/Web Beacons: Small invisible images used to track page views and user behavior",
+      "consent": "Your cookie consent preferences also apply to these similar technologies."
+    },
+    "section7": {
+      "title": "7. Updates to This Policy",
+      "paragraph1": "We may update this Cookie Policy from time to time to reflect changes in our cookie usage, technology, or legal requirements. The 'Last Updated' date at the top of this page indicates when the policy was last revised.",
+      "paragraph2": "We encourage you to review this Cookie Policy periodically to stay informed about how we use cookies. Material changes will be communicated via email or a prominent notice on our platform."
+    },
+    "section8": {
+      "title": "8. Contact Us",
+      "intro": "If you have questions or concerns about our use of cookies, please contact us:",
+      "email": "Email",
+      "form": "Contact Form",
+      "contactPage": "Contact Page"
+    },
+    "relatedDocs": {
+      "title": "Related Documents",
+      "terms": "Terms of Service",
+      "privacy": "Privacy Policy",
+      "contact": "Contact Us"
+    }
+  },
+  "addProperty": {
+    "title": "Add New Property",
+    "steps": {
+      "basic": "Basic Information",
+      "location": "Location",
+      "details": "Details",
+      "features": "Features",
+      "images": "Images"
+    },
+    "basicInfo": {
+      "title": "Title",
+      "titlePlaceholder": "e.g., Modern 3-Bedroom Apartment in Lisbon",
+      "description": "Description",
+      "descriptionPlaceholder": "Describe your property...",
+      "price": "Price",
+      "pricePlaceholder": "e.g., 250000",
+      "propertyType": "Property Type",
+      "status": "Status",
+      "selectType": "Select a type"
+    },
+    "location": {
+      "street": "Street Address",
+      "streetPlaceholder": "e.g., Rua da Liberdade, 123",
+      "city": "City",
+      "cityPlaceholder": "e.g., Lisbon",
+      "district": "District",
+      "selectDistrict": "Select a district",
+      "zipCode": "Zip Code",
+      "zipCodePlaceholder": "e.g., 1200-001",
+      "country": "Country"
+    },
+    "details": {
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "squareMeters": "Area (m²)",
+      "yearBuilt": "Year Built",
+      "yearBuiltPlaceholder": "e.g., 2020",
+      "parkingSpaces": "Parking Spaces",
+      "hasGarage": "Has Garage",
+      "condition": "Condition",
+      "condominiumFee": "Condominium Fee (€/month)",
+      "energyRating": "Energy Rating"
+    },
+    "features": {
+      "title": "Select Features",
+      "description": "Choose all features that apply to your property"
+    },
+    "images": {
+      "title": "Property Images",
+      "description": "Upload at least 3 images of your property",
+      "minImages": "Please upload at least 3 images"
+    },
+    "buttons": {
+      "previous": "Previous",
+      "next": "Next",
+      "submit": "Create Property",
+      "submitting": "Creating..."
+    },
+    "validation": {
+      "fillRequired": "Please fill in all required fields",
+      "invalidZipCode": "Invalid zip code format (e.g., 1200-001)",
+      "minImages": "Please upload at least 3 images"
+    },
+    "success": "Property created successfully! Awaiting approval.",
+    "error": "Error creating property. Please try again."
+  },
+  "propertyDetail": {
+    "notFound": {
+      "title": "Property Not Found",
+      "message": "The property you're looking for doesn't exist or has been removed.",
+      "backButton": "Back to Properties"
+    },
+    "featured": "Featured",
+    "buttons": {
+      "back": "Back",
+      "callNow": "Call Now",
+      "sendEmail": "Send Email",
+      "addToFavorites": "Add to Favorites",
+      "share": "Share"
+    },
+    "details": {
+      "bedrooms": "Bedrooms",
+      "bathrooms": "Bathrooms",
+      "area": "Area",
+      "energyCertificate": "Energy Certificate"
+    },
+    "sections": {
+      "description": "Description",
+      "propertyDetails": "Property Details",
+      "features": "Features"
+    },
+    "propertyInfo": {
+      "type": "Type:",
+      "yearBuilt": "Year Built:",
+      "lotSize": "Lot Size:",
+      "parking": "Parking:",
+      "floors": "Floors:",
+      "condition": "Condition:"
+    },
+    "contact": {
+      "title": "Contact",
+      "agent": "Agent",
+      "agency": "Agency"
+    },
+    "meta": {
+      "publishedOn": "Published on",
+      "views": "views"
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Administrative Dashboard",
+      "subtitle": "System overview and statistics",
+      "quickNav": {
+        "properties": "Properties",
+        "propertiesDesc": "Manage properties",
+        "users": "Users",
+        "usersDesc": "Manage accounts",
+        "inquiries": "Inquiries",
+        "inquiriesDesc": "View messages",
+        "approvals": "Approvals",
+        "approvalsDesc": "Pending"
+      },
+      "stats": {
+        "totalUsers": "Total Users",
+        "totalProperties": "Total Properties",
+        "agencies": "Agencies",
+        "agents": "Agents",
+        "newUsersThisMonth": "new this month",
+        "newPropertiesThisWeek": "new this week",
+        "active": "active"
+      },
+      "actions": {
+        "pendingApproval": "Awaiting Approval",
+        "pendingInquiries": "Pending Inquiries",
+        "activeProperties": "Active Properties",
+        "manageApprovals": "Manage Approvals",
+        "viewInquiries": "View Inquiries",
+        "viewAll": "View All"
+      },
+      "charts": {
+        "usersByRole": "User Distribution by Type",
+        "propertiesByStatus": "Properties by Status",
+        "topDistricts": "Districts with Most Properties",
+        "avgPriceByDistrict": "Average Price by District",
+        "recentProperties": "Recent Properties",
+        "recentInquiries": "Recent Inquiries",
+        "notSpecified": "Not specified"
+      },
+      "performance": {
+        "agencyAvgRating": "Average Agency Rating",
+        "agentAvgRating": "Average Agent Rating",
+        "totalInquiries": "Total Inquiries"
+      },
+      "status": {
+        "pending": "Pending",
+        "responded": "Responded"
+      },
+      "errors": {
+        "loadDashboard": "Error loading dashboard data"
+      }
+    },
+    "users": {
+      "title": "User Management",
+      "subtitle": "View and manage all system users",
+      "search": "Search users...",
+      "filterByRole": "Filter by role",
+      "allRoles": "All Roles",
+      "table": {
+        "user": "User",
+        "email": "Email",
+        "role": "Role",
+        "joinedDate": "Joined Date",
+        "actions": "Actions"
+      },
+      "roles": {
+        "admin": "Admin",
+        "agent": "Agent",
+        "seller": "Seller",
+        "buyer": "Buyer"
+      },
+      "editRole": "Edit Role",
+      "newRole": "New Role",
+      "selectRole": "Select a role",
+      "updateRole": "Update Role",
+      "deleteUser": "Delete User",
+      "confirmDelete": "Are you sure you want to delete the user \"{{name}}\"? This action cannot be undone.",
+      "pagination": {
+        "showing": "Showing",
+        "to": "to",
+        "of": "of",
+        "users": "users",
+        "previous": "Previous",
+        "next": "Next"
+      },
+      "success": {
+        "roleUpdated": "User role updated successfully!",
+        "userDeleted": "User deleted successfully!"
+      },
+      "errors": {
+        "loadUsers": "Error loading users",
+        "selectRole": "Please select a role",
+        "updateRole": "Error updating user role",
+        "deleteUser": "Error deleting user"
+      }
+    },
+    "properties": {
+      "title": "Property Management",
+      "subtitle": "View and manage all properties",
+      "search": "Search properties...",
+      "filterByStatus": "Filter by status",
+      "filterByApproval": "Filter by approval",
+      "allStatuses": "All Statuses",
+      "allApprovals": "All Approvals",
+      "table": {
+        "property": "Property",
+        "owner": "Owner",
+        "price": "Price",
+        "status": "Status",
+        "approval": "Approval",
+        "actions": "Actions"
+      },
+      "approvalStatus": {
+        "pending": "Pending",
+        "approved": "Approved",
+        "rejected": "Rejected"
+      },
+      "approve": "Approve",
+      "reject": "Reject",
+      "delete": "Delete",
+      "view": "View",
+      "confirmDelete": "Are you sure you want to delete this property? This action cannot be undone.",
+      "confirmApprove": "Approve this property?",
+      "confirmReject": "Reject this property?",
+      "success": {
+        "approved": "Property approved successfully!",
+        "rejected": "Property rejected successfully!",
+        "deleted": "Property deleted successfully!"
+      },
+      "errors": {
+        "loadProperties": "Error loading properties",
+        "approve": "Error approving property",
+        "reject": "Error rejecting property",
+        "delete": "Error deleting property"
+      }
+    },
+    "inquiries": {
+      "title": "Inquiry Management",
+      "subtitle": "View and manage all inquiries",
+      "filterByStatus": "Filter by status",
+      "allStatuses": "All Statuses",
+      "table": {
+        "from": "From",
+        "property": "Property",
+        "message": "Message",
+        "date": "Date",
+        "status": "Status",
+        "actions": "Actions"
+      },
+      "viewDetails": "View Details",
+      "markAsRead": "Mark as Read",
+      "delete": "Delete",
+      "inquiryDetails": "Inquiry Details",
+      "name": "Name",
+      "email": "Email",
+      "phone": "Phone",
+      "category": "Category",
+      "subject": "Subject",
+      "message": "Message",
+      "relatedProperty": "Related Property",
+      "receivedOn": "Received on",
+      "close": "Close",
+      "success": {
+        "markedAsRead": "Inquiry marked as read!",
+        "deleted": "Inquiry deleted successfully!"
+      },
+      "errors": {
+        "loadInquiries": "Error loading inquiries",
+        "markAsRead": "Error marking inquiry as read",
+        "delete": "Error deleting inquiry"
+      }
+    }
+  }
+}

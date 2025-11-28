@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import {
   FaEnvelope,
@@ -15,6 +16,7 @@ import {
 } from 'react-icons/fa';
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -40,7 +42,7 @@ const Contact = () => {
     // Simulate form submission
     await new Promise(resolve => setTimeout(resolve, 1500));
 
-    toast.success('Mensagem enviada com sucesso! Entraremos em contacto em breve.');
+    toast.success(t('contact.form.successMessage'));
     setFormData({
       name: '',
       email: '',
@@ -53,62 +55,62 @@ const Contact = () => {
   };
 
   const categories = [
-    { value: 'general', label: 'Questão Geral' },
-    { value: 'support', label: 'Suporte Técnico' },
-    { value: 'sales', label: 'Vendas e Planos' },
-    { value: 'partnership', label: 'Parcerias' },
-    { value: 'press', label: 'Imprensa' },
-    { value: 'privacy', label: 'Privacidade e Dados' },
-    { value: 'complaint', label: 'Reclamação' },
+    { value: 'general', label: t('contact.form.categories.general') },
+    { value: 'support', label: t('contact.form.categories.support') },
+    { value: 'sales', label: t('contact.form.categories.sales') },
+    { value: 'partnership', label: t('contact.form.categories.partnership') },
+    { value: 'press', label: t('contact.form.categories.press') },
+    { value: 'privacy', label: t('contact.form.categories.privacy') },
+    { value: 'complaint', label: t('contact.form.categories.complaint') },
   ];
 
   const quickLinks = [
     {
       icon: FaQuestionCircle,
-      title: 'Perguntas Frequentes',
-      description: 'Encontre respostas para as questões mais comuns.',
+      title: t('contact.quickLinks.faq.title'),
+      description: t('contact.quickLinks.faq.description'),
       link: '/pricing#faq',
-      linkText: 'Ver FAQs'
+      linkText: t('contact.quickLinks.faq.cta')
     },
     {
       icon: FaBuilding,
-      title: 'Para Agências',
-      description: 'Soluções empresariais personalizadas.',
+      title: t('contact.quickLinks.agencies.title'),
+      description: t('contact.quickLinks.agencies.description'),
       link: '/pricing',
-      linkText: 'Ver Planos'
+      linkText: t('contact.quickLinks.agencies.cta')
     },
     {
       icon: FaUserTie,
-      title: 'Tornar-me Agente',
-      description: 'Registe-se como profissional imobiliário.',
+      title: t('contact.quickLinks.becomeAgent.title'),
+      description: t('contact.quickLinks.becomeAgent.description'),
       link: '/register?role=agent',
-      linkText: 'Registar'
+      linkText: t('contact.quickLinks.becomeAgent.cta')
     },
     {
       icon: FaHome,
-      title: 'Anunciar Imóvel',
-      description: 'Publique o seu imóvel na nossa plataforma.',
+      title: t('contact.quickLinks.listProperty.title'),
+      description: t('contact.quickLinks.listProperty.description'),
       link: '/register?role=seller',
-      linkText: 'Começar'
+      linkText: t('contact.quickLinks.listProperty.cta')
     },
   ];
 
   const faqs = [
     {
-      question: 'Qual é o tempo médio de resposta?',
-      answer: 'Respondemos a todas as mensagens num prazo máximo de 48 horas úteis. Para questões urgentes, recomendamos o contacto telefónico.'
+      question: t('contact.faq.responseTime.question'),
+      answer: t('contact.faq.responseTime.answer')
     },
     {
-      question: 'Como posso contactar o suporte técnico?',
-      answer: 'Pode contactar o suporte técnico através deste formulário selecionando a categoria "Suporte Técnico", ou enviando email diretamente para suporte@realestate-pt.com.'
+      question: t('contact.faq.technicalSupport.question'),
+      answer: t('contact.faq.technicalSupport.answer')
     },
     {
-      question: 'Onde posso encontrar informações sobre preços?',
-      answer: 'Visite a nossa página de Preços para ver todos os planos disponíveis e suas funcionalidades. Para planos empresariais personalizados, entre em contacto connosco.'
+      question: t('contact.faq.pricing.question'),
+      answer: t('contact.faq.pricing.answer')
     },
     {
-      question: 'Como exerço os meus direitos de proteção de dados?',
-      answer: 'Para questões relacionadas com RGPD e proteção de dados, envie um email para privacidade@realestate-pt.com com o seu pedido específico.'
+      question: t('contact.faq.dataRights.question'),
+      answer: t('contact.faq.dataRights.answer')
     },
   ];
 
@@ -125,10 +127,10 @@ const Contact = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Contacte-nos
+            {t('contact.hero.title')}
           </h1>
           <p className="text-xl text-primary-100 max-w-2xl mx-auto">
-            Estamos aqui para ajudar. Entre em contacto connosco e responderemos o mais brevemente possível.
+            {t('contact.hero.subtitle')}
           </p>
         </div>
       </div>
@@ -139,10 +141,10 @@ const Contact = () => {
           <div className="lg:col-span-2">
             <div className="card p-8">
               <h2 className="section-title mb-2">
-                Envie-nos uma Mensagem
+                {t('contact.form.title')}
               </h2>
               <p className="section-subtitle mb-8">
-                Preencha o formulário e entraremos em contacto consigo
+                {t('contact.form.subtitle')}
               </p>
 
               <form onSubmit={handleSubmit} className="space-y-6">
@@ -150,7 +152,7 @@ const Contact = () => {
                   {/* Name */}
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                      Nome Completo *
+                      {t('contact.form.fields.name.label')}
                     </label>
                     <input
                       type="text"
@@ -160,14 +162,14 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="input-field"
-                      placeholder="O seu nome"
+                      placeholder={t('contact.form.fields.name.placeholder')}
                     />
                   </div>
 
                   {/* Email */}
                   <div>
                     <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      Email *
+                      {t('contact.form.fields.email.label')}
                     </label>
                     <input
                       type="email"
@@ -177,7 +179,7 @@ const Contact = () => {
                       onChange={handleChange}
                       required
                       className="input-field"
-                      placeholder="seu@email.com"
+                      placeholder={t('contact.form.fields.email.placeholder')}
                     />
                   </div>
                 </div>
@@ -186,7 +188,7 @@ const Contact = () => {
                   {/* Phone */}
                   <div>
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-                      Telefone
+                      {t('contact.form.fields.phone.label')}
                     </label>
                     <input
                       type="tel"
@@ -195,14 +197,14 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       className="input-field"
-                      placeholder="+351 912 345 678"
+                      placeholder={t('contact.form.fields.phone.placeholder')}
                     />
                   </div>
 
                   {/* Category */}
                   <div>
                     <label htmlFor="category" className="block text-sm font-medium text-gray-700 mb-2">
-                      Categoria *
+                      {t('contact.form.fields.category.label')}
                     </label>
                     <select
                       id="category"
@@ -224,7 +226,7 @@ const Contact = () => {
                 {/* Subject */}
                 <div>
                   <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-                    Assunto *
+                    {t('contact.form.fields.subject.label')}
                   </label>
                   <input
                     type="text"
@@ -234,14 +236,14 @@ const Contact = () => {
                     onChange={handleChange}
                     required
                     className="input-field"
-                    placeholder="Resumo da sua questão"
+                    placeholder={t('contact.form.fields.subject.placeholder')}
                   />
                 </div>
 
                 {/* Message */}
                 <div>
                   <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                    Mensagem *
+                    {t('contact.form.fields.message.label')}
                   </label>
                   <textarea
                     id="message"
@@ -251,17 +253,17 @@ const Contact = () => {
                     required
                     rows={6}
                     className="input-field resize-none"
-                    placeholder="Descreva a sua questão em detalhe..."
+                    placeholder={t('contact.form.fields.message.placeholder')}
                   />
                 </div>
 
                 {/* Privacy Notice */}
                 <div className="text-sm text-gray-500 bg-sand-100 p-4 rounded-xl">
-                  Ao submeter este formulário, concorda com a nossa{' '}
+                  {t('contact.form.privacyNotice.text')}{' '}
                   <Link to="/privacy" className="text-primary-600 hover:underline font-medium">
-                    Política de Privacidade
+                    {t('contact.form.privacyNotice.link')}
                   </Link>
-                  . Os seus dados serão utilizados apenas para responder à sua mensagem.
+                  . {t('contact.form.privacyNotice.usage')}
                 </div>
 
                 {/* Submit Button */}
@@ -276,12 +278,12 @@ const Contact = () => {
                         <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                         <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                       </svg>
-                      A enviar...
+                      {t('contact.form.submitting')}
                     </>
                   ) : (
                     <>
                       <FaPaperPlane className="mr-2" />
-                      Enviar Mensagem
+                      {t('contact.form.submit')}
                     </>
                   )}
                 </button>
@@ -294,7 +296,7 @@ const Contact = () => {
             {/* Contact Details */}
             <div className="card p-8">
               <h3 className="text-xl font-bold text-gray-900 mb-6">
-                Informações de Contacto
+                {t('contact.info.title')}
               </h3>
 
               <div className="space-y-6">
@@ -303,9 +305,9 @@ const Contact = () => {
                     <FaEnvelope className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Email</h4>
-                    <p className="text-gray-600">geral@realestate-pt.com</p>
-                    <p className="text-gray-500 text-sm">suporte@realestate-pt.com</p>
+                    <h4 className="font-semibold text-gray-900">{t('contact.info.email.label')}</h4>
+                    <p className="text-gray-600">{t('contact.info.email.general')}</p>
+                    <p className="text-gray-500 text-sm">{t('contact.info.email.support')}</p>
                   </div>
                 </div>
 
@@ -314,9 +316,9 @@ const Contact = () => {
                     <FaPhone className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Telefone</h4>
-                    <p className="text-gray-600">+351 210 000 000</p>
-                    <p className="text-gray-500 text-sm">Chamada para rede fixa nacional</p>
+                    <h4 className="font-semibold text-gray-900">{t('contact.info.phone.label')}</h4>
+                    <p className="text-gray-600">{t('contact.info.phone.number')}</p>
+                    <p className="text-gray-500 text-sm">{t('contact.info.phone.note')}</p>
                   </div>
                 </div>
 
@@ -325,8 +327,8 @@ const Contact = () => {
                     <FaMapMarkerAlt className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Morada</h4>
-                    <p className="text-gray-600">Lisboa, Portugal</p>
+                    <h4 className="font-semibold text-gray-900">{t('contact.info.address.label')}</h4>
+                    <p className="text-gray-600">{t('contact.info.address.value')}</p>
                   </div>
                 </div>
 
@@ -335,9 +337,9 @@ const Contact = () => {
                     <FaClock className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-gray-900">Horário</h4>
-                    <p className="text-gray-600">Segunda a Sexta</p>
-                    <p className="text-gray-600">09:00 - 18:00</p>
+                    <h4 className="font-semibold text-gray-900">{t('contact.info.hours.label')}</h4>
+                    <p className="text-gray-600">{t('contact.info.hours.days')}</p>
+                    <p className="text-gray-600">{t('contact.info.hours.time')}</p>
                   </div>
                 </div>
               </div>
@@ -350,28 +352,27 @@ const Contact = () => {
                   <FaClock className="text-white text-sm" />
                 </div>
                 <h4 className="font-semibold text-gray-900">
-                  Tempo de Resposta
+                  {t('contact.responseTime.title')}
                 </h4>
               </div>
               <p className="text-gray-600 text-sm">
-                Respondemos a todas as mensagens num prazo máximo de <strong className="text-primary-700">48 horas úteis</strong>.
-                Para questões urgentes, contacte-nos por telefone.
+                {t('contact.responseTime.description')}
               </p>
             </div>
 
             {/* Data Protection Notice */}
             <div className="bg-gradient-to-br from-sand-100 to-sand-200 rounded-2xl p-6 border border-sand-300">
               <h4 className="font-semibold text-gray-900 mb-2">
-                Proteção de Dados
+                {t('contact.dataProtection.title')}
               </h4>
               <p className="text-gray-600 text-sm mb-3">
-                Para questões relacionadas com os seus dados pessoais ou exercer os seus direitos ao abrigo do RGPD:
+                {t('contact.dataProtection.description')}
               </p>
               <p className="text-sm mb-2">
-                <strong>Email:</strong> privacidade@realestate-pt.com
+                <strong>{t('contact.dataProtection.emailLabel')}:</strong> {t('contact.dataProtection.emailValue')}
               </p>
               <Link to="/privacy" className="text-primary-600 hover:text-primary-700 text-sm font-medium inline-flex items-center">
-                Ver Política de Privacidade
+                {t('contact.dataProtection.link')}
                 <FaChevronDown className="ml-1 -rotate-90 text-xs" />
               </Link>
             </div>
@@ -382,10 +383,10 @@ const Contact = () => {
         <div className="mt-20">
           <div className="text-center mb-12">
             <h2 className="section-title">
-              Links Úteis
+              {t('contact.quickLinksSection.title')}
             </h2>
             <p className="section-subtitle">
-              Encontre rapidamente o que procura
+              {t('contact.quickLinksSection.subtitle')}
             </p>
           </div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -409,10 +410,10 @@ const Contact = () => {
         <div className="mt-20">
           <div className="text-center mb-12">
             <h2 className="section-title">
-              Perguntas Frequentes
+              {t('contact.faqSection.title')}
             </h2>
             <p className="section-subtitle">
-              Respostas rápidas às questões mais comuns
+              {t('contact.faqSection.subtitle')}
             </p>
           </div>
 
@@ -455,11 +456,10 @@ const Contact = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="card p-8">
             <h3 className="font-bold text-gray-900 text-xl mb-4">
-              Resolução Alternativa de Litígios
+              {t('contact.disputeResolution.title')}
             </h3>
             <p className="text-gray-600 mb-6">
-              Em conformidade com a legislação europeia e portuguesa, informamos que, em caso de litígio,
-              pode recorrer a uma entidade de resolução alternativa de litígios de consumo:
+              {t('contact.disputeResolution.description')}
             </p>
             <div className="flex flex-wrap gap-4">
               <a
@@ -468,7 +468,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 className="btn-secondary"
               >
-                Portal do Consumidor
+                {t('contact.disputeResolution.consumerPortal')}
               </a>
               <a
                 href="https://ec.europa.eu/consumers/odr"
@@ -476,7 +476,7 @@ const Contact = () => {
                 rel="noopener noreferrer"
                 className="btn-secondary"
               >
-                Plataforma ODR da UE
+                {t('contact.disputeResolution.euPlatform')}
               </a>
             </div>
           </div>

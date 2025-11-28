@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { useTranslation } from 'react-i18next';
 import { FaHome, FaBars, FaTimes, FaUser, FaSignOutAlt, FaTachometerAlt, FaChevronDown } from 'react-icons/fa';
 
 const Navbar = () => {
+  const { t } = useTranslation();
   const { user, isAuthenticated, logout, isAdmin } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
@@ -68,7 +70,7 @@ const Navbar = () => {
                     : 'text-gray-600 hover:bg-gray-50 hover:text-primary-600'
                 }`}
               >
-                Imóveis
+                {t('nav.properties')}
               </Link>
               <Link
                 to="/agencies"
@@ -78,7 +80,7 @@ const Navbar = () => {
                     : 'text-gray-600 hover:bg-gray-50 hover:text-primary-600'
                 }`}
               >
-                Agências
+                {t('nav.agencies')}
               </Link>
               <Link
                 to="/agents"
@@ -88,7 +90,7 @@ const Navbar = () => {
                     : 'text-gray-600 hover:bg-gray-50 hover:text-primary-600'
                 }`}
               >
-                Agentes
+                {t('nav.agents')}
               </Link>
 
               {isAuthenticated ? (
@@ -101,7 +103,7 @@ const Navbar = () => {
                         : 'text-gray-600 hover:bg-gray-50 hover:text-primary-600'
                     }`}
                   >
-                    Dashboard
+                    {t('nav.dashboard')}
                   </Link>
                   {isAdmin() && (
                     <Link
@@ -113,7 +115,7 @@ const Navbar = () => {
                       }`}
                     >
                       <FaTachometerAlt className="text-sm" />
-                      <span>Admin</span>
+                      <span>{t('nav.admin')}</span>
                     </Link>
                   )}
 
@@ -142,32 +144,32 @@ const Navbar = () => {
                           onClick={() => setUserMenuOpen(false)}
                         >
                           <FaUser className="text-gray-400" />
-                          <span>Minha Conta</span>
+                          <span>{t('nav.myAccount')}</span>
                         </Link>
                         <button
                           onClick={handleLogout}
                           className="w-full flex items-center space-x-3 px-4 py-3 text-red-600 hover:bg-red-50 transition-colors"
                         >
                           <FaSignOutAlt className="text-red-400" />
-                          <span>Sair</span>
+                          <span>{t('nav.logout')}</span>
                         </button>
                       </div>
                     )}
                   </div>
                 </>
               ) : (
-                <div className="flex items-center space-x-3 ml-4">
+                <div className="flex items-center space-x-2 ml-4">
                   <Link
                     to="/login"
                     className="px-4 py-2 rounded-xl font-medium text-gray-600 hover:text-primary-600 hover:bg-gray-50 transition-all duration-300"
                   >
-                    Entrar
+                    {t('nav.login')}
                   </Link>
                   <Link
                     to="/register"
                     className="btn-primary"
                   >
-                    Registar
+                    {t('nav.register')}
                   </Link>
                 </div>
               )}
@@ -196,7 +198,7 @@ const Navbar = () => {
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Imóveis
+                {t('nav.properties')}
               </Link>
               <Link
                 to="/agencies"
@@ -205,7 +207,7 @@ const Navbar = () => {
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Agências
+                {t('nav.agencies')}
               </Link>
               <Link
                 to="/agents"
@@ -214,7 +216,7 @@ const Navbar = () => {
                 }`}
                 onClick={() => setMobileMenuOpen(false)}
               >
-                Agentes
+                {t('nav.agents')}
               </Link>
 
               {isAuthenticated ? (
@@ -226,7 +228,7 @@ const Navbar = () => {
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Dashboard
+                    {t('nav.dashboard')}
                   </Link>
                   {isAdmin() && (
                     <Link
@@ -236,7 +238,7 @@ const Navbar = () => {
                       }`}
                       onClick={() => setMobileMenuOpen(false)}
                     >
-                      Admin
+                      {t('nav.admin')}
                     </Link>
                   )}
                   <div className="pt-2 mt-2 border-t border-gray-100">
@@ -249,7 +251,7 @@ const Navbar = () => {
                       className="w-full flex items-center space-x-2 px-4 py-3 rounded-xl text-red-600 hover:bg-red-50 transition-all"
                     >
                       <FaSignOutAlt />
-                      <span>Sair</span>
+                      <span>{t('nav.logout')}</span>
                     </button>
                   </div>
                 </>
@@ -260,14 +262,14 @@ const Navbar = () => {
                     className="block px-4 py-3 rounded-xl text-center font-medium text-gray-600 hover:bg-gray-50 transition-all"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Entrar
+                    {t('nav.login')}
                   </Link>
                   <Link
                     to="/register"
                     className="block px-4 py-3 rounded-xl text-center font-semibold bg-gradient-to-r from-primary-600 to-primary-700 text-white transition-all"
                     onClick={() => setMobileMenuOpen(false)}
                   >
-                    Registar
+                    {t('nav.register')}
                   </Link>
                 </div>
               )}

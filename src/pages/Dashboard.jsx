@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useAuth } from '../context/AuthContext';
 import { useMyProperties } from '../hooks/useProperties';
 import PropertyCard from '../components/property/PropertyCard';
@@ -7,6 +8,7 @@ import Loading from '../components/common/Loading';
 import { FaPlus, FaHome, FaEye, FaHeart, FaBuilding } from 'react-icons/fa';
 
 const Dashboard = () => {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const { data: propertiesData, isLoading } = useMyProperties();
 
@@ -22,9 +24,9 @@ const Dashboard = () => {
         {/* Welcome Header */}
         <div className="mb-10">
           <h1 className="font-display text-4xl font-bold text-stone-800 mb-2">
-            Olá, <span className="bg-gradient-to-r from-primary-600 to-terracotta-600 bg-clip-text text-transparent">{user?.name}</span>!
+            {t('dashboard.welcome', { name: user?.name })}
           </h1>
-          <p className="text-stone-600 text-lg">Bem-vindo ao seu painel de controlo</p>
+          <p className="text-stone-600 text-lg">{t('dashboard.welcomeMessage')}</p>
         </div>
 
         {/* Quick Stats */}
@@ -33,7 +35,7 @@ const Dashboard = () => {
           <div className="card rounded-2xl hover:shadow-float transition-all duration-300 border-l-4 border-primary-600 group">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-stone-500 text-sm font-medium mb-1">Meus Imóveis</h3>
+                <h3 className="text-stone-500 text-sm font-medium mb-1">{t('dashboard.stats.myProperties')}</h3>
                 <p className="text-4xl font-display font-bold text-primary-600">{properties.length}</p>
               </div>
               <div className="w-14 h-14 bg-primary-100 rounded-2xl flex items-center justify-center group-hover:bg-primary-200 transition-colors">
@@ -46,7 +48,7 @@ const Dashboard = () => {
           <div className="card rounded-2xl hover:shadow-float transition-all duration-300 border-l-4 border-terracotta-600 group">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-stone-500 text-sm font-medium mb-1">Visualizações</h3>
+                <h3 className="text-stone-500 text-sm font-medium mb-1">{t('dashboard.stats.views')}</h3>
                 <p className="text-4xl font-display font-bold text-terracotta-600">{totalViews}</p>
               </div>
               <div className="w-14 h-14 bg-terracotta-100 rounded-2xl flex items-center justify-center group-hover:bg-terracotta-200 transition-colors">
@@ -59,7 +61,7 @@ const Dashboard = () => {
           <div className="card rounded-2xl hover:shadow-float transition-all duration-300 border-l-4 border-golden-600 group">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-stone-500 text-sm font-medium mb-1">Favoritos</h3>
+                <h3 className="text-stone-500 text-sm font-medium mb-1">{t('dashboard.stats.favorites')}</h3>
                 <p className="text-4xl font-display font-bold text-golden-600">{totalFavorites}</p>
               </div>
               <div className="w-14 h-14 bg-golden-100 rounded-2xl flex items-center justify-center group-hover:bg-golden-200 transition-colors">
@@ -73,15 +75,15 @@ const Dashboard = () => {
         <div className="card rounded-2xl">
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-8">
             <div>
-              <h2 className="font-display text-2xl font-bold text-stone-800">Meus Imóveis</h2>
-              <p className="text-stone-500 mt-1">Gerir os seus anúncios de imóveis</p>
+              <h2 className="font-display text-2xl font-bold text-stone-800">{t('dashboard.properties.title')}</h2>
+              <p className="text-stone-500 mt-1">{t('dashboard.properties.subtitle')}</p>
             </div>
             <Link
               to="/properties/add"
               className="btn-primary flex items-center space-x-2 shadow-lg hover:shadow-float transition-all duration-300"
             >
               <FaPlus />
-              <span>Adicionar Imóvel</span>
+              <span>{t('dashboard.properties.addProperty')}</span>
             </Link>
           </div>
 
@@ -101,17 +103,17 @@ const Dashboard = () => {
                 <FaBuilding className="text-3xl text-primary-600" />
               </div>
               <h3 className="font-display text-xl font-semibold text-stone-800 mb-2">
-                Ainda não tem imóveis anunciados
+                {t('dashboard.properties.empty.title')}
               </h3>
               <p className="text-stone-500 mb-8 max-w-md mx-auto">
-                Comece a anunciar os seus imóveis e alcance milhares de potenciais compradores e arrendatários.
+                {t('dashboard.properties.empty.subtitle')}
               </p>
               <Link
                 to="/properties/add"
                 className="btn-primary inline-flex items-center space-x-2 shadow-lg hover:shadow-float transition-all duration-300"
               >
                 <FaPlus />
-                <span>Adicionar Primeiro Imóvel</span>
+                <span>{t('dashboard.properties.empty.action')}</span>
               </Link>
             </div>
           )}

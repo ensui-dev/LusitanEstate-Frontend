@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { adminAPI } from '../../api/admin';
 import Loading from '../../components/common/Loading';
 import {
@@ -18,6 +19,7 @@ import {
 import { toast } from 'react-toastify';
 
 const AdminDashboard = () => {
+  const { t } = useTranslation();
   const [dashboardData, setDashboardData] = useState(null);
   const [loading, setLoading] = useState(true);
 
@@ -32,7 +34,7 @@ const AdminDashboard = () => {
       setDashboardData(response.data);
     } catch (error) {
       console.error('Error fetching dashboard data:', error);
-      toast.error('Erro ao carregar dados do painel');
+      toast.error(t('admin.dashboard.errors.loadDashboard'));
     } finally {
       setLoading(false);
     }
@@ -55,10 +57,10 @@ const AdminDashboard = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold text-gray-900">
-                Painel Administrativo
+                {t('admin.dashboard.title')}
               </h1>
               <p className="text-gray-600">
-                Visão geral do sistema e estatísticas
+                {t('admin.dashboard.subtitle')}
               </p>
             </div>
           </div>
@@ -74,8 +76,8 @@ const AdminDashboard = () => {
               <FaHome className="text-xl text-white" />
             </div>
             <div>
-              <span className="font-semibold text-gray-900">Imóveis</span>
-              <p className="text-xs text-gray-500">Gerir propriedades</p>
+              <span className="font-semibold text-gray-900">{t('admin.dashboard.quickNav.properties')}</span>
+              <p className="text-xs text-gray-500">{t('admin.dashboard.quickNav.propertiesDesc')}</p>
             </div>
           </Link>
           <Link
@@ -86,8 +88,8 @@ const AdminDashboard = () => {
               <FaUsers className="text-xl text-white" />
             </div>
             <div>
-              <span className="font-semibold text-gray-900">Utilizadores</span>
-              <p className="text-xs text-gray-500">Gerir contas</p>
+              <span className="font-semibold text-gray-900">{t('admin.dashboard.quickNav.users')}</span>
+              <p className="text-xs text-gray-500">{t('admin.dashboard.quickNav.usersDesc')}</p>
             </div>
           </Link>
           <Link
@@ -98,8 +100,8 @@ const AdminDashboard = () => {
               <FaEnvelope className="text-xl text-white" />
             </div>
             <div>
-              <span className="font-semibold text-gray-900">Pedidos</span>
-              <p className="text-xs text-gray-500">Ver mensagens</p>
+              <span className="font-semibold text-gray-900">{t('admin.dashboard.quickNav.inquiries')}</span>
+              <p className="text-xs text-gray-500">{t('admin.dashboard.quickNav.inquiriesDesc')}</p>
             </div>
           </Link>
           <Link
@@ -110,8 +112,8 @@ const AdminDashboard = () => {
               <FaClock className="text-xl text-white" />
             </div>
             <div>
-              <span className="font-semibold text-gray-900">Aprovacoes</span>
-              <p className="text-xs text-gray-500">Pendentes</p>
+              <span className="font-semibold text-gray-900">{t('admin.dashboard.quickNav.approvals')}</span>
+              <p className="text-xs text-gray-500">{t('admin.dashboard.quickNav.approvalsDesc')}</p>
             </div>
           </Link>
         </div>
@@ -120,31 +122,31 @@ const AdminDashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
           <StatCard
             icon={FaUsers}
-            label="Total de Utilizadores"
+            label={t('admin.dashboard.stats.totalUsers')}
             value={overview?.totalUsers || 0}
             color="blue"
-            subtitle={`${recentActivity?.newUsersThisMonth || 0} novos este mes`}
+            subtitle={`${recentActivity?.newUsersThisMonth || 0} ${t('admin.dashboard.stats.newUsersThisMonth')}`}
           />
           <StatCard
             icon={FaHome}
-            label="Total de Imóveis"
+            label={t('admin.dashboard.stats.totalProperties')}
             value={overview?.totalProperties || 0}
             color="green"
-            subtitle={`${recentActivity?.newPropertiesThisWeek || 0} novos esta semana`}
+            subtitle={`${recentActivity?.newPropertiesThisWeek || 0} ${t('admin.dashboard.stats.newPropertiesThisWeek')}`}
           />
           <StatCard
             icon={FaBuilding}
-            label="Agencias"
+            label={t('admin.dashboard.stats.agencies')}
             value={overview?.totalAgencies || 0}
             color="purple"
-            subtitle={`${performance?.agency?.totalActive || 0} ativas`}
+            subtitle={`${performance?.agency?.totalActive || 0} ${t('admin.dashboard.stats.active')}`}
           />
           <StatCard
             icon={FaUserTie}
-            label="Agentes"
+            label={t('admin.dashboard.stats.agents')}
             value={overview?.totalAgents || 0}
             color="orange"
-            subtitle={`${performance?.agent?.totalActive || 0} ativos`}
+            subtitle={`${performance?.agent?.totalActive || 0} ${t('admin.dashboard.stats.active')}`}
           />
         </div>
 
@@ -152,27 +154,27 @@ const AdminDashboard = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <ActionCard
             icon={FaClock}
-            label="Aguardando Aprovacao"
+            label={t('admin.dashboard.actions.pendingApproval')}
             value={overview?.pendingApproval || 0}
             color="yellow"
             link="/admin/properties?status=pending"
-            linkText="Gerir Aprovacoes"
+            linkText={t('admin.dashboard.actions.manageApprovals')}
           />
           <ActionCard
             icon={FaEnvelope}
-            label="Pedidos Pendentes"
+            label={t('admin.dashboard.actions.pendingInquiries')}
             value={overview?.pendingInquiries || 0}
             color="red"
             link="/admin/inquiries"
-            linkText="Ver Pedidos"
+            linkText={t('admin.dashboard.actions.viewInquiries')}
           />
           <ActionCard
             icon={FaCheckCircle}
-            label="Imóveis Ativos"
+            label={t('admin.dashboard.actions.activeProperties')}
             value={overview?.activeProperties || 0}
             color="green"
             link="/admin/properties"
-            linkText="Ver Todos"
+            linkText={t('admin.dashboard.actions.viewAll')}
           />
         </div>
 
@@ -181,7 +183,7 @@ const AdminDashboard = () => {
           {/* User Distribution */}
           <div className="card rounded-2xl">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Distribuição de Utilizadores por Tipo
+              {t('admin.dashboard.charts.usersByRole')}
             </h3>
             <div className="space-y-3">
               {distributions?.usersByRole?.map((item) => (
@@ -199,7 +201,7 @@ const AdminDashboard = () => {
           {/* Property Status */}
           <div className="card rounded-2xl">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Imóveis por Estado
+              {t('admin.dashboard.charts.propertiesByStatus')}
             </h3>
             <div className="space-y-3">
               {distributions?.propertiesByStatus?.map((item) => (
@@ -219,7 +221,7 @@ const AdminDashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
           <div className="card rounded-2xl">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Distritos com Mais Imóveis
+              {t('admin.dashboard.charts.topDistricts')}
             </h3>
             <div className="space-y-3">
               {distributions?.propertiesByDistrict?.slice(0, 5).map((item, index) => (
@@ -231,7 +233,7 @@ const AdminDashboard = () => {
                       index === 2 ? 'bg-orange-100 text-orange-700' :
                       'bg-sand-100 text-gray-500'
                     }`}>#{index + 1}</span>
-                    <span className="text-gray-700 font-medium">{item._id || 'Nao especificado'}</span>
+                    <span className="text-gray-700 font-medium">{item._id || t('admin.dashboard.charts.notSpecified')}</span>
                   </div>
                   <span className="font-bold text-gray-900 bg-white px-3 py-1 rounded-lg shadow-sm">{item.count}</span>
                 </div>
@@ -241,7 +243,7 @@ const AdminDashboard = () => {
 
           <div className="card rounded-2xl">
             <h3 className="text-lg font-semibold text-gray-900 mb-4">
-              Preço Médio por Distrito
+              {t('admin.dashboard.charts.avgPriceByDistrict')}
             </h3>
             <div className="space-y-3">
               {distributions?.avgPriceByDistrict?.slice(0, 5).map((item, index) => (
@@ -253,7 +255,7 @@ const AdminDashboard = () => {
                       index === 2 ? 'bg-orange-100 text-orange-700' :
                       'bg-sand-100 text-gray-500'
                     }`}>#{index + 1}</span>
-                    <span className="text-gray-700 font-medium">{item._id || 'Nao especificado'}</span>
+                    <span className="text-gray-700 font-medium">{item._id || t('admin.dashboard.charts.notSpecified')}</span>
                   </div>
                   <span className="font-bold text-primary-600 bg-primary-50 px-3 py-1 rounded-lg">
                     {new Intl.NumberFormat('pt-PT', {
@@ -274,10 +276,10 @@ const AdminDashboard = () => {
           <div className="card rounded-2xl">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold text-gray-900">
-                Imóveis Recentes
+                {t('admin.dashboard.charts.recentProperties')}
               </h3>
               <Link to="/admin/properties" className="text-primary-600 hover:text-primary-700 text-sm font-medium flex items-center space-x-1 group">
-                <span>Ver Todos</span>
+                <span>{t('admin.dashboard.actions.viewAll')}</span>
                 <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -313,10 +315,10 @@ const AdminDashboard = () => {
           <div className="card rounded-2xl">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-lg font-semibold text-gray-900">
-                Pedidos Recentes
+                {t('admin.dashboard.charts.recentInquiries')}
               </h3>
               <Link to="/admin/inquiries" className="text-primary-600 hover:text-primary-700 text-sm font-medium flex items-center space-x-1 group">
-                <span>Ver Todos</span>
+                <span>{t('admin.dashboard.actions.viewAll')}</span>
                 <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform" />
               </Link>
             </div>
@@ -340,7 +342,7 @@ const AdminDashboard = () => {
                     <span className={`inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium ${
                       inquiry.status === 'pending' ? 'badge-warning' : 'badge-success'
                     }`}>
-                      {inquiry.status === 'pending' ? 'Pendente' : 'Respondido'}
+                      {inquiry.status === 'pending' ? t('admin.dashboard.status.pending') : t('admin.dashboard.status.responded')}
                     </span>
                   </div>
                 </div>
@@ -355,7 +357,7 @@ const AdminDashboard = () => {
             <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-3">
               <FaStar className="text-2xl text-white" />
             </div>
-            <h4 className="text-sm text-gray-600 mb-1">Avaliação Média Agências</h4>
+            <h4 className="text-sm text-gray-600 mb-1">{t('admin.dashboard.performance.avgAgencyRating')}</h4>
             <p className="text-3xl font-bold text-gray-900">
               {performance?.agency?.avgRating?.toFixed(1) || 'N/A'}
             </p>
@@ -364,7 +366,7 @@ const AdminDashboard = () => {
             <div className="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-3">
               <FaStar className="text-2xl text-white" />
             </div>
-            <h4 className="text-sm text-gray-600 mb-1">Avaliação Média Agentes</h4>
+            <h4 className="text-sm text-gray-600 mb-1">{t('admin.dashboard.performance.avgAgentRating')}</h4>
             <p className="text-3xl font-bold text-gray-900">
               {performance?.agent?.avgRating?.toFixed(1) || 'N/A'}
             </p>
@@ -373,7 +375,7 @@ const AdminDashboard = () => {
             <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-3">
               <FaEnvelope className="text-2xl text-white" />
             </div>
-            <h4 className="text-sm text-gray-600 mb-1">Total de Consultas</h4>
+            <h4 className="text-sm text-gray-600 mb-1">{t('admin.dashboard.performance.totalInquiries')}</h4>
             <p className="text-3xl font-bold text-gray-900">
               {overview?.totalInquiries || 0}
             </p>

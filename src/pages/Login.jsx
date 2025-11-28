@@ -3,8 +3,11 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { authAPI } from '../api/auth';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
 const Login = () => {
+  const { t, i18n } = useTranslation();
+
   const [formData, setFormData] = useState({
     email: '',
     password: ''
@@ -34,12 +37,12 @@ const Login = () => {
     try {
       const response = await authAPI.resendVerification(unverifiedEmail);
       if (response.success) {
-        toast.success('Email de verificacao reenviado! Verifique a sua caixa de entrada.');
+        toast.success(t('auth.verificationResent'));
       } else {
-        toast.error(response.message || 'Erro ao reenviar email');
+        toast.error(response.message || t('auth.registrationError'));
       }
     } catch (error) {
-      toast.error(error.message || 'Erro ao reenviar email');
+      toast.error(error.message || t('auth.registrationError'));
     } finally {
       setResending(false);
     }
@@ -53,17 +56,17 @@ const Login = () => {
     try {
       const result = await login(formData.email, formData.password);
       if (result.success) {
-        toast.success('Login efetuado com sucesso!');
+        toast.success(t('auth.loginSuccess'));
         navigate('/dashboard');
       } else if (result.code === 'EMAIL_NOT_VERIFIED') {
         setVerificationNeeded(true);
         setUnverifiedEmail(result.email || formData.email);
-        toast.warning('Por favor verifique o seu email antes de fazer login.');
+        toast.warning(t('auth.verifyEmailFirst'));
       } else {
-        toast.error(result.message || 'Erro ao fazer login');
+        toast.error(result.message || t('auth.loginError'));
       }
     } catch (error) {
-      toast.error('Erro ao fazer login');
+      toast.error(t('auth.loginError'));
     } finally {
       setLoading(false);
     }
@@ -73,12 +76,12 @@ const Login = () => {
     <div className="min-h-screen bg-sand-50 flex flex-col justify-center pt-28 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-md">
         <h2 className="text-center text-3xl font-bold text-gray-900">
-          Bem-vindo de volta
+          {t('auth.welcomeBack')}
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Ou{' '}
+          {t('auth.orCreateAccount')}{' '}
           <Link to="/register" className="font-medium text-primary-600 hover:text-primary-500 transition-colors">
-            criar uma nova conta
+            {t('auth.createAccount')}
           </Link>
         </p>
       </div>
@@ -94,17 +97,17 @@ const Login = () => {
                 </svg>
                 <div className="flex-1">
                   <h3 className="text-sm font-medium text-amber-800">
-                    Email nao verificado
+                    {t('auth.emailNotVerified')}
                   </h3>
                   <p className="mt-1 text-sm text-amber-700">
-                    Verifique o seu email ({unverifiedEmail}) para ativar a sua conta.
+                    {t('auth.verificationCheckEmail', { email: unverifiedEmail })}
                   </p>
                   <button
                     onClick={handleResendVerification}
                     disabled={resending}
                     className="mt-2 text-sm font-medium text-amber-800 hover:text-amber-900 underline disabled:opacity-50"
                   >
-                    {resending ? 'A enviar...' : 'Reenviar email de verificacao'}
+                    {resending ? t('auth.resending') : t('auth.resendVerification')}
                   </button>
                 </div>
               </div>
@@ -114,7 +117,7 @@ const Login = () => {
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email
+                {t('auth.email')}
               </label>
               <input
                 id="email"
@@ -130,7 +133,7 @@ const Login = () => {
 
             <div>
               <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                Palavra-passe
+                {t('auth.password')}
               </label>
               <input
                 id="password"
@@ -153,13 +156,13 @@ const Login = () => {
                   className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded transition-colors"
                 />
                 <label htmlFor="remember-me" className="ml-2 block text-sm text-gray-700">
-                  Lembrar-me
+                  {t('auth.rememberMe')}
                 </label>
               </div>
 
               <div className="text-sm">
                 <a href="#" className="font-medium text-primary-600 hover:text-primary-500 transition-colors">
-                  Esqueceu a palavra-passe?
+                  {t('auth.forgotPassword')}
                 </a>
               </div>
             </div>
@@ -176,9 +179,9 @@ const Login = () => {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
-                    A entrar...
+                    {t('auth.loggingIn')}
                   </span>
-                ) : 'Entrar'}
+                ) : t('auth.login')}
               </button>
             </div>
           </form>
@@ -189,7 +192,7 @@ const Login = () => {
                 <div className="w-full border-t border-gray-200"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Novo no LusitanEstate?</span>
+                <span className="px-2 bg-white text-gray-500">{t('auth.newToLusitanEstate')}</span>
               </div>
             </div>
 
@@ -198,7 +201,7 @@ const Login = () => {
                 to="/register"
                 className="w-full inline-flex justify-center py-3 px-4 border border-gray-300 rounded-xl shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 hover:border-primary-300 transition-all duration-200"
               >
-                Criar uma conta gratuita
+                {t('auth.createFreeAccount')}
               </Link>
             </div>
           </div>

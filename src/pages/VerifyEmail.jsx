@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { authAPI } from '../api/auth';
+import { useTranslation } from 'react-i18next';
 
 const VerifyEmail = () => {
+  const { t } = useTranslation();
   const [searchParams] = useSearchParams();
   const [status, setStatus] = useState('verifying'); // verifying, success, error
   const [message, setMessage] = useState('');
@@ -13,7 +15,7 @@ const VerifyEmail = () => {
 
       if (!token) {
         setStatus('error');
-        setMessage('Link de verificacao invalido. Nenhum token fornecido.');
+        setMessage(t('verifyEmail.invalidToken'));
         return;
       }
 
@@ -21,19 +23,19 @@ const VerifyEmail = () => {
         const response = await authAPI.verifyEmail(token);
         if (response.success) {
           setStatus('success');
-          setMessage('O seu email foi verificado com sucesso!');
+          setMessage(t('verifyEmail.success'));
         } else {
           setStatus('error');
-          setMessage(response.message || 'Erro ao verificar email.');
+          setMessage(response.message || t('verifyEmail.error'));
         }
       } catch (error) {
         setStatus('error');
-        setMessage(error.message || 'Link de verificacao invalido ou expirado.');
+        setMessage(error.message || t('verifyEmail.invalidToken'));
       }
     };
 
     verifyEmail();
-  }, [searchParams]);
+  }, [searchParams, t]);
 
   return (
     <div className="min-h-screen bg-sand-50 flex flex-col justify-center pt-28 pb-12 px-4 sm:px-6 lg:px-8">
@@ -48,10 +50,10 @@ const VerifyEmail = () => {
                 </svg>
               </div>
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                A verificar email...
+                {t('verifyEmail.verifying')}
               </h2>
               <p className="text-gray-600">
-                Por favor aguarde enquanto verificamos o seu email.
+                {t('common.loading')}
               </p>
             </>
           )}
@@ -64,19 +66,16 @@ const VerifyEmail = () => {
                 </svg>
               </div>
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                Email Verificado!
+                {message}
               </h2>
               <p className="text-gray-600 mb-6">
-                {message}
-              </p>
-              <p className="text-gray-600 mb-6">
-                A sua conta esta agora ativa. Pode fazer login e comecar a explorar imoveis em Portugal.
+                {t('verifyEmail.welcomeMessage')}
               </p>
               <Link
                 to="/login"
                 className="w-full inline-flex justify-center btn-primary"
               >
-                Fazer Login
+                {t('verifyEmail.goToLogin')}
               </Link>
             </>
           )}
@@ -89,24 +88,21 @@ const VerifyEmail = () => {
                 </svg>
               </div>
               <h2 className="text-2xl font-bold text-gray-900 mb-2">
-                Erro na Verificacao
+                {t('verifyEmail.error')}
               </h2>
               <p className="text-gray-600 mb-6">
                 {message}
               </p>
               <p className="text-gray-600 mb-6">
-                O link pode ter expirado (valido por 24 horas) ou ja ter sido utilizado.
+                {t('verifyEmail.tryAgain')}
               </p>
               <div className="space-y-3">
                 <Link
                   to="/login"
                   className="w-full inline-flex justify-center btn-primary"
                 >
-                  Tentar fazer login
+                  {t('verifyEmail.goToLogin')}
                 </Link>
-                <p className="text-sm text-gray-500">
-                  Se ainda nao verificou o seu email, pode solicitar um novo link na pagina de login.
-                </p>
               </div>
             </>
           )}

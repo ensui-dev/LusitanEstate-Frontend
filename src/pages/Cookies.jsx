@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { FaCookieBite, FaArrowLeft, FaCog, FaChartBar, FaBullhorn, FaCheck } from 'react-icons/fa';
 
 const Cookies = () => {
-  const lastUpdated = '21 de Novembro de 2025';
+  const { t } = useTranslation();
+  const lastUpdated = t('cookies.header.date');
 
   return (
     <div className="min-h-screen bg-sand-50 pt-28 pb-12">
@@ -14,7 +16,7 @@ const Cookies = () => {
           className="inline-flex items-center text-primary-600 hover:text-primary-700 hover:translate-x-[-4px] transition-all duration-200 mb-6 group"
         >
           <FaArrowLeft className="mr-2 group-hover:animate-pulse" />
-          Voltar ao Início
+          {t('cookies.backLink')}
         </Link>
 
         {/* Header Card */}
@@ -24,14 +26,14 @@ const Cookies = () => {
               <FaCookieBite className="text-2xl" />
             </div>
             <div>
-              <h1 className="text-3xl font-display font-bold text-gray-900">Política de Cookies</h1>
-              <p className="text-gray-500">Última atualização: {lastUpdated}</p>
+              <h1 className="text-3xl font-display font-bold text-gray-900">{t('cookies.header.title')}</h1>
+              <p className="text-gray-500">{t('cookies.header.lastUpdated')}: {lastUpdated}</p>
             </div>
           </div>
 
           <div className="prose prose-lg max-w-none text-gray-700">
             <p className="lead text-lg text-gray-600 mb-6">
-              Esta Política de Cookies explica o que são cookies, como os utilizamos no website RealEstate PT, e como pode gerir as suas preferências. Esta política está em conformidade com a Diretiva ePrivacy (2002/58/CE), transposta para a legislação portuguesa pela Lei n.º 41/2004, de 18 de agosto, alterada pela Lei n.º 46/2012, de 29 de agosto, e com o RGPD.
+              {t('cookies.header.intro')}
             </p>
           </div>
 
@@ -39,23 +41,23 @@ const Cookies = () => {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-6">
             <div className="bg-green-50 p-4 rounded-xl text-center">
               <FaCheck className="text-green-600 text-xl mx-auto mb-2" />
-              <p className="text-sm font-medium text-gray-900">Essenciais</p>
-              <p className="text-xs text-gray-500">Sempre ativos</p>
+              <p className="text-sm font-medium text-gray-900">{t('cookies.categories.essential.name')}</p>
+              <p className="text-xs text-gray-500">{t('cookies.categories.essential.status')}</p>
             </div>
             <div className="bg-blue-50 p-4 rounded-xl text-center">
               <FaCog className="text-blue-600 text-xl mx-auto mb-2" />
-              <p className="text-sm font-medium text-gray-900">Funcionais</p>
-              <p className="text-xs text-gray-500">Com consentimento</p>
+              <p className="text-sm font-medium text-gray-900">{t('cookies.categories.functional.name')}</p>
+              <p className="text-xs text-gray-500">{t('cookies.categories.functional.status')}</p>
             </div>
             <div className="bg-purple-50 p-4 rounded-xl text-center">
               <FaChartBar className="text-purple-600 text-xl mx-auto mb-2" />
-              <p className="text-sm font-medium text-gray-900">Analíticos</p>
-              <p className="text-xs text-gray-500">Com consentimento</p>
+              <p className="text-sm font-medium text-gray-900">{t('cookies.categories.analytics.name')}</p>
+              <p className="text-xs text-gray-500">{t('cookies.categories.analytics.status')}</p>
             </div>
             <div className="bg-orange-50 p-4 rounded-xl text-center">
               <FaBullhorn className="text-orange-600 text-xl mx-auto mb-2" />
-              <p className="text-sm font-medium text-gray-900">Marketing</p>
-              <p className="text-xs text-gray-500">Com consentimento</p>
+              <p className="text-sm font-medium text-gray-900">{t('cookies.categories.marketing.name')}</p>
+              <p className="text-xs text-gray-500">{t('cookies.categories.marketing.status')}</p>
             </div>
           </div>
         </div>
@@ -64,52 +66,52 @@ const Cookies = () => {
         <div className="space-y-6">
           {/* Section 1 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">1. O Que São Cookies?</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('cookies.section1.title')}</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="mb-4">
-                Cookies são pequenos ficheiros de texto que são armazenados no seu dispositivo (computador, tablet ou telemóvel) quando visita um website. Os cookies são amplamente utilizados para fazer os websites funcionarem de forma mais eficiente, bem como para fornecer informações aos proprietários do site.
+                {t('cookies.section1.intro')}
               </p>
               <p className="mb-4">
-                Os cookies podem ser "persistentes" ou "de sessão":
+                {t('cookies.section1.types')}
               </p>
               <ul className="list-none space-y-3">
-                <li className="bg-sand-50 rounded-xl p-4"><strong>Cookies de Sessão:</strong> São temporários e são eliminados quando fecha o navegador.</li>
-                <li className="bg-sand-50 rounded-xl p-4"><strong>Cookies Persistentes:</strong> Permanecem no seu dispositivo até expirarem ou serem eliminados manualmente.</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('cookies.section1.session')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('cookies.section1.persistent')}</li>
               </ul>
               <p className="mt-4">
-                Os cookies podem também ser classificados como:
+                {t('cookies.section1.classification')}
               </p>
               <ul className="list-none space-y-3 mt-3">
-                <li className="bg-sand-50 rounded-xl p-4"><strong>Cookies Próprios (First-party):</strong> Definidos pelo website que está a visitar.</li>
-                <li className="bg-sand-50 rounded-xl p-4"><strong>Cookies de Terceiros (Third-party):</strong> Definidos por outros domínios que não o website que está a visitar.</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('cookies.section1.firstParty')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('cookies.section1.thirdParty')}</li>
               </ul>
             </div>
           </section>
 
           {/* Section 2 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">2. Base Legal</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('cookies.section2.title')}</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="mb-4">
-                A utilização de cookies em Portugal é regulada pela Lei n.º 41/2004, alterada pela Lei n.º 46/2012, que transpõe a Diretiva ePrivacy (2002/58/CE) para o ordenamento jurídico português.
+                {t('cookies.section2.intro')}
               </p>
               <p className="mb-4">
-                De acordo com esta legislação:
+                {t('cookies.section2.legislation')}
               </p>
               <ul className="list-none space-y-3">
                 <li className="bg-sand-50 rounded-xl p-4">
-                  <strong>Cookies Essenciais:</strong> Não necessitam de consentimento, pois são estritamente necessários para a prestação do serviço expressamente solicitado pelo utilizador.
+                  {t('cookies.section2.essential')}
                 </li>
                 <li className="bg-sand-50 rounded-xl p-4">
-                  <strong>Cookies Não Essenciais:</strong> Requerem o seu consentimento prévio, informado, livre e inequívoco antes de serem instalados no seu dispositivo.
+                  {t('cookies.section2.nonEssential')}
                 </li>
               </ul>
               <p className="mt-4">
-                A definição de consentimento aplicável é a prevista no RGPD (Artigo 4.º, n.º 11), devendo ser dado através de uma ação afirmativa clara.
+                {t('cookies.section2.consent')}
               </p>
               <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mt-4 rounded-r-xl">
                 <p className="text-sm text-yellow-800">
-                  <strong>Nota Importante:</strong> As configurações do navegador que permitem cookies não constituem, por si só, consentimento válido para a utilização de cookies num website específico.
+                  {t('cookies.section2.note')}
                 </p>
               </div>
             </div>
@@ -117,51 +119,51 @@ const Cookies = () => {
 
           {/* Section 3 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">3. Cookies Que Utilizamos</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('cookies.section3.title')}</h2>
             <div className="prose max-w-none text-gray-700">
 
               {/* Essential Cookies */}
               <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-3 flex items-center">
-                <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs mr-2">ESSENCIAIS</span>
-                Cookies Estritamente Necessários
+                <span className="bg-green-100 text-green-800 px-2 py-1 rounded-full text-xs mr-2">{t('cookies.section3.essential.badge')}</span>
+                {t('cookies.section3.essential.title')}
               </h3>
               <p className="mb-4">
-                Estes cookies são indispensáveis para o funcionamento do website e não podem ser desativados. São normalmente definidos em resposta a ações suas, como definir preferências de privacidade, iniciar sessão ou preencher formulários.
+                {t('cookies.section3.essential.description')}
               </p>
               <div className="overflow-x-auto mb-6">
                 <table className="min-w-full border-collapse border border-gray-200 rounded-xl overflow-hidden">
                   <thead>
                     <tr className="bg-sand-50">
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Cookie</th>
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Finalidade</th>
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Duração</th>
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Tipo</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.cookie')}</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.purpose')}</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.duration')}</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.type')}</th>
                     </tr>
                   </thead>
                   <tbody className="text-sm">
                     <tr>
                       <td className="border border-gray-200 px-3 py-3 font-mono text-xs">auth_token</td>
-                      <td className="border border-gray-200 px-3 py-3">Autenticação do utilizador</td>
-                      <td className="border border-gray-200 px-3 py-3">7 dias</td>
-                      <td className="border border-gray-200 px-3 py-3">Próprio</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.essential.authToken')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.essential.duration1')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.table.own')}</td>
                     </tr>
                     <tr className="bg-sand-50">
                       <td className="border border-gray-200 px-3 py-3 font-mono text-xs">session_id</td>
-                      <td className="border border-gray-200 px-3 py-3">Gestão de sessão</td>
-                      <td className="border border-gray-200 px-3 py-3">Sessão</td>
-                      <td className="border border-gray-200 px-3 py-3">Próprio</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.essential.sessionId')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.essential.duration2')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.table.own')}</td>
                     </tr>
                     <tr>
                       <td className="border border-gray-200 px-3 py-3 font-mono text-xs">cookie_consent</td>
-                      <td className="border border-gray-200 px-3 py-3">Armazena preferências de cookies</td>
-                      <td className="border border-gray-200 px-3 py-3">1 ano</td>
-                      <td className="border border-gray-200 px-3 py-3">Próprio</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.essential.cookieConsent')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.essential.duration3')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.table.own')}</td>
                     </tr>
                     <tr className="bg-sand-50">
                       <td className="border border-gray-200 px-3 py-3 font-mono text-xs">csrf_token</td>
-                      <td className="border border-gray-200 px-3 py-3">Proteção contra ataques CSRF</td>
-                      <td className="border border-gray-200 px-3 py-3">Sessão</td>
-                      <td className="border border-gray-200 px-3 py-3">Próprio</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.essential.csrfToken')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.essential.duration4')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.table.own')}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -169,40 +171,40 @@ const Cookies = () => {
 
               {/* Functional Cookies */}
               <h3 className="text-lg font-display font-semibold text-gray-800 mt-6 mb-3 flex items-center">
-                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs mr-2">FUNCIONAIS</span>
-                Cookies de Funcionalidade
+                <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded-full text-xs mr-2">{t('cookies.section3.functional.badge')}</span>
+                {t('cookies.section3.functional.title')}
               </h3>
               <p className="mb-4">
-                Estes cookies permitem funcionalidades melhoradas e personalização, como memorizar as suas preferências de idioma ou região.
+                {t('cookies.section3.functional.description')}
               </p>
               <div className="overflow-x-auto mb-6">
                 <table className="min-w-full border-collapse border border-gray-200 rounded-xl overflow-hidden">
                   <thead>
                     <tr className="bg-sand-50">
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Cookie</th>
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Finalidade</th>
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Duração</th>
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Tipo</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.cookie')}</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.purpose')}</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.duration')}</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.type')}</th>
                     </tr>
                   </thead>
                   <tbody className="text-sm">
                     <tr>
                       <td className="border border-gray-200 px-3 py-3 font-mono text-xs">user_preferences</td>
-                      <td className="border border-gray-200 px-3 py-3">Preferências de visualização</td>
-                      <td className="border border-gray-200 px-3 py-3">1 ano</td>
-                      <td className="border border-gray-200 px-3 py-3">Próprio</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.functional.userPreferences')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.functional.duration1')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.table.own')}</td>
                     </tr>
                     <tr className="bg-sand-50">
                       <td className="border border-gray-200 px-3 py-3 font-mono text-xs">recent_searches</td>
-                      <td className="border border-gray-200 px-3 py-3">Histórico de pesquisas</td>
-                      <td className="border border-gray-200 px-3 py-3">30 dias</td>
-                      <td className="border border-gray-200 px-3 py-3">Próprio</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.functional.recentSearches')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.functional.duration2')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.table.own')}</td>
                     </tr>
                     <tr>
                       <td className="border border-gray-200 px-3 py-3 font-mono text-xs">saved_properties</td>
-                      <td className="border border-gray-200 px-3 py-3">Imóveis favoritos</td>
-                      <td className="border border-gray-200 px-3 py-3">90 dias</td>
-                      <td className="border border-gray-200 px-3 py-3">Próprio</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.functional.savedProperties')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.functional.duration3')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.table.own')}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -210,40 +212,40 @@ const Cookies = () => {
 
               {/* Analytics Cookies */}
               <h3 className="text-lg font-display font-semibold text-gray-800 mt-6 mb-3 flex items-center">
-                <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs mr-2">ANALÍTICOS</span>
-                Cookies de Análise
+                <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded-full text-xs mr-2">{t('cookies.section3.analytics.badge')}</span>
+                {t('cookies.section3.analytics.title')}
               </h3>
               <p className="mb-4">
-                Estes cookies permitem-nos contar visitas e fontes de tráfego para medir e melhorar o desempenho do nosso site.
+                {t('cookies.section3.analytics.description')}
               </p>
               <div className="overflow-x-auto mb-6">
                 <table className="min-w-full border-collapse border border-gray-200 rounded-xl overflow-hidden">
                   <thead>
                     <tr className="bg-sand-50">
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Cookie</th>
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Finalidade</th>
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Duração</th>
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Tipo</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.cookie')}</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.purpose')}</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.duration')}</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.type')}</th>
                     </tr>
                   </thead>
                   <tbody className="text-sm">
                     <tr>
                       <td className="border border-gray-200 px-3 py-3 font-mono text-xs">_ga</td>
-                      <td className="border border-gray-200 px-3 py-3">Google Analytics - Distinguir utilizadores</td>
-                      <td className="border border-gray-200 px-3 py-3">2 anos</td>
-                      <td className="border border-gray-200 px-3 py-3">Terceiros</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.analytics.ga')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.analytics.duration1')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.table.thirdParty')}</td>
                     </tr>
                     <tr className="bg-sand-50">
                       <td className="border border-gray-200 px-3 py-3 font-mono text-xs">_ga_*</td>
-                      <td className="border border-gray-200 px-3 py-3">Google Analytics - Estado da sessão</td>
-                      <td className="border border-gray-200 px-3 py-3">2 anos</td>
-                      <td className="border border-gray-200 px-3 py-3">Terceiros</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.analytics.gaSession')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.analytics.duration2')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.table.thirdParty')}</td>
                     </tr>
                     <tr>
                       <td className="border border-gray-200 px-3 py-3 font-mono text-xs">_gid</td>
-                      <td className="border border-gray-200 px-3 py-3">Google Analytics - Distinguir utilizadores</td>
-                      <td className="border border-gray-200 px-3 py-3">24 horas</td>
-                      <td className="border border-gray-200 px-3 py-3">Terceiros</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.analytics.gid')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.analytics.duration3')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.table.thirdParty')}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -251,34 +253,34 @@ const Cookies = () => {
 
               {/* Marketing Cookies */}
               <h3 className="text-lg font-display font-semibold text-gray-800 mt-6 mb-3 flex items-center">
-                <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs mr-2">MARKETING</span>
-                Cookies de Marketing
+                <span className="bg-orange-100 text-orange-800 px-2 py-1 rounded-full text-xs mr-2">{t('cookies.section3.marketing.badge')}</span>
+                {t('cookies.section3.marketing.title')}
               </h3>
               <p className="mb-4">
-                Estes cookies são utilizados para apresentar anúncios mais relevantes para si e os seus interesses.
+                {t('cookies.section3.marketing.description')}
               </p>
               <div className="overflow-x-auto">
                 <table className="min-w-full border-collapse border border-gray-200 rounded-xl overflow-hidden">
                   <thead>
                     <tr className="bg-sand-50">
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Cookie</th>
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Finalidade</th>
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Duração</th>
-                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">Tipo</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.cookie')}</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.purpose')}</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.duration')}</th>
+                      <th className="border border-gray-200 px-3 py-3 text-left text-sm font-display font-semibold">{t('cookies.table.type')}</th>
                     </tr>
                   </thead>
                   <tbody className="text-sm">
                     <tr>
                       <td className="border border-gray-200 px-3 py-3 font-mono text-xs">_fbp</td>
-                      <td className="border border-gray-200 px-3 py-3">Facebook Pixel - Rastreamento</td>
-                      <td className="border border-gray-200 px-3 py-3">3 meses</td>
-                      <td className="border border-gray-200 px-3 py-3">Terceiros</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.marketing.fbp')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.marketing.duration1')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.table.thirdParty')}</td>
                     </tr>
                     <tr className="bg-sand-50">
                       <td className="border border-gray-200 px-3 py-3 font-mono text-xs">ads_prefs</td>
-                      <td className="border border-gray-200 px-3 py-3">Preferências de publicidade</td>
-                      <td className="border border-gray-200 px-3 py-3">1 ano</td>
-                      <td className="border border-gray-200 px-3 py-3">Terceiros</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.marketing.adsPrefs')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.section3.marketing.duration2')}</td>
+                      <td className="border border-gray-200 px-3 py-3">{t('cookies.table.thirdParty')}</td>
                     </tr>
                   </tbody>
                 </table>
@@ -288,21 +290,21 @@ const Cookies = () => {
 
           {/* Section 4 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">4. Como Gerir Cookies</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('cookies.section4.title')}</h2>
             <div className="prose max-w-none text-gray-700">
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">4.1 Banner de Cookies</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('cookies.section4.subtitle1')}</h3>
               <p className="mb-4">
-                Quando visita o nosso website pela primeira vez, é apresentado um banner de cookies onde pode aceitar ou recusar diferentes categorias de cookies. As suas preferências são guardadas e respeitadas em visitas subsequentes.
+                {t('cookies.section4.banner')}
               </p>
 
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">4.2 Alterar Preferências</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('cookies.section4.subtitle2')}</h3>
               <p className="mb-4">
-                Pode alterar as suas preferências de cookies a qualquer momento através do link "Definições de Cookies" disponível no rodapé do website.
+                {t('cookies.section4.changePreferences')}
               </p>
 
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">4.3 Configurações do Navegador</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('cookies.section4.subtitle3')}</h3>
               <p className="mb-4">
-                Pode também gerir cookies através das configurações do seu navegador. Abaixo encontra links para instruções dos navegadores mais comuns:
+                {t('cookies.section4.browserSettings')}
               </p>
               <ul className="list-none space-y-2">
                 <li className="bg-sand-50 rounded-xl p-3">
@@ -329,7 +331,7 @@ const Cookies = () => {
 
               <div className="bg-blue-50 border-l-4 border-blue-400 p-4 mt-4 rounded-r-xl">
                 <p className="text-sm text-blue-800">
-                  <strong>Atenção:</strong> Ao desativar cookies essenciais, algumas funcionalidades do website podem não funcionar corretamente, como o sistema de autenticação.
+                  {t('cookies.section4.warning')}
                 </p>
               </div>
             </div>
@@ -337,27 +339,27 @@ const Cookies = () => {
 
           {/* Section 5 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">5. Cookies de Terceiros</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('cookies.section5.title')}</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="mb-4">
-                Utilizamos serviços de terceiros que podem definir os seus próprios cookies no seu dispositivo. Estes terceiros têm as suas próprias políticas de privacidade:
+                {t('cookies.section5.intro')}
               </p>
               <ul className="list-none space-y-3">
                 <li className="bg-sand-50 rounded-xl p-4">
                   <strong>Google Analytics:</strong>{' '}
                   <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">
-                    Política de Privacidade do Google
+                    {t('cookies.section5.googlePrivacy')}
                   </a>
                 </li>
                 <li className="bg-sand-50 rounded-xl p-4">
                   <strong>Facebook (Meta):</strong>{' '}
                   <a href="https://www.facebook.com/privacy/policy/" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">
-                    Política de Privacidade da Meta
+                    {t('cookies.section5.metaPrivacy')}
                   </a>
                 </li>
               </ul>
               <p className="mt-4">
-                Para optar por não receber publicidade personalizada, pode visitar:
+                {t('cookies.section5.optOut')}
               </p>
               <ul className="list-none space-y-2 mt-3">
                 <li className="bg-sand-50 rounded-xl p-3">
@@ -376,52 +378,52 @@ const Cookies = () => {
 
           {/* Section 6 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">6. Outras Tecnologias de Rastreamento</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('cookies.section6.title')}</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="mb-4">
-                Além de cookies, podemos utilizar outras tecnologias semelhantes:
+                {t('cookies.section6.intro')}
               </p>
               <ul className="list-none space-y-3">
                 <li className="bg-sand-50 rounded-xl p-4">
-                  <strong>Local Storage:</strong> Armazenamento de dados no navegador para melhorar a experiência do utilizador.
+                  {t('cookies.section6.localStorage')}
                 </li>
                 <li className="bg-sand-50 rounded-xl p-4">
-                  <strong>Session Storage:</strong> Armazenamento temporário de dados durante a sessão de navegação.
+                  {t('cookies.section6.sessionStorage')}
                 </li>
                 <li className="bg-sand-50 rounded-xl p-4">
-                  <strong>Pixels/Web Beacons:</strong> Pequenas imagens utilizadas para rastrear interações com emails e páginas.
+                  {t('cookies.section6.pixels')}
                 </li>
               </ul>
               <p className="mt-4">
-                Estas tecnologias estão sujeitas aos mesmos requisitos de consentimento que os cookies, quando aplicável.
+                {t('cookies.section6.consent')}
               </p>
             </div>
           </section>
 
           {/* Section 7 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">7. Atualizações a Esta Política</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('cookies.section7.title')}</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="mb-4">
-                Podemos atualizar esta Política de Cookies periodicamente para refletir alterações nas tecnologias que utilizamos ou por requisitos legais. Recomendamos que reveja esta página regularmente.
+                {t('cookies.section7.paragraph1')}
               </p>
               <p>
-                A data da última atualização é indicada no topo desta página. Alterações significativas serão comunicadas através de um aviso no website.
+                {t('cookies.section7.paragraph2')}
               </p>
             </div>
           </section>
 
           {/* Section 8 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">8. Contactos</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('cookies.section8.title')}</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="mb-4">
-                Se tiver questões sobre a nossa utilização de cookies ou sobre esta política, contacte-nos:
+                {t('cookies.section8.intro')}
               </p>
               <div className="bg-sand-50 rounded-xl p-6">
                 <ul className="list-none space-y-2">
-                  <li><strong>Email:</strong> privacidade@realestate-pt.com</li>
-                  <li><strong>Formulário:</strong> <Link to="/contact" className="text-primary-600 hover:underline">Página de Contacto</Link></li>
+                  <li><strong>{t('cookies.section8.email')}:</strong> privacidade@realestate-pt.com</li>
+                  <li><strong>{t('cookies.section8.form')}:</strong> <Link to="/contact" className="text-primary-600 hover:underline">{t('cookies.section8.contactPage')}</Link></li>
                 </ul>
               </div>
             </div>
@@ -430,16 +432,16 @@ const Cookies = () => {
 
         {/* Related Links */}
         <div className="mt-8 card shadow-float rounded-2xl p-8">
-          <h3 className="text-lg font-display font-semibold text-gray-900 mb-4">Documentos Relacionados</h3>
+          <h3 className="text-lg font-display font-semibold text-gray-900 mb-4">{t('cookies.relatedDocs.title')}</h3>
           <div className="flex flex-wrap gap-4">
             <Link to="/terms" className="text-primary-600 hover:text-primary-700 hover:underline transition-colors duration-200">
-              Termos e Condições
+              {t('cookies.relatedDocs.terms')}
             </Link>
             <Link to="/privacy" className="text-primary-600 hover:text-primary-700 hover:underline transition-colors duration-200">
-              Política de Privacidade
+              {t('cookies.relatedDocs.privacy')}
             </Link>
             <Link to="/contact" className="text-primary-600 hover:text-primary-700 hover:underline transition-colors duration-200">
-              Contacto
+              {t('cookies.relatedDocs.contact')}
             </Link>
           </div>
         </div>

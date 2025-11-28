@@ -1,9 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { FaBalanceScale, FaArrowLeft } from 'react-icons/fa';
 
 const Terms = () => {
-  const lastUpdated = '21 de Novembro de 2025';
+  const { t } = useTranslation();
+  const lastUpdated = t('terms.header.date');
 
   return (
     <div className="min-h-screen bg-sand-50 pt-28 pb-12">
@@ -14,7 +16,7 @@ const Terms = () => {
           className="inline-flex items-center text-primary-600 hover:text-primary-700 hover:translate-x-[-4px] transition-all duration-200 mb-6 group"
         >
           <FaArrowLeft className="mr-2 group-hover:animate-pulse" />
-          Voltar ao Início
+          {t('terms.backLink')}
         </Link>
 
         {/* Header Card */}
@@ -24,14 +26,14 @@ const Terms = () => {
               <FaBalanceScale className="text-2xl" />
             </div>
             <div>
-              <h1 className="text-3xl font-display font-bold text-gray-900">Termos e Condições</h1>
-              <p className="text-gray-500">Última atualização: {lastUpdated}</p>
+              <h1 className="text-3xl font-display font-bold text-gray-900">{t('terms.header.title')}</h1>
+              <p className="text-gray-500">{t('terms.header.lastUpdated')}: {lastUpdated}</p>
             </div>
           </div>
 
           <div className="prose prose-lg max-w-none text-gray-700">
             <p className="lead text-lg text-gray-600 mb-8">
-              Bem-vindo ao RealEstate PT. Ao aceder e utilizar esta plataforma, concorda em cumprir e estar vinculado aos seguintes termos e condições de utilização. Por favor, leia-os atentamente antes de utilizar os nossos serviços.
+              {t('terms.header.intro')}
             </p>
           </div>
         </div>
@@ -40,203 +42,203 @@ const Terms = () => {
         <div className="space-y-6">
           {/* Section 1 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">1. Definições</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('terms.section1.title')}</h2>
             <div className="prose max-w-none text-gray-700">
               <ul className="list-none space-y-3">
-                <li className="bg-sand-50 rounded-xl p-4"><strong>"Plataforma"</strong> refere-se ao website RealEstate PT, acessível em lusitanestate.netlify.app e todos os seus subdomínios.</li>
-                <li className="bg-sand-50 rounded-xl p-4"><strong>"Utilizador"</strong> designa qualquer pessoa que aceda ou utilize a Plataforma, seja como visitante, comprador, vendedor, agente imobiliário ou agência.</li>
-                <li className="bg-sand-50 rounded-xl p-4"><strong>"Serviços"</strong> incluem todos os serviços disponibilizados através da Plataforma, nomeadamente a publicação, pesquisa e gestão de anúncios imobiliários.</li>
-                <li className="bg-sand-50 rounded-xl p-4"><strong>"Conteúdo"</strong> refere-se a toda a informação, textos, imagens, fotografias e outros materiais publicados na Plataforma.</li>
-                <li className="bg-sand-50 rounded-xl p-4"><strong>"Conta"</strong> significa o registo pessoal do Utilizador na Plataforma.</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section1.platform')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section1.user')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section1.services')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section1.content')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section1.account')}</li>
               </ul>
             </div>
           </section>
 
           {/* Section 2 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">2. Aceitação dos Termos</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('terms.section2.title')}</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="mb-4">
-                Ao aceder ou utilizar a Plataforma, o Utilizador declara ter lido, compreendido e aceite os presentes Termos e Condições na sua totalidade. Caso não concorde com algum dos termos aqui descritos, não deverá utilizar a Plataforma.
+                {t('terms.section2.paragraph1')}
               </p>
               <p className="mb-4">
-                Reservamo-nos o direito de modificar estes Termos a qualquer momento. As alterações entram em vigor imediatamente após a sua publicação na Plataforma. O uso continuado dos Serviços após tais modificações constitui aceitação dos novos Termos.
+                {t('terms.section2.paragraph2')}
               </p>
               <p>
-                O Utilizador deve ter pelo menos 18 anos de idade ou a idade legal de maioridade na sua jurisdição para utilizar esta Plataforma. Para menores de 18 anos, é necessária autorização parental ou do tutor legal, em conformidade com o artigo 8.º do RGPD e a Lei n.º 58/2019.
+                {t('terms.section2.paragraph3')}
               </p>
             </div>
           </section>
 
           {/* Section 3 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">3. Registo e Conta de Utilizador</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('terms.section3.title')}</h2>
             <div className="prose max-w-none text-gray-700">
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">3.1 Criação de Conta</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section3.subtitle1')}</h3>
               <p className="mb-4">
-                Para aceder a determinadas funcionalidades da Plataforma, o Utilizador deve criar uma conta, fornecendo informações verdadeiras, precisas, atuais e completas. O Utilizador é responsável por manter a confidencialidade das suas credenciais de acesso.
+                {t('terms.section3.paragraph1')}
               </p>
 
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">3.2 Tipos de Conta</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section3.subtitle2')}</h3>
               <ul className="list-none space-y-3 mb-4">
-                <li className="bg-sand-50 rounded-xl p-4"><strong>Comprador:</strong> Pode pesquisar imóveis e contactar anunciantes.</li>
-                <li className="bg-sand-50 rounded-xl p-4"><strong>Vendedor:</strong> Pode publicar anúncios de imóveis para venda ou arrendamento.</li>
-                <li className="bg-sand-50 rounded-xl p-4"><strong>Agente Imobiliário:</strong> Profissional certificado que pode representar clientes e gerir múltiplos anúncios.</li>
-                <li className="bg-sand-50 rounded-xl p-4"><strong>Agência:</strong> Empresa imobiliária registada que pode gerir agentes e anúncios corporativos.</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section3.buyer')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section3.seller')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section3.agent')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section3.agency')}</li>
               </ul>
 
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">3.3 Responsabilidades do Utilizador</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section3.subtitle3')}</h3>
               <p>
-                O Utilizador é o único responsável por todas as atividades realizadas através da sua conta e compromete-se a notificar imediatamente qualquer utilização não autorizada ou violação de segurança.
+                {t('terms.section3.paragraph2')}
               </p>
             </div>
           </section>
 
           {/* Section 4 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">4. Publicação de Anúncios</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('terms.section4.title')}</h2>
             <div className="prose max-w-none text-gray-700">
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">4.1 Requisitos de Conteúdo</h3>
-              <p className="mb-4">Ao publicar anúncios na Plataforma, o Utilizador garante que:</p>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section4.subtitle1')}</h3>
+              <p className="mb-4">{t('terms.section4.intro1')}</p>
               <ul className="list-none space-y-3 mb-4">
-                <li className="bg-sand-50 rounded-xl p-4">Possui autorização legal para anunciar o imóvel;</li>
-                <li className="bg-sand-50 rounded-xl p-4">Todas as informações fornecidas são verdadeiras, precisas e atualizadas;</li>
-                <li className="bg-sand-50 rounded-xl p-4">As fotografias correspondem ao estado atual do imóvel;</li>
-                <li className="bg-sand-50 rounded-xl p-4">O preço indicado corresponde ao valor real pretendido;</li>
-                <li className="bg-sand-50 rounded-xl p-4">O imóvel cumpre com todas as normas legais aplicáveis em Portugal.</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section4.requirement1')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section4.requirement2')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section4.requirement3')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section4.requirement4')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section4.requirement5')}</li>
               </ul>
 
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">4.2 Conteúdo Proibido</h3>
-              <p className="mb-4">É expressamente proibido publicar:</p>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section4.subtitle2')}</h3>
+              <p className="mb-4">{t('terms.section4.intro2')}</p>
               <ul className="list-none space-y-3 mb-4">
-                <li className="bg-sand-50 rounded-xl p-4">Informações falsas, enganosas ou fraudulentas;</li>
-                <li className="bg-sand-50 rounded-xl p-4">Anúncios de imóveis inexistentes ou já vendidos/arrendados;</li>
-                <li className="bg-sand-50 rounded-xl p-4">Conteúdo que viole direitos de propriedade intelectual de terceiros;</li>
-                <li className="bg-sand-50 rounded-xl p-4">Material ofensivo, difamatório, discriminatório ou ilegal;</li>
-                <li className="bg-sand-50 rounded-xl p-4">Spam ou publicidade não relacionada com imóveis.</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section4.prohibited1')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section4.prohibited2')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section4.prohibited3')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section4.prohibited4')}</li>
+                <li className="bg-sand-50 rounded-xl p-4">{t('terms.section4.prohibited5')}</li>
               </ul>
 
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">4.3 Moderação</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section4.subtitle3')}</h3>
               <p>
-                Reservamo-nos o direito de rever, editar ou remover qualquer anúncio que viole estes Termos, sem aviso prévio e sem direito a reembolso. Os anúncios estão sujeitos a aprovação antes da publicação.
+                {t('terms.section4.paragraph1')}
               </p>
             </div>
           </section>
 
           {/* Section 5 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">5. Propriedade Intelectual</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('terms.section5.title')}</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="mb-4">
-                Todo o conteúdo da Plataforma, incluindo mas não limitado a textos, gráficos, logótipos, ícones, imagens, clips de áudio, downloads digitais e compilações de dados, é propriedade da RealEstate PT ou dos seus fornecedores de conteúdo e está protegido pelas leis portuguesas e internacionais de propriedade intelectual.
+                {t('terms.section5.paragraph1')}
               </p>
               <p className="mb-4">
-                O Utilizador que publica conteúdo na Plataforma mantém os seus direitos de propriedade intelectual, mas concede à RealEstate PT uma licença mundial, não exclusiva, isenta de royalties, para utilizar, reproduzir, modificar e exibir tal conteúdo no âmbito da prestação dos Serviços.
+                {t('terms.section5.paragraph2')}
               </p>
               <p>
-                É proibida a reprodução, distribuição, modificação ou utilização comercial de qualquer parte da Plataforma sem autorização prévia por escrito.
+                {t('terms.section5.paragraph3')}
               </p>
             </div>
           </section>
 
           {/* Section 6 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">6. Limitação de Responsabilidade</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('terms.section6.title')}</h2>
             <div className="prose max-w-none text-gray-700">
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">6.1 Natureza da Plataforma</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section6.subtitle1')}</h3>
               <p className="mb-4">
-                A Plataforma funciona como intermediário entre compradores, vendedores, agentes e agências imobiliárias. Não somos parte em qualquer transação imobiliária e não garantimos a qualidade, segurança ou legalidade dos imóveis anunciados.
+                {t('terms.section6.paragraph1')}
               </p>
 
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">6.2 Exclusão de Garantias</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section6.subtitle2')}</h3>
               <p className="mb-4">
-                Os Serviços são fornecidos "tal como estão" e "conforme disponíveis". Na máxima extensão permitida pela lei portuguesa, excluímos todas as garantias, expressas ou implícitas, incluindo garantias de comercialização, adequação a um fim específico e não violação.
+                {t('terms.section6.paragraph2')}
               </p>
 
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">6.3 Limitação de Danos</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section6.subtitle3')}</h3>
               <p>
-                Em nenhuma circunstância seremos responsáveis por danos indiretos, incidentais, especiais, consequenciais ou punitivos, incluindo perda de lucros, dados ou outras perdas intangíveis, resultantes da utilização ou impossibilidade de utilização dos Serviços.
+                {t('terms.section6.paragraph3')}
               </p>
             </div>
           </section>
 
           {/* Section 7 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">7. Indemnização</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('terms.section7.title')}</h2>
             <div className="prose max-w-none text-gray-700">
               <p>
-                O Utilizador concorda em indemnizar e isentar a RealEstate PT, os seus diretores, funcionários, parceiros e agentes de qualquer reclamação, responsabilidade, danos, perdas e despesas (incluindo honorários advocatícios razoáveis) decorrentes de: (a) violação destes Termos; (b) conteúdo publicado pelo Utilizador; (c) violação de direitos de terceiros; ou (d) qualquer atividade relacionada com a conta do Utilizador.
+                {t('terms.section7.paragraph1')}
               </p>
             </div>
           </section>
 
           {/* Section 8 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">8. Resolução de Litígios</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('terms.section8.title')}</h2>
             <div className="prose max-w-none text-gray-700">
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">8.1 Lei Aplicável</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section8.subtitle1')}</h3>
               <p className="mb-4">
-                Estes Termos são regidos e interpretados de acordo com as leis da República Portuguesa, sem consideração pelos princípios de conflito de leis.
+                {t('terms.section8.paragraph1')}
               </p>
 
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">8.2 Jurisdição</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section8.subtitle2')}</h3>
               <p className="mb-4">
-                Para qualquer litígio decorrente destes Termos ou da utilização da Plataforma, as partes submetem-se à jurisdição exclusiva dos tribunais portugueses, com competência territorial do foro de Lisboa.
+                {t('terms.section8.paragraph2')}
               </p>
 
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">8.3 Resolução Alternativa de Litígios</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section8.subtitle3')}</h3>
               <p>
-                Em conformidade com a legislação europeia e portuguesa sobre resolução alternativa de litígios de consumo, informamos que os consumidores podem recorrer a entidades de resolução alternativa de litígios. Para mais informações, consulte o Portal do Consumidor em <a href="https://www.consumidor.gov.pt" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">www.consumidor.gov.pt</a> ou a plataforma europeia de resolução de litígios em linha em <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="text-primary-600 hover:underline">ec.europa.eu/consumers/odr</a>.
+                {t('terms.section8.paragraph3')}
               </p>
             </div>
           </section>
 
           {/* Section 9 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">9. Cessação</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('terms.section9.title')}</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="mb-4">
-                Podemos suspender ou terminar o acesso do Utilizador à Plataforma, a qualquer momento e por qualquer motivo, incluindo, sem limitação, violação destes Termos. Em caso de cessação, as disposições relativas a propriedade intelectual, limitação de responsabilidade, indemnização e resolução de litígios permanecerão em vigor.
+                {t('terms.section9.paragraph1')}
               </p>
               <p>
-                O Utilizador pode encerrar a sua conta a qualquer momento através das definições da conta ou contactando o nosso serviço de apoio.
+                {t('terms.section9.paragraph2')}
               </p>
             </div>
           </section>
 
           {/* Section 10 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">10. Disposições Gerais</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('terms.section10.title')}</h2>
             <div className="prose max-w-none text-gray-700">
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">10.1 Integralidade do Acordo</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section10.subtitle1')}</h3>
               <p className="mb-4">
-                Estes Termos, juntamente com a Política de Privacidade e a Política de Cookies, constituem o acordo integral entre o Utilizador e a RealEstate PT relativamente à utilização da Plataforma.
+                {t('terms.section10.paragraph1')}
               </p>
 
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">10.2 Renúncia</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section10.subtitle2')}</h3>
               <p className="mb-4">
-                A não aplicação de qualquer disposição destes Termos não constitui renúncia ao direito de aplicá-la posteriormente.
+                {t('terms.section10.paragraph2')}
               </p>
 
-              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">10.3 Divisibilidade</h3>
+              <h3 className="text-lg font-display font-semibold text-gray-800 mt-4 mb-2">{t('terms.section10.subtitle3')}</h3>
               <p>
-                Se qualquer disposição destes Termos for considerada inválida ou inexequível, as restantes disposições continuarão em pleno vigor e efeito.
+                {t('terms.section10.paragraph3')}
               </p>
             </div>
           </section>
 
           {/* Section 11 */}
           <section className="card shadow-float rounded-2xl p-8">
-            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">11. Contactos</h2>
+            <h2 className="text-xl font-display font-bold text-gray-900 mb-4">{t('terms.section11.title')}</h2>
             <div className="prose max-w-none text-gray-700">
               <p className="mb-4">
-                Para questões relacionadas com estes Termos e Condições, por favor contacte-nos através de:
+                {t('terms.section11.intro')}
               </p>
               <div className="bg-sand-50 rounded-xl p-6">
                 <ul className="list-none space-y-2">
-                  <li><strong>Email:</strong> legal@realestate-pt.com</li>
-                  <li><strong>Morada:</strong> Lisboa, Portugal</li>
-                  <li><strong>Formulário de Contacto:</strong> <Link to="/contact" className="text-primary-600 hover:underline">Página de Contacto</Link></li>
+                  <li><strong>{t('terms.section11.email')}:</strong> legal@realestate-pt.com</li>
+                  <li><strong>{t('terms.section11.address')}:</strong> Lisboa, Portugal</li>
+                  <li><strong>{t('terms.section11.contactForm')}:</strong> <Link to="/contact" className="text-primary-600 hover:underline">{t('terms.section11.contactPage')}</Link></li>
                 </ul>
               </div>
             </div>
@@ -245,16 +247,16 @@ const Terms = () => {
 
         {/* Related Links */}
         <div className="mt-8 card shadow-float rounded-2xl p-8">
-          <h3 className="text-lg font-display font-semibold text-gray-900 mb-4">Documentos Relacionados</h3>
+          <h3 className="text-lg font-display font-semibold text-gray-900 mb-4">{t('terms.relatedDocs.title')}</h3>
           <div className="flex flex-wrap gap-4">
             <Link to="/privacy" className="text-primary-600 hover:text-primary-700 hover:underline transition-colors duration-200">
-              Política de Privacidade
+              {t('terms.relatedDocs.privacy')}
             </Link>
             <Link to="/cookies" className="text-primary-600 hover:text-primary-700 hover:underline transition-colors duration-200">
-              Política de Cookies
+              {t('terms.relatedDocs.cookies')}
             </Link>
             <Link to="/contact" className="text-primary-600 hover:text-primary-700 hover:underline transition-colors duration-200">
-              Contacto
+              {t('terms.relatedDocs.contact')}
             </Link>
           </div>
         </div>

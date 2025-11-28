@@ -1,38 +1,41 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { FaSearch, FaBuilding, FaUsers, FaChartLine, FaShieldAlt, FaStar, FaArrowRight, FaMapMarkerAlt } from 'react-icons/fa';
 
 const Home = () => {
+  const { t } = useTranslation();
+
   const stats = [
-    { number: '10K+', label: 'Imóveis', color: 'from-primary-500 to-primary-600' },
-    { number: '500+', label: 'Agentes', color: 'from-terracotta-500 to-terracotta-600' },
-    { number: '20', label: 'Distritos', color: 'from-golden-500 to-golden-600' },
-    { number: '98%', label: 'Satisfação', color: 'from-emerald-500 to-emerald-600' },
+    { number: '10K+', label: t('home.stats.properties'), color: 'from-primary-500 to-primary-600' },
+    { number: '500+', label: t('home.stats.agents'), color: 'from-terracotta-500 to-terracotta-600' },
+    { number: '20', label: t('home.stats.districts'), color: 'from-golden-500 to-golden-600' },
+    { number: '98%', label: t('home.stats.satisfaction'), color: 'from-emerald-500 to-emerald-600' },
   ];
 
   const features = [
     {
       icon: FaBuilding,
-      title: 'Milhares de Imóveis',
-      description: 'Acesso a propriedades em todos os 20 distritos de Portugal, das ilhas ao continente.',
+      title: t('home.features.thousands.title'),
+      description: t('home.features.thousands.description'),
       color: 'primary',
     },
     {
       icon: FaUsers,
-      title: 'Agentes Certificados',
-      description: 'Trabalhe com profissionais verificados e certificados pela AMI.',
+      title: t('home.features.certified.title'),
+      description: t('home.features.certified.description'),
       color: 'terracotta',
     },
     {
       icon: FaChartLine,
-      title: 'Calculadora IMT',
-      description: 'Calcule automaticamente o Imposto Municipal sobre Transmissões Onerosas.',
+      title: t('home.features.calculator.title'),
+      description: t('home.features.calculator.description'),
       color: 'golden',
     },
     {
       icon: FaShieldAlt,
-      title: 'Segurança Total',
-      description: 'Transações seguras e verificação de todas as propriedades listadas.',
+      title: t('home.features.security.title'),
+      description: t('home.features.security.description'),
       color: 'emerald',
     },
   ];
@@ -58,22 +61,21 @@ const Home = () => {
             <div className="text-center lg:text-left">
               <div className="inline-flex items-center px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full text-white/90 text-sm font-medium mb-8 border border-white/20">
                 <FaStar className="text-golden-400 mr-2" />
-                #1 Plataforma Imobiliária em Portugal
+                {t('home.hero.badge')}
               </div>
 
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
-                Encontre o Seu
+                {t('home.hero.title1')}
                 <span className="block mt-2">
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-golden-300 to-terracotta-300">
-                    Imóvel Ideal
+                    {t('home.hero.title2')}
                   </span>
                 </span>
-                em Portugal
+                {t('home.hero.title3')}
               </h1>
 
               <p className="text-xl text-primary-100 mb-10 max-w-xl mx-auto lg:mx-0">
-                A plataforma de confiança para compra, venda e arrendamento de imóveis.
-                De Lisboa ao Algarve, do Porto aos Açores.
+                {t('home.hero.subtitle')}
               </p>
 
               {/* CTA Buttons */}
@@ -83,21 +85,21 @@ const Home = () => {
                   className="group inline-flex items-center justify-center bg-white text-primary-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                 >
                   <FaSearch className="mr-2 group-hover:scale-110 transition-transform" />
-                  Procurar Imóveis
+                  {t('home.hero.searchProperties')}
                   <FaArrowRight className="ml-2 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                 </Link>
                 <Link
                   to="/register"
                   className="group inline-flex items-center justify-center bg-terracotta-500 hover:bg-terracotta-600 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
                 >
-                  Anunciar Imóvel
+                  {t('home.hero.listProperty')}
                 </Link>
               </div>
 
               {/* Quick District Links */}
               <div className="flex flex-wrap justify-center lg:justify-start gap-2">
                 <span className="text-primary-200 text-sm mr-2 flex items-center">
-                  <FaMapMarkerAlt className="mr-1" /> Popular:
+                  <FaMapMarkerAlt className="mr-1" /> {t('home.hero.popular')}:
                 </span>
                 {districts.map((district) => (
                   <Link
@@ -157,14 +159,14 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Porque Escolher a{' '}
+              {t('home.whyChoose.title')}{' '}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-terracotta-500">
                 LusitanEstate
               </span>
               ?
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Oferecemos a melhor experiência na procura do seu imóvel em Portugal
+              {t('home.whyChoose.subtitle')}
             </p>
           </div>
 
@@ -202,28 +204,28 @@ const Home = () => {
 
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6">
-            Pronto para Encontrar o Seu{' '}
+            {t('home.cta.title1')}{' '}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-golden-300 to-terracotta-300">
-              Novo Lar
+              {t('home.cta.title2')}
             </span>
             ?
           </h2>
           <p className="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
-            Junte-se a milhares de portugueses que já encontraram o imóvel dos seus sonhos.
+            {t('home.cta.subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               to="/register"
               className="inline-flex items-center justify-center bg-white text-primary-700 px-8 py-4 rounded-xl font-semibold hover:bg-gray-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
-              Criar Conta Gratuita
+              {t('home.cta.createAccount')}
               <FaArrowRight className="ml-2" />
             </Link>
             <Link
               to="/properties"
               className="inline-flex items-center justify-center bg-transparent border-2 border-white/50 hover:border-white text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:-translate-y-0.5"
             >
-              Ver Todos os Imóveis
+              {t('home.cta.viewAll')}
             </Link>
           </div>
         </div>
@@ -233,18 +235,18 @@ const Home = () => {
       <section className="py-12 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center items-center gap-8 text-gray-400">
-            <span className="text-sm font-medium">De Confiança por:</span>
+            <span className="text-sm font-medium">{t('home.trust.trustedBy')}:</span>
             <div className="flex items-center space-x-2">
               <FaShieldAlt className="text-primary-500" />
-              <span className="text-gray-600 font-medium">AMI Certificado</span>
+              <span className="text-gray-600 font-medium">{t('home.trust.certified')}</span>
             </div>
             <div className="flex items-center space-x-2">
               <FaStar className="text-golden-500" />
-              <span className="text-gray-600 font-medium">4.9/5 Avaliação</span>
+              <span className="text-gray-600 font-medium">{t('home.trust.rating')}</span>
             </div>
             <div className="flex items-center space-x-2">
               <FaUsers className="text-terracotta-500" />
-              <span className="text-gray-600 font-medium">+50.000 Utilizadores</span>
+              <span className="text-gray-600 font-medium">{t('home.trust.users')}</span>
             </div>
           </div>
         </div>

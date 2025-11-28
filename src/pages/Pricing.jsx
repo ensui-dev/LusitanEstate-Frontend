@@ -1,70 +1,72 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { FaCheck, FaTimes, FaStar, FaRocket, FaBuilding, FaArrowRight, FaChevronDown } from 'react-icons/fa';
 
 const Pricing = () => {
+  const { t } = useTranslation();
   const [openFaq, setOpenFaq] = useState(null);
 
   const plans = [
     {
-      name: 'Básico',
-      subtitle: 'Para particulares',
-      price: 'Grátis',
-      period: '',
-      description: 'Ideal para quem quer vender ou arrendar um imóvel ocasionalmente.',
+      name: t('pricing.plans.basic.name'),
+      subtitle: t('pricing.plans.basic.subtitle'),
+      price: t('pricing.plans.basic.price'),
+      period: t('pricing.plans.basic.period'),
+      description: t('pricing.plans.basic.description'),
       features: [
-        { text: 'Até 2 anúncios ativos', included: true },
-        { text: '5 fotografias por anúncio', included: true },
-        { text: 'Listagem básica', included: true },
-        { text: 'Contacto direto com interessados', included: true },
-        { text: 'Suporte por email', included: true },
-        { text: 'Destaque na pesquisa', included: false },
-        { text: 'Estatísticas avançadas', included: false },
-        { text: 'Selo de verificação', included: false },
+        { text: t('pricing.plans.basic.features.listings'), included: true },
+        { text: t('pricing.plans.basic.features.photos'), included: true },
+        { text: t('pricing.plans.basic.features.basicListing'), included: true },
+        { text: t('pricing.plans.basic.features.directContact'), included: true },
+        { text: t('pricing.plans.basic.features.emailSupport'), included: true },
+        { text: t('pricing.plans.basic.features.searchHighlight'), included: false },
+        { text: t('pricing.plans.basic.features.advancedStats'), included: false },
+        { text: t('pricing.plans.basic.features.verificationBadge'), included: false },
       ],
-      cta: 'Começar Grátis',
+      cta: t('pricing.plans.basic.cta'),
       ctaLink: '/register?role=seller',
       popular: false,
       icon: FaStar,
     },
     {
-      name: 'Profissional',
-      subtitle: 'Para agentes imobiliários',
+      name: t('pricing.plans.professional.name'),
+      subtitle: t('pricing.plans.professional.subtitle'),
       price: '29',
-      period: '/mês',
-      description: 'Ferramentas profissionais para agentes licenciados AMI.',
+      period: t('pricing.plans.professional.period'),
+      description: t('pricing.plans.professional.description'),
       features: [
-        { text: 'Anúncios ilimitados', included: true },
-        { text: '20 fotografias por anúncio', included: true },
-        { text: 'Listagem prioritária', included: true },
-        { text: 'Perfil de agente verificado', included: true },
-        { text: 'Estatísticas detalhadas', included: true },
-        { text: 'Destaque na pesquisa', included: true },
-        { text: 'Suporte prioritário', included: true },
-        { text: 'CRM básico integrado', included: true },
+        { text: t('pricing.plans.professional.features.unlimitedListings'), included: true },
+        { text: t('pricing.plans.professional.features.photos'), included: true },
+        { text: t('pricing.plans.professional.features.priorityListing'), included: true },
+        { text: t('pricing.plans.professional.features.verifiedProfile'), included: true },
+        { text: t('pricing.plans.professional.features.detailedStats'), included: true },
+        { text: t('pricing.plans.professional.features.searchHighlight'), included: true },
+        { text: t('pricing.plans.professional.features.prioritySupport'), included: true },
+        { text: t('pricing.plans.professional.features.basicCRM'), included: true },
       ],
-      cta: 'Começar Teste Grátis',
+      cta: t('pricing.plans.professional.cta'),
       ctaLink: '/register?role=agent',
       popular: true,
       icon: FaRocket,
     },
     {
-      name: 'Empresarial',
-      subtitle: 'Para agências',
-      price: 'Personalizado',
+      name: t('pricing.plans.enterprise.name'),
+      subtitle: t('pricing.plans.enterprise.subtitle'),
+      price: t('pricing.plans.enterprise.price'),
       period: '',
-      description: 'Soluções completas para agências e promotoras imobiliárias.',
+      description: t('pricing.plans.enterprise.description'),
       features: [
-        { text: 'Tudo do plano Profissional', included: true },
-        { text: 'Gestão de equipas', included: true },
-        { text: 'Marca personalizada', included: true },
-        { text: 'API de integração', included: true },
-        { text: 'Relatórios avançados', included: true },
-        { text: 'Account manager dedicado', included: true },
-        { text: 'Formação da equipa', included: true },
-        { text: 'SLA garantido', included: true },
+        { text: t('pricing.plans.enterprise.features.everything'), included: true },
+        { text: t('pricing.plans.enterprise.features.teamManagement'), included: true },
+        { text: t('pricing.plans.enterprise.features.customBranding'), included: true },
+        { text: t('pricing.plans.enterprise.features.integrationAPI'), included: true },
+        { text: t('pricing.plans.enterprise.features.advancedReports'), included: true },
+        { text: t('pricing.plans.enterprise.features.dedicatedManager'), included: true },
+        { text: t('pricing.plans.enterprise.features.teamTraining'), included: true },
+        { text: t('pricing.plans.enterprise.features.guaranteedSLA'), included: true },
       ],
-      cta: 'Contactar Vendas',
+      cta: t('pricing.plans.enterprise.cta'),
       ctaLink: '/contact',
       popular: false,
       icon: FaBuilding,
@@ -73,28 +75,28 @@ const Pricing = () => {
 
   const faqs = [
     {
-      question: 'Posso experimentar antes de pagar?',
-      answer: 'Sim! O plano Profissional inclui um período de teste gratuito de 14 dias, sem necessidade de cartão de crédito.'
+      question: t('pricing.faq.question1'),
+      answer: t('pricing.faq.answer1')
     },
     {
-      question: 'Posso mudar de plano a qualquer momento?',
-      answer: 'Absolutamente. Pode fazer upgrade ou downgrade do seu plano a qualquer momento. As alterações são aplicadas no próximo ciclo de faturação.'
+      question: t('pricing.faq.question2'),
+      answer: t('pricing.faq.answer2')
     },
     {
-      question: 'Quais são os métodos de pagamento aceites?',
-      answer: 'Aceitamos cartões de crédito/débito (Visa, Mastercard), MB Way, transferência bancária e débito direto SEPA.'
+      question: t('pricing.faq.question3'),
+      answer: t('pricing.faq.answer3')
     },
     {
-      question: 'Existe compromisso de permanência?',
-      answer: 'Não. Todos os nossos planos são mensais e pode cancelar a qualquer momento sem penalizações.'
+      question: t('pricing.faq.question4'),
+      answer: t('pricing.faq.answer4')
     },
     {
-      question: 'Os preços incluem IVA?',
-      answer: 'Os preços apresentados não incluem IVA. Para clientes empresariais em Portugal, será acrescido IVA à taxa legal em vigor (23%).'
+      question: t('pricing.faq.question5'),
+      answer: t('pricing.faq.answer5')
     },
     {
-      question: 'Preciso de licença AMI para o plano Profissional?',
-      answer: 'Sim, o plano Profissional é destinado a agentes imobiliários licenciados. Verificamos o número de licença AMI durante o registo.'
+      question: t('pricing.faq.question6'),
+      answer: t('pricing.faq.answer6')
     },
   ];
 
@@ -111,11 +113,10 @@ const Pricing = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            Planos e Preços
+            {t('pricing.hero.title')}
           </h1>
           <p className="text-xl text-primary-100 max-w-2xl mx-auto">
-            Escolha o plano ideal para as suas necessidades.
-            Sem surpresas, sem custos ocultos.
+            {t('pricing.hero.subtitle')}
           </p>
         </div>
       </div>
@@ -129,10 +130,10 @@ const Pricing = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="section-title">
-              Planos Para Cada Necessidade
+              {t('pricing.sections.plansTitle')}
             </h2>
             <p className="section-subtitle">
-              Desde particulares a grandes agências, temos a solução certa para si
+              {t('pricing.sections.plansSubtitle')}
             </p>
           </div>
 
@@ -148,7 +149,7 @@ const Pricing = () => {
               >
                 {plan.popular && (
                   <div className="bg-gradient-to-r from-terracotta-500 to-terracotta-600 text-white text-center py-2 text-sm font-semibold">
-                    Mais Popular
+                    {t('pricing.plans.professional.popular')}
                   </div>
                 )}
                 <div className="p-8">
@@ -168,7 +169,7 @@ const Pricing = () => {
 
                   <div className="mb-6">
                     <span className={`text-4xl font-bold ${plan.popular ? 'text-terracotta-600' : 'text-gray-900'}`}>
-                      {plan.price === 'Grátis' || plan.price === 'Personalizado'
+                      {plan.price === t('pricing.plans.basic.price') || plan.price === t('pricing.plans.enterprise.price')
                         ? plan.price
                         : `€${plan.price}`}
                     </span>
@@ -224,10 +225,10 @@ const Pricing = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="section-title">
-              Comparação Detalhada
+              {t('pricing.comparison.title')}
             </h2>
             <p className="section-subtitle">
-              Veja em detalhe o que cada plano oferece
+              {t('pricing.comparison.subtitle')}
             </p>
           </div>
 
@@ -235,26 +236,26 @@ const Pricing = () => {
             <table className="w-full bg-white">
               <thead>
                 <tr className="bg-gradient-to-r from-primary-600 to-primary-700">
-                  <th className="py-5 px-6 text-left text-white font-medium">Funcionalidade</th>
-                  <th className="py-5 px-6 text-center text-white font-semibold">Básico</th>
-                  <th className="py-5 px-6 text-center font-semibold bg-terracotta-500 text-white">Profissional</th>
-                  <th className="py-5 px-6 text-center text-white font-semibold">Empresarial</th>
+                  <th className="py-5 px-6 text-left text-white font-medium">{t('pricing.comparison.feature')}</th>
+                  <th className="py-5 px-6 text-center text-white font-semibold">{t('pricing.plans.basic.name')}</th>
+                  <th className="py-5 px-6 text-center font-semibold bg-terracotta-500 text-white">{t('pricing.plans.professional.name')}</th>
+                  <th className="py-5 px-6 text-center text-white font-semibold">{t('pricing.plans.enterprise.name')}</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  { feature: 'Número de anúncios', basic: '2', pro: 'Ilimitado', enterprise: 'Ilimitado' },
-                  { feature: 'Fotografias por anúncio', basic: '5', pro: '20', enterprise: 'Ilimitado' },
-                  { feature: 'Vídeos', basic: '-', pro: '1 por anúncio', enterprise: 'Ilimitado' },
-                  { feature: 'Visitas virtuais 360', basic: '-', pro: 'Sim', enterprise: 'Sim' },
-                  { feature: 'Destaque na pesquisa', basic: '-', pro: 'Sim', enterprise: 'Premium' },
-                  { feature: 'Estatísticas', basic: 'Básicas', pro: 'Detalhadas', enterprise: 'Avançadas + API' },
-                  { feature: 'Selo de verificação', basic: '-', pro: 'Agente AMI', enterprise: 'Agência' },
-                  { feature: 'Suporte', basic: 'Email', pro: 'Prioritário', enterprise: 'Dedicado 24/7' },
-                  { feature: 'CRM integrado', basic: '-', pro: 'Básico', enterprise: 'Completo' },
-                  { feature: 'Gestão de equipa', basic: '-', pro: '-', enterprise: 'Sim' },
-                  { feature: 'API de integração', basic: '-', pro: '-', enterprise: 'Sim' },
-                  { feature: 'White-label', basic: '-', pro: '-', enterprise: 'Sim' },
+                  { feature: t('pricing.comparison.rows.listings'), basic: '2', pro: t('pricing.comparison.unlimited'), enterprise: t('pricing.comparison.unlimited') },
+                  { feature: t('pricing.comparison.rows.photos'), basic: '5', pro: '20', enterprise: t('pricing.comparison.unlimited') },
+                  { feature: t('pricing.comparison.rows.videos'), basic: '-', pro: t('pricing.comparison.rows.videoPerListing'), enterprise: t('pricing.comparison.unlimited') },
+                  { feature: t('pricing.comparison.rows.virtualTours'), basic: '-', pro: t('pricing.comparison.yes'), enterprise: t('pricing.comparison.yes') },
+                  { feature: t('pricing.comparison.rows.searchHighlight'), basic: '-', pro: t('pricing.comparison.yes'), enterprise: t('pricing.comparison.premium') },
+                  { feature: t('pricing.comparison.rows.statistics'), basic: t('pricing.comparison.basic'), pro: t('pricing.comparison.detailed'), enterprise: t('pricing.comparison.rows.advancedAPI') },
+                  { feature: t('pricing.comparison.rows.verificationBadge'), basic: '-', pro: t('pricing.comparison.rows.amiAgent'), enterprise: t('pricing.comparison.rows.agency') },
+                  { feature: t('pricing.comparison.rows.support'), basic: 'Email', pro: t('pricing.comparison.rows.priority'), enterprise: t('pricing.comparison.rows.dedicated247') },
+                  { feature: t('pricing.comparison.rows.integratedCRM'), basic: '-', pro: t('pricing.comparison.basic'), enterprise: t('pricing.comparison.rows.complete') },
+                  { feature: t('pricing.comparison.rows.teamManagement'), basic: '-', pro: '-', enterprise: t('pricing.comparison.yes') },
+                  { feature: t('pricing.comparison.rows.integrationAPI'), basic: '-', pro: '-', enterprise: t('pricing.comparison.yes') },
+                  { feature: t('pricing.comparison.rows.whiteLabel'), basic: '-', pro: '-', enterprise: t('pricing.comparison.yes') },
                 ].map((row, index) => (
                   <tr key={index} className={`border-b border-gray-100 ${index % 2 === 0 ? 'bg-sand-50/50' : 'bg-white'} hover:bg-primary-50/50 transition-colors`}>
                     <td className="py-4 px-6 text-gray-700 font-medium">{row.feature}</td>
@@ -263,11 +264,11 @@ const Pricing = () => {
                     </td>
                     <td className="py-4 px-6 text-center text-gray-900 bg-terracotta-50/50">
                       {row.pro === '-' ? <FaTimes className="text-gray-300 mx-auto" /> :
-                       row.pro === 'Sim' ? <FaCheck className="text-terracotta-500 mx-auto" /> : row.pro}
+                       row.pro === t('pricing.comparison.yes') ? <FaCheck className="text-terracotta-500 mx-auto" /> : row.pro}
                     </td>
                     <td className="py-4 px-6 text-center text-gray-600">
                       {row.enterprise === '-' ? <FaTimes className="text-gray-300 mx-auto" /> :
-                       row.enterprise === 'Sim' ? <FaCheck className="text-green-500 mx-auto" /> : row.enterprise}
+                       row.enterprise === t('pricing.comparison.yes') ? <FaCheck className="text-green-500 mx-auto" /> : row.enterprise}
                     </td>
                   </tr>
                 ))}
@@ -282,10 +283,10 @@ const Pricing = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="section-title">
-              Perguntas Frequentes
+              {t('pricing.faq.title')}
             </h2>
             <p className="section-subtitle">
-              Tem dúvidas? Encontre as respostas abaixo
+              {t('pricing.faq.subtitle')}
             </p>
           </div>
 
@@ -334,23 +335,23 @@ const Pricing = () => {
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ainda tem dúvidas?
+            {t('pricing.cta.stillHaveQuestions')}
           </h2>
           <p className="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
-            A nossa equipa está disponível para ajudar a encontrar a melhor solução para si.
+            {t('pricing.cta.teamAvailable')}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               to="/contact"
               className="bg-white text-primary-600 px-8 py-4 rounded-xl font-semibold hover:bg-sand-50 transition-all duration-300 shadow-lg hover:shadow-xl inline-flex items-center justify-center"
             >
-              Falar com a Equipa
+              {t('pricing.cta.talkToTeam')}
             </Link>
             <Link
               to="/register"
               className="bg-terracotta-500 text-white px-8 py-4 rounded-xl font-semibold hover:bg-terracotta-600 transition-all duration-300 shadow-lg shadow-terracotta-500/25 hover:shadow-xl inline-flex items-center justify-center"
             >
-              Comecar Agora <FaArrowRight className="ml-2" />
+              {t('pricing.cta.startNow')} <FaArrowRight className="ml-2" />
             </Link>
           </div>
         </div>
@@ -361,10 +362,10 @@ const Pricing = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-wrap justify-center items-center gap-8">
             {[
-              'Pagamento Seguro',
-              'Cancelamento Fácil',
-              'Sem Compromisso',
-              'Suporte em Português'
+              t('pricing.trustBadges.securePayment'),
+              t('pricing.trustBadges.easyCancellation'),
+              t('pricing.trustBadges.noCommitment'),
+              t('pricing.trustBadges.portugueseSupport')
             ].map((badge, index) => (
               <div key={index} className="flex items-center bg-sand-50 px-4 py-2 rounded-full">
                 <div className="bg-green-100 p-1 rounded-full mr-2">

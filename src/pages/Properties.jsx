@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useProperties } from '../hooks/useProperties';
 import PropertyCard from '../components/property/PropertyCard';
 import Loading from '../components/common/Loading';
@@ -7,6 +8,7 @@ import { PROPERTY_TYPES } from '../utils/constants';
 import { FaHome, FaFilter, FaTimes } from 'react-icons/fa';
 
 const Properties = () => {
+  const { t } = useTranslation();
   const [filters, setFilters] = useState({
     district: '',
     propertyType: '',
@@ -40,7 +42,7 @@ const Properties = () => {
   const hasActiveFilters = filters.district || filters.propertyType || filters.minPrice || filters.maxPrice || filters.bedrooms;
 
   if (isLoading) return <Loading fullScreen />;
-  if (error) return <div className="text-center py-12 pt-28 text-red-600">Erro ao carregar imóveis</div>;
+  if (error) return <div className="text-center py-12 pt-28 text-red-600">{t('properties.error')}</div>;
 
   const properties = data?.data || [];
   const total = data?.total || 0;
@@ -50,9 +52,9 @@ const Properties = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-2">Imóveis em Portugal</h1>
+          <h1 className="text-4xl font-bold text-gray-900 mb-2">{t('properties.title')}</h1>
           <p className="text-gray-600 text-lg">
-            <span className="font-semibold text-primary-600">{total}</span> imóveis encontrados
+            <span className="font-semibold text-primary-600">{total}</span> {t('properties.propertiesFound')}
           </p>
         </div>
 
@@ -61,7 +63,7 @@ const Properties = () => {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2 text-gray-700">
               <FaFilter className="text-primary-600" />
-              <span className="font-semibold">Filtros</span>
+              <span className="font-semibold">{t('properties.filters.title')}</span>
             </div>
             {hasActiveFilters && (
               <button
@@ -69,7 +71,7 @@ const Properties = () => {
                 className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 transition-colors"
               >
                 <FaTimes />
-                Limpar Filtros
+                {t('properties.filters.clear')}
               </button>
             )}
           </div>
@@ -77,7 +79,7 @@ const Properties = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Distrito
+                {t('properties.filters.district')}
               </label>
               <select
                 name="district"
@@ -85,7 +87,7 @@ const Properties = () => {
                 onChange={handleFilterChange}
                 className="input-field"
               >
-                <option value="">Todos</option>
+                <option value="">{t('properties.filters.all')}</option>
                 {PORTUGUESE_DISTRICTS.map(district => (
                   <option key={district} value={district}>{district}</option>
                 ))}
@@ -94,7 +96,7 @@ const Properties = () => {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Tipo
+                {t('properties.filters.type')}
               </label>
               <select
                 name="propertyType"
@@ -102,7 +104,7 @@ const Properties = () => {
                 onChange={handleFilterChange}
                 className="input-field"
               >
-                <option value="">Todos</option>
+                <option value="">{t('properties.filters.all')}</option>
                 {PROPERTY_TYPES.map(type => (
                   <option key={type.value} value={type.value}>{type.label}</option>
                 ))}
@@ -111,7 +113,7 @@ const Properties = () => {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Preço Mínimo
+                {t('properties.filters.minPrice')}
               </label>
               <input
                 type="number"
@@ -125,21 +127,21 @@ const Properties = () => {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Preço Máximo
+                {t('properties.filters.maxPrice')}
               </label>
               <input
                 type="number"
                 name="maxPrice"
                 value={filters.maxPrice}
                 onChange={handleFilterChange}
-                placeholder="Sem limite"
+                placeholder={t('properties.filters.noLimit')}
                 className="input-field"
               />
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Quartos
+                {t('properties.filters.bedrooms')}
               </label>
               <select
                 name="bedrooms"
@@ -147,7 +149,7 @@ const Properties = () => {
                 onChange={handleFilterChange}
                 className="input-field"
               >
-                <option value="">Qualquer</option>
+                <option value="">{t('properties.filters.any')}</option>
                 <option value="1">1+</option>
                 <option value="2">2+</option>
                 <option value="3">3+</option>
@@ -161,7 +163,7 @@ const Properties = () => {
               onClick={clearFilters}
               className="btn-secondary"
             >
-              Limpar Filtros
+              {t('properties.filters.clear')}
             </button>
           </div>
         </div>
@@ -184,17 +186,17 @@ const Properties = () => {
                     disabled={filters.page === 1}
                     className="btn-secondary px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Anterior
+                    {t('properties.pagination.previous')}
                   </button>
                   <span className="px-4 text-gray-600">
-                    Página <span className="font-semibold text-primary-600">{filters.page}</span> de {data.totalPages}
+                    {t('properties.pagination.page')} <span className="font-semibold text-primary-600">{filters.page}</span> {t('properties.pagination.of')} {data.totalPages}
                   </span>
                   <button
                     onClick={() => setFilters(prev => ({ ...prev, page: Math.min(data.totalPages, prev.page + 1) }))}
                     disabled={filters.page === data.totalPages}
                     className="btn-primary px-4 py-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Proxima
+                    {t('properties.pagination.next')}
                   </button>
                 </div>
               </div>
@@ -203,13 +205,13 @@ const Properties = () => {
         ) : (
           <div className="card rounded-2xl text-center py-16">
             <FaHome className="text-6xl text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-600 text-lg mb-2">Nenhum imóvel encontrado</p>
-            <p className="text-gray-500">Tente ajustar os filtros selecionados</p>
+            <p className="text-gray-600 text-lg mb-2">{t('properties.empty.title')}</p>
+            <p className="text-gray-500">{t('properties.empty.subtitle')}</p>
             <button
               onClick={clearFilters}
               className="btn-primary mt-6"
             >
-              Limpar Filtros
+              {t('properties.filters.clear')}
             </button>
           </div>
         )}

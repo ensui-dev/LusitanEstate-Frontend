@@ -2,12 +2,15 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { AuthProvider } from './context/AuthContext';
+import { LanguageProvider, useLanguage } from './context/LanguageContext';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './i18n/config';
 
 // Layout components
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
+import FloatingLanguageSelector from './components/common/FloatingLanguageSelector';
 
 // Pages
 import Home from './pages/Home';
@@ -52,55 +55,72 @@ const queryClient = new QueryClient({
   },
 });
 
+// Routes component that re-renders when language changes
+const AppRoutes = () => {
+  const { currentLanguage } = useLanguage(); // This will trigger re-render when language changes
+
+
+  return (
+    <Routes key={currentLanguage}> {/* Key forces remount on language change */}
+      {/* Public routes */}
+      <Route path="/" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/verify-email" element={<VerifyEmail />} />
+      <Route path="/check-email" element={<CheckEmail />} />
+      <Route path="/properties" element={<Properties />} />
+      <Route path="/properties/:id" element={<PropertyDetail />} />
+      <Route path="/agents" element={<Agents />} />
+      <Route path="/agencies" element={<Agencies />} />
+
+      {/* Static pages */}
+      <Route path="/about" element={<About />} />
+      <Route path="/contact" element={<Contact />} />
+      <Route path="/pricing" element={<Pricing />} />
+      <Route path="/terms" element={<Terms />} />
+      <Route path="/privacy" element={<Privacy />} />
+      <Route path="/cookies" element={<Cookies />} />
+
+      {/* Protected routes */}
+      <Route element={<PrivateRoute />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/properties/add" element={<AddProperty />} />
+      </Route>
+
+      {/* Admin routes */}
+      <Route element={<AdminRoute />}>
+        <Route path="/admin" element={<AdminDashboard />} />
+        <Route path="/admin/dashboard" element={<AdminDashboard />} />
+        <Route path="/admin/properties" element={<AdminProperties />} />
+        <Route path="/admin/users" element={<AdminUsers />} />
+        <Route path="/admin/inquiries" element={<AdminInquiries />} />
+      </Route>
+
+      {/* 404 */}
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+};
+
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
-        <Router>
-          <div className="flex flex-col min-h-screen">
-            <Navbar />
-            <main className="flex-grow">
-              <Routes>
-                {/* Public routes */}
-                <Route path="/" element={<Home />} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/register" element={<Register />} />
-                <Route path="/verify-email" element={<VerifyEmail />} />
-                <Route path="/check-email" element={<CheckEmail />} />
-                <Route path="/properties" element={<Properties />} />
-                <Route path="/properties/:id" element={<PropertyDetail />} />
-                <Route path="/agents" element={<Agents />} />
-                <Route path="/agencies" element={<Agencies />} />
-
-                {/* Static pages */}
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/pricing" element={<Pricing />} />
-                <Route path="/terms" element={<Terms />} />
-                <Route path="/privacy" element={<Privacy />} />
-                <Route path="/cookies" element={<Cookies />} />
-
-                {/* Protected routes */}
-                <Route element={<PrivateRoute />}>
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/properties/add" element={<AddProperty />} />
-                </Route>
-
-                {/* Admin routes */}
-                <Route element={<AdminRoute />}>
-                  <Route path="/admin" element={<AdminDashboard />} />
-                  <Route path="/admin/dashboard" element={<AdminDashboard />} />
-                  <Route path="/admin/properties" element={<AdminProperties />} />
-                  <Route path="/admin/users" element={<AdminUsers />} />
-                  <Route path="/admin/inquiries" element={<AdminInquiries />} />
-                </Route>
-
-                {/* 404 */}
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </main>
-            <Footer />
-          </div>
+        <LanguageProvider>
+          <Router
+            future={{
+              v7_startTransition: true,
+              v7_relativeSplatPath: true
+            }}
+          >
+            <div className="flex flex-col min-h-screen">
+              <FloatingLanguageSelector />
+              <Navbar />
+              <main className="flex-grow">
+                <AppRoutes />
+              </main>
+              <Footer />
+            </div>
           <ToastContainer
             position="top-right"
             autoClose={3000}
@@ -112,7 +132,8 @@ function App() {
             draggable
             pauseOnHover
           />
-        </Router>
+          </Router>
+        </LanguageProvider>
       </AuthProvider>
     </QueryClientProvider>
   );

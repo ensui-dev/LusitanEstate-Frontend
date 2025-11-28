@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { useProperty } from '../hooks/useProperties';
 import { useAuth } from '../context/AuthContext';
 import Loading from '../components/common/Loading';
@@ -26,6 +27,7 @@ import { getPropertyStatusLabel, getPropertyStatusBadge } from '../utils/helpers
 import clsx from 'clsx';
 
 const PropertyDetail = () => {
+  const { t } = useTranslation();
   const { id } = useParams();
   const navigate = useNavigate();
   const { user } = useAuth();
@@ -40,10 +42,10 @@ const PropertyDetail = () => {
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="card rounded-2xl py-16">
             <FaHome className="text-6xl text-gray-300 mx-auto mb-4" />
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Imóvel nao encontrado</h2>
-            <p className="text-gray-600 mb-6">O imóvel que procura nao existe ou foi removido.</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('propertyDetail.notFound.title')}</h2>
+            <p className="text-gray-600 mb-6">{t('propertyDetail.notFound.message')}</p>
             <button onClick={() => navigate('/properties')} className="btn-primary">
-              Voltar para Imoveis
+              {t('propertyDetail.notFound.backButton')}
             </button>
           </div>
         </div>
@@ -69,7 +71,7 @@ const PropertyDetail = () => {
           className="flex items-center text-gray-600 hover:text-primary-600 mb-6 transition-colors group"
         >
           <FaArrowLeft className="mr-2 group-hover:-translate-x-1 transition-transform" />
-          Voltar
+          {t('propertyDetail.buttons.back')}
         </button>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
@@ -93,7 +95,7 @@ const PropertyDetail = () => {
                 {/* Featured Badge */}
                 {property.isFeatured && (
                   <div className="absolute top-4 right-4">
-                    <span className="badge bg-gradient-to-r from-amber-500 to-yellow-500 text-white">Destaque</span>
+                    <span className="badge bg-gradient-to-r from-amber-500 to-yellow-500 text-white">{t('propertyDetail.featured')}</span>
                   </div>
                 )}
               </div>
@@ -152,21 +154,21 @@ const PropertyDetail = () => {
                 {property.bedrooms > 0 && (
                   <div className="text-center p-4 bg-sand-50 rounded-xl">
                     <FaBed className="text-2xl text-primary-600 mx-auto mb-2" />
-                    <div className="text-sm text-gray-500">Quartos</div>
+                    <div className="text-sm text-gray-500">{t('propertyDetail.details.bedrooms')}</div>
                     <div className="text-xl font-bold text-gray-900">{property.bedrooms}</div>
                   </div>
                 )}
                 {property.bathrooms > 0 && (
                   <div className="text-center p-4 bg-sand-50 rounded-xl">
                     <FaBath className="text-2xl text-primary-600 mx-auto mb-2" />
-                    <div className="text-sm text-gray-500">Casas de Banho</div>
+                    <div className="text-sm text-gray-500">{t('propertyDetail.details.bathrooms')}</div>
                     <div className="text-xl font-bold text-gray-900">{property.bathrooms}</div>
                   </div>
                 )}
                 {property.squareMeters && (
                   <div className="text-center p-4 bg-sand-50 rounded-xl">
                     <FaRuler className="text-2xl text-primary-600 mx-auto mb-2" />
-                    <div className="text-sm text-gray-500">Area</div>
+                    <div className="text-sm text-gray-500">{t('propertyDetail.details.area')}</div>
                     <div className="text-xl font-bold text-gray-900">{property.squareMeters}m2</div>
                   </div>
                 )}
@@ -178,8 +180,7 @@ const PropertyDetail = () => {
                     )}>
                       {property.energyCertificate.rating}
                     </div>
-                    <div className="text-sm text-gray-500">Certificado</div>
-                    <div className="text-xs text-gray-400">Energetico</div>
+                    <div className="text-sm text-gray-500">{t('propertyDetail.details.energyCertificate')}</div>
                   </div>
                 )}
               </div>
@@ -188,46 +189,46 @@ const PropertyDetail = () => {
               <div className="mt-6">
                 <h2 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
                   <FaInfoCircle className="text-primary-600" />
-                  Descrição
+                  {t('propertyDetail.sections.description')}
                 </h2>
                 <p className="text-gray-700 whitespace-pre-line leading-relaxed">{property.description}</p>
               </div>
 
               {/* Property Details */}
               <div className="mt-8">
-                <h2 className="text-xl font-bold text-gray-900 mb-4">Detalhes do Imóvel</h2>
+                <h2 className="text-xl font-bold text-gray-900 mb-4">{t('propertyDetail.sections.propertyDetails')}</h2>
                 <div className="grid grid-cols-2 gap-4">
                   <div className="flex justify-between p-3 bg-sand-50 rounded-xl">
-                    <span className="text-gray-600">Tipo:</span>
+                    <span className="text-gray-600">{t('propertyDetail.propertyInfo.type')}</span>
                     <span className="font-semibold capitalize text-gray-900">{property.propertyType?.replace('_', ' ')}</span>
                   </div>
                   {property.yearBuilt && (
                     <div className="flex justify-between p-3 bg-sand-50 rounded-xl">
-                      <span className="text-gray-600">Ano de Construção:</span>
+                      <span className="text-gray-600">{t('propertyDetail.propertyInfo.yearBuilt')}</span>
                       <span className="font-semibold text-gray-900">{property.yearBuilt}</span>
                     </div>
                   )}
                   {property.lotSize && (
                     <div className="flex justify-between p-3 bg-sand-50 rounded-xl">
-                      <span className="text-gray-600">Tamanho do Lote:</span>
+                      <span className="text-gray-600">{t('propertyDetail.propertyInfo.lotSize')}</span>
                       <span className="font-semibold text-gray-900">{property.lotSize}m2</span>
                     </div>
                   )}
                   {property.parking && (
                     <div className="flex justify-between p-3 bg-sand-50 rounded-xl">
-                      <span className="text-gray-600">Estacionamento:</span>
-                      <span className="font-semibold text-gray-900">{property.parking} {property.parking === 1 ? 'vaga' : 'vagas'}</span>
+                      <span className="text-gray-600">{t('propertyDetail.propertyInfo.parking')}</span>
+                      <span className="font-semibold text-gray-900">{property.parking}</span>
                     </div>
                   )}
                   {property.floors && (
                     <div className="flex justify-between p-3 bg-sand-50 rounded-xl">
-                      <span className="text-gray-600">Pisos:</span>
+                      <span className="text-gray-600">{t('propertyDetail.propertyInfo.floors')}</span>
                       <span className="font-semibold text-gray-900">{property.floors}</span>
                     </div>
                   )}
                   {property.condition && (
                     <div className="flex justify-between p-3 bg-sand-50 rounded-xl">
-                      <span className="text-gray-600">Condição:</span>
+                      <span className="text-gray-600">{t('propertyDetail.propertyInfo.condition')}</span>
                       <span className="font-semibold capitalize text-gray-900">{property.condition}</span>
                     </div>
                   )}
@@ -237,7 +238,7 @@ const PropertyDetail = () => {
               {/* Features */}
               {property.features && property.features.length > 0 && (
                 <div className="mt-8">
-                  <h2 className="text-xl font-bold text-gray-900 mb-4">Características</h2>
+                  <h2 className="text-xl font-bold text-gray-900 mb-4">{t('propertyDetail.sections.features')}</h2>
                   <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
                     {property.features.map((feature, index) => (
                       <div key={index} className="flex items-center text-gray-700 p-3 bg-sand-50 rounded-xl">
@@ -283,7 +284,7 @@ const PropertyDetail = () => {
             <div className="card rounded-2xl sticky top-28">
               <h3 className="text-xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                 <FaPhone className="text-primary-600" />
-                Contacto
+                {t('propertyDetail.contact.title')}
               </h3>
 
               {/* Agent Info */}
@@ -294,8 +295,8 @@ const PropertyDetail = () => {
                       <FaUser className="text-white text-lg" />
                     </div>
                     <div>
-                      <div className="text-sm text-gray-500">Agente</div>
-                      <div className="font-semibold text-gray-900">{property.agent.user?.name || 'Agente'}</div>
+                      <div className="text-sm text-gray-500">{t('propertyDetail.contact.agent')}</div>
+                      <div className="font-semibold text-gray-900">{property.agent.user?.name || t('propertyDetail.contact.agent')}</div>
                     </div>
                   </div>
                   {property.agent.agency && (
@@ -304,7 +305,7 @@ const PropertyDetail = () => {
                         <FaBuilding className="text-gray-600 text-lg" />
                       </div>
                       <div>
-                        <div className="text-sm text-gray-500">Agencia</div>
+                        <div className="text-sm text-gray-500">{t('propertyDetail.contact.agency')}</div>
                         <div className="font-semibold text-gray-900">{property.agent.agency.name}</div>
                         {property.agent.agency.licenseNumber && (
                           <div className="text-xs text-gray-400">AMI: {property.agent.agency.licenseNumber}</div>
@@ -323,7 +324,7 @@ const PropertyDetail = () => {
                     className="btn-primary w-full flex items-center justify-center gap-2"
                   >
                     <FaPhone />
-                    Ligar Agora
+                    {t('propertyDetail.buttons.callNow')}
                   </a>
                 )}
                 {property.agent?.user?.email && (
@@ -332,12 +333,12 @@ const PropertyDetail = () => {
                     className="btn-secondary w-full flex items-center justify-center gap-2"
                   >
                     <FaEnvelope />
-                    Enviar Email
+                    {t('propertyDetail.buttons.sendEmail')}
                   </a>
                 )}
                 <button className="btn-secondary w-full flex items-center justify-center gap-2 hover:bg-red-50 hover:text-red-500 hover:border-red-200">
                   <FaHeart />
-                  Adicionar aos Favoritos
+                  {t('propertyDetail.buttons.addToFavorites')}
                 </button>
                 <button
                   onClick={() => {
@@ -352,7 +353,7 @@ const PropertyDetail = () => {
                   className="btn-secondary w-full flex items-center justify-center gap-2"
                 >
                   <FaShare />
-                  Partilhar
+                  {t('propertyDetail.buttons.share')}
                 </button>
               </div>
 
@@ -375,11 +376,11 @@ const PropertyDetail = () => {
               <div className="mt-6 pt-6 border-t border-gray-100 text-sm text-gray-500 space-y-2">
                 <div className="flex items-center gap-2">
                   <FaCalendar className="text-gray-400" />
-                  Publicado em {new Date(property.createdAt).toLocaleDateString('pt-PT')}
+                  {t('propertyDetail.meta.publishedOn')} {new Date(property.createdAt).toLocaleDateString()}
                 </div>
                 {property.viewCount > 0 && (
                   <div className="text-gray-400">
-                    {property.viewCount} visualizações
+                    {property.viewCount} {t('propertyDetail.meta.views')}
                   </div>
                 )}
               </div>

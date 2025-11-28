@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { adminAPI } from '../../api/admin';
 import Loading from '../../components/common/Loading';
 import { toast } from 'react-toastify';
@@ -14,6 +15,7 @@ import {
 } from 'react-icons/fa';
 
 const AdminProperties = () => {
+  const { t } = useTranslation();
   const [properties, setProperties] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
@@ -45,73 +47,73 @@ const AdminProperties = () => {
       });
     } catch (error) {
       console.error('Error fetching properties:', error);
-      toast.error('Erro ao carregar imóveis');
+      toast.error(t('admin.properties.errors.loadProperties'));
     } finally {
       setLoading(false);
     }
   };
 
   const handleApprove = async (propertyId) => {
-    if (!confirm('Tem a certeza que deseja aprovar este imóvel?')) return;
+    if (!confirm(t('admin.properties.confirmApprove'))) return;
 
     try {
       await adminAPI.approveProperty(propertyId);
-      toast.success('Imóvel aprovado com sucesso!');
+      toast.success(t('admin.properties.success.approved'));
       fetchProperties();
     } catch (error) {
       console.error('Error approving property:', error);
-      toast.error('Erro ao aprovar imóvel');
+      toast.error(t('admin.properties.errors.approve'));
     }
   };
 
   const handleReject = async () => {
     if (!rejectionReason.trim()) {
-      toast.error('Por favor, forneça um motivo para a rejeição');
+      toast.error(t('admin.properties.errors.provideReason'));
       return;
     }
 
     try {
       await adminAPI.rejectProperty(rejectPropertyId, rejectionReason);
-      toast.success('Imóvel rejeitado');
+      toast.success(t('admin.properties.success.rejected'));
       setShowRejectModal(false);
       setRejectPropertyId(null);
       setRejectionReason('');
       fetchProperties();
     } catch (error) {
       console.error('Error rejecting property:', error);
-      toast.error('Erro ao rejeitar imóvel');
+      toast.error(t('admin.properties.errors.reject'));
     }
   };
 
   const handleBulkApprove = async () => {
     if (selectedProperties.length === 0) {
-      toast.error('Selecione pelo menos um imóvel');
+      toast.error(t('admin.properties.errors.selectAtLeastOne'));
       return;
     }
 
-    if (!confirm(`Aprovar ${selectedProperties.length} imóveis?`)) return;
+    if (!confirm(t('admin.properties.confirmBulkApprove', { count: selectedProperties.length }))) return;
 
     try {
       await adminAPI.bulkApproveProperties(selectedProperties);
-      toast.success(`${selectedProperties.length} imóveis aprovados!`);
+      toast.success(t('admin.properties.success.bulkApproved', { count: selectedProperties.length }));
       setSelectedProperties([]);
       fetchProperties();
     } catch (error) {
       console.error('Error bulk approving:', error);
-      toast.error('Erro ao aprovar imóveis em massa');
+      toast.error(t('admin.properties.errors.bulkApprove'));
     }
   };
 
   const handleDelete = async (propertyId) => {
-    if (!confirm('Tem a certeza que deseja eliminar este imóvel? Esta ação não pode ser revertida.')) return;
+    if (!confirm(t('admin.properties.confirmDelete'))) return;
 
     try {
       await adminAPI.deleteProperty(propertyId);
-      toast.success('Imóvel eliminado');
+      toast.success(t('admin.properties.success.deleted'));
       fetchProperties();
     } catch (error) {
       console.error('Error deleting property:', error);
-      toast.error('Erro ao eliminar imóvel');
+      toast.error(t('admin.properties.errors.delete'));
     }
   };
 
@@ -151,10 +153,10 @@ const AdminProperties = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold text-gray-900">
-                Gestão de Imóveis
+                {t('admin.properties.title')}
               </h1>
               <p className="text-gray-600">
-                {pagination.total || 0} imóveis no total
+                {t('admin.properties.subtitle', { count: pagination.total || 0 })}
               </p>
             </div>
           </div>
@@ -164,7 +166,7 @@ const AdminProperties = () => {
               className="btn-primary flex items-center space-x-2"
             >
               <FaCheckDouble />
-              <span>Aprovar Selecionados ({selectedProperties.length})</span>
+              <span>{t('admin.properties.bulkApprove', { count: selectedProperties.length })}</span>
             </button>
           )}
         </div>
@@ -175,7 +177,7 @@ const AdminProperties = () => {
             <div className="w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg flex items-center justify-center">
               <FaFilter className="text-white text-sm" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900">Filtros</h3>
+            <h3 className="text-lg font-semibold text-gray-900">{t('admin.properties.filters.title')}</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <select
@@ -183,10 +185,10 @@ const AdminProperties = () => {
               onChange={(e) => setFilters({ ...filters, approvalStatus: e.target.value, page: 1 })}
               className="input-field"
             >
-              <option value="">Todos os Estados de Aprovação</option>
-              <option value="pending">Pendente</option>
-              <option value="approved">Aprovado</option>
-              <option value="rejected">Rejeitado</option>
+              <option value="">{t('admin.properties.filters.allApprovalStatuses')}</option>
+              <option value="pending">{t('admin.properties.approvalStatus.pending')}</option>
+              <option value="approved">{t('admin.properties.approvalStatus.approved')}</option>
+              <option value="rejected">{t('admin.properties.approvalStatus.rejected')}</option>
             </select>
 
             <select
@@ -194,12 +196,12 @@ const AdminProperties = () => {
               onChange={(e) => setFilters({ ...filters, status: e.target.value, page: 1 })}
               className="input-field"
             >
-              <option value="">Todos os Estados</option>
-              <option value="for-sale">A Venda</option>
-              <option value="for-rent">Para Arrendar</option>
-              <option value="sold">Vendido</option>
-              <option value="rented">Arrendado</option>
-              <option value="draft">Rascunho</option>
+              <option value="">{t('admin.properties.filters.allStatuses')}</option>
+              <option value="for-sale">{t('admin.properties.status.forSale')}</option>
+              <option value="for-rent">{t('admin.properties.status.forRent')}</option>
+              <option value="sold">{t('admin.properties.status.sold')}</option>
+              <option value="rented">{t('admin.properties.status.rented')}</option>
+              <option value="draft">{t('admin.properties.status.draft')}</option>
             </select>
 
             <select
@@ -207,19 +209,19 @@ const AdminProperties = () => {
               onChange={(e) => setFilters({ ...filters, propertyType: e.target.value, page: 1 })}
               className="input-field"
             >
-              <option value="">Todos os Tipos</option>
-              <option value="apartment">Apartamento</option>
-              <option value="house">Casa</option>
-              <option value="villa">Moradia</option>
-              <option value="commercial">Comercial</option>
-              <option value="land">Terreno</option>
+              <option value="">{t('admin.properties.filters.allTypes')}</option>
+              <option value="apartment">{t('propertyTypes.apartment')}</option>
+              <option value="house">{t('propertyTypes.house')}</option>
+              <option value="villa">{t('propertyTypes.villa')}</option>
+              <option value="commercial">{t('propertyTypes.commercial')}</option>
+              <option value="land">{t('propertyTypes.land')}</option>
             </select>
 
             <button
               onClick={() => setFilters({ status: '', approvalStatus: '', district: '', propertyType: '', page: 1 })}
               className="btn-secondary"
             >
-              Limpar Filtros
+              {t('admin.properties.filters.clearFilters')}
             </button>
           </div>
         </div>
@@ -239,22 +241,22 @@ const AdminProperties = () => {
                     />
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Imóvel
+                    {t('admin.properties.table.property')}
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Proprietario
+                    {t('admin.properties.table.owner')}
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Preço
+                    {t('admin.properties.table.price')}
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Estado
+                    {t('admin.properties.table.status')}
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Aprovação
+                    {t('admin.properties.table.approval')}
                   </th>
                   <th className="px-6 py-4 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Ações
+                    {t('admin.properties.table.actions')}
                   </th>
                 </tr>
               </thead>
@@ -307,14 +309,14 @@ const AdminProperties = () => {
                       <span className={`px-3 py-1.5 inline-flex text-xs leading-5 font-semibold rounded-full ${
                         getStatusBadge(property.status)
                       }`}>
-                        {getStatusLabel(property.status)}
+                        {t(`admin.properties.status.${property.status.replace('-', '')}`)}
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`px-3 py-1.5 inline-flex text-xs leading-5 font-semibold rounded-full ${
                         getApprovalBadge(property.approvalStatus)
                       }`}>
-                        {getApprovalLabel(property.approvalStatus)}
+                        {t(`admin.properties.approvalStatus.${property.approvalStatus}`)}
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -324,14 +326,14 @@ const AdminProperties = () => {
                             <button
                               onClick={() => handleApprove(property._id)}
                               className="w-9 h-9 bg-green-100 hover:bg-green-200 text-green-600 rounded-lg flex items-center justify-center transition-colors"
-                              title="Aprovar"
+                              title={t('admin.properties.actions.approve')}
                             >
                               <FaCheck />
                             </button>
                             <button
                               onClick={() => openRejectModal(property._id)}
                               className="w-9 h-9 bg-red-100 hover:bg-red-200 text-red-600 rounded-lg flex items-center justify-center transition-colors"
-                              title="Rejeitar"
+                              title={t('admin.properties.actions.reject')}
                             >
                               <FaTimes />
                             </button>
@@ -342,14 +344,14 @@ const AdminProperties = () => {
                           target="_blank"
                           rel="noopener noreferrer"
                           className="w-9 h-9 bg-blue-100 hover:bg-blue-200 text-blue-600 rounded-lg flex items-center justify-center transition-colors"
-                          title="Ver"
+                          title={t('admin.properties.actions.view')}
                         >
                           <FaEye />
                         </a>
                         <button
                           onClick={() => handleDelete(property._id)}
                           className="w-9 h-9 bg-red-100 hover:bg-red-200 text-red-600 rounded-lg flex items-center justify-center transition-colors"
-                          title="Eliminar"
+                          title={t('admin.properties.actions.delete')}
                         >
                           <FaTrash />
                         </button>
@@ -370,21 +372,20 @@ const AdminProperties = () => {
                   disabled={filters.page === 1}
                   className="btn-secondary"
                 >
-                  Anterior
+                  {t('admin.properties.pagination.previous')}
                 </button>
                 <button
                   onClick={() => setFilters({ ...filters, page: filters.page + 1 })}
                   disabled={filters.page === pagination.pages}
                   className="btn-secondary"
                 >
-                  Proxima
+                  {t('admin.properties.pagination.next')}
                 </button>
               </div>
               <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
                 <div>
                   <p className="text-sm text-gray-700">
-                    Pagina <span className="font-semibold">{pagination.page}</span> de{' '}
-                    <span className="font-semibold">{pagination.pages}</span>
+                    {t('admin.properties.pagination.pageInfo', { page: pagination.page, pages: pagination.pages })}
                   </p>
                 </div>
                 <div className="flex space-x-2">
@@ -393,14 +394,14 @@ const AdminProperties = () => {
                     disabled={filters.page === 1}
                     className="btn-secondary"
                   >
-                    Anterior
+                    {t('admin.properties.pagination.previous')}
                   </button>
                   <button
                     onClick={() => setFilters({ ...filters, page: filters.page + 1 })}
                     disabled={filters.page === pagination.pages}
                     className="btn-secondary"
                   >
-                    Proxima
+                    {t('admin.properties.pagination.next')}
                   </button>
                 </div>
               </div>
@@ -428,10 +429,10 @@ const AdminProperties = () => {
                   <FaTimes className="text-2xl text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">
-                  Rejeitar Imóvel
+                  {t('admin.properties.modal.title')}
                 </h3>
                 <p className="text-sm text-gray-500 mt-1">
-                  Por favor, forneça um motivo para a rejeição
+                  {t('admin.properties.modal.subtitle')}
                 </p>
               </div>
 
@@ -439,7 +440,7 @@ const AdminProperties = () => {
                 <textarea
                   value={rejectionReason}
                   onChange={(e) => setRejectionReason(e.target.value)}
-                  placeholder="Motivo da rejeicao..."
+                  placeholder={t('admin.properties.modal.reasonPlaceholder')}
                   className="input-field w-full h-32 resize-none"
                   autoFocus
                 />
@@ -454,10 +455,10 @@ const AdminProperties = () => {
                   }}
                   className="btn-secondary flex-1"
                 >
-                  Cancelar
+                  {t('admin.properties.modal.cancel')}
                 </button>
                 <button onClick={handleReject} className="btn-danger flex-1">
-                  Rejeitar
+                  {t('admin.properties.modal.reject')}
                 </button>
               </div>
             </div>
@@ -469,18 +470,6 @@ const AdminProperties = () => {
 };
 
 // Helper Functions
-const getStatusLabel = (status) => {
-  const labels = {
-    'for-sale': 'A Venda',
-    'for-rent': 'Para Arrendar',
-    'sold': 'Vendido',
-    'rented': 'Arrendado',
-    'pending': 'Pendente',
-    'draft': 'Rascunho'
-  };
-  return labels[status] || status;
-};
-
 const getStatusBadge = (status) => {
   const badges = {
     'for-sale': 'badge-success',
@@ -491,15 +480,6 @@ const getStatusBadge = (status) => {
     'draft': 'bg-orange-100 text-orange-800'
   };
   return badges[status] || 'bg-gray-100 text-gray-800';
-};
-
-const getApprovalLabel = (status) => {
-  const labels = {
-    pending: 'Pendente',
-    approved: 'Aprovado',
-    rejected: 'Rejeitado'
-  };
-  return labels[status] || status;
 };
 
 const getApprovalBadge = (status) => {

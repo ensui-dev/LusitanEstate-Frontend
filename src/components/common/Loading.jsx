@@ -1,6 +1,8 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 
 const Loading = ({ fullScreen = false, size = 'md' }) => {
+  const { t } = useTranslation();
   const sizes = {
     sm: 'w-8 h-8',
     md: 'w-12 h-12',
@@ -14,7 +16,7 @@ const Loading = ({ fullScreen = false, size = 'md' }) => {
       <div className="fixed inset-0 bg-white bg-opacity-75 flex items-center justify-center z-50">
         <div className="text-center">
           <div className={`${spinnerSize} border-4 border-primary-200 border-t-primary-600 rounded-full animate-spin mx-auto`}></div>
-          <p className="mt-4 text-gray-600">A carregar...</p>
+          <p className="mt-4 text-gray-600">{t('common.loading')}</p>
         </div>
       </div>
     );

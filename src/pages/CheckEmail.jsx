@@ -2,8 +2,10 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { authAPI } from '../api/auth';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 
 const CheckEmail = () => {
+  const { t } = useTranslation();
   const location = useLocation();
   const email = location.state?.email || '';
   const [resending, setResending] = useState(false);
@@ -16,7 +18,7 @@ const CheckEmail = () => {
     try {
       const response = await authAPI.resendVerification(email);
       if (response.success) {
-        toast.success('Email de verificacao reenviado!');
+        toast.success(t('checkEmail.emailResent'));
         // Start 60 second cooldown
         setResendCooldown(60);
         const interval = setInterval(() => {
@@ -29,10 +31,10 @@ const CheckEmail = () => {
           });
         }, 1000);
       } else {
-        toast.error(response.message || 'Erro ao reenviar email');
+        toast.error(response.message || t('auth.registrationError'));
       }
     } catch (error) {
-      toast.error(error.message || 'Erro ao reenviar email');
+      toast.error(error.message || t('auth.registrationError'));
     } finally {
       setResending(false);
     }
@@ -50,11 +52,11 @@ const CheckEmail = () => {
           </div>
 
           <h2 className="text-2xl font-bold text-gray-900 mb-2">
-            Verifique o seu email
+            {t('checkEmail.title')}
           </h2>
 
           <p className="text-gray-600 mb-4">
-            Enviamos um link de verificacao para:
+            {t('checkEmail.message')}
           </p>
 
           {email && (
@@ -64,16 +66,11 @@ const CheckEmail = () => {
           )}
 
           <div className="bg-sand-100 rounded-xl p-4 mb-6 text-left">
-            <h3 className="font-medium text-gray-900 mb-2">Proximos passos:</h3>
-            <ol className="text-sm text-gray-600 space-y-2 list-decimal list-inside">
-              <li>Abra o seu email</li>
-              <li>Clique no link "Verificar Email"</li>
-              <li>Faca login na sua conta</li>
-            </ol>
+            <h3 className="font-medium text-gray-900 mb-2">{t('checkEmail.instructions')}</h3>
           </div>
 
           <p className="text-sm text-gray-500 mb-6">
-            O link expira em 24 horas. Se nao recebeu o email, verifique a pasta de spam.
+            {t('checkEmail.checkSpam')}
           </p>
 
           {/* Resend Button */}
@@ -89,12 +86,12 @@ const CheckEmail = () => {
                     <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                     <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                   </svg>
-                  A enviar...
+                  {t('auth.resending')}
                 </span>
               ) : resendCooldown > 0 ? (
-                `Reenviar em ${resendCooldown}s`
+                t('checkEmail.waitSeconds', { seconds: resendCooldown })
               ) : (
-                'Reenviar email de verificacao'
+                t('checkEmail.resend')
               )}
             </button>
           )}
@@ -103,13 +100,13 @@ const CheckEmail = () => {
             to="/login"
             className="w-full inline-flex justify-center btn-primary"
           >
-            Ir para Login
+            {t('verifyEmail.goToLogin')}
           </Link>
 
           <p className="mt-6 text-sm text-gray-500">
-            Email errado?{' '}
+            {t('checkEmail.notReceived')}{' '}
             <Link to="/register" className="text-primary-600 hover:text-primary-500 font-medium">
-              Registar novamente
+              {t('auth.register')}
             </Link>
           </p>
         </div>

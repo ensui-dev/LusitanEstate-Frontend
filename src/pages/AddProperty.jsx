@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { propertiesAPI } from '../api/properties';
 import { toast } from 'react-toastify';
 import { PROPERTY_TYPES, PROPERTY_STATUS, ENERGY_RATINGS, PROPERTY_FEATURES } from '../utils/constants';
@@ -8,6 +9,7 @@ import { FaHome, FaMapMarkerAlt, FaInfoCircle, FaImage, FaCheckCircle } from 're
 import ImageUpload from '../components/common/ImageUpload';
 
 const AddProperty = () => {
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
@@ -99,35 +101,35 @@ const AddProperty = () => {
     switch (step) {
       case 1:
         if (!formData.title || !formData.description || !formData.price || !formData.propertyType) {
-          toast.error('Por favor preencha todos os campos obrigatórios');
+          toast.error(t('addProperty.validation.fillRequired'));
           return false;
         }
         break;
       case 2:
         if (!formData.address.street || !formData.address.city || !formData.address.district || !formData.address.zipCode) {
-          toast.error('Por favor preencha todos os campos do endereço');
+          toast.error(t('addProperty.validation.fillRequired'));
           return false;
         }
         if (!/^\d{4}-\d{3}$/.test(formData.address.zipCode)) {
-          toast.error('Código postal inválido. Formato: 1234-567');
+          toast.error(t('addProperty.validation.invalidZipCode'));
           return false;
         }
         break;
       case 3:
         if (!formData.squareMeters) {
-          toast.error('Por favor indique a área em m²');
+          toast.error(t('addProperty.validation.fillRequired'));
           return false;
         }
         break;
       case 5:
         if (!formData.images || formData.images.length === 0) {
-          toast.error('Por favor carregue pelo menos uma imagem do imóvel');
+          toast.error(t('addProperty.validation.minImages'));
           return false;
         }
         // Verify all images have valid URLs
         const validImages = formData.images.filter(img => img.url && img.url.trim() !== '');
         if (validImages.length === 0) {
-          toast.error('Por favor carregue pelo menos uma imagem do imóvel');
+          toast.error(t('addProperty.validation.minImages'));
           return false;
         }
         break;
@@ -188,23 +190,23 @@ const AddProperty = () => {
       const response = await propertiesAPI.createProperty(cleanedData);
 
       if (response.success) {
-        toast.success('Imóvel criado com sucesso! Aguardando aprovação.');
+        toast.success(t('addProperty.success'));
         navigate('/dashboard');
       }
     } catch (error) {
       console.error('Error creating property:', error);
-      toast.error(error.message || 'Erro ao criar imóvel');
+      toast.error(error.message || t('addProperty.error'));
     } finally {
       setLoading(false);
     }
   };
 
   const steps = [
-    { number: 1, title: 'Informações Básicas', icon: FaInfoCircle },
-    { number: 2, title: 'Localização', icon: FaMapMarkerAlt },
-    { number: 3, title: 'Detalhes', icon: FaHome },
-    { number: 4, title: 'Características', icon: FaCheckCircle },
-    { number: 5, title: 'Imagens', icon: FaImage }
+    { number: 1, title: t('addProperty.steps.basic'), icon: FaInfoCircle },
+    { number: 2, title: t('addProperty.steps.location'), icon: FaMapMarkerAlt },
+    { number: 3, title: t('addProperty.steps.details'), icon: FaHome },
+    { number: 4, title: t('addProperty.steps.features'), icon: FaCheckCircle },
+    { number: 5, title: t('addProperty.steps.images'), icon: FaImage }
   ];
 
   return (
@@ -213,10 +215,10 @@ const AddProperty = () => {
         {/* Header */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            Adicionar Imóvel
+            {t('addProperty.title')}
           </h1>
           <p className="text-gray-600">
-            Preencha as informações do seu imóvel
+            {t('addProperty.steps.basic')}
           </p>
         </div>
 
@@ -258,11 +260,11 @@ const AddProperty = () => {
           {/* Step 1: Basic Info */}
           {currentStep === 1 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Informações Básicas</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('addProperty.steps.basic')}</h2>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Título *
+                  {t('addProperty.basicInfo.title')} *
                 </label>
                 <input
                   type="text"
@@ -270,14 +272,14 @@ const AddProperty = () => {
                   value={formData.title}
                   onChange={handleChange}
                   className="input w-full"
-                  placeholder="Ex: Apartamento T2 no Centro de Lisboa"
+                  placeholder={t('addProperty.basicInfo.titlePlaceholder')}
                   required
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Descrição *
+                  {t('addProperty.basicInfo.description')} *
                 </label>
                 <textarea
                   name="description"
@@ -285,7 +287,7 @@ const AddProperty = () => {
                   onChange={handleChange}
                   rows="5"
                   className="input w-full"
-                  placeholder="Descreva o imóvel..."
+                  placeholder={t('addProperty.basicInfo.descriptionPlaceholder')}
                   required
                 />
               </div>
@@ -293,7 +295,7 @@ const AddProperty = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Preço (€) *
+                    {t('addProperty.basicInfo.price')} (€) *
                   </label>
                   <input
                     type="number"
@@ -301,7 +303,7 @@ const AddProperty = () => {
                     value={formData.price}
                     onChange={handleChange}
                     className="input w-full"
-                    placeholder="250000"
+                    placeholder={t('addProperty.basicInfo.pricePlaceholder')}
                     min="0"
                     required
                   />
@@ -309,7 +311,7 @@ const AddProperty = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Tipo de Imóvel *
+                    {t('addProperty.basicInfo.propertyType')} *
                   </label>
                   <select
                     name="propertyType"
@@ -318,7 +320,7 @@ const AddProperty = () => {
                     className="input w-full"
                     required
                   >
-                    <option value="">Selecione...</option>
+                    <option value="">{t('addProperty.basicInfo.selectType')}</option>
                     {PROPERTY_TYPES.map(type => (
                       <option key={type.value} value={type.value}>
                         {type.label}
@@ -329,7 +331,7 @@ const AddProperty = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Status
+                    {t('addProperty.basicInfo.status')}
                   </label>
                   <select
                     name="status"
@@ -337,15 +339,15 @@ const AddProperty = () => {
                     onChange={handleChange}
                     className="input w-full"
                   >
-                    <option value="for-sale">Para Venda</option>
-                    <option value="for-rent">Para Arrendar</option>
-                    <option value="draft">Rascunho</option>
+                    <option value="for-sale">{t('property.status.forSale')}</option>
+                    <option value="for-rent">{t('property.status.forRent')}</option>
+                    <option value="draft">{t('property.status.draft')}</option>
                   </select>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Condição
+                    {t('addProperty.details.condition')}
                   </label>
                   <select
                     name="condition"
@@ -353,12 +355,12 @@ const AddProperty = () => {
                     onChange={handleChange}
                     className="input w-full"
                   >
-                    <option value="new">Novo</option>
-                    <option value="excellent">Excelente</option>
-                    <option value="good">Bom</option>
-                    <option value="fair">Razoável</option>
-                    <option value="needs-renovation">Necessita Renovação</option>
-                    <option value="under-construction">Em Construção</option>
+                    <option value="new">{t('property.condition.new')}</option>
+                    <option value="excellent">{t('property.condition.excellent')}</option>
+                    <option value="good">{t('property.condition.good')}</option>
+                    <option value="fair">{t('property.condition.fair')}</option>
+                    <option value="needs-renovation">{t('property.condition.needsRenovation')}</option>
+                    <option value="under-construction">{t('property.condition.underConstruction')}</option>
                   </select>
                 </div>
               </div>
@@ -368,11 +370,11 @@ const AddProperty = () => {
           {/* Step 2: Address */}
           {currentStep === 2 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Localização</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('addProperty.steps.location')}</h2>
 
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Morada *
+                  {t('addProperty.location.street')} *
                 </label>
                 <input
                   type="text"
@@ -380,7 +382,7 @@ const AddProperty = () => {
                   value={formData.address.street}
                   onChange={handleChange}
                   className="input w-full"
-                  placeholder="Rua, Número, Andar"
+                  placeholder={t('addProperty.location.streetPlaceholder')}
                   required
                 />
               </div>
@@ -388,7 +390,7 @@ const AddProperty = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Cidade *
+                    {t('addProperty.location.city')} *
                   </label>
                   <input
                     type="text"
@@ -396,14 +398,14 @@ const AddProperty = () => {
                     value={formData.address.city}
                     onChange={handleChange}
                     className="input w-full"
-                    placeholder="Lisboa"
+                    placeholder={t('addProperty.location.cityPlaceholder')}
                     required
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Distrito *
+                    {t('addProperty.location.district')} *
                   </label>
                   <select
                     name="address.district"
@@ -412,7 +414,7 @@ const AddProperty = () => {
                     className="input w-full"
                     required
                   >
-                    <option value="">Selecione...</option>
+                    <option value="">{t('addProperty.location.selectDistrict')}</option>
                     {PORTUGUESE_DISTRICTS.map(district => (
                       <option key={district} value={district}>
                         {district}
@@ -423,7 +425,7 @@ const AddProperty = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Código Postal *
+                    {t('addProperty.location.zipCode')} *
                   </label>
                   <input
                     type="text"
@@ -431,16 +433,16 @@ const AddProperty = () => {
                     value={formData.address.zipCode}
                     onChange={handleChange}
                     className="input w-full"
-                    placeholder="1234-567"
+                    placeholder={t('addProperty.location.zipCodePlaceholder')}
                     pattern="\d{4}-\d{3}"
                     required
                   />
-                  <p className="text-xs text-gray-500 mt-1">Formato: 1234-567</p>
+                  <p className="text-xs text-gray-500 mt-1">{t('addProperty.validation.invalidZipCode')}</p>
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    País
+                    {t('addProperty.location.country')}
                   </label>
                   <input
                     type="text"
@@ -458,12 +460,12 @@ const AddProperty = () => {
           {/* Step 3: Details */}
           {currentStep === 3 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Detalhes do Imóvel</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('addProperty.steps.details')}</h2>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Quartos
+                    {t('addProperty.details.bedrooms')}
                   </label>
                   <input
                     type="number"
@@ -478,7 +480,7 @@ const AddProperty = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Casas de Banho
+                    {t('addProperty.details.bathrooms')}
                   </label>
                   <input
                     type="number"
@@ -493,7 +495,7 @@ const AddProperty = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Área (m²) *
+                    {t('addProperty.details.squareMeters')} *
                   </label>
                   <input
                     type="number"
@@ -509,7 +511,7 @@ const AddProperty = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Ano de Construção
+                    {t('addProperty.details.yearBuilt')}
                   </label>
                   <input
                     type="number"
@@ -519,13 +521,13 @@ const AddProperty = () => {
                     className="input w-full"
                     min="1800"
                     max={new Date().getFullYear() + 1}
-                    placeholder="2010"
+                    placeholder={t('addProperty.details.yearBuiltPlaceholder')}
                   />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Lugares de Estacionamento
+                    {t('addProperty.details.parkingSpaces')}
                   </label>
                   <input
                     type="number"
@@ -539,7 +541,7 @@ const AddProperty = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Certificado Energético
+                    {t('addProperty.details.energyRating')}
                   </label>
                   <select
                     name="energyCertificate.rating"
@@ -557,7 +559,7 @@ const AddProperty = () => {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Condomínio (€/mês)
+                    {t('addProperty.details.condominiumFee')}
                   </label>
                   <input
                     type="number"
@@ -579,7 +581,7 @@ const AddProperty = () => {
                     className="mr-2"
                   />
                   <label className="text-sm font-medium text-gray-700">
-                    Tem Garagem
+                    {t('addProperty.details.hasGarage')}
                   </label>
                 </div>
               </div>
@@ -589,7 +591,8 @@ const AddProperty = () => {
           {/* Step 4: Features */}
           {currentStep === 4 && (
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Características</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">{t('addProperty.steps.features')}</h2>
+              <p className="text-gray-600">{t('addProperty.features.description')}</p>
 
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
                 {PROPERTY_FEATURES.map(feature => (
@@ -614,12 +617,9 @@ const AddProperty = () => {
           {currentStep === 5 && (
             <div className="space-y-6">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-2">Imagens *</h2>
-                <p className="text-gray-600 mb-2">
-                  <span className="font-semibold text-red-600">Obrigatório:</span> Carregue pelo menos uma foto do imóvel.
-                </p>
-                <p className="text-sm text-gray-500 mb-6">
-                  A primeira imagem será definida como principal. Máximo de 10 imagens (5MB cada).
+                <h2 className="text-2xl font-bold text-gray-900 mb-2">{t('addProperty.images.title')} *</h2>
+                <p className="text-gray-600 mb-6">
+                  {t('addProperty.images.description')}
                 </p>
               </div>
 
@@ -632,7 +632,7 @@ const AddProperty = () => {
               {formData.images.length === 0 && (
                 <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-4">
                   <p className="text-sm text-yellow-800">
-                    ⚠️ Você precisa carregar pelo menos uma imagem antes de criar o imóvel.
+                    ⚠️ {t('addProperty.images.minImages')}
                   </p>
                 </div>
               )}
@@ -647,7 +647,7 @@ const AddProperty = () => {
                 onClick={prevStep}
                 className="btn-secondary"
               >
-                Anterior
+                {t('addProperty.buttons.previous')}
               </button>
             )}
 
@@ -658,16 +658,16 @@ const AddProperty = () => {
                   onClick={nextStep}
                   className="btn-primary"
                 >
-                  Próximo
+                  {t('addProperty.buttons.next')}
                 </button>
               ) : (
                 <button
                   type="submit"
                   disabled={loading || formData.images.length === 0}
                   className={`btn-primary ${formData.images.length === 0 ? 'opacity-50 cursor-not-allowed' : ''}`}
-                  title={formData.images.length === 0 ? 'Carregue pelo menos uma imagem para continuar' : ''}
+                  title={formData.images.length === 0 ? t('addProperty.images.minImages') : ''}
                 >
-                  {loading ? 'A criar...' : 'Criar Imóvel'}
+                  {loading ? t('addProperty.buttons.submitting') : t('addProperty.buttons.submit')}
                 </button>
               )}
             </div>

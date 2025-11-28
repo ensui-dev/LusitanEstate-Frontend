@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import {
   FaHome,
   FaUsers,
@@ -13,6 +14,7 @@ import {
 } from 'react-icons/fa';
 
 const About = () => {
+  const { t } = useTranslation();
   return (
     <div className="min-h-screen bg-sand-50 pt-28">
       {/* Hero Section */}
@@ -24,11 +26,10 @@ const About = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold font-display mb-6">
-              Sobre a <span className="text-golden-400">Lusitan</span>Estate
+              {t('about.hero.title')} <span className="text-golden-400">Lusitan</span>Estate
             </h1>
             <p className="text-xl text-primary-100 max-w-3xl mx-auto leading-relaxed">
-              A plataforma de referência para o mercado imobiliário português,
-              conectando compradores, vendedores e profissionais do setor.
+              {t('about.hero.subtitle')}
             </p>
           </div>
         </div>
@@ -40,21 +41,17 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-3xl md:text-4xl font-bold font-display text-gray-900 mb-6">
-                Simplificar a jornada para encontrar a sua{' '}
-                <span className="gradient-text">casa de sonho</span>
+                {t('about.mission.title')}{' '}
+                <span className="gradient-text">{t('about.mission.dreamHome')}</span>
               </h2>
               <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                Simplificar e modernizar o processo de compra, venda e arrendamento de imóveis em Portugal.
-                Acreditamos que encontrar a casa perfeita deve ser uma experiência transparente,
-                eficiente e acessível a todos.
+                {t('about.mission.description1')}
               </p>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Desenvolvemos uma plataforma que une tecnologia de ponta com um profundo conhecimento
-                do mercado imobiliário português, oferecendo ferramentas que capacitam tanto
-                particulares como profissionais do setor.
+                {t('about.mission.description2')}
               </p>
               <div className="flex flex-wrap gap-4">
-                {['Transparência', 'Inovação', 'Confiança'].map((value) => (
+                {[t('about.mission.values.transparency'), t('about.mission.values.innovation'), t('about.mission.values.trust')].map((value) => (
                   <div key={value} className="flex items-center bg-primary-50 px-4 py-2 rounded-xl">
                     <FaCheckCircle className="text-primary-600 mr-2" />
                     <span className="font-medium text-gray-700">{value}</span>
@@ -66,10 +63,10 @@ const About = () => {
             <div className="card bg-gradient-to-br from-white to-primary-50/50 p-8">
               <div className="grid grid-cols-2 gap-8">
                 {[
-                  { value: '10K+', label: 'Imóveis Listados', color: 'primary' },
-                  { value: '500+', label: 'Agentes Ativos', color: 'terracotta' },
-                  { value: '50K+', label: 'Utilizadores', color: 'golden' },
-                  { value: '18', label: 'Distritos', color: 'primary' },
+                  { value: '10K+', label: t('about.stats.properties'), color: 'primary' },
+                  { value: '500+', label: t('about.stats.agents'), color: 'terracotta' },
+                  { value: '50K+', label: t('about.stats.users'), color: 'golden' },
+                  { value: '18', label: t('about.stats.districts'), color: 'primary' },
                 ].map((stat, index) => (
                   <div key={index} className="text-center p-4 bg-white rounded-xl shadow-sm">
                     <div className={`text-4xl font-bold font-display mb-2 ${
@@ -92,10 +89,10 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="section-title mb-4">
-              Princípios que nos guiam
+              {t('about.values.title')}
             </h2>
             <p className="section-subtitle max-w-2xl mx-auto">
-              Princípios que guiam cada decisão e interação na nossa plataforma.
+              {t('about.values.subtitle')}
             </p>
           </div>
 
@@ -103,20 +100,20 @@ const About = () => {
             {[
               {
                 icon: FaShieldAlt,
-                title: 'Segurança e Privacidade',
-                description: 'Protegemos os seus dados com os mais elevados padrões de segurança, em total conformidade com o RGPD e a legislação portuguesa.',
+                title: t('about.values.security.title'),
+                description: t('about.values.security.description'),
                 gradient: 'from-primary-500 to-primary-600'
               },
               {
                 icon: FaHandshake,
-                title: 'Integridade',
-                description: 'Verificamos todos os anúncios e promovemos práticas éticas, garantindo uma experiência justa para todos os utilizadores.',
+                title: t('about.values.integrity.title'),
+                description: t('about.values.integrity.description'),
                 gradient: 'from-terracotta-500 to-terracotta-600'
               },
               {
                 icon: FaChartLine,
-                title: 'Inovação Contínua',
-                description: 'Investimos constantemente em novas funcionalidades e tecnologias para melhorar a experiência dos nossos utilizadores.',
+                title: t('about.values.continuousInnovation.title'),
+                description: t('about.values.continuousInnovation.description'),
                 gradient: 'from-golden-500 to-golden-600'
               }
             ].map((value, index) => (
@@ -137,10 +134,10 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="section-title mb-4">
-              O Que Oferecemos
+              {t('about.services.title')}
             </h2>
             <p className="section-subtitle max-w-2xl mx-auto">
-              Soluções completas para todas as necessidades do mercado imobiliário.
+              {t('about.services.subtitle')}
             </p>
           </div>
 
@@ -148,31 +145,31 @@ const About = () => {
             {[
               {
                 icon: FaHome,
-                title: 'Para Compradores',
-                description: 'Pesquise milhares de imóveis com filtros avançados. Guarde favoritos, receba alertas e contacte diretamente os anunciantes.',
+                title: t('about.services.buyers.title'),
+                description: t('about.services.buyers.description'),
                 link: '/properties',
-                linkText: 'Ver Imóveis'
+                linkText: t('about.services.buyers.cta')
               },
               {
                 icon: FaUsers,
-                title: 'Para Vendedores',
-                description: 'Publique anúncios com fotografias ilimitadas, descrições detalhadas e alcance milhares de potenciais compradores.',
+                title: t('about.services.sellers.title'),
+                description: t('about.services.sellers.description'),
                 link: '/register?role=seller',
-                linkText: 'Começar a Vender'
+                linkText: t('about.services.sellers.cta')
               },
               {
                 icon: FaHandshake,
-                title: 'Para Agentes',
-                description: 'Ferramentas profissionais para gestão de carteira, CRM integrado e visibilidade aumentada para os seus anúncios.',
+                title: t('about.services.forAgents.title'),
+                description: t('about.services.forAgents.description'),
                 link: '/register?role=agent',
-                linkText: 'Registar como Agente'
+                linkText: t('about.services.forAgents.cta')
               },
               {
                 icon: FaMapMarkerAlt,
-                title: 'Para Agências',
-                description: 'Soluções empresariais com gestão de equipas, relatórios analíticos e integrações personalizadas.',
+                title: t('about.services.agencies.title'),
+                description: t('about.services.agencies.description'),
                 link: '/contact',
-                linkText: 'Contactar-nos'
+                linkText: t('about.services.agencies.cta')
               }
             ].map((service, index) => (
               <div key={index} className="card hover:border-primary-200 group">
@@ -198,10 +195,10 @@ const About = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="section-title mb-4">
-              Cobertura Nacional
+              {t('about.coverage.title')}
             </h2>
             <p className="section-subtitle max-w-2xl mx-auto">
-              Presentes em todos os 18 distritos de Portugal continental e regiões autónomas.
+              {t('about.coverage.subtitle')}
             </p>
           </div>
 
@@ -223,7 +220,7 @@ const About = () => {
 
           <div className="mt-8 text-center">
             <p className="text-gray-600">
-              Incluindo as Regiões Autónomas da <span className="font-semibold text-primary-600">Madeira</span> e dos <span className="font-semibold text-primary-600">Açores</span>
+              {t('about.coverage.autonomousRegions')}
             </p>
           </div>
         </div>
@@ -238,20 +235,20 @@ const About = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6">
             <FaStar className="text-golden-400" />
-            <span className="text-white/90 text-sm">Junte-se a milhares de utilizadores satisfeitos</span>
+            <span className="text-white/90 text-sm">{t('about.cta.badge')}</span>
           </div>
           <h2 className="text-3xl md:text-5xl font-bold font-display text-white mb-6">
-            Pronto para Começar?
+            {t('about.cta.title')}
           </h2>
           <p className="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
-            Junte-se a milhares de utilizadores que já encontraram o seu imóvel ideal através da nossa plataforma.
+            {t('about.cta.description')}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link to="/properties" className="btn-secondary bg-white">
-              Explorar Imóveis
+              {t('about.cta.exploreProperties')}
             </Link>
             <Link to="/register" className="btn-primary bg-gradient-to-r from-terracotta-500 to-terracotta-600 hover:from-terracotta-600 hover:to-terracotta-700">
-              Criar Conta Grátis
+              {t('about.cta.createAccount')}
             </Link>
           </div>
         </div>
@@ -261,10 +258,10 @@ const About = () => {
       <div className="py-12 bg-sand-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <p className="text-gray-600 mb-4">
-            Tem alguma questão ou sugestão?
+            {t('about.contactCta.question')}
           </p>
           <Link to="/contact" className="text-primary-600 hover:text-primary-700 font-semibold inline-flex items-center group">
-            Entre em contacto connosco
+            {t('about.contactCta.link')}
             <FaArrowRight className="ml-2 group-hover:translate-x-1 transition-transform duration-300" />
           </Link>
         </div>

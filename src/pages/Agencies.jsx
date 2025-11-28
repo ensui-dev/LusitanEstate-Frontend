@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { agenciesAPI } from '../api/agencies';
 import AgencyCard from '../components/agency/AgencyCard';
 import Loading from '../components/common/Loading';
@@ -7,6 +8,7 @@ import { toast } from 'react-toastify';
 import { PORTUGUESE_DISTRICTS } from '../utils/districts';
 
 const Agencies = () => {
+  const { t } = useTranslation();
   const [agencies, setAgencies] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -29,7 +31,7 @@ const Agencies = () => {
       }
     } catch (error) {
       console.error('Error fetching agencies:', error);
-      toast.error('Erro ao carregar agências');
+      toast.error(t('agencies.error'));
     } finally {
       setLoading(false);
     }
@@ -76,10 +78,10 @@ const Agencies = () => {
         {/* Header Section */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            Agências Imobiliárias
+            {t('agencies.title')}
           </h1>
           <p className="text-gray-600 text-lg">
-            Conheça as melhores agências de Portugal
+            {t('agencies.subtitle')}
           </p>
         </div>
 
@@ -88,7 +90,7 @@ const Agencies = () => {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2 text-gray-700">
               <FaFilter className="text-primary-600" />
-              <span className="font-semibold">Pesquisar e Filtrar</span>
+              <span className="font-semibold">{t('agencies.searchAndFilter')}</span>
             </div>
             {hasActiveFilters && (
               <button
@@ -96,7 +98,7 @@ const Agencies = () => {
                 className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 transition-colors"
               >
                 <FaTimes />
-                Limpar
+                {t('agencies.clear')}
               </button>
             )}
           </div>
@@ -106,7 +108,7 @@ const Agencies = () => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Pesquisar por nome..."
+                placeholder={t('agencies.searchPlaceholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="input-field pl-12 w-full"
@@ -119,7 +121,7 @@ const Agencies = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Distrito
+                {t('agencies.filters.district')}
               </label>
               <select
                 name="district"
@@ -127,7 +129,7 @@ const Agencies = () => {
                 onChange={handleFilterChange}
                 className="input-field w-full"
               >
-                <option value="">Todos os Distritos</option>
+                <option value="">{t('agencies.filters.allDistricts')}</option>
                 {PORTUGUESE_DISTRICTS.map((district) => (
                   <option key={district} value={district}>
                     {district}
@@ -138,7 +140,7 @@ const Agencies = () => {
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Verificada
+                {t('agencies.filters.verified')}
               </label>
               <select
                 name="isVerified"
@@ -146,15 +148,15 @@ const Agencies = () => {
                 onChange={handleFilterChange}
                 className="input-field w-full"
               >
-                <option value="">Todas</option>
-                <option value="true">Apenas Verificadas</option>
-                <option value="false">Não Verificadas</option>
+                <option value="">{t('agencies.filters.all')}</option>
+                <option value="true">{t('agencies.filters.onlyVerified')}</option>
+                <option value="false">{t('agencies.filters.notVerified')}</option>
               </select>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Ordenar por
+                {t('agencies.filters.sortBy')}
               </label>
               <select
                 name="sortBy"
@@ -162,9 +164,9 @@ const Agencies = () => {
                 onChange={handleFilterChange}
                 className="input-field w-full"
               >
-                <option value="name">Nome</option>
-                <option value="agents">Nº de Agentes</option>
-                <option value="createdAt">Mais Recentes</option>
+                <option value="name">{t('agencies.filters.name')}</option>
+                <option value="agents">{t('agencies.filters.numAgents')}</option>
+                <option value="createdAt">{t('agencies.filters.newest')}</option>
               </select>
             </div>
           </div>
@@ -174,7 +176,7 @@ const Agencies = () => {
         <div className="mb-6">
           <p className="text-gray-600">
             <span className="font-semibold text-primary-600">{filteredAgencies.length}</span>{' '}
-            {filteredAgencies.length === 1 ? 'agência encontrada' : 'agências encontradas'}
+            {filteredAgencies.length === 1 ? t('agencies.results.singular') : t('agencies.results.plural')}
           </p>
         </div>
 
@@ -190,13 +192,13 @@ const Agencies = () => {
         ) : (
           <div className="card rounded-2xl text-center py-16">
             <FaBuilding className="text-6xl text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-600 text-lg mb-2">Nenhuma agência encontrada</p>
-            <p className="text-gray-500">Tente ajustar os filtros</p>
+            <p className="text-gray-600 text-lg mb-2">{t('agencies.empty.title')}</p>
+            <p className="text-gray-500">{t('agencies.empty.subtitle')}</p>
             <button
               onClick={clearFilters}
               className="btn-primary mt-6"
             >
-              Limpar Filtros
+              {t('agencies.clear')}
             </button>
           </div>
         )}

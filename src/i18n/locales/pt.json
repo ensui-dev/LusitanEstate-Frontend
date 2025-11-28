@@ -1,0 +1,1637 @@
+{
+  "common": {
+    "welcome": "Bem-vindo",
+    "loading": "A carregar...",
+    "error": "Erro",
+    "success": "Sucesso",
+    "save": "Guardar",
+    "cancel": "Cancelar",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "search": "Pesquisar",
+    "filter": "Filtrar",
+    "apply": "Aplicar",
+    "reset": "Limpar",
+    "submit": "Submeter",
+    "close": "Fechar",
+    "confirm": "Confirmar",
+    "back": "Voltar",
+    "next": "Seguinte",
+    "previous": "Anterior",
+    "viewDetails": "Ver Detalhes",
+    "learnMore": "Saber Mais",
+    "contactUs": "Contacte-nos"
+  },
+  "nav": {
+    "home": "Início",
+    "properties": "Propriedades",
+    "agents": "Agentes",
+    "agencies": "Agências",
+    "about": "Sobre",
+    "contact": "Contacto",
+    "pricing": "Preços",
+    "login": "Entrar",
+    "register": "Registar",
+    "dashboard": "Painel",
+    "logout": "Sair",
+    "myAccount": "Minha Conta",
+    "addProperty": "Adicionar Propriedade"
+  },
+  "footer": {
+    "tagline": "Encontre a sua propriedade de sonho em Portugal",
+    "company": "Empresa",
+    "resources": "Recursos",
+    "legal": "Legal",
+    "terms": "Termos de Serviço",
+    "privacy": "Política de Privacidade",
+    "cookies": "Política de Cookies",
+    "copyright": "© {{year}} LusitanEstate. Todos os direitos reservados."
+  },
+  "auth": {
+    "welcomeBack": "Bem-vindo de volta",
+    "createAccount": "criar uma nova conta",
+    "email": "Email",
+    "password": "Palavra-passe",
+    "confirmPassword": "Confirmar Palavra-passe",
+    "name": "Nome Completo",
+    "phone": "Número de Telefone",
+    "role": "Tipo de Conta",
+    "rememberMe": "Lembrar-me",
+    "forgotPassword": "Esqueceu a palavra-passe?",
+    "login": "Entrar",
+    "loggingIn": "A entrar...",
+    "register": "Criar uma Conta",
+    "registering": "A criar conta...",
+    "orCreateAccount": "Ou",
+    "createFreeAccount": "Criar uma conta gratuita",
+    "alreadyHaveAccount": "Já tem uma conta?",
+    "newToLusitanEstate": "Novo no LusitanEstate?",
+    "loginSuccess": "Login efetuado com sucesso!",
+    "registrationSuccess": "Verifique o seu email para ativar a conta!",
+    "loginError": "Erro ao fazer login",
+    "registrationError": "Erro ao criar conta",
+    "emailNotVerified": "Email não verificado",
+    "verifyEmailFirst": "Por favor verifique o seu email antes de fazer login.",
+    "resendVerification": "Reenviar email de verificação",
+    "resending": "A enviar...",
+    "verificationResent": "Email de verificação reenviado! Verifique a sua caixa de entrada.",
+    "verificationCheckEmail": "Verifique o seu email ({{email}}) para ativar a sua conta.",
+    "agreeToThe": "Concordo com os"
+  },
+  "roles": {
+    "buyer": "Comprador",
+    "seller": "Vendedor",
+    "agent": "Agente",
+    "admin": "Administrador",
+    "buyerDesc": "À procura de comprar propriedade",
+    "sellerDesc": "Listar propriedades para venda",
+    "agentDesc": "Profissional imobiliário"
+  },
+  "verifyEmail": {
+    "verifying": "A verificar o seu email...",
+    "success": "Email verificado com sucesso!",
+    "welcomeMessage": "Bem-vindo ao LusitanEstate! Já pode fazer login na sua conta.",
+    "error": "Verificação falhou",
+    "invalidToken": "O link de verificação é inválido ou expirou.",
+    "tryAgain": "Por favor tente registar-se novamente ou contacte o suporte.",
+    "redirecting": "A redirecionar para o login...",
+    "goToLogin": "Ir para Login"
+  },
+  "checkEmail": {
+    "title": "Verifique o seu email",
+    "message": "Enviámos um link de verificação para",
+    "instructions": "Clique no link no email para ativar a sua conta e começar a usar o LusitanEstate.",
+    "notReceived": "Não recebeu o email?",
+    "checkSpam": "Verifique a sua pasta de spam",
+    "resend": "Reenviar email de verificação",
+    "waitSeconds": "Aguarde {{seconds}}s antes de reenviar",
+    "emailResent": "Email de verificação reenviado!"
+  },
+  "home": {
+    "hero": {
+      "badge": "#1 Plataforma Imobiliária em Portugal",
+      "title1": "Encontre o Seu",
+      "title2": "Imóvel Ideal",
+      "title3": "em Portugal",
+      "subtitle": "A plataforma de confiança para compra, venda e arrendamento de imóveis. De Lisboa ao Algarve, do Porto aos Açores.",
+      "searchProperties": "Procurar Imóveis",
+      "listProperty": "Anunciar Imóvel",
+      "popular": "Popular",
+      "searchPlaceholder": "Pesquisar por localização, tipo de propriedade...",
+      "searchButton": "Pesquisar Propriedades"
+    },
+    "stats": {
+      "properties": "Imóveis",
+      "agents": "Agentes",
+      "districts": "Distritos",
+      "satisfaction": "Satisfação"
+    },
+    "whyChoose": {
+      "title": "Porque Escolher a",
+      "subtitle": "Oferecemos a melhor experiência na procura do seu imóvel em Portugal"
+    },
+    "features": {
+      "title": "Porquê Escolher LusitanEstate",
+      "thousands": {
+        "title": "Milhares de Imóveis",
+        "description": "Acesso a propriedades em todos os 20 distritos de Portugal, das ilhas ao continente."
+      },
+      "certified": {
+        "title": "Agentes Certificados",
+        "description": "Trabalhe com profissionais verificados e certificados pela AMI."
+      },
+      "calculator": {
+        "title": "Calculadora IMT",
+        "description": "Calcule automaticamente o Imposto Municipal sobre Transmissões Onerosas."
+      },
+      "security": {
+        "title": "Segurança Total",
+        "description": "Transações seguras e verificação de todas as propriedades listadas."
+      },
+      "verified": "Anúncios Verificados",
+      "verifiedDesc": "Todas as propriedades são verificadas pela nossa equipa",
+      "experts": "Agentes Especializados",
+      "expertsDesc": "Conecte-se com profissionais imobiliários certificados",
+      "support": "Suporte 24/7",
+      "supportDesc": "Sempre aqui para ajudá-lo a encontrar a sua propriedade perfeita"
+    },
+    "cta": {
+      "title1": "Pronto para Encontrar o Seu",
+      "title2": "Novo Lar",
+      "subtitle": "Junte-se a milhares de portugueses que já encontraram o imóvel dos seus sonhos.",
+      "createAccount": "Criar Conta Gratuita",
+      "viewAll": "Ver Todos os Imóveis",
+      "title": "Pronto para encontrar a sua propriedade perfeita?",
+      "button": "Começar"
+    },
+    "trust": {
+      "trustedBy": "De Confiança por",
+      "certified": "AMI Certificado",
+      "rating": "4.9/5 Avaliação",
+      "users": "+50.000 Utilizadores"
+    }
+  },
+  "properties": {
+    "title": "Propriedades à Venda",
+    "propertiesFound": "propriedades encontradas",
+    "error": "Erro ao carregar propriedades. Por favor tente novamente mais tarde.",
+    "noResults": "Nenhuma propriedade encontrada",
+    "tryAdjusting": "Tente ajustar os seus filtros",
+    "loadMore": "Carregar Mais",
+    "filters": {
+      "title": "Filtros",
+      "clear": "Limpar Filtros",
+      "district": "Distrito",
+      "type": "Tipo de Propriedade",
+      "minPrice": "Preço Mínimo",
+      "maxPrice": "Preço Máximo",
+      "noLimit": "Sem limite",
+      "bedrooms": "Quartos",
+      "bathrooms": "Casas de Banho",
+      "location": "Localização",
+      "all": "Todos",
+      "allTypes": "Todos os Tipos",
+      "any": "Qualquer"
+    },
+    "types": {
+      "apartment": "Apartamento",
+      "house": "Casa",
+      "villa": "Moradia",
+      "townhouse": "Moradia em Banda",
+      "land": "Terreno",
+      "commercial": "Comercial"
+    },
+    "pagination": {
+      "previous": "Anterior",
+      "next": "Próxima",
+      "page": "Página",
+      "of": "de"
+    },
+    "empty": {
+      "title": "Nenhuma propriedade corresponde aos seus critérios",
+      "subtitle": "Tente ajustar os filtros ou limpá-los para ver mais resultados"
+    },
+    "details": {
+      "overview": "Visão Geral",
+      "features": "Características",
+      "description": "Descrição",
+      "location": "Localização",
+      "contact": "Contactar Agente",
+      "inquire": "Enviar Pedido",
+      "share": "Partilhar Propriedade",
+      "favorite": "Adicionar aos Favoritos",
+      "price": "Preço",
+      "bedrooms": "Quartos",
+      "bathrooms": "Casas de Banho",
+      "area": "Área",
+      "yearBuilt": "Ano de Construção",
+      "propertyId": "ID da Propriedade"
+    }
+  },
+  "dashboard": {
+    "welcome": "Olá, {{name}}!",
+    "welcomeMessage": "Bem-vindo ao seu painel de controlo",
+    "myProperties": "As Minhas Propriedades",
+    "favorites": "Favoritos",
+    "inquiries": "Pedidos",
+    "settings": "Definições",
+    "statistics": "Estatísticas",
+    "recentActivity": "Atividade Recente",
+    "noProperties": "Ainda sem propriedades",
+    "addFirstProperty": "Adicione a sua primeira propriedade",
+    "stats": {
+      "myProperties": "Meus Imóveis",
+      "views": "Visualizações",
+      "favorites": "Favoritos"
+    },
+    "properties": {
+      "title": "Meus Imóveis",
+      "subtitle": "Gerir os seus anúncios de imóveis",
+      "empty": {
+        "title": "Ainda não tem imóveis anunciados",
+        "subtitle": "Comece a anunciar os seus imóveis e alcance milhares de potenciais compradores e arrendatários.",
+        "action": "Adicionar Primeiro Imóvel"
+      },
+      "addProperty": "Adicionar Imóvel"
+    }
+  },
+  "contact": {
+    "hero": {
+      "title": "Contacte-nos",
+      "subtitle": "Estamos aqui para ajudar! Entre em contacto com a nossa equipa e responderemos o mais rápido possível."
+    },
+    "form": {
+      "title": "Envie-nos uma Mensagem",
+      "subtitle": "Preencha o formulário abaixo e a nossa equipa responderá em 24 horas",
+      "successMessage": "Mensagem enviada com sucesso! Entraremos em contacto brevemente.",
+      "submit": "Enviar Mensagem",
+      "submitting": "A enviar...",
+      "fields": {
+        "name": {
+          "label": "Nome Completo",
+          "placeholder": "Insira o seu nome completo"
+        },
+        "email": {
+          "label": "Endereço de Email",
+          "placeholder": "seu.email@exemplo.com"
+        },
+        "phone": {
+          "label": "Número de Telefone",
+          "placeholder": "+351 912 345 678"
+        },
+        "category": {
+          "label": "Categoria"
+        },
+        "subject": {
+          "label": "Assunto",
+          "placeholder": "Como podemos ajudar?"
+        },
+        "message": {
+          "label": "Mensagem",
+          "placeholder": "Conte-nos mais sobre a sua questão..."
+        }
+      },
+      "categories": {
+        "general": "Questão Geral",
+        "support": "Suporte Técnico",
+        "sales": "Vendas e Preços",
+        "partnership": "Parcerias",
+        "press": "Imprensa e Média",
+        "privacy": "Privacidade e Dados",
+        "complaint": "Reclamação"
+      },
+      "privacyNotice": {
+        "text": "Ao submeter este formulário, concorda com a nossa",
+        "link": "Política de Privacidade",
+        "usage": "Usaremos as suas informações apenas para responder à sua questão"
+      }
+    },
+    "info": {
+      "title": "Informações de Contacto",
+      "email": {
+        "label": "Email",
+        "general": "info@lusitanestate.pt",
+        "support": "suporte@lusitanestate.pt"
+      },
+      "phone": {
+        "label": "Telefone",
+        "number": "+351 21 123 4567",
+        "note": "Seg-Sex, 9:00-18:00"
+      },
+      "address": {
+        "label": "Morada",
+        "value": "Av. da Liberdade, 123\n1250-096 Lisboa, Portugal"
+      },
+      "hours": {
+        "label": "Horário de Funcionamento",
+        "days": "Segunda - Sexta",
+        "time": "9:00 - 18:00 (GMT)"
+      }
+    },
+    "responseTime": {
+      "title": "Tempo de Resposta",
+      "description": "Normalmente respondemos a todas as questões em 24 horas durante dias úteis. Para assuntos urgentes, ligue-nos diretamente."
+    },
+    "dataProtection": {
+      "title": "Encarregado de Proteção de Dados",
+      "description": "Para questões relacionadas com proteção de dados e privacidade, contacte o nosso EPD:",
+      "emailLabel": "Email",
+      "emailValue": "epd@lusitanestate.pt",
+      "link": "Ver Política de Privacidade"
+    },
+    "quickLinksSection": {
+      "title": "Links Rápidos",
+      "subtitle": "À procura de algo específico? Estes links podem ajudar"
+    },
+    "quickLinks": {
+      "faq": {
+        "title": "Preços e FAQ",
+        "description": "Encontre respostas para perguntas comuns sobre a nossa plataforma e preços",
+        "cta": "Ver FAQ"
+      },
+      "agencies": {
+        "title": "Soluções para Agências",
+        "description": "Planos empresariais e soluções para agências imobiliárias",
+        "cta": "Explorar Planos"
+      },
+      "becomeAgent": {
+        "title": "Tornar-se Agente",
+        "description": "Junte-se à nossa rede de agentes imobiliários profissionais",
+        "cta": "Registar Agora"
+      },
+      "listProperty": {
+        "title": "Listar uma Propriedade",
+        "description": "Comece a listar a sua propriedade e alcance milhares de compradores",
+        "cta": "Começar"
+      }
+    },
+    "faqSection": {
+      "title": "Perguntas Frequentes",
+      "subtitle": "Respostas rápidas para questões comuns"
+    },
+    "faq": {
+      "responseTime": {
+        "question": "Em quanto tempo receberei uma resposta?",
+        "answer": "Procuramos responder a todas as questões em 24 horas durante dias úteis (Segunda a Sexta). Para problemas técnicos urgentes, a nossa equipa de suporte está disponível via email e telefone."
+      },
+      "technicalSupport": {
+        "question": "Estou com problemas técnicos na plataforma. Como posso obter ajuda?",
+        "answer": "Para suporte técnico, envie um email para suporte@lusitanestate.pt com uma descrição detalhada do problema, incluindo capturas de ecrã se possível. A nossa equipa técnica dará prioridade ao seu pedido."
+      },
+      "pricing": {
+        "question": "Onde posso encontrar informações sobre preços e planos?",
+        "answer": "Visite a nossa página de Preços para informações detalhadas sobre todos os planos disponíveis, funcionalidades e preços. Para soluções empresariais, contacte diretamente a nossa equipa de vendas."
+      },
+      "dataRights": {
+        "question": "Como posso exercer os meus direitos de proteção de dados?",
+        "answer": "Para exercer os seus direitos ao abrigo do RGPD (acesso, retificação, eliminação, etc.), contacte o nosso Encarregado de Proteção de Dados em epd@lusitanestate.pt. Responderemos em 30 dias."
+      }
+    },
+    "disputeResolution": {
+      "title": "Resolução Alternativa de Litígios",
+      "description": "Para litígios de consumo, pode utilizar estas plataformas oficiais:",
+      "consumerPortal": "Portal do Consumidor (Portugal)",
+      "euPlatform": "Plataforma Europeia de Resolução de Litígios Online"
+    }
+  },
+  "validation": {
+    "required": "Este campo é obrigatório",
+    "invalidEmail": "Endereço de email inválido",
+    "passwordMin": "A palavra-passe deve ter pelo menos {{min}} caracteres",
+    "passwordMatch": "As palavras-passe devem coincidir",
+    "phoneInvalid": "Número de telefone inválido"
+  },
+  "errors": {
+    "networkError": "Erro de rede. Por favor verifique a sua ligação.",
+    "serverError": "Erro do servidor. Por favor tente novamente mais tarde.",
+    "unauthorized": "Não autorizado. Por favor faça login.",
+    "notFound": "Página não encontrada",
+    "goHome": "Ir para o Início"
+  },
+  "notFound": {
+    "title": "Página Não Encontrada",
+    "subtitle": "A página que procura não existe ou foi movida.",
+    "description": "Parece que se perdeu no caminho. Não se preocupe, vamos ajudá-lo a encontrar o seu lar!",
+    "backHome": "Voltar ao Início"
+  },
+  "about": {
+    "hero": {
+      "title": "Sobre a",
+      "subtitle": "A plataforma líder do mercado imobiliário português, conectando compradores, vendedores e profissionais do setor."
+    },
+    "mission": {
+      "title": "Simplificando a jornada para encontrar a sua",
+      "dreamHome": "casa de sonho",
+      "description1": "Simplificar e modernizar o processo de compra, venda e arrendamento de propriedades em Portugal. Acreditamos que encontrar a casa perfeita deve ser uma experiência transparente, eficiente e acessível para todos.",
+      "description2": "Desenvolvemos uma plataforma que combina tecnologia de ponta com conhecimento profundo do mercado imobiliário português, oferecendo ferramentas que capacitam tanto particulares quanto profissionais do setor.",
+      "values": {
+        "transparency": "Transparência",
+        "innovation": "Inovação",
+        "trust": "Confiança"
+      }
+    },
+    "stats": {
+      "properties": "Propriedades Listadas",
+      "agents": "Agentes Ativos",
+      "users": "Utilizadores",
+      "districts": "Distritos"
+    },
+    "values": {
+      "title": "Princípios Orientadores",
+      "subtitle": "Princípios que guiam cada decisão e interação na nossa plataforma.",
+      "security": {
+        "title": "Segurança e Privacidade",
+        "description": "Protegemos os seus dados com os mais altos padrões de segurança, em total conformidade com o RGPD e legislação portuguesa."
+      },
+      "integrity": {
+        "title": "Integridade",
+        "description": "Verificamos todos os anúncios e promovemos práticas éticas, garantindo uma experiência justa para todos os utilizadores."
+      },
+      "continuousInnovation": {
+        "title": "Inovação Contínua",
+        "description": "Investimos constantemente em novas funcionalidades e tecnologias para melhorar a experiência dos nossos utilizadores."
+      }
+    },
+    "services": {
+      "title": "O Que Oferecemos",
+      "subtitle": "Soluções completas para todas as necessidades do mercado imobiliário.",
+      "buyers": {
+        "title": "Para Compradores",
+        "description": "Pesquise milhares de propriedades com filtros avançados. Guarde favoritos, receba alertas e contacte anunciantes diretamente.",
+        "cta": "Ver Propriedades"
+      },
+      "sellers": {
+        "title": "Para Vendedores",
+        "description": "Publique anúncios com fotos ilimitadas, descrições detalhadas e alcance milhares de potenciais compradores.",
+        "cta": "Começar a Vender"
+      },
+      "forAgents": {
+        "title": "Para Agentes",
+        "description": "Ferramentas profissionais para gestão de portfólio, CRM integrado e maior visibilidade para os seus anúncios.",
+        "cta": "Registar como Agente"
+      },
+      "agencies": {
+        "title": "Para Agências",
+        "description": "Soluções empresariais com gestão de equipas, relatórios analíticos e integrações personalizadas.",
+        "cta": "Contacte-nos"
+      }
+    },
+    "coverage": {
+      "title": "Cobertura Nacional",
+      "subtitle": "Presentes nos 18 distritos de Portugal continental e regiões autónomas.",
+      "autonomousRegions": "Incluindo as Regiões Autónomas da Madeira e Açores"
+    },
+    "cta": {
+      "badge": "Junte-se a milhares de utilizadores satisfeitos",
+      "title": "Pronto para Começar?",
+      "description": "Junte-se a milhares de utilizadores que já encontraram a sua propriedade ideal através da nossa plataforma.",
+      "exploreProperties": "Explorar Propriedades",
+      "createAccount": "Criar Conta Gratuita"
+    },
+    "contactCta": {
+      "question": "Tem alguma questão ou sugestão?",
+      "link": "Entre em contacto connosco"
+    }
+  },
+  "agencies": {
+    "title": "Agências Imobiliárias",
+    "subtitle": "Conecte-se com as principais agências imobiliárias de Portugal e encontre a sua propriedade perfeita com profissionais de confiança.",
+    "error": "Erro ao carregar agências. Por favor tente novamente mais tarde.",
+    "searchAndFilter": "Pesquisar e Filtrar",
+    "clear": "Limpar Filtros",
+    "searchPlaceholder": "Pesquisar agências por nome...",
+    "results": {
+      "singular": "agência encontrada",
+      "plural": "agências encontradas"
+    },
+    "empty": {
+      "title": "Nenhuma agência encontrada",
+      "subtitle": "Tente ajustar os seus critérios de pesquisa ou filtros"
+    },
+    "hero": {
+      "title": "Agências Imobiliárias em Destaque",
+      "subtitle": "Conecte-se com as principais agências imobiliárias de Portugal e encontre a sua propriedade perfeita com profissionais de confiança."
+    },
+    "search": {
+      "placeholder": "Pesquisar agências por nome ou localização...",
+      "button": "Pesquisar Agências"
+    },
+    "filters": {
+      "title": "Filtrar Agências",
+      "location": "Localização",
+      "district": "Distrito",
+      "specialization": "Especialização",
+      "sortBy": "Ordenar Por",
+      "name": "Nome",
+      "numAgents": "Número de Agentes",
+      "newest": "Mais Recentes",
+      "verified": "Estado de Verificação",
+      "all": "Todas as Agências",
+      "onlyVerified": "Apenas Verificadas",
+      "notVerified": "Não Verificadas",
+      "allDistricts": "Todos os Distritos",
+      "allSpecializations": "Todas as Especializações",
+      "reset": "Limpar Filtros",
+      "apply": "Aplicar Filtros"
+    },
+    "sorting": {
+      "newest": "Mais Recentes",
+      "oldest": "Mais Antigas",
+      "mostProperties": "Mais Propriedades",
+      "highestRated": "Melhor Avaliadas",
+      "alphabetical": "Alfabética"
+    },
+    "specializations": {
+      "residential": "Residencial",
+      "commercial": "Comercial",
+      "luxury": "Propriedades de Luxo",
+      "investment": "Investimento",
+      "vacation": "Arrendamento de Férias",
+      "land": "Terrenos e Desenvolvimento"
+    },
+    "card": {
+      "properties": "{{count}} Propriedades",
+      "agents": "{{count}} Agentes",
+      "since": "Desde {{year}}",
+      "verified": "Agência Verificada",
+      "viewProfile": "Ver Perfil",
+      "viewProperties": "Ver Propriedades",
+      "contact": "Contactar Agência"
+    },
+    "stats": {
+      "totalAgencies": "Total de Agências",
+      "verifiedAgencies": "Agências Verificadas",
+      "totalProperties": "Propriedades Listadas",
+      "activeAgents": "Agentes Ativos"
+    },
+    "noResults": {
+      "title": "Nenhuma agência encontrada",
+      "description": "Tente ajustar os seus critérios de pesquisa ou filtros",
+      "reset": "Limpar Filtros"
+    },
+    "loading": "A carregar agências...",
+    "loadMore": "Carregar Mais Agências",
+    "profile": {
+      "overview": "Visão Geral",
+      "properties": "Propriedades",
+      "agents": "Agentes",
+      "reviews": "Avaliações",
+      "contact": "Contacto",
+      "about": "Sobre",
+      "specializations": "Especializações",
+      "operatingRegions": "Regiões de Atuação",
+      "languages": "Idiomas Falados",
+      "certifications": "Certificações",
+      "founded": "Fundada",
+      "employees": "Colaboradores",
+      "headquarters": "Sede",
+      "phone": "Telefone",
+      "email": "Email",
+      "website": "Website",
+      "socialMedia": "Redes Sociais",
+      "sendMessage": "Enviar Mensagem",
+      "requestInfo": "Solicitar Informação",
+      "scheduleVisit": "Agendar Visita"
+    },
+    "cta": {
+      "title": "É uma agência imobiliária?",
+      "description": "Junte-se à LusitanEstate e tenha acesso a milhares de potenciais clientes em todo Portugal.",
+      "button": "Registar a Sua Agência",
+      "benefits": "Benefícios para Agências"
+    }
+  },
+  "agents": {
+    "title": "Agentes Imobiliários",
+    "subtitle": "Conecte-se com profissionais imobiliários experientes e certificados em todo Portugal.",
+    "error": "Erro ao carregar agentes. Por favor, tente novamente mais tarde.",
+    "searchAndFilter": "Pesquisa e Filtros",
+    "clear": "Limpar Filtros",
+    "searchPlaceholder": "Pesquisar agentes por nome ou email...",
+    "hero": {
+      "title": "Encontre o Seu Agente Imobiliário Perfeito",
+      "subtitle": "Conecte-se com profissionais imobiliários experientes e certificados em todo Portugal."
+    },
+    "search": {
+      "placeholder": "Pesquisar agentes por nome, localização ou especialidade...",
+      "button": "Pesquisar Agentes"
+    },
+    "filters": {
+      "title": "Filtrar Agentes",
+      "location": "Localização",
+      "district": "Distrito",
+      "specialty": "Especialidade",
+      "specialization": "Especialização",
+      "language": "Idioma",
+      "experience": "Experiência",
+      "sortBy": "Ordenar Por",
+      "all": "Todas as Especialidades",
+      "allStatus": "Todos os Status",
+      "allDistricts": "Todos os Distritos",
+      "allSpecializations": "Todas as Especializações",
+      "allLanguages": "Todos os Idiomas",
+      "verified": "Status de Verificação",
+      "onlyVerified": "Apenas Verificados",
+      "notVerified": "Não Verificados",
+      "rating": "Classificação",
+      "sales": "Total de Vendas",
+      "name": "Nome",
+      "newest": "Mais Recentes",
+      "reset": "Limpar Filtros",
+      "apply": "Aplicar Filtros",
+      "specialties": {
+        "residential": "Residencial",
+        "commercial": "Comercial",
+        "luxury": "Luxo",
+        "investment": "Investimento"
+      }
+    },
+    "sorting": {
+      "relevance": "Mais Relevantes",
+      "newest": "Mais Recentes",
+      "mostExperienced": "Mais Experientes",
+      "highestRated": "Melhor Avaliados",
+      "mostProperties": "Mais Propriedades",
+      "alphabetical": "Alfabética"
+    },
+    "specializations": {
+      "residential": "Venda Residencial",
+      "commercial": "Propriedades Comerciais",
+      "luxury": "Imobiliário de Luxo",
+      "rentals": "Arrendamento",
+      "investment": "Propriedades de Investimento",
+      "newDevelopments": "Novos Empreendimentos",
+      "landDevelopment": "Terrenos e Desenvolvimento",
+      "international": "Compradores Internacionais"
+    },
+    "experience": {
+      "any": "Qualquer Experiência",
+      "lessThan2": "Menos de 2 anos",
+      "2to5": "2-5 anos",
+      "5to10": "5-10 anos",
+      "moreThan10": "Mais de 10 anos"
+    },
+    "languages": {
+      "portuguese": "Português",
+      "english": "Inglês",
+      "french": "Francês",
+      "spanish": "Espanhol",
+      "german": "Alemão",
+      "dutch": "Holandês",
+      "italian": "Italiano",
+      "chinese": "Chinês",
+      "russian": "Russo"
+    },
+    "card": {
+      "properties": "{{count}} Propriedades",
+      "yearsExperience": "{{count}} Anos de Experiência",
+      "reviews": "{{count}} Avaliações",
+      "rating": "Classificação",
+      "verified": "Agente Verificado",
+      "topPerformer": "Top Performer",
+      "speaks": "Fala",
+      "viewProfile": "Ver Perfil",
+      "viewProperties": "Ver Propriedades",
+      "contact": "Contactar Agente",
+      "agency": "Agência"
+    },
+    "stats": {
+      "totalAgents": "Total de Agentes",
+      "verifiedAgents": "Agentes Verificados",
+      "averageExperience": "Experiência Média",
+      "successfulSales": "Vendas Bem-sucedidas"
+    },
+    "results": {
+      "singular": "agente encontrado",
+      "plural": "agentes encontrados"
+    },
+    "empty": {
+      "title": "Nenhum agente encontrado",
+      "subtitle": "Tente ajustar os seus critérios de pesquisa ou filtros"
+    },
+    "noResults": {
+      "title": "Nenhum agente encontrado",
+      "description": "Tente ajustar os seus critérios de pesquisa ou filtros",
+      "reset": "Limpar Filtros"
+    },
+    "loading": "A carregar agentes...",
+    "loadMore": "Carregar Mais Agentes",
+    "profile": {
+      "overview": "Visão Geral",
+      "properties": "Propriedades",
+      "reviews": "Avaliações",
+      "contact": "Contacto",
+      "about": "Sobre Mim",
+      "specializations": "Especializações",
+      "certifications": "Certificações e Licenças",
+      "languages": "Idiomas",
+      "serviceAreas": "Áreas de Serviço",
+      "experience": "Experiência",
+      "joinedDate": "Membro Desde",
+      "phone": "Telefone",
+      "email": "Email",
+      "website": "Website",
+      "socialMedia": "Redes Sociais",
+      "sendMessage": "Enviar Mensagem",
+      "requestCallback": "Solicitar Contacto",
+      "scheduleConsultation": "Agendar Consulta",
+      "recentSales": "Vendas Recentes",
+      "activeListings": "Anúncios Ativos",
+      "soldProperties": "Propriedades Vendidas",
+      "clientTestimonials": "Testemunhos de Clientes"
+    },
+    "cta": {
+      "title": "É um agente imobiliário?",
+      "description": "Junte-se à LusitanEstate e expanda o seu alcance para milhares de potenciais clientes.",
+      "button": "Registar como Agente",
+      "benefits": "Benefícios para Agentes"
+    }
+  },
+  "pricing": {
+    "hero": {
+      "title": "Preços Simples e Transparentes",
+      "subtitle": "Escolha o plano perfeito para as suas necessidades imobiliárias. Sem taxas ocultas, cancele a qualquer momento."
+    },
+    "sections": {
+      "plansTitle": "Escolha o Seu Plano",
+      "plansSubtitle": "Selecione o plano que melhor se adequa às suas necessidades"
+    },
+    "billing": {
+      "monthly": "Mensal",
+      "annual": "Anual",
+      "save": "Poupe {{percentage}}%"
+    },
+    "plans": {
+      "free": {
+        "name": "Gratuito",
+        "description": "Perfeito para particulares a iniciar a sua procura de propriedade",
+        "price": "€0",
+        "period": "para sempre",
+        "cta": "Começar",
+        "features": {
+          "listings": "Navegue todos os anúncios de propriedades",
+          "search": "Pesquisa e filtros básicos",
+          "favorites": "Guarde até 10 favoritos",
+          "alerts": "Alertas por email de novos anúncios",
+          "support": "Suporte da comunidade",
+          "properties": "Ver detalhes das propriedades",
+          "contact": "Contactar vendedores/agentes"
+        }
+      },
+      "basic": {
+        "name": "Básico",
+        "subtitle": "Para Vendedores Individuais",
+        "price": "Gratuito",
+        "period": "/mês",
+        "description": "Perfeito para particulares que anunciam a sua própria propriedade",
+        "cta": "Começar Gratuitamente",
+        "popular": "Mais Popular",
+        "features": {
+          "listings": "Até 2 anúncios ativos",
+          "photos": "5 fotos por anúncio",
+          "basicListing": "Visibilidade básica do anúncio",
+          "directContact": "Contacto direto de compradores",
+          "emailSupport": "Suporte por email",
+          "searchHighlight": "Destaque nos resultados de pesquisa",
+          "advancedStats": "Estatísticas avançadas",
+          "verificationBadge": "Selo de vendedor verificado",
+          "everything": "Tudo no Gratuito, mais:",
+          "favorites": "Favoritos ilimitados guardados",
+          "alerts": "Alertas de pesquisa avançados",
+          "priority": "Colocação prioritária de anúncios",
+          "analytics": "Análises de propriedades",
+          "support": "Suporte por email",
+          "reporting": "Relatórios básicos"
+        }
+      },
+      "professional": {
+        "name": "Profissional",
+        "subtitle": "Para Agentes Imobiliários",
+        "period": "/mês",
+        "description": "Todas as ferramentas que precisa para ter sucesso como agente",
+        "cta": "Começar",
+        "popular": "Mais Popular",
+        "features": {
+          "unlimitedListings": "Anúncios ativos ilimitados",
+          "photos": "20 fotos por anúncio",
+          "priorityListing": "Colocação prioritária de anúncios",
+          "verifiedProfile": "Perfil de agente verificado",
+          "detailedStats": "Estatísticas de desempenho detalhadas",
+          "searchHighlight": "Destaque nos resultados de pesquisa",
+          "prioritySupport": "Suporte ao cliente prioritário",
+          "basicCRM": "Ferramentas CRM básicas",
+          "everything": "Tudo no Básico, mais:",
+          "listings": "Anúncios de propriedades ilimitados",
+          "crm": "Sistema CRM integrado",
+          "leadManagement": "Ferramentas de gestão de leads",
+          "analytics": "Análises avançadas",
+          "branding": "Branding personalizado",
+          "support": "Suporte prioritário por email e telefone",
+          "api": "Acesso API",
+          "export": "Exportação de dados"
+        }
+      },
+      "enterprise": {
+        "name": "Empresarial",
+        "subtitle": "Para Agências Imobiliárias",
+        "price": "Personalizado",
+        "period": "",
+        "description": "Soluções personalizadas para grandes agências",
+        "cta": "Contactar Vendas",
+        "popular": "Mais Popular",
+        "features": {
+          "everything": "Tudo no Profissional, mais:",
+          "teamManagement": "Gestão de equipa multi-agente",
+          "customBranding": "Branding personalizado da agência",
+          "integrationAPI": "Integração API",
+          "advancedReports": "Análises e relatórios avançados",
+          "dedicatedManager": "Gestor de conta dedicado",
+          "teamTraining": "Formação e integração de equipa",
+          "guaranteedSLA": "SLA garantido",
+          "users": "Membros de equipa ilimitados",
+          "multiLocation": "Suporte multi-localização",
+          "whiteLabel": "Solução white-label",
+          "dedicated": "Gestor de conta dedicado",
+          "support": "Suporte prioritário 24/7",
+          "training": "Formação personalizada",
+          "integration": "Integrações personalizadas",
+          "sla": "Garantias SLA",
+          "compliance": "Ferramentas de conformidade avançadas"
+        }
+      }
+    },
+    "comparison": {
+      "title": "Comparação Detalhada de Funcionalidades",
+      "subtitle": "Veja todas as funcionalidades incluídas em cada plano",
+      "feature": "Funcionalidade",
+      "unlimited": "Ilimitado",
+      "yes": "Sim",
+      "basic": "Básico",
+      "detailed": "Detalhado",
+      "premium": "Premium",
+      "rows": {
+        "listings": "Anúncios Ativos",
+        "photos": "Fotos por Anúncio",
+        "videos": "Vídeos",
+        "videoPerListing": "1 por anúncio",
+        "virtualTours": "Tours Virtuais",
+        "searchHighlight": "Destaque na Pesquisa",
+        "statistics": "Estatísticas",
+        "advancedAPI": "Avançadas + Acesso API",
+        "verificationBadge": "Selo de Verificação",
+        "amiAgent": "Selo Agente AMI",
+        "agency": "Selo de Agência",
+        "support": "Suporte ao Cliente",
+        "priority": "Prioritário (Email + Telefone)",
+        "dedicated247": "Dedicado 24/7",
+        "integratedCRM": "CRM Integrado",
+        "complete": "Completo",
+        "teamManagement": "Gestão de Equipa",
+        "integrationAPI": "Integração API",
+        "whiteLabel": "White Label"
+      }
+    },
+    "features": {
+      "title": "Comparar Planos",
+      "all": "Todas as Funcionalidades"
+    },
+    "faq": {
+      "title": "Perguntas Frequentes",
+      "subtitle": "Encontre respostas para perguntas comuns sobre os nossos preços e planos",
+      "question1": "Posso mudar de plano a qualquer momento?",
+      "answer1": "Sim, pode fazer upgrade ou downgrade do seu plano a qualquer momento. As alterações serão refletidas no seu próximo ciclo de faturação.",
+      "question2": "Existe um período experimental gratuito?",
+      "answer2": "Sim, oferecemos um período experimental gratuito de 14 dias para os nossos planos Básico e Profissional. Não é necessário cartão de crédito.",
+      "question3": "Que métodos de pagamento aceitam?",
+      "answer3": "Aceitamos todos os principais cartões de crédito (Visa, Mastercard, American Express), PayPal e transferências bancárias para planos Empresariais.",
+      "question4": "Posso cancelar a minha subscrição?",
+      "answer4": "Sim, pode cancelar a sua subscrição a qualquer momento. Continuará a ter acesso até ao final do seu período de faturação.",
+      "question5": "Oferecem reembolsos?",
+      "answer5": "Oferecemos uma garantia de devolução do dinheiro de 30 dias em todos os planos pagos. Se não estiver satisfeito, contacte-nos para um reembolso total.",
+      "question6": "Existem taxas de configuração?",
+      "answer6": "Não, não há taxas de configuração ou encargos ocultos. O preço que vê é o preço que paga.",
+      "question7": "O que acontece aos meus anúncios se fizer downgrade?",
+      "answer7": "Os seus anúncios existentes permanecerão ativos. No entanto, não poderá adicionar novos anúncios além do limite do seu plano.",
+      "question8": "Oferecem descontos para faturação anual?",
+      "answer8": "Sim, poupa 20% quando escolhe faturação anual em vez de mensal."
+    },
+    "cta": {
+      "title": "Pronto para Começar?",
+      "description": "Junte-se a milhares de compradores, vendedores e agentes de propriedades bem-sucedidos na LusitanEstate.",
+      "button": "Escolha o Seu Plano",
+      "stillHaveQuestions": "Ainda Tem Dúvidas?",
+      "teamAvailable": "A nossa equipa está disponível para ajudá-lo a escolher o plano certo",
+      "talkToTeam": "Falar com a Nossa Equipa",
+      "startNow": "Começar Agora"
+    },
+    "trustBadges": {
+      "securePayment": "Pagamento Seguro",
+      "easyCancellation": "Cancelamento Fácil",
+      "noCommitment": "Sem Compromisso a Longo Prazo",
+      "portugueseSupport": "Suporte em Português"
+    },
+    "guarantee": {
+      "title": "Garantia de Devolução do Dinheiro de 30 Dias",
+      "description": "Experimente qualquer plano pago sem risco. Se não estiver completamente satisfeito, reembolsamos o seu dinheiro."
+    },
+    "contact": {
+      "title": "Precisa de uma solução personalizada?",
+      "description": "Contacte a nossa equipa de vendas para discutir opções empresariais e preços personalizados.",
+      "button": "Contactar Vendas"
+    }
+  },
+  "terms": {
+    "backLink": "Voltar ao Início",
+    "header": {
+      "title": "Termos de Serviço",
+      "lastUpdated": "Última Atualização",
+      "date": "Janeiro 2025",
+      "intro": "Por favor leia estes termos cuidadosamente antes de usar a nossa plataforma. Ao aceder ou usar a LusitanEstate, concorda em estar vinculado a estes termos."
+    },
+    "section1": {
+      "title": "1. Definições",
+      "platform": "\"Plataforma\": Website e aplicações móveis da LusitanEstate",
+      "user": "\"Utilizador\": Qualquer pessoa ou entidade que acede aos nossos serviços",
+      "services": "\"Serviços\": Todas as funcionalidades e recursos fornecidos pela LusitanEstate",
+      "content": "\"Conteúdo\": Anúncios de propriedades, imagens, descrições e dados gerados pelo utilizador",
+      "account": "\"Conta\": Perfil de registo do utilizador e dados associados"
+    },
+    "section2": {
+      "title": "2. Aceitação dos Termos",
+      "paragraph1": "Ao aceder e usar a LusitanEstate, aceita e concorda em estar vinculado a estes Termos de Serviço e à nossa Política de Privacidade.",
+      "paragraph2": "Se não concordar com estes termos, por favor não use a nossa plataforma.",
+      "paragraph3": "Reservamo-nos o direito de modificar estes termos a qualquer momento. O uso contínuo após alterações constitui aceitação dos novos termos."
+    },
+    "section3": {
+      "title": "3. Contas de Utilizador",
+      "subtitle1": "Registo",
+      "paragraph1": "Para aceder a certas funcionalidades, deve criar uma conta. Concorda em fornecer informações precisas, atuais e completas durante o registo.",
+      "subtitle2": "Tipos de Utilizador",
+      "buyer": "Comprador: Indivíduos à procura de propriedades para comprar ou arrendar",
+      "seller": "Vendedor: Proprietários que listam propriedades para venda ou arrendamento",
+      "agent": "Agente: Profissionais imobiliários licenciados que representam clientes",
+      "agency": "Agência: Empresas imobiliárias que gerem múltiplos agentes e anúncios",
+      "subtitle3": "Segurança da Conta",
+      "paragraph2": "É responsável por manter a confidencialidade das suas credenciais de conta e por todas as atividades que ocorram na sua conta. Notifique-nos imediatamente de qualquer acesso não autorizado."
+    },
+    "section4": {
+      "title": "4. Conduta e Obrigações do Utilizador",
+      "subtitle1": "Uso Aceitável",
+      "intro1": "Ao usar a nossa plataforma, concorda em:",
+      "requirement1": "Fornecer informações precisas e verdadeiras em todos os anúncios e comunicações",
+      "requirement2": "Cumprir todas as leis e regulamentos aplicáveis",
+      "requirement3": "Respeitar os direitos de propriedade intelectual de terceiros",
+      "requirement4": "Usar a plataforma apenas para transações imobiliárias legais",
+      "requirement5": "Manter comunicação profissional e respeitosa com outros utilizadores",
+      "subtitle2": "Atividades Proibidas",
+      "intro2": "Concorda em NÃO:",
+      "prohibited1": "Publicar anúncios de propriedades falsos, enganosos ou fraudulentos",
+      "prohibited2": "Fazer-se passar por qualquer pessoa ou entidade",
+      "prohibited3": "Transmitir spam, anúncios não solicitados ou comunicações em massa",
+      "prohibited4": "Usar sistemas automatizados ou bots para aceder à plataforma",
+      "prohibited5": "Interferir ou perturbar a funcionalidade ou segurança da plataforma",
+      "subtitle3": "Consequências",
+      "paragraph1": "A violação destes termos pode resultar em suspensão ou cancelamento da conta, remoção de conteúdo e ação legal se necessário."
+    },
+    "section5": {
+      "title": "5. Anúncios de Propriedades",
+      "paragraph1": "Todos os anúncios de propriedades devem conter informações precisas, completas e atualizadas. Os vendedores e agentes são responsáveis pela precisão dos seus anúncios.",
+      "paragraph2": "As fotos devem ser da propriedade real e representar com precisão o seu estado atual. Imagens enganosas são proibidas.",
+      "paragraph3": "Os anúncios devem ser removidos ou marcados como indisponíveis dentro de 24 horas após venda, arrendamento ou retirada do mercado. Reservamo-nos o direito de remover anúncios que violem as nossas políticas."
+    },
+    "section6": {
+      "title": "6. Pagamentos e Taxas",
+      "subtitle1": "Taxas de Serviço",
+      "paragraph1": "Certas funcionalidades e serviços requerem pagamento de taxas conforme descrito na nossa página de Preços. Todas as taxas são indicadas em Euros (€) salvo indicação em contrário.",
+      "subtitle2": "Faturação e Reembolsos",
+      "paragraph2": "As taxas não são reembolsáveis exceto conforme exigido por lei ou conforme explicitamente indicado na nossa política de reembolso. Reservamo-nos o direito de alterar as taxas com 30 dias de aviso prévio.",
+      "subtitle3": "Transações de Terceiros",
+      "paragraph3": "A LusitanEstate não é parte de quaisquer transações entre compradores, vendedores e agentes. Não tratamos de transações de propriedades ou pagamentos de propriedades."
+    },
+    "section7": {
+      "title": "7. Propriedade Intelectual",
+      "paragraph1": "Todo o conteúdo na LusitanEstate, incluindo logótipos, texto, gráficos, software e elementos de design, é propriedade da LusitanEstate ou dos seus licenciadores e está protegido pelas leis portuguesas e internacionais de direitos de autor e marcas comerciais. O conteúdo gerado pelo utilizador permanece propriedade dos utilizadores, mas concede-nos uma licença mundial e não exclusiva para usar, exibir e distribuir o seu conteúdo na nossa plataforma."
+    },
+    "section8": {
+      "title": "8. Privacidade e Proteção de Dados",
+      "subtitle1": "Recolha de Dados",
+      "paragraph1": "Recolhemos e processamos dados pessoais de acordo com a nossa Política de Privacidade e o Regulamento Geral de Proteção de Dados (RGPD) e leis portuguesas de proteção de dados.",
+      "subtitle2": "Uso de Dados",
+      "paragraph2": "Os seus dados são usados para fornecer e melhorar os nossos serviços, comunicar consigo e cumprir obrigações legais. Não vendemos os seus dados pessoais a terceiros.",
+      "subtitle3": "Os Seus Direitos",
+      "paragraph3": "Tem o direito de aceder, retificar, eliminar e portar os seus dados pessoais. Contacte o nosso Encarregado de Proteção de Dados em epd@lusitanestate.pt para exercer estes direitos."
+    },
+    "section9": {
+      "title": "9. Isenções de Responsabilidade e Limitações de Responsabilidade",
+      "paragraph1": "A LusitanEstate é fornecida \"como está\" sem garantias de qualquer tipo, expressas ou implícitas. Não garantimos a precisão, completude ou fiabilidade de quaisquer anúncios de propriedades ou conteúdo de utilizador.",
+      "paragraph2": "Não somos responsáveis pela conduta dos utilizadores, qualidade das propriedades ou resultado das transações. A nossa responsabilidade é limitada ao máximo permitido pela lei portuguesa."
+    },
+    "section10": {
+      "title": "10. Resolução de Litígios",
+      "subtitle1": "Lei Aplicável",
+      "paragraph1": "Estes Termos de Serviço são regidos pelas leis de Portugal. Quaisquer disputas serão resolvidas nos tribunais portugueses.",
+      "subtitle2": "Resolução Alternativa de Litígios",
+      "paragraph2": "Para litígios de consumo, pode usar o Portal do Consumidor Português (www.consumidor.pt) ou a Plataforma Europeia de Resolução de Litígios Online (ec.europa.eu/consumers/odr).",
+      "subtitle3": "Período de Limitação",
+      "paragraph3": "Quaisquer reclamações devem ser apresentadas dentro de um ano do evento que deu origem à reclamação, exceto quando proibido por lei."
+    },
+    "section11": {
+      "title": "11. Informações de Contacto",
+      "intro": "Para questões, preocupações ou avisos relativos a estes Termos de Serviço, contacte-nos:",
+      "email": "Email",
+      "address": "Morada",
+      "contactForm": "Formulário de Contacto",
+      "contactPage": "Página de Contacto"
+    },
+    "relatedDocs": {
+      "title": "Documentos Relacionados",
+      "privacy": "Política de Privacidade",
+      "cookies": "Política de Cookies",
+      "contact": "Contacte-nos"
+    }
+  },
+  "privacy": {
+    "title": "Política de Privacidade",
+    "backLink": "Voltar ao Início",
+    "lastUpdated": "Última atualização: Janeiro 2025",
+    "intro": "Na LusitanEstate, levamos a sua privacidade a sério. Esta Política de Privacidade explica como recolhemos, usamos, divulgamos e protegemos as suas informações quando usa a nossa plataforma.",
+    "overview": {
+      "rights": {
+        "title": "Os Seus Direitos",
+        "subtitle": "Controlo total sobre os seus dados"
+      },
+      "minimal": {
+        "title": "Dados Mínimos",
+        "subtitle": "Recolhemos apenas o necessário"
+      },
+      "security": {
+        "title": "Segurança Bancária",
+        "subtitle": "Os seus dados estão protegidos"
+      },
+      "transparency": {
+        "title": "Transparência Total",
+        "subtitle": "Práticas claras e honestas"
+      }
+    },
+    "section1": {
+      "title": "1. Responsável pelo Tratamento de Dados",
+      "intro": "O responsável pelo tratamento dos seus dados pessoais é:",
+      "entity": "Entidade",
+      "address": "Morada",
+      "email": "Email",
+      "website": "Website",
+      "contact": "Para qualquer questão sobre os seus dados, visite a nossa",
+      "contactPage": "página de contacto"
+    },
+    "sections": {
+      "collection": {
+        "title": "2. Dados Que Recolhemos",
+        "description": "Recolhemos as seguintes categorias de informação:",
+        "personal": {
+          "title": "Informações Pessoais Que Fornece",
+          "items": {
+            "item1": "Nome, endereço de email e número de telefone ao criar uma conta",
+            "item2": "Credenciais de conta e informações de autenticação",
+            "item3": "Informações de perfil e fotos que escolhe carregar",
+            "item4": "Anúncios de propriedades, descrições e fotos que submete",
+            "item5": "Informações de pagamento e faturação para serviços pagos",
+            "item6": "Comunicações connosco ou com outros utilizadores através da plataforma"
+          }
+        },
+        "automatic": {
+          "title": "Informações Recolhidas Automaticamente",
+          "items": {
+            "item1": "Endereço IP, tipo de dispositivo e identificadores únicos do dispositivo",
+            "item2": "Tipo, versão e preferências de idioma do navegador",
+            "item3": "Páginas visitadas, tempo gasto e padrões de navegação",
+            "item4": "Consultas de pesquisa, filtros e visualizações de propriedades",
+            "item5": "Cookies e tecnologias de rastreamento semelhantes (ver Política de Cookies)",
+            "item6": "Dados de localização aproximada (com a sua permissão)"
+          }
+        }
+      },
+      "usage": {
+        "title": "3. Como Usamos os Seus Dados",
+        "description": "Usamos as informações recolhidas para os seguintes fins:",
+        "purposes": {
+          "item1": "Fornecer, manter e melhorar os serviços da nossa plataforma imobiliária",
+          "item2": "Processar transações, enviar confirmações e notificações de serviço",
+          "item3": "Responder às suas questões e fornecer suporte ao cliente",
+          "item4": "Enviar comunicações de marketing e alertas de propriedades (com o seu consentimento)",
+          "item5": "Detetar, prevenir e resolver fraude, problemas de segurança e abuso",
+          "item6": "Cumprir obrigações legais e aplicar os nossos Termos de Serviço",
+          "item7": "Analisar padrões de uso para melhorar a experiência do utilizador e funcionalidades da plataforma",
+          "item8": "Personalizar conteúdo, recomendações e resultados de pesquisa"
+        }
+      },
+      "sharing": {
+        "title": "4. Partilha de Dados",
+        "description": "Podemos partilhar as suas informações nas seguintes circunstâncias:",
+        "parties": {
+          "item1": "Com outros utilizadores (agentes, compradores, vendedores) para facilitar transações de propriedades",
+          "item2": "Com prestadores de serviços que nos assistem nas operações da plataforma (alojamento, análise, email)",
+          "item3": "Com processadores de pagamento para lidar com faturação e gestão de subscrições",
+          "item4": "Com parceiros de análise e publicidade para melhorar os nossos serviços",
+          "item5": "Com autoridades legais quando exigido por lei ou para proteger os nossos direitos",
+          "item6": "Em conexão com uma transferência de negócio, fusão ou aquisição"
+        },
+        "note": "Não vendemos as suas informações pessoais a terceiros para fins de marketing."
+      },
+      "cookies": {
+        "title": "5. Cookies e Rastreamento",
+        "content": "Usamos cookies e tecnologias semelhantes para melhorar a sua experiência, lembrar as suas preferências e analisar o uso da plataforma. Pode controlar os cookies através das configurações do seu navegador. Para informações detalhadas, consulte a nossa Política de Cookies."
+      },
+      "security": {
+        "title": "6. Segurança de Dados",
+        "content": "Implementamos medidas de segurança técnicas e organizacionais padrão da indústria para proteger as suas informações, incluindo encriptação, firewalls e servidores seguros. No entanto, nenhum método de transmissão pela internet é 100% seguro, e não podemos garantir a segurança absoluta dos seus dados."
+      },
+      "rights": {
+        "title": "7. Os Seus Direitos (RGPD)",
+        "description": "Ao abrigo do Regulamento Geral de Proteção de Dados (RGPD), tem os seguintes direitos:",
+        "items": {
+          "access": {
+            "title": "Direito de Acesso",
+            "description": "Solicitar uma cópia dos seus dados pessoais que detemos"
+          },
+          "rectification": {
+            "title": "Direito de Retificação",
+            "description": "Corrigir dados imprecisos ou incompletos"
+          },
+          "erasure": {
+            "title": "Direito ao Apagamento",
+            "description": "Solicitar a eliminação dos seus dados ('direito a ser esquecido')"
+          },
+          "restriction": {
+            "title": "Direito de Limitação",
+            "description": "Limitar como processamos os seus dados"
+          },
+          "portability": {
+            "title": "Direito à Portabilidade",
+            "description": "Receber os seus dados num formato estruturado e legível por máquina"
+          },
+          "objection": {
+            "title": "Direito de Oposição",
+            "description": "Opor-se ao processamento baseado em interesses legítimos"
+          }
+        },
+        "exercise": "Para exercer estes direitos, contacte-nos em privacidade@realestate-pt.com ou através da nossa página de contacto."
+      },
+      "retention": {
+        "title": "8. Retenção de Dados",
+        "description": "Retemos as suas informações pessoais pelo tempo necessário para fornecer os nossos serviços e cumprir obrigações legais. Quando elimina a sua conta, eliminaremos ou anonimizaremos as suas informações no prazo de 90 dias, exceto onde somos legalmente obrigados a reter certos dados (por exemplo, para fins fiscais ou legais)."
+      },
+      "transfers": {
+        "title": "9. Transferências Internacionais de Dados",
+        "description": "As suas informações podem ser transferidas e processadas em países fora de Portugal e da União Europeia. Garantimos que tais transferências cumprem o RGPD através de salvaguardas apropriadas, como Cláusulas Contratuais Padrão e decisões de adequação."
+      },
+      "minors": {
+        "title": "10. Privacidade de Menores",
+        "content": "O nosso serviço não se destina a indivíduos com menos de 18 anos de idade. Não recolhemos intencionalmente informações pessoais de menores. Se acredita que recolhemos informações de uma criança, contacte-nos imediatamente para que possamos eliminá-las."
+      },
+      "changes": {
+        "title": "11. Atualizações da Política",
+        "description": "Podemos atualizar esta Política de Privacidade periodicamente para refletir alterações nas nossas práticas ou requisitos legais. Notificaremos sobre alterações materiais via email ou aviso proeminente na nossa plataforma. O uso contínuo do serviço após alterações constitui aceitação da política atualizada."
+      },
+      "contact": {
+        "title": "12. Informações de Contacto",
+        "description": "Se tiver alguma questão sobre esta Política de Privacidade ou as nossas práticas de dados, contacte-nos:",
+        "emailPrivacy": "Email de Privacidade",
+        "emailGeneral": "Email Geral",
+        "form": "Formulário de Contacto",
+        "contactPage": "Página de Contacto"
+      }
+    },
+    "relatedDocs": {
+      "title": "Documentos Relacionados",
+      "terms": "Termos de Serviço",
+      "cookies": "Política de Cookies",
+      "contact": "Contacte-nos"
+    }
+  },
+  "cookies": {
+    "backLink": "Voltar ao Início",
+    "header": {
+      "title": "Política de Cookies",
+      "lastUpdated": "Última Atualização",
+      "date": "Janeiro 2025",
+      "intro": "Esta Política de Cookies explica como a LusitanEstate usa cookies e tecnologias semelhantes quando visita a nossa plataforma. Explicamos o que são estas tecnologias, por que as usamos e os seus direitos para controlar o seu uso."
+    },
+    "categories": {
+      "essential": {
+        "name": "Essenciais",
+        "status": "Sempre Ativos"
+      },
+      "functional": {
+        "name": "Funcionais",
+        "status": "Opcionais"
+      },
+      "analytics": {
+        "name": "Análise",
+        "status": "Opcionais"
+      },
+      "marketing": {
+        "name": "Marketing",
+        "status": "Opcionais"
+      }
+    },
+    "table": {
+      "cookie": "Cookie",
+      "purpose": "Finalidade",
+      "duration": "Duração",
+      "type": "Tipo",
+      "own": "Próprio",
+      "thirdParty": "Terceiros"
+    },
+    "section1": {
+      "title": "1. O Que São Cookies?",
+      "intro": "Cookies são pequenos ficheiros de texto colocados no seu dispositivo quando visita um website. São amplamente usados para fazer os websites funcionarem de forma mais eficiente e proporcionar uma melhor experiência de utilizador.",
+      "types": "Os cookies podem ser classificados por duração:",
+      "session": "Cookies de Sessão: Cookies temporários eliminados quando fecha o navegador",
+      "persistent": "Cookies Persistentes: Permanecem no seu dispositivo por um período definido ou até serem eliminados manualmente",
+      "classification": "Também podem ser classificados por origem:",
+      "firstParty": "Cookies Próprios: Definidos pelo website que está a visitar (LusitanEstate)",
+      "thirdParty": "Cookies de Terceiros: Definidos por serviços externos integrados na nossa plataforma"
+    },
+    "section2": {
+      "title": "2. Base Legal para Usar Cookies",
+      "intro": "O nosso uso de cookies baseia-se na legislação portuguesa e da União Europeia, incluindo o Regulamento Geral de Proteção de Dados (RGPD) e a Diretiva ePrivacy.",
+      "legislation": "De acordo com esta legislação, os cookies são classificados em duas categorias:",
+      "essential": "Cookies Essenciais: Estritamente necessários para o funcionamento da plataforma. Não requerem consentimento pois são essenciais para fornecer o serviço solicitado.",
+      "nonEssential": "Cookies Não Essenciais: Todos os outros cookies (funcionais, análise, marketing) requerem o seu consentimento explícito antes de serem colocados no seu dispositivo.",
+      "consent": "Quando visita a nossa plataforma pela primeira vez, verá um banner de cookies que lhe permite aceitar ou rejeitar cookies não essenciais. Pode alterar as suas preferências a qualquer momento.",
+      "note": "Nota: Bloquear certos cookies pode afetar a funcionalidade da plataforma e a experiência do utilizador."
+    },
+    "section3": {
+      "title": "3. Tipos de Cookies Que Usamos",
+      "essential": {
+        "badge": "Sempre Ativos",
+        "title": "Cookies Essenciais",
+        "description": "Estes cookies são estritamente necessários para o funcionamento da plataforma. Permitem funcionalidades essenciais como autenticação, segurança, gestão de sessão e balanceamento de carga. Sem estes cookies, os nossos serviços não podem ser fornecidos.",
+        "authToken": "Gere autenticação e sessões de login do utilizador",
+        "sessionId": "Mantém a sua sessão enquanto navega na plataforma",
+        "cookieConsent": "Armazena as suas preferências de consentimento de cookies",
+        "csrfToken": "Protege contra ataques de falsificação de pedidos entre sites",
+        "duration1": "Sessão",
+        "duration2": "Sessão",
+        "duration3": "1 ano",
+        "duration4": "Sessão"
+      },
+      "functional": {
+        "badge": "Opcionais",
+        "title": "Cookies Funcionais",
+        "description": "Estes cookies permitem funcionalidades melhoradas e personalização. Lembram as suas escolhas (como preferência de idioma) e fornecem funcionalidades melhoradas e personalizadas.",
+        "userPreferences": "Armazena preferências de idioma, região e visualização",
+        "recentSearches": "Lembra as suas pesquisas recentes de propriedades",
+        "savedProperties": "Armazena as suas propriedades guardadas/favoritas",
+        "duration1": "1 ano",
+        "duration2": "30 dias",
+        "duration3": "6 meses"
+      },
+      "analytics": {
+        "badge": "Opcionais",
+        "title": "Cookies de Análise",
+        "description": "Estes cookies ajudam-nos a entender como os visitantes interagem com a nossa plataforma, recolhendo e reportando informações anonimamente. Isto ajuda-nos a melhorar os nossos serviços.",
+        "ga": "Google Analytics - cookie principal para identificação de utilizador",
+        "gaSession": "Google Analytics - rastreamento de sessão e campanha",
+        "gid": "Google Analytics - distingue utilizadores",
+        "duration1": "2 anos",
+        "duration2": "2 anos",
+        "duration3": "24 horas"
+      },
+      "marketing": {
+        "badge": "Opcionais",
+        "title": "Cookies de Marketing/Publicidade",
+        "description": "Estes cookies rastreiam visitantes através de websites para exibir anúncios relevantes e personalizados e medir a eficácia das campanhas publicitárias.",
+        "fbp": "Facebook Pixel - rastreia conversões e constrói audiências",
+        "adsPrefs": "Armazena preferências de publicidade e informação de segmentação",
+        "duration1": "3 meses",
+        "duration2": "1 ano"
+      }
+    },
+    "section4": {
+      "title": "4. Gerir as Suas Preferências de Cookies",
+      "subtitle1": "Banner de Cookies",
+      "banner": "Quando visita a nossa plataforma pela primeira vez, verá um banner de consentimento de cookies. Pode escolher aceitar todos os cookies, rejeitar cookies não essenciais ou personalizar as suas preferências por categoria de cookie.",
+      "subtitle2": "Alterar as Suas Preferências",
+      "changePreferences": "Pode alterar as suas preferências de cookies a qualquer momento clicando no link 'Definições de Cookies' no rodapé do nosso website ou limpando os cookies através das definições do seu navegador.",
+      "subtitle3": "Definições do Navegador",
+      "browserSettings": "A maioria dos navegadores web permite controlar os cookies através das suas definições. Normalmente pode encontrá-las no menu 'Opções' ou 'Preferências'. Links para guias de gestão de cookies para navegadores populares:",
+      "warning": "Importante: Desativar cookies pode impactar a sua capacidade de usar certas funcionalidades da nossa plataforma. Os cookies essenciais não podem ser desativados pois são necessários para o funcionamento da plataforma."
+    },
+    "section5": {
+      "title": "5. Cookies e Serviços de Terceiros",
+      "intro": "Usamos serviços de terceiros que podem colocar cookies no seu dispositivo. Estes serviços têm as suas próprias políticas de privacidade e cookies:",
+      "googlePrivacy": "Política de Privacidade do Google",
+      "metaPrivacy": "Política de Privacidade da Meta (Facebook)",
+      "optOut": "Para optar por não receber publicidade baseada em interesses de empresas participantes, pode usar estas ferramentas:"
+    },
+    "section6": {
+      "title": "6. Outras Tecnologias de Rastreamento",
+      "intro": "Além de cookies, usamos outras tecnologias de rastreamento semelhantes:",
+      "localStorage": "Armazenamento Local: Armazenamento local HTML5 para guardar preferências e dados em cache localmente no seu navegador",
+      "sessionStorage": "Armazenamento de Sessão: Armazenamento temporário que é limpo quando fecha o navegador",
+      "pixels": "Pixels/Web Beacons: Pequenas imagens invisíveis usadas para rastrear visualizações de página e comportamento do utilizador",
+      "consent": "As suas preferências de consentimento de cookies também se aplicam a estas tecnologias semelhantes."
+    },
+    "section7": {
+      "title": "7. Atualizações a Esta Política",
+      "paragraph1": "Podemos atualizar esta Política de Cookies periodicamente para refletir alterações no nosso uso de cookies, tecnologia ou requisitos legais. A data de 'Última Atualização' no topo desta página indica quando a política foi revista pela última vez.",
+      "paragraph2": "Encorajamos a rever esta Política de Cookies periodicamente para se manter informado sobre como usamos cookies. Alterações materiais serão comunicadas via email ou aviso proeminente na nossa plataforma."
+    },
+    "section8": {
+      "title": "8. Contacte-nos",
+      "intro": "Se tiver questões ou preocupações sobre o nosso uso de cookies, contacte-nos:",
+      "email": "Email",
+      "form": "Formulário de Contacto",
+      "contactPage": "Página de Contacto"
+    },
+    "relatedDocs": {
+      "title": "Documentos Relacionados",
+      "terms": "Termos de Serviço",
+      "privacy": "Política de Privacidade",
+      "contact": "Contacte-nos"
+    }
+  },
+  "addProperty": {
+    "title": "Adicionar Novo Imóvel",
+    "steps": {
+      "basic": "Informações Básicas",
+      "location": "Localização",
+      "details": "Detalhes",
+      "features": "Características",
+      "images": "Imagens"
+    },
+    "basicInfo": {
+      "title": "Título",
+      "titlePlaceholder": "ex., Apartamento Moderno T3 em Lisboa",
+      "description": "Descrição",
+      "descriptionPlaceholder": "Descreva o seu imóvel...",
+      "price": "Preço",
+      "pricePlaceholder": "ex., 250000",
+      "propertyType": "Tipo de Imóvel",
+      "status": "Estado",
+      "selectType": "Selecione um tipo"
+    },
+    "location": {
+      "street": "Morada",
+      "streetPlaceholder": "ex., Rua da Liberdade, 123",
+      "city": "Cidade",
+      "cityPlaceholder": "ex., Lisboa",
+      "district": "Distrito",
+      "selectDistrict": "Selecione um distrito",
+      "zipCode": "Código Postal",
+      "zipCodePlaceholder": "ex., 1200-001",
+      "country": "País"
+    },
+    "details": {
+      "bedrooms": "Quartos",
+      "bathrooms": "Casas de Banho",
+      "squareMeters": "Área (m²)",
+      "yearBuilt": "Ano de Construção",
+      "yearBuiltPlaceholder": "ex., 2020",
+      "parkingSpaces": "Lugares de Estacionamento",
+      "hasGarage": "Tem Garagem",
+      "condition": "Condição",
+      "condominiumFee": "Taxa de Condomínio (€/mês)",
+      "energyRating": "Certificado Energético"
+    },
+    "features": {
+      "title": "Selecionar Características",
+      "description": "Escolha todas as características que se aplicam ao seu imóvel"
+    },
+    "images": {
+      "title": "Imagens do Imóvel",
+      "description": "Carregue pelo menos 3 imagens do seu imóvel",
+      "minImages": "Por favor carregue pelo menos 3 imagens"
+    },
+    "buttons": {
+      "previous": "Anterior",
+      "next": "Próximo",
+      "submit": "Criar Imóvel",
+      "submitting": "A criar..."
+    },
+    "validation": {
+      "fillRequired": "Por favor preencha todos os campos obrigatórios",
+      "invalidZipCode": "Formato de código postal inválido (ex., 1200-001)",
+      "minImages": "Por favor carregue pelo menos 3 imagens"
+    },
+    "success": "Imóvel criado com sucesso! Aguardando aprovação.",
+    "error": "Erro ao criar imóvel. Por favor tente novamente."
+  },
+  "propertyDetail": {
+    "notFound": {
+      "title": "Imóvel Não Encontrado",
+      "message": "O imóvel que procura não existe ou foi removido.",
+      "backButton": "Voltar para Imóveis"
+    },
+    "featured": "Destaque",
+    "buttons": {
+      "back": "Voltar",
+      "callNow": "Ligar Agora",
+      "sendEmail": "Enviar Email",
+      "addToFavorites": "Adicionar aos Favoritos",
+      "share": "Partilhar"
+    },
+    "details": {
+      "bedrooms": "Quartos",
+      "bathrooms": "Casas de Banho",
+      "area": "Área",
+      "energyCertificate": "Certificado Energético"
+    },
+    "sections": {
+      "description": "Descrição",
+      "propertyDetails": "Detalhes do Imóvel",
+      "features": "Características"
+    },
+    "propertyInfo": {
+      "type": "Tipo:",
+      "yearBuilt": "Ano de Construção:",
+      "lotSize": "Tamanho do Lote:",
+      "parking": "Estacionamento:",
+      "floors": "Pisos:",
+      "condition": "Condição:"
+    },
+    "contact": {
+      "title": "Contacto",
+      "agent": "Agente",
+      "agency": "Agência"
+    },
+    "meta": {
+      "publishedOn": "Publicado em",
+      "views": "visualizações"
+    }
+  },
+  "admin": {
+    "dashboard": {
+      "title": "Painel Administrativo",
+      "subtitle": "Visão geral do sistema e estatísticas",
+      "quickNav": {
+        "properties": "Imóveis",
+        "propertiesDesc": "Gerir propriedades",
+        "users": "Utilizadores",
+        "usersDesc": "Gerir contas",
+        "inquiries": "Pedidos",
+        "inquiriesDesc": "Ver mensagens",
+        "approvals": "Aprovações",
+        "approvalsDesc": "Pendentes"
+      },
+      "stats": {
+        "totalUsers": "Total de Utilizadores",
+        "totalProperties": "Total de Imóveis",
+        "agencies": "Agências",
+        "agents": "Agentes",
+        "newUsersThisMonth": "novos este mês",
+        "newPropertiesThisWeek": "novos esta semana",
+        "active": "ativos"
+      },
+      "actions": {
+        "pendingApproval": "Aguardando Aprovação",
+        "pendingInquiries": "Pedidos Pendentes",
+        "activeProperties": "Imóveis Ativos",
+        "manageApprovals": "Gerir Aprovações",
+        "viewInquiries": "Ver Pedidos",
+        "viewAll": "Ver Todos"
+      },
+      "charts": {
+        "usersByRole": "Distribuição de Utilizadores por Tipo",
+        "propertiesByStatus": "Imóveis por Estado",
+        "topDistricts": "Distritos com Mais Imóveis",
+        "avgPriceByDistrict": "Preço Médio por Distrito",
+        "recentProperties": "Imóveis Recentes",
+        "recentInquiries": "Pedidos Recentes",
+        "notSpecified": "Não especificado"
+      },
+      "performance": {
+        "agencyAvgRating": "Avaliação Média Agências",
+        "agentAvgRating": "Avaliação Média Agentes",
+        "totalInquiries": "Total de Consultas"
+      },
+      "status": {
+        "pending": "Pendente",
+        "responded": "Respondido"
+      },
+      "errors": {
+        "loadDashboard": "Erro ao carregar dados do painel"
+      }
+    },
+    "users": {
+      "title": "Gestão de Utilizadores",
+      "subtitle": "Ver e gerir todos os utilizadores do sistema",
+      "search": "Pesquisar utilizadores...",
+      "filterByRole": "Filtrar por papel",
+      "allRoles": "Todos os Papéis",
+      "table": {
+        "user": "Utilizador",
+        "email": "Email",
+        "role": "Papel",
+        "joinedDate": "Data de Registo",
+        "actions": "Ações"
+      },
+      "roles": {
+        "admin": "Administrador",
+        "agent": "Agente",
+        "seller": "Vendedor",
+        "buyer": "Comprador"
+      },
+      "editRole": "Editar Papel",
+      "newRole": "Novo Papel",
+      "selectRole": "Selecione um papel",
+      "updateRole": "Atualizar Papel",
+      "deleteUser": "Eliminar Utilizador",
+      "confirmDelete": "Tem a certeza que deseja eliminar o utilizador \"{{name}}\"? Esta ação não pode ser revertida.",
+      "pagination": {
+        "showing": "A mostrar",
+        "to": "a",
+        "of": "de",
+        "users": "utilizadores",
+        "previous": "Anterior",
+        "next": "Próximo"
+      },
+      "success": {
+        "roleUpdated": "Papel de utilizador atualizado com sucesso!",
+        "userDeleted": "Utilizador eliminado com sucesso!"
+      },
+      "errors": {
+        "loadUsers": "Erro ao carregar utilizadores",
+        "selectRole": "Selecione um papel",
+        "updateRole": "Erro ao atualizar papel de utilizador",
+        "deleteUser": "Erro ao eliminar utilizador"
+      }
+    },
+    "properties": {
+      "title": "Gestão de Imóveis",
+      "subtitle": "Ver e gerir todos os imóveis",
+      "search": "Pesquisar imóveis...",
+      "filterByStatus": "Filtrar por estado",
+      "filterByApproval": "Filtrar por aprovação",
+      "allStatuses": "Todos os Estados",
+      "allApprovals": "Todas as Aprovações",
+      "table": {
+        "property": "Imóvel",
+        "owner": "Proprietário",
+        "price": "Preço",
+        "status": "Estado",
+        "approval": "Aprovação",
+        "actions": "Ações"
+      },
+      "approvalStatus": {
+        "pending": "Pendente",
+        "approved": "Aprovado",
+        "rejected": "Rejeitado"
+      },
+      "approve": "Aprovar",
+      "reject": "Rejeitar",
+      "delete": "Eliminar",
+      "view": "Ver",
+      "confirmDelete": "Tem a certeza que deseja eliminar este imóvel? Esta ação não pode ser revertida.",
+      "confirmApprove": "Aprovar este imóvel?",
+      "confirmReject": "Rejeitar este imóvel?",
+      "success": {
+        "approved": "Imóvel aprovado com sucesso!",
+        "rejected": "Imóvel rejeitado com sucesso!",
+        "deleted": "Imóvel eliminado com sucesso!"
+      },
+      "errors": {
+        "loadProperties": "Erro ao carregar imóveis",
+        "approve": "Erro ao aprovar imóvel",
+        "reject": "Erro ao rejeitar imóvel",
+        "delete": "Erro ao eliminar imóvel"
+      }
+    },
+    "inquiries": {
+      "title": "Gestão de Pedidos",
+      "subtitle": "Ver e gerir todos os pedidos",
+      "filterByStatus": "Filtrar por estado",
+      "allStatuses": "Todos os Estados",
+      "table": {
+        "from": "De",
+        "property": "Imóvel",
+        "message": "Mensagem",
+        "date": "Data",
+        "status": "Estado",
+        "actions": "Ações"
+      },
+      "viewDetails": "Ver Detalhes",
+      "markAsRead": "Marcar como Lido",
+      "delete": "Eliminar",
+      "inquiryDetails": "Detalhes do Pedido",
+      "name": "Nome",
+      "email": "Email",
+      "phone": "Telefone",
+      "category": "Categoria",
+      "subject": "Assunto",
+      "message": "Mensagem",
+      "relatedProperty": "Imóvel Relacionado",
+      "receivedOn": "Recebido em",
+      "close": "Fechar",
+      "success": {
+        "markedAsRead": "Pedido marcado como lido!",
+        "deleted": "Pedido eliminado com sucesso!"
+      },
+      "errors": {
+        "loadInquiries": "Erro ao carregar pedidos",
+        "markAsRead": "Erro ao marcar pedido como lido",
+        "delete": "Erro ao eliminar pedido"
+      }
+    }
+  }
+}

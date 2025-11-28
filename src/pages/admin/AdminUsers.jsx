@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { adminAPI } from '../../api/admin';
 import Loading from '../../components/common/Loading';
 import { toast } from 'react-toastify';
@@ -16,6 +17,7 @@ import {
 } from 'react-icons/fa';
 
 const AdminUsers = () => {
+  const { t } = useTranslation();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
@@ -43,7 +45,7 @@ const AdminUsers = () => {
       });
     } catch (error) {
       console.error('Error fetching users:', error);
-      toast.error('Erro ao carregar utilizadores');
+      toast.error(t('admin.users.errors.loadUsers'));
     } finally {
       setLoading(false);
     }
@@ -56,34 +58,34 @@ const AdminUsers = () => {
 
   const handleUpdateRole = async () => {
     if (!newRole) {
-      toast.error('Selecione um papel');
+      toast.error(t('admin.users.errors.selectRole'));
       return;
     }
 
     try {
       await adminAPI.updateUserRole(editingUser._id, newRole);
-      toast.success('Papel de utilizador atualizado com sucesso!');
+      toast.success(t('admin.users.success.roleUpdated'));
       setEditingUser(null);
       setNewRole('');
       fetchUsers();
     } catch (error) {
       console.error('Error updating user role:', error);
-      toast.error('Erro ao atualizar papel de utilizador');
+      toast.error(t('admin.users.errors.updateRole'));
     }
   };
 
   const handleDeleteUser = async (userId, userName) => {
-    if (!confirm(`Tem a certeza que deseja eliminar o utilizador "${userName}"? Esta acao nao pode ser revertida.`)) {
+    if (!confirm(t('admin.users.confirmDelete', { userName }))) {
       return;
     }
 
     try {
       await adminAPI.deleteUser(userId);
-      toast.success('Utilizador eliminado com sucesso!');
+      toast.success(t('admin.users.success.userDeleted'));
       fetchUsers();
     } catch (error) {
       console.error('Error deleting user:', error);
-      toast.error(error.message || 'Erro ao eliminar utilizador');
+      toast.error(error.message || t('admin.users.errors.deleteUser'));
     }
   };
 
@@ -107,10 +109,10 @@ const AdminUsers = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold text-gray-900">
-                Gestao de Utilizadores
+                {t('admin.users.title')}
               </h1>
               <p className="text-gray-600">
-                {pagination.total || 0} utilizadores registados
+                {t('admin.users.subtitle', { count: pagination.total || 0 })}
               </p>
             </div>
           </div>
@@ -120,7 +122,7 @@ const AdminUsers = () => {
         <div className="card rounded-2xl mb-6">
           <div className="flex items-center space-x-2 mb-4">
             <FaSearch className="text-primary-600" />
-            <h3 className="text-lg font-semibold text-gray-900">Pesquisar e Filtrar</h3>
+            <h3 className="text-lg font-semibold text-gray-900">{t('admin.users.filters.title')}</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {/* Search */}
@@ -133,7 +135,7 @@ const AdminUsers = () => {
                   type="text"
                   value={filters.search}
                   onChange={(e) => setFilters({ ...filters, search: e.target.value })}
-                  placeholder="Pesquisar por nome ou email..."
+                  placeholder={t('admin.users.filters.searchPlaceholder')}
                   className="input-field pl-11"
                 />
               </div>
@@ -145,11 +147,11 @@ const AdminUsers = () => {
               onChange={(e) => setFilters({ ...filters, role: e.target.value, page: 1 })}
               className="input-field"
             >
-              <option value="">Todos os Papeis</option>
-              <option value="buyer">Comprador</option>
-              <option value="seller">Vendedor</option>
-              <option value="agent">Agente</option>
-              <option value="admin">Administrador</option>
+              <option value="">{t('admin.users.filters.allRoles')}</option>
+              <option value="buyer">{t('admin.users.roles.buyer')}</option>
+              <option value="seller">{t('admin.users.roles.seller')}</option>
+              <option value="agent">{t('admin.users.roles.agent')}</option>
+              <option value="admin">{t('admin.users.roles.admin')}</option>
             </select>
           </div>
         </div>
@@ -159,7 +161,7 @@ const AdminUsers = () => {
           <div className="card rounded-2xl border-l-4 border-blue-500 bg-gradient-to-r from-blue-50 to-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Compradores</p>
+                <p className="text-sm text-gray-600">{t('admin.users.stats.buyers')}</p>
                 <p className="text-2xl font-bold text-gray-900">
                   {users.filter(u => u.role === 'buyer').length}
                 </p>
@@ -173,7 +175,7 @@ const AdminUsers = () => {
           <div className="card rounded-2xl border-l-4 border-green-500 bg-gradient-to-r from-green-50 to-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Vendedores</p>
+                <p className="text-sm text-gray-600">{t('admin.users.stats.sellers')}</p>
                 <p className="text-2xl font-bold text-gray-900">
                   {users.filter(u => u.role === 'seller').length}
                 </p>
@@ -187,7 +189,7 @@ const AdminUsers = () => {
           <div className="card rounded-2xl border-l-4 border-purple-500 bg-gradient-to-r from-purple-50 to-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Agentes</p>
+                <p className="text-sm text-gray-600">{t('admin.users.stats.agents')}</p>
                 <p className="text-2xl font-bold text-gray-900">
                   {users.filter(u => u.role === 'agent').length}
                 </p>
@@ -201,7 +203,7 @@ const AdminUsers = () => {
           <div className="card rounded-2xl border-l-4 border-red-500 bg-gradient-to-r from-red-50 to-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Administradores</p>
+                <p className="text-sm text-gray-600">{t('admin.users.stats.admins')}</p>
                 <p className="text-2xl font-bold text-gray-900">
                   {users.filter(u => u.role === 'admin').length}
                 </p>
@@ -220,16 +222,16 @@ const AdminUsers = () => {
               <thead className="bg-gradient-to-r from-sand-100 to-sand-50">
                 <tr>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Utilizador
+                    {t('admin.users.table.user')}
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Papel
+                    {t('admin.users.table.role')}
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Data de Registo
+                    {t('admin.users.table.registrationDate')}
                   </th>
                   <th className="px-6 py-4 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Acoes
+                    {t('admin.users.table.actions')}
                   </th>
                 </tr>
               </thead>
@@ -258,7 +260,7 @@ const AdminUsers = () => {
                       <span className={`px-3 py-1.5 inline-flex text-xs leading-5 font-semibold rounded-full ${
                         getRoleBadge(user.role)
                       }`}>
-                        {getRoleLabel(user.role)}
+                        {t(`admin.users.roles.${user.role}`)}
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -274,14 +276,14 @@ const AdminUsers = () => {
                           className="btn-secondary py-2 px-3 flex items-center space-x-1 text-xs"
                         >
                           <FaEdit />
-                          <span>Editar</span>
+                          <span>{t('admin.users.actions.edit')}</span>
                         </button>
                         <button
                           onClick={() => handleDeleteUser(user._id, user.name)}
                           className="btn-danger py-2 px-3 flex items-center space-x-1 text-xs"
                         >
                           <FaTrash />
-                          <span>Eliminar</span>
+                          <span>{t('admin.users.actions.delete')}</span>
                         </button>
                       </div>
                     </td>
@@ -300,21 +302,20 @@ const AdminUsers = () => {
                   disabled={filters.page === 1}
                   className="btn-secondary"
                 >
-                  Anterior
+                  {t('admin.users.pagination.previous')}
                 </button>
                 <button
                   onClick={() => setFilters({ ...filters, page: filters.page + 1 })}
                   disabled={filters.page === pagination.pages}
                   className="btn-secondary"
                 >
-                  Proxima
+                  {t('admin.users.pagination.next')}
                 </button>
               </div>
               <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
                 <div>
                   <p className="text-sm text-gray-700">
-                    Pagina <span className="font-semibold">{pagination.page}</span> de{' '}
-                    <span className="font-semibold">{pagination.pages}</span>
+                    {t('admin.users.pagination.pageInfo', { page: pagination.page, pages: pagination.pages })}
                   </p>
                 </div>
                 <div className="flex space-x-2">
@@ -323,14 +324,14 @@ const AdminUsers = () => {
                     disabled={filters.page === 1}
                     className="btn-secondary"
                   >
-                    Anterior
+                    {t('admin.users.pagination.previous')}
                   </button>
                   <button
                     onClick={() => setFilters({ ...filters, page: filters.page + 1 })}
                     disabled={filters.page === pagination.pages}
                     className="btn-secondary"
                   >
-                    Proxima
+                    {t('admin.users.pagination.next')}
                   </button>
                 </div>
               </div>
@@ -357,22 +358,22 @@ const AdminUsers = () => {
                   <FaEdit className="text-2xl text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">
-                  Editar Papel de Utilizador
+                  {t('admin.users.modal.title')}
                 </h3>
               </div>
 
               <div className="mb-6 p-4 bg-sand-50 rounded-xl">
                 <p className="text-sm text-gray-600 mb-1">
-                  <span className="font-semibold">Utilizador:</span> {editingUser.name}
+                  <span className="font-semibold">{t('admin.users.modal.user')}:</span> {editingUser.name}
                 </p>
                 <p className="text-sm text-gray-600">
-                  <span className="font-semibold">Email:</span> {editingUser.email}
+                  <span className="font-semibold">{t('admin.users.modal.email')}:</span> {editingUser.email}
                 </p>
               </div>
 
               <div className="mb-6">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Novo Papel
+                  {t('admin.users.modal.newRole')}
                 </label>
                 <select
                   value={newRole}
@@ -380,11 +381,11 @@ const AdminUsers = () => {
                   className="input-field w-full"
                   autoFocus
                 >
-                  <option value="">Selecione um papel</option>
-                  <option value="buyer">Comprador</option>
-                  <option value="seller">Vendedor</option>
-                  <option value="agent">Agente</option>
-                  <option value="admin">Administrador</option>
+                  <option value="">{t('admin.users.modal.selectRole')}</option>
+                  <option value="buyer">{t('admin.users.roles.buyer')}</option>
+                  <option value="seller">{t('admin.users.roles.seller')}</option>
+                  <option value="agent">{t('admin.users.roles.agent')}</option>
+                  <option value="admin">{t('admin.users.roles.admin')}</option>
                 </select>
               </div>
 
@@ -396,10 +397,10 @@ const AdminUsers = () => {
                   }}
                   className="btn-secondary flex-1"
                 >
-                  Cancelar
+                  {t('admin.users.modal.cancel')}
                 </button>
                 <button onClick={handleUpdateRole} className="btn-primary flex-1">
-                  Atualizar
+                  {t('admin.users.modal.update')}
                 </button>
               </div>
             </div>
@@ -411,16 +412,6 @@ const AdminUsers = () => {
 };
 
 // Helper Functions
-const getRoleLabel = (role) => {
-  const labels = {
-    buyer: 'Comprador',
-    seller: 'Vendedor',
-    agent: 'Agente',
-    admin: 'Administrador'
-  };
-  return labels[role] || role;
-};
-
 const getRoleBadge = (role) => {
   const badges = {
     buyer: 'badge-info',

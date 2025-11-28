@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useLanguage } from '../context/LanguageContext';
 import { toast } from 'react-toastify';
+import { useTranslation } from 'react-i18next';
 import { USER_ROLES } from '../utils/constants';
 
 const Register = () => {
+  const { t } = useTranslation();
+  const { currentLanguage } = useLanguage();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,12 +32,12 @@ const Register = () => {
     e.preventDefault();
 
     if (formData.password !== formData.confirmPassword) {
-      toast.error('As palavras-passe não coincidem');
+      toast.error(t('validation.passwordMatch'));
       return;
     }
 
     if (formData.password.length < 6) {
-      toast.error('A palavra-passe deve ter pelo menos 6 caracteres');
+      toast.error(t('validation.passwordMin', { min: 6 }));
       return;
     }
 
@@ -41,16 +45,19 @@ const Register = () => {
 
     try {
       const { confirmPassword, ...registerData } = formData;
+      // Include current language preference
+      registerData.preferredLanguage = currentLanguage;
+
       const result = await register(registerData);
 
       if (result.success) {
-        toast.success('Verifique o seu email para ativar a conta!');
+        toast.success(t('auth.registrationSuccess'));
         navigate('/check-email', { state: { email: formData.email } });
       } else {
-        toast.error(result.message || 'Erro ao criar conta');
+        toast.error(result.message || t('auth.registrationError'));
       }
     } catch (error) {
-      toast.error(error.message || 'Erro ao criar conta');
+      toast.error(error.message || t('auth.registrationError'));
     } finally {
       setLoading(false);
     }
@@ -59,8 +66,8 @@ const Register = () => {
   const roleOptions = [
     {
       value: USER_ROLES.BUYER,
-      label: 'Comprador',
-      description: 'Procuro comprar ou arrendar',
+      label: t('roles.buyer'),
+      description: t('roles.buyerDesc'),
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -69,8 +76,8 @@ const Register = () => {
     },
     {
       value: USER_ROLES.SELLER,
-      label: 'Vendedor',
-      description: 'Quero vender a minha propriedade',
+      label: t('roles.seller'),
+      description: t('roles.sellerDesc'),
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" />
@@ -79,8 +86,8 @@ const Register = () => {
     },
     {
       value: USER_ROLES.AGENT,
-      label: 'Agente',
-      description: 'Sou profissional imobiliário',
+      label: t('roles.agent'),
+      description: t('roles.agentDesc'),
       icon: (
         <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -93,12 +100,12 @@ const Register = () => {
     <div className="min-h-screen bg-sand-50 flex flex-col justify-center pt-28 pb-12 px-4 sm:px-6 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-lg">
         <h2 className="text-center text-3xl font-bold text-gray-900">
-          Criar nova conta
+          {t('auth.register')}
         </h2>
         <p className="mt-2 text-center text-sm text-gray-600">
-          Ou{' '}
+          {t('auth.orCreateAccount')}{' '}
           <Link to="/login" className="font-medium text-primary-600 hover:text-primary-500 transition-colors">
-            entrar na sua conta existente
+            {t('auth.alreadyHaveAccount')}
           </Link>
         </p>
       </div>
@@ -109,7 +116,7 @@ const Register = () => {
             {/* Role Selection */}
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-3">
-                Tipo de Conta
+                {t('auth.role')}
               </label>
               <div className="grid grid-cols-3 gap-3">
                 {roleOptions.map((option) => (
@@ -151,7 +158,7 @@ const Register = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium text-gray-700">
-                  Nome Completo
+                  {t('auth.name')}
                 </label>
                 <input
                   id="name"
@@ -167,7 +174,7 @@ const Register = () => {
 
               <div>
                 <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
-                  Telefone <span className="text-gray-400">(opcional)</span>
+                  {t('auth.phone')}
                 </label>
                 <input
                   id="phone"
@@ -183,7 +190,7 @@ const Register = () => {
 
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700">
-                Email
+                {t('auth.email')}
               </label>
               <input
                 id="email"
@@ -200,7 +207,7 @@ const Register = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label htmlFor="password" className="block text-sm font-medium text-gray-700">
-                  Palavra-passe
+                  {t('auth.password')}
                 </label>
                 <input
                   id="password"
@@ -216,7 +223,7 @@ const Register = () => {
 
               <div>
                 <label htmlFor="confirmPassword" className="block text-sm font-medium text-gray-700">
-                  Confirmar
+                  {t('auth.confirmPassword')}
                 </label>
                 <input
                   id="confirmPassword"
@@ -240,13 +247,13 @@ const Register = () => {
                 className="h-4 w-4 text-primary-600 focus:ring-primary-500 border-gray-300 rounded mt-0.5 transition-colors"
               />
               <label htmlFor="terms" className="ml-2 block text-sm text-gray-600">
-                Concordo com os{' '}
+                {t('auth.agreeToThe')}{' '}
                 <Link to="/terms" className="text-primary-600 hover:text-primary-500 transition-colors">
-                  Termos de Serviço
-                </Link>{' '}
-                e{' '}
+                  {t('footer.terms')}
+                </Link>
+                {' & '}
                 <Link to="/privacy" className="text-primary-600 hover:text-primary-500 transition-colors">
-                  Política de Privacidade
+                  {t('footer.privacy')}
                 </Link>
               </label>
             </div>
@@ -263,9 +270,9 @@ const Register = () => {
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
-                    A criar conta...
+                    {t('auth.registering')}
                   </span>
-                ) : 'Criar Conta'}
+                ) : t('auth.register')}
               </button>
             </div>
           </form>
@@ -276,7 +283,7 @@ const Register = () => {
                 <div className="w-full border-t border-gray-200"></div>
               </div>
               <div className="relative flex justify-center text-sm">
-                <span className="px-2 bg-white text-gray-500">Já tem conta?</span>
+                <span className="px-2 bg-white text-gray-500">{t('auth.alreadyHaveAccount')}</span>
               </div>
             </div>
 
@@ -285,7 +292,7 @@ const Register = () => {
                 to="/login"
                 className="w-full inline-flex justify-center py-3 px-4 border border-gray-300 rounded-xl shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 hover:border-primary-300 transition-all duration-200"
               >
-                Entrar na sua conta
+                {t('auth.login')}
               </Link>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { agentsAPI } from '../api/agents';
 import AgentCard from '../components/agent/AgentCard';
 import Loading from '../components/common/Loading';
@@ -6,6 +7,7 @@ import { FaSearch, FaFilter, FaUserTie, FaTimes } from 'react-icons/fa';
 import { toast } from 'react-toastify';
 
 const Agents = () => {
+  const { t } = useTranslation();
   const [agents, setAgents] = useState([]);
   const [loading, setLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState('');
@@ -28,7 +30,7 @@ const Agents = () => {
       }
     } catch (error) {
       console.error('Error fetching agents:', error);
-      toast.error('Erro ao carregar agentes');
+      toast.error(t('agents.error'));
     } finally {
       setLoading(false);
     }
@@ -76,10 +78,10 @@ const Agents = () => {
         {/* Header Section */}
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-2">
-            Agentes Imobiliários
+            {t('agents.title')}
           </h1>
           <p className="text-gray-600 text-lg">
-            Encontre agentes especializados para ajudá-lo
+            {t('agents.subtitle')}
           </p>
         </div>
 
@@ -88,7 +90,7 @@ const Agents = () => {
           <div className="flex items-center justify-between mb-6">
             <div className="flex items-center gap-2 text-gray-700">
               <FaFilter className="text-primary-600" />
-              <span className="font-semibold">Pesquisar e Filtrar</span>
+              <span className="font-semibold">{t('agents.searchAndFilter')}</span>
             </div>
             {hasActiveFilters && (
               <button
@@ -96,7 +98,7 @@ const Agents = () => {
                 className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary-600 transition-colors"
               >
                 <FaTimes />
-                Limpar
+                {t('agents.clear')}
               </button>
             )}
           </div>
@@ -106,7 +108,7 @@ const Agents = () => {
             <div className="relative">
               <input
                 type="text"
-                placeholder="Pesquisar por nome ou email..."
+                placeholder={t('agents.searchPlaceholder')}
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="input-field pl-12 w-full"
@@ -119,7 +121,7 @@ const Agents = () => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Especialidade
+                {t('agents.filters.specialty')}
               </label>
               <select
                 name="specialty"
@@ -127,17 +129,17 @@ const Agents = () => {
                 onChange={handleFilterChange}
                 className="input-field w-full"
               >
-                <option value="">Todas</option>
-                <option value="Residencial">Residencial</option>
-                <option value="Comercial">Comercial</option>
-                <option value="Luxury">Luxo</option>
-                <option value="Investment">Investimento</option>
+                <option value="">{t('agents.filters.all')}</option>
+                <option value="Residencial">{t('agents.filters.specialties.residential')}</option>
+                <option value="Comercial">{t('agents.filters.specialties.commercial')}</option>
+                <option value="Luxury">{t('agents.filters.specialties.luxury')}</option>
+                <option value="Investment">{t('agents.filters.specialties.investment')}</option>
               </select>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Verificado
+                {t('agents.filters.verified')}
               </label>
               <select
                 name="isVerified"
@@ -145,15 +147,15 @@ const Agents = () => {
                 onChange={handleFilterChange}
                 className="input-field w-full"
               >
-                <option value="">Todos</option>
-                <option value="true">Apenas Verificados</option>
-                <option value="false">Não Verificados</option>
+                <option value="">{t('agents.filters.allStatus')}</option>
+                <option value="true">{t('agents.filters.onlyVerified')}</option>
+                <option value="false">{t('agents.filters.notVerified')}</option>
               </select>
             </div>
 
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
-                Ordenar por
+                {t('agents.filters.sortBy')}
               </label>
               <select
                 name="sortBy"
@@ -161,10 +163,10 @@ const Agents = () => {
                 onChange={handleFilterChange}
                 className="input-field w-full"
               >
-                <option value="rating">Avaliação</option>
-                <option value="totalSales">Mais Vendas</option>
-                <option value="name">Nome</option>
-                <option value="createdAt">Mais Recentes</option>
+                <option value="rating">{t('agents.filters.rating')}</option>
+                <option value="totalSales">{t('agents.filters.sales')}</option>
+                <option value="name">{t('agents.filters.name')}</option>
+                <option value="createdAt">{t('agents.filters.newest')}</option>
               </select>
             </div>
           </div>
@@ -174,7 +176,7 @@ const Agents = () => {
         <div className="mb-6">
           <p className="text-gray-600">
             <span className="font-semibold text-primary-600">{filteredAgents.length}</span>{' '}
-            {filteredAgents.length === 1 ? 'agente encontrado' : 'agentes encontrados'}
+            {filteredAgents.length === 1 ? t('agents.results.singular') : t('agents.results.plural')}
           </p>
         </div>
 
@@ -190,13 +192,13 @@ const Agents = () => {
         ) : (
           <div className="card rounded-2xl text-center py-16">
             <FaUserTie className="text-6xl text-gray-300 mx-auto mb-4" />
-            <p className="text-gray-600 text-lg mb-2">Nenhum agente encontrado</p>
-            <p className="text-gray-500">Tente ajustar os filtros</p>
+            <p className="text-gray-600 text-lg mb-2">{t('agents.empty.title')}</p>
+            <p className="text-gray-500">{t('agents.empty.subtitle')}</p>
             <button
               onClick={clearFilters}
               className="btn-primary mt-6"
             >
-              Limpar Filtros
+              {t('agents.clear')}
             </button>
           </div>
         )}

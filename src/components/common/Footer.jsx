@@ -2,8 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram, FaLinkedin, FaHome, FaMapMarkerAlt, FaEnvelope, FaPhone } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="relative overflow-hidden">
       {/* Decorative Background */}
@@ -33,8 +36,7 @@ const Footer = () => {
                 </div>
               </Link>
               <p className="text-gray-400 mb-6 leading-relaxed">
-                A sua plataforma de confiança para encontrar o imóvel perfeito em Portugal.
-                De Lisboa ao Porto, do Algarve aos Açores.
+                {t('footer.tagline')}
               </p>
 
               {/* Social Links */}
@@ -58,31 +60,31 @@ const Footer = () => {
             <div>
               <h3 className="text-white font-semibold text-lg mb-6 flex items-center">
                 <span className="w-8 h-0.5 bg-primary-500 mr-3"></span>
-                Explorar
+                {t('footer.company')}
               </h3>
               <ul className="space-y-4">
                 <li>
                   <Link to="/properties" className="text-gray-400 hover:text-primary-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Imóveis
+                    {t('nav.properties')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/agencies" className="text-gray-400 hover:text-primary-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Agências
+                    {t('nav.agencies')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/agents" className="text-gray-400 hover:text-primary-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Agentes
+                    {t('nav.agents')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/about" className="text-gray-400 hover:text-primary-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-primary-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Sobre Nós
+                    {t('nav.about')}
                   </Link>
                 </li>
               </ul>
@@ -92,25 +94,25 @@ const Footer = () => {
             <div>
               <h3 className="text-white font-semibold text-lg mb-6 flex items-center">
                 <span className="w-8 h-0.5 bg-terracotta-500 mr-3"></span>
-                Profissionais
+                {t('footer.resources')}
               </h3>
               <ul className="space-y-4">
                 <li>
                   <Link to="/register?role=agent" className="text-gray-400 hover:text-terracotta-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-terracotta-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Tornar-me Agente
+                    {t('roles.agent')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/register?role=seller" className="text-gray-400 hover:text-terracotta-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-terracotta-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Anunciar Imóvel
+                    {t('nav.addProperty')}
                   </Link>
                 </li>
                 <li>
                   <Link to="/pricing" className="text-gray-400 hover:text-terracotta-400 transition-colors duration-300 flex items-center group">
                     <span className="w-0 group-hover:w-2 h-0.5 bg-terracotta-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
-                    Planos e Preços
+                    {t('nav.pricing')}
                   </Link>
                 </li>
               </ul>
@@ -120,9 +122,15 @@ const Footer = () => {
             <div>
               <h3 className="text-white font-semibold text-lg mb-6 flex items-center">
                 <span className="w-8 h-0.5 bg-golden-500 mr-3"></span>
-                Contacto
+                {t('nav.contact')}
               </h3>
               <ul className="space-y-4">
+                <li>
+                  <Link to="/contact" className="text-gray-400 hover:text-golden-400 transition-colors duration-300 flex items-center group">
+                    <span className="w-0 group-hover:w-2 h-0.5 bg-golden-500 mr-0 group-hover:mr-2 transition-all duration-300"></span>
+                    {t('common.contactUs')}
+                  </Link>
+                </li>
                 <li className="flex items-center text-gray-400">
                   <FaMapMarkerAlt className="text-golden-500 mr-3" />
                   <span>Lisboa, Portugal</span>
@@ -148,17 +156,17 @@ const Footer = () => {
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="flex flex-wrap gap-4 text-sm">
                 <Link to="/terms" className="text-gray-500 hover:text-gray-300 transition-colors">
-                  Termos
+                  {t('footer.terms')}
                 </Link>
                 <Link to="/privacy" className="text-gray-500 hover:text-gray-300 transition-colors">
-                  Privacidade
+                  {t('footer.privacy')}
                 </Link>
                 <Link to="/cookies" className="text-gray-500 hover:text-gray-300 transition-colors">
-                  Cookies
+                  {t('footer.cookies')}
                 </Link>
               </div>
               <p className="text-gray-500 text-sm">
-                &copy; {new Date().getFullYear()} LusitanEstate. Todos os direitos reservados.
+                {t('footer.copyright', { year: new Date().getFullYear() })}
               </p>
             </div>
           </div>

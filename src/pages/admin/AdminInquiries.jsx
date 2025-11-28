@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { adminAPI } from '../../api/admin';
 import Loading from '../../components/common/Loading';
 import { toast } from 'react-toastify';
@@ -19,6 +20,7 @@ import {
 } from 'react-icons/fa';
 
 const AdminInquiries = () => {
+  const { t } = useTranslation();
   const [inquiries, setInquiries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
@@ -49,7 +51,7 @@ const AdminInquiries = () => {
       });
     } catch (error) {
       console.error('Error fetching inquiries:', error);
-      toast.error('Erro ao carregar pedidos');
+      toast.error(t('admin.inquiries.errors.loadInquiries'));
     } finally {
       setLoading(false);
     }
@@ -62,46 +64,46 @@ const AdminInquiries = () => {
 
   const handleRespond = async () => {
     if (!responseText.trim()) {
-      toast.error('Por favor, escreva uma resposta');
+      toast.error(t('admin.inquiries.errors.writeResponse'));
       return;
     }
 
     try {
       await adminAPI.respondToInquiry(selectedInquiry._id, responseText);
-      toast.success('Resposta enviada com sucesso!');
+      toast.success(t('admin.inquiries.success.responseSent'));
       setShowResponseModal(false);
       setSelectedInquiry(null);
       setResponseText('');
       fetchInquiries();
     } catch (error) {
       console.error('Error responding to inquiry:', error);
-      toast.error('Erro ao enviar resposta');
+      toast.error(t('admin.inquiries.errors.sendResponse'));
     }
   };
 
   const handleClose = async (inquiryId) => {
-    if (!confirm('Tem a certeza que deseja fechar este pedido?')) return;
+    if (!confirm(t('admin.inquiries.confirmClose'))) return;
 
     try {
       await adminAPI.closeInquiry(inquiryId);
-      toast.success('Pedido fechado');
+      toast.success(t('admin.inquiries.success.inquiryClosed'));
       fetchInquiries();
     } catch (error) {
       console.error('Error closing inquiry:', error);
-      toast.error('Erro ao fechar pedido');
+      toast.error(t('admin.inquiries.errors.closeInquiry'));
     }
   };
 
   const handleDelete = async (inquiryId) => {
-    if (!confirm('Tem a certeza que deseja eliminar este pedido? Esta acao nao pode ser revertida.')) return;
+    if (!confirm(t('admin.inquiries.confirmDelete'))) return;
 
     try {
       await adminAPI.deleteInquiry(inquiryId);
-      toast.success('Pedido eliminado');
+      toast.success(t('admin.inquiries.success.inquiryDeleted'));
       fetchInquiries();
     } catch (error) {
       console.error('Error deleting inquiry:', error);
-      toast.error('Erro ao eliminar pedido');
+      toast.error(t('admin.inquiries.errors.deleteInquiry'));
     }
   };
 
@@ -131,10 +133,10 @@ const AdminInquiries = () => {
             </div>
             <div>
               <h1 className="text-3xl font-bold text-gray-900">
-                Gestão de Pedidos
+                {t('admin.inquiries.title')}
               </h1>
               <p className="text-gray-600">
-                {pagination.total || 0} pedidos no total
+                {t('admin.inquiries.subtitle', { count: pagination.total || 0 })}
               </p>
             </div>
           </div>
@@ -145,7 +147,7 @@ const AdminInquiries = () => {
           <div className="card rounded-2xl border-l-4 border-yellow-500 bg-gradient-to-r from-yellow-50 to-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Pendentes</p>
+                <p className="text-sm text-gray-600">{t('admin.inquiries.stats.pending')}</p>
                 <p className="text-2xl font-bold text-gray-900">
                   {inquiries.filter(i => i.status === 'pending').length}
                 </p>
@@ -159,7 +161,7 @@ const AdminInquiries = () => {
           <div className="card rounded-2xl border-l-4 border-green-500 bg-gradient-to-r from-green-50 to-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Respondidos</p>
+                <p className="text-sm text-gray-600">{t('admin.inquiries.stats.responded')}</p>
                 <p className="text-2xl font-bold text-gray-900">
                   {inquiries.filter(i => i.status === 'responded').length}
                 </p>
@@ -173,7 +175,7 @@ const AdminInquiries = () => {
           <div className="card rounded-2xl border-l-4 border-gray-500 bg-gradient-to-r from-gray-50 to-white">
             <div className="flex items-center justify-between">
               <div>
-                <p className="text-sm text-gray-600">Fechados</p>
+                <p className="text-sm text-gray-600">{t('admin.inquiries.stats.closed')}</p>
                 <p className="text-2xl font-bold text-gray-900">
                   {inquiries.filter(i => i.status === 'closed').length}
                 </p>
@@ -191,7 +193,7 @@ const AdminInquiries = () => {
             <div className="w-8 h-8 bg-gradient-to-br from-primary-400 to-primary-600 rounded-lg flex items-center justify-center">
               <FaFilter className="text-white text-sm" />
             </div>
-            <h3 className="text-lg font-semibold text-gray-900">Filtros</h3>
+            <h3 className="text-lg font-semibold text-gray-900">{t('admin.inquiries.filters.title')}</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             {/* Search */}
@@ -204,7 +206,7 @@ const AdminInquiries = () => {
                   type="text"
                   value={filters.search}
                   onChange={(e) => setFilters({ ...filters, search: e.target.value })}
-                  placeholder="Pesquisar por nome, email ou mensagem..."
+                  placeholder={t('admin.inquiries.filters.searchPlaceholder')}
                   className="input-field pl-11"
                 />
               </div>
@@ -216,10 +218,10 @@ const AdminInquiries = () => {
               onChange={(e) => setFilters({ ...filters, status: e.target.value, page: 1 })}
               className="input-field"
             >
-              <option value="">Todos os Estados</option>
-              <option value="pending">Pendente</option>
-              <option value="responded">Respondido</option>
-              <option value="closed">Fechado</option>
+              <option value="">{t('admin.inquiries.filters.allStatuses')}</option>
+              <option value="pending">{t('admin.inquiries.status.pending')}</option>
+              <option value="responded">{t('admin.inquiries.status.responded')}</option>
+              <option value="closed">{t('admin.inquiries.status.closed')}</option>
             </select>
 
             {/* Type Filter */}
@@ -228,11 +230,11 @@ const AdminInquiries = () => {
               onChange={(e) => setFilters({ ...filters, inquiryType: e.target.value, page: 1 })}
               className="input-field"
             >
-              <option value="">Todos os Tipos</option>
-              <option value="viewing">Visita</option>
-              <option value="information">Informação</option>
-              <option value="offer">Proposta</option>
-              <option value="general">Geral</option>
+              <option value="">{t('admin.inquiries.filters.allTypes')}</option>
+              <option value="viewing">{t('admin.inquiries.types.viewing')}</option>
+              <option value="information">{t('admin.inquiries.types.information')}</option>
+              <option value="offer">{t('admin.inquiries.types.offer')}</option>
+              <option value="general">{t('admin.inquiries.types.general')}</option>
             </select>
           </div>
         </div>
@@ -244,22 +246,22 @@ const AdminInquiries = () => {
               <thead className="bg-gradient-to-r from-sand-100 to-sand-50">
                 <tr>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Contacto
+                    {t('admin.inquiries.table.contact')}
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Imóvel
+                    {t('admin.inquiries.table.property')}
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Tipo
+                    {t('admin.inquiries.table.type')}
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Estado
+                    {t('admin.inquiries.table.status')}
                   </th>
                   <th className="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Data
+                    {t('admin.inquiries.table.date')}
                   </th>
                   <th className="px-6 py-4 text-right text-xs font-semibold text-gray-600 uppercase tracking-wider">
-                    Acoes
+                    {t('admin.inquiries.table.actions')}
                   </th>
                 </tr>
               </thead>
@@ -300,14 +302,14 @@ const AdminInquiries = () => {
                       <span className={`px-3 py-1.5 inline-flex text-xs leading-5 font-semibold rounded-full ${
                         getTypeBadge(inquiry.inquiryType)
                       }`}>
-                        {getTypeLabel(inquiry.inquiryType)}
+                        {t(`admin.inquiries.types.${inquiry.inquiryType || 'general'}`)}
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
                       <span className={`px-3 py-1.5 inline-flex text-xs leading-5 font-semibold rounded-full ${
                         getStatusBadge(inquiry.status)
                       }`}>
-                        {getStatusLabel(inquiry.status)}
+                        {t(`admin.inquiries.status.${inquiry.status}`)}
                       </span>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -321,7 +323,7 @@ const AdminInquiries = () => {
                         <button
                           onClick={() => openDetailModal(inquiry)}
                           className="w-9 h-9 bg-blue-100 hover:bg-blue-200 text-blue-600 rounded-lg flex items-center justify-center transition-colors"
-                          title="Ver Detalhes"
+                          title={t('admin.inquiries.actions.viewDetails')}
                         >
                           <FaEye />
                         </button>
@@ -329,7 +331,7 @@ const AdminInquiries = () => {
                           <button
                             onClick={() => openResponseModal(inquiry)}
                             className="w-9 h-9 bg-green-100 hover:bg-green-200 text-green-600 rounded-lg flex items-center justify-center transition-colors"
-                            title="Responder"
+                            title={t('admin.inquiries.actions.respond')}
                           >
                             <FaReply />
                           </button>
@@ -338,7 +340,7 @@ const AdminInquiries = () => {
                           <button
                             onClick={() => handleClose(inquiry._id)}
                             className="w-9 h-9 bg-gray-100 hover:bg-gray-200 text-gray-600 rounded-lg flex items-center justify-center transition-colors"
-                            title="Fechar"
+                            title={t('admin.inquiries.actions.close')}
                           >
                             <FaCheck />
                           </button>
@@ -346,7 +348,7 @@ const AdminInquiries = () => {
                         <button
                           onClick={() => handleDelete(inquiry._id)}
                           className="w-9 h-9 bg-red-100 hover:bg-red-200 text-red-600 rounded-lg flex items-center justify-center transition-colors"
-                          title="Eliminar"
+                          title={t('admin.inquiries.actions.delete')}
                         >
                           <FaTrash />
                         </button>
@@ -363,8 +365,8 @@ const AdminInquiries = () => {
               <div className="w-20 h-20 bg-gradient-to-br from-sand-200 to-sand-300 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <FaEnvelope className="text-3xl text-sand-500" />
               </div>
-              <p className="text-gray-500 text-lg">Nenhum pedido encontrado</p>
-              <p className="text-gray-400 text-sm mt-1">Tente ajustar os filtros de pesquisa</p>
+              <p className="text-gray-500 text-lg">{t('admin.inquiries.empty.title')}</p>
+              <p className="text-gray-400 text-sm mt-1">{t('admin.inquiries.empty.subtitle')}</p>
             </div>
           )}
 
@@ -377,21 +379,20 @@ const AdminInquiries = () => {
                   disabled={filters.page === 1}
                   className="btn-secondary"
                 >
-                  Anterior
+                  {t('admin.inquiries.pagination.previous')}
                 </button>
                 <button
                   onClick={() => setFilters({ ...filters, page: filters.page + 1 })}
                   disabled={filters.page === pagination.pages}
                   className="btn-secondary"
                 >
-                  Proxima
+                  {t('admin.inquiries.pagination.next')}
                 </button>
               </div>
               <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-between">
                 <div>
                   <p className="text-sm text-gray-700">
-                    Pagina <span className="font-semibold">{pagination.page}</span> de{' '}
-                    <span className="font-semibold">{pagination.pages}</span>
+                    {t('admin.inquiries.pagination.pageInfo', { page: pagination.page, pages: pagination.pages })}
                   </p>
                 </div>
                 <div className="flex space-x-2">
@@ -400,14 +401,14 @@ const AdminInquiries = () => {
                     disabled={filters.page === 1}
                     className="btn-secondary"
                   >
-                    Anterior
+                    {t('admin.inquiries.pagination.previous')}
                   </button>
                   <button
                     onClick={() => setFilters({ ...filters, page: filters.page + 1 })}
                     disabled={filters.page === pagination.pages}
                     className="btn-secondary"
                   >
-                    Proxima
+                    {t('admin.inquiries.pagination.next')}
                   </button>
                 </div>
               </div>
@@ -434,23 +435,23 @@ const AdminInquiries = () => {
                   <FaEye className="text-2xl text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">
-                  Detalhes do Pedido
+                  {t('admin.inquiries.detailModal.title')}
                 </h3>
               </div>
 
               <div className="space-y-4">
                 <div className="bg-sand-50 p-4 rounded-xl">
-                  <h4 className="text-sm font-semibold text-gray-700 mb-2">Contacto</h4>
-                  <p className="text-sm"><span className="font-medium">Nome:</span> {selectedInquiry.name}</p>
-                  <p className="text-sm"><span className="font-medium">Email:</span> {selectedInquiry.email}</p>
+                  <h4 className="text-sm font-semibold text-gray-700 mb-2">{t('admin.inquiries.detailModal.contact')}</h4>
+                  <p className="text-sm"><span className="font-medium">{t('admin.inquiries.detailModal.name')}:</span> {selectedInquiry.name}</p>
+                  <p className="text-sm"><span className="font-medium">{t('admin.inquiries.detailModal.email')}:</span> {selectedInquiry.email}</p>
                   {selectedInquiry.phone && (
-                    <p className="text-sm"><span className="font-medium">Telefone:</span> {selectedInquiry.phone}</p>
+                    <p className="text-sm"><span className="font-medium">{t('admin.inquiries.detailModal.phone')}:</span> {selectedInquiry.phone}</p>
                   )}
                 </div>
 
                 {selectedInquiry.property && (
                   <div className="bg-sand-50 p-4 rounded-xl">
-                    <h4 className="text-sm font-semibold text-gray-700 mb-2">Imóvel</h4>
+                    <h4 className="text-sm font-semibold text-gray-700 mb-2">{t('admin.inquiries.detailModal.property')}</h4>
                     <p className="text-sm font-medium">{selectedInquiry.property.title}</p>
                     {selectedInquiry.property.address && (
                       <p className="text-xs text-gray-500">
@@ -461,7 +462,7 @@ const AdminInquiries = () => {
                 )}
 
                 <div>
-                  <h4 className="text-sm font-semibold text-gray-700 mb-2">Mensagem</h4>
+                  <h4 className="text-sm font-semibold text-gray-700 mb-2">{t('admin.inquiries.detailModal.message')}</h4>
                   <p className="text-sm text-gray-600 bg-sand-50 p-4 rounded-xl">
                     {selectedInquiry.message}
                   </p>
@@ -469,13 +470,13 @@ const AdminInquiries = () => {
 
                 {selectedInquiry.response && (
                   <div>
-                    <h4 className="text-sm font-semibold text-gray-700 mb-2">Resposta</h4>
+                    <h4 className="text-sm font-semibold text-gray-700 mb-2">{t('admin.inquiries.detailModal.response')}</h4>
                     <p className="text-sm text-gray-600 bg-green-50 p-4 rounded-xl border border-green-100">
                       {selectedInquiry.response}
                     </p>
                     {selectedInquiry.respondedAt && (
                       <p className="text-xs text-gray-400 mt-2">
-                        Respondido em: {new Date(selectedInquiry.respondedAt).toLocaleString('pt-PT')}
+                        {t('admin.inquiries.detailModal.respondedAt')}: {new Date(selectedInquiry.respondedAt).toLocaleString('pt-PT')}
                       </p>
                     )}
                   </div>
@@ -483,10 +484,10 @@ const AdminInquiries = () => {
 
                 <div className="flex items-center space-x-4 pt-2">
                   <span className={`px-3 py-1.5 text-xs font-semibold rounded-full ${getTypeBadge(selectedInquiry.inquiryType)}`}>
-                    {getTypeLabel(selectedInquiry.inquiryType)}
+                    {t(`admin.inquiries.types.${selectedInquiry.inquiryType || 'general'}`)}
                   </span>
                   <span className={`px-3 py-1.5 text-xs font-semibold rounded-full ${getStatusBadge(selectedInquiry.status)}`}>
-                    {getStatusLabel(selectedInquiry.status)}
+                    {t(`admin.inquiries.status.${selectedInquiry.status}`)}
                   </span>
                 </div>
               </div>
@@ -499,7 +500,7 @@ const AdminInquiries = () => {
                   }}
                   className="btn-secondary flex-1"
                 >
-                  Fechar
+                  {t('admin.inquiries.detailModal.close')}
                 </button>
               </div>
             </div>
@@ -526,17 +527,17 @@ const AdminInquiries = () => {
                   <FaPaperPlane className="text-2xl text-white" />
                 </div>
                 <h3 className="text-xl font-bold text-gray-900">
-                  Responder ao Pedido
+                  {t('admin.inquiries.responseModal.title')}
                 </h3>
               </div>
 
               <div className="mb-4 bg-sand-50 p-4 rounded-xl">
                 <p className="text-sm text-gray-600">
-                  <span className="font-semibold">De:</span> {selectedInquiry.name} ({selectedInquiry.email})
+                  <span className="font-semibold">{t('admin.inquiries.responseModal.from')}:</span> {selectedInquiry.name} ({selectedInquiry.email})
                 </p>
                 {selectedInquiry.property && (
                   <p className="text-sm text-gray-600 mt-1">
-                    <span className="font-semibold">Imóvel:</span> {selectedInquiry.property.title}
+                    <span className="font-semibold">{t('admin.inquiries.responseModal.property')}:</span> {selectedInquiry.property.title}
                   </p>
                 )}
                 <p className="text-sm text-gray-500 mt-3 italic border-l-2 border-primary-300 pl-3">
@@ -546,12 +547,12 @@ const AdminInquiries = () => {
 
               <div className="mb-6">
                 <label className="block text-sm font-semibold text-gray-700 mb-2">
-                  Sua Resposta
+                  {t('admin.inquiries.responseModal.yourResponse')}
                 </label>
                 <textarea
                   value={responseText}
                   onChange={(e) => setResponseText(e.target.value)}
-                  placeholder="Escreva sua resposta aqui..."
+                  placeholder={t('admin.inquiries.responseModal.responsePlaceholder')}
                   className="input-field w-full h-32 resize-none"
                   autoFocus
                 />
@@ -566,11 +567,11 @@ const AdminInquiries = () => {
                   }}
                   className="btn-secondary flex-1"
                 >
-                  Cancelar
+                  {t('admin.inquiries.responseModal.cancel')}
                 </button>
                 <button onClick={handleRespond} className="btn-primary flex-1 flex items-center justify-center space-x-2">
                   <FaPaperPlane />
-                  <span>Enviar Resposta</span>
+                  <span>{t('admin.inquiries.responseModal.sendResponse')}</span>
                 </button>
               </div>
             </div>
@@ -582,15 +583,6 @@ const AdminInquiries = () => {
 };
 
 // Helper Functions
-const getStatusLabel = (status) => {
-  const labels = {
-    pending: 'Pendente',
-    responded: 'Respondido',
-    closed: 'Fechado'
-  };
-  return labels[status] || status;
-};
-
 const getStatusBadge = (status) => {
   const badges = {
     pending: 'badge-warning',
@@ -598,16 +590,6 @@ const getStatusBadge = (status) => {
     closed: 'bg-gray-100 text-gray-800'
   };
   return badges[status] || 'bg-gray-100 text-gray-800';
-};
-
-const getTypeLabel = (type) => {
-  const labels = {
-    viewing: 'Visita',
-    information: 'Informação',
-    offer: 'Proposta',
-    general: 'Geral'
-  };
-  return labels[type] || type || 'Geral';
 };
 
 const getTypeBadge = (type) => {
