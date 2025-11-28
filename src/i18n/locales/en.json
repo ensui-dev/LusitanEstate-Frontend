@@ -97,6 +97,23 @@
     "land": "Land",
     "commercial": "Commercial"
   },
+  "property": {
+    "status": {
+      "forSale": "For Sale",
+      "forRent": "For Rent",
+      "sold": "Sold",
+      "rented": "Rented",
+      "draft": "Draft"
+    },
+    "condition": {
+      "new": "New",
+      "excellent": "Excellent",
+      "good": "Good",
+      "fair": "Fair",
+      "needsRenovation": "Needs Renovation",
+      "underConstruction": "Under Construction"
+    }
+  },
   "verifyEmail": {
     "verifying": "Verifying your email...",
     "success": "Email verified successfully!",

@@ -97,6 +97,23 @@
     "land": "Terreno",
     "commercial": "Comercial"
   },
+  "property": {
+    "status": {
+      "forSale": "Para Venda",
+      "forRent": "Para Arrendamento",
+      "sold": "Vendido",
+      "rented": "Arrendado",
+      "draft": "Rascunho"
+    },
+    "condition": {
+      "new": "Novo",
+      "excellent": "Excelente",
+      "good": "Bom",
+      "fair": "Razoável",
+      "needsRenovation": "Necessita Renovação",
+      "underConstruction": "Em Construção"
+    }
+  },
   "verifyEmail": {
     "verifying": "A verificar o seu email...",
     "success": "Email verificado com sucesso!",
