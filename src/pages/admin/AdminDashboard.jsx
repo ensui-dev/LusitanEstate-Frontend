@@ -359,7 +359,7 @@ const AdminDashboard = () => {
             </div>
             <h4 className="text-sm text-gray-600 mb-1">{t('admin.dashboard.performance.avgAgencyRating')}</h4>
             <p className="text-3xl font-bold text-gray-900">
-              {performance?.agency?.avgRating?.toFixed(1) || 'N/A'}
+              {performance?.agency?.avgRating?.toFixed(1) || t('common.notAvailable')}
             </p>
           </div>
           <div className="card rounded-2xl text-center bg-gradient-to-br from-yellow-50 to-orange-50 border border-yellow-200">
@@ -368,7 +368,7 @@ const AdminDashboard = () => {
             </div>
             <h4 className="text-sm text-gray-600 mb-1">{t('admin.dashboard.performance.avgAgentRating')}</h4>
             <p className="text-3xl font-bold text-gray-900">
-              {performance?.agent?.avgRating?.toFixed(1) || 'N/A'}
+              {performance?.agent?.avgRating?.toFixed(1) || t('common.notAvailable')}
             </p>
           </div>
           <div className="card rounded-2xl text-center bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200">

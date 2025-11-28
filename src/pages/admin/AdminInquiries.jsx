@@ -20,7 +20,7 @@ import {
 } from 'react-icons/fa';
 
 const AdminInquiries = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [inquiries, setInquiries] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
@@ -295,7 +295,7 @@ const AdminInquiries = () => {
                           </div>
                         </div>
                       ) : (
-                        <span className="text-gray-400 text-sm italic">N/A</span>
+                        <span className="text-gray-400 text-sm italic">{t('common.notAvailable')}</span>
                       )}
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap">
@@ -315,7 +315,7 @@ const AdminInquiries = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm text-gray-700 flex items-center">
                         <FaCalendar className="mr-2 text-gray-400" />
-                        {new Date(inquiry.createdAt).toLocaleDateString('pt-PT')}
+                        {new Date(inquiry.createdAt).toLocaleDateString(i18n.language === 'pt' ? 'pt-PT' : 'en-US')}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
@@ -476,7 +476,7 @@ const AdminInquiries = () => {
                     </p>
                     {selectedInquiry.respondedAt && (
                       <p className="text-xs text-gray-400 mt-2">
-                        {t('admin.inquiries.detailModal.respondedAt')}: {new Date(selectedInquiry.respondedAt).toLocaleString('pt-PT')}
+                        {t('admin.inquiries.detailModal.respondedAt')}: {new Date(selectedInquiry.respondedAt).toLocaleString(i18n.language === 'pt' ? 'pt-PT' : 'en-US')}
                       </p>
                     )}
                   </div>

@@ -20,7 +20,8 @@
     "previous": "Anterior",
     "viewDetails": "Ver Detalhes",
     "learnMore": "Saber Mais",
-    "contactUs": "Contacte-nos"
+    "contactUs": "Contacte-nos",
+    "notAvailable": "N/D"
   },
   "nav": {
     "home": "Início",
@@ -33,6 +34,7 @@
     "login": "Entrar",
     "register": "Registar",
     "dashboard": "Painel",
+    "admin": "Admin",
     "logout": "Sair",
     "myAccount": "Minha Conta",
     "addProperty": "Adicionar Propriedade"
@@ -1501,8 +1503,8 @@
         "notSpecified": "Não especificado"
       },
       "performance": {
-        "agencyAvgRating": "Avaliação Média Agências",
-        "agentAvgRating": "Avaliação Média Agentes",
+        "avgAgencyRating": "Avaliação Média Agências",
+        "avgAgentRating": "Avaliação Média Agentes",
         "totalInquiries": "Total de Consultas"
       },
       "status": {
@@ -1599,38 +1601,86 @@
     },
     "inquiries": {
       "title": "Gestão de Pedidos",
-      "subtitle": "Ver e gerir todos os pedidos",
-      "filterByStatus": "Filtrar por estado",
-      "allStatuses": "Todos os Estados",
+      "subtitle": "Gerir todos os pedidos de clientes ({{count}} total)",
+      "confirmClose": "Tem a certeza que deseja fechar este pedido?",
+      "confirmDelete": "Tem a certeza que deseja eliminar este pedido?",
+      "stats": {
+        "pending": "Pendentes",
+        "responded": "Respondidos",
+        "closed": "Fechados"
+      },
+      "filters": {
+        "title": "Filtros",
+        "searchPlaceholder": "Pesquisar por nome ou email...",
+        "allStatuses": "Todos os Estados",
+        "allTypes": "Todos os Tipos"
+      },
       "table": {
-        "from": "De",
+        "contact": "Contacto",
         "property": "Imóvel",
-        "message": "Mensagem",
-        "date": "Data",
+        "type": "Tipo",
         "status": "Estado",
+        "date": "Data",
         "actions": "Ações"
       },
-      "viewDetails": "Ver Detalhes",
-      "markAsRead": "Marcar como Lido",
-      "delete": "Eliminar",
-      "inquiryDetails": "Detalhes do Pedido",
-      "name": "Nome",
-      "email": "Email",
-      "phone": "Telefone",
-      "category": "Categoria",
-      "subject": "Assunto",
-      "message": "Mensagem",
-      "relatedProperty": "Imóvel Relacionado",
-      "receivedOn": "Recebido em",
-      "close": "Fechar",
+      "types": {
+        "viewing": "Pedido de Visita",
+        "information": "Informação",
+        "offer": "Proposta",
+        "general": "Pedido Geral"
+      },
+      "status": {
+        "pending": "Pendente",
+        "responded": "Respondido",
+        "closed": "Fechado"
+      },
+      "actions": {
+        "viewDetails": "Ver Detalhes",
+        "respond": "Responder",
+        "close": "Fechar",
+        "delete": "Eliminar"
+      },
+      "empty": {
+        "title": "Nenhum pedido encontrado",
+        "subtitle": "Todos os pedidos aparecerão aqui"
+      },
+      "pagination": {
+        "previous": "Anterior",
+        "next": "Seguinte",
+        "pageInfo": "Página {{page}} de {{pages}}"
+      },
+      "detailModal": {
+        "title": "Detalhes do Pedido",
+        "contact": "Informação de Contacto",
+        "name": "Nome",
+        "email": "Email",
+        "phone": "Telefone",
+        "property": "Imóvel",
+        "message": "Mensagem",
+        "response": "Resposta",
+        "respondedAt": "Respondido em",
+        "close": "Fechar"
+      },
+      "responseModal": {
+        "title": "Responder ao Pedido",
+        "from": "De",
+        "property": "Imóvel",
+        "yourResponse": "Sua Resposta",
+        "responsePlaceholder": "Escreva a sua resposta aqui...",
+        "cancel": "Cancelar",
+        "sendResponse": "Enviar Resposta"
+      },
       "success": {
-        "markedAsRead": "Pedido marcado como lido!",
-        "deleted": "Pedido eliminado com sucesso!"
+        "responseSent": "Resposta enviada com sucesso!",
+        "inquiryClosed": "Pedido fechado com sucesso!",
+        "inquiryDeleted": "Pedido eliminado com sucesso!"
       },
       "errors": {
         "loadInquiries": "Erro ao carregar pedidos",
-        "markAsRead": "Erro ao marcar pedido como lido",
-        "delete": "Erro ao eliminar pedido"
+        "writeResponse": "Por favor escreva uma resposta",
+        "sendResponse": "Erro ao enviar resposta",
+        "closeInquiry": "Erro ao fechar pedido",
+        "deleteInquiry": "Erro ao eliminar pedido"
       }
     }
   }

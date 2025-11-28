@@ -17,7 +17,7 @@ import {
 } from 'react-icons/fa';
 
 const AdminUsers = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [filters, setFilters] = useState({
@@ -266,7 +266,7 @@ const AdminUsers = () => {
                     <td className="px-6 py-4 whitespace-nowrap">
                       <div className="text-sm text-gray-700 flex items-center">
                         <FaCalendar className="mr-2 text-gray-400" />
-                        {new Date(user.createdAt).toLocaleDateString('pt-PT')}
+                        {new Date(user.createdAt).toLocaleDateString(i18n.language === 'pt' ? 'pt-PT' : 'en-US')}
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
