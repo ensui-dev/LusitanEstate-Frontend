@@ -1525,15 +1525,28 @@
     },
     "users": {
       "title": "Gestão de Utilizadores",
-      "subtitle": "Ver e gerir todos os utilizadores do sistema",
+      "subtitle": "Ver e gerir todos os utilizadores do sistema ({{count}} total)",
       "search": "Pesquisar utilizadores...",
       "filterByRole": "Filtrar por papel",
       "allRoles": "Todos os Papéis",
+      "confirmDelete": "Tem a certeza que deseja eliminar o utilizador \"{{userName}}\"? Esta ação não pode ser revertida.",
+      "stats": {
+        "buyers": "Compradores",
+        "sellers": "Vendedores",
+        "agents": "Agentes",
+        "admins": "Administradores"
+      },
+      "filters": {
+        "title": "Filtros",
+        "searchPlaceholder": "Pesquisar por nome ou email...",
+        "allRoles": "Todos os Papéis"
+      },
       "table": {
         "user": "Utilizador",
         "email": "Email",
         "role": "Papel",
         "joinedDate": "Data de Registo",
+        "registrationDate": "Data de Registo",
         "actions": "Ações"
       },
       "roles": {
@@ -1542,19 +1555,32 @@
         "seller": "Vendedor",
         "buyer": "Comprador"
       },
+      "actions": {
+        "edit": "Editar Papel",
+        "delete": "Eliminar Utilizador"
+      },
+      "modal": {
+        "title": "Editar Papel do Utilizador",
+        "user": "Utilizador",
+        "email": "Email",
+        "newRole": "Novo Papel",
+        "selectRole": "Selecione um papel",
+        "cancel": "Cancelar",
+        "update": "Atualizar Papel"
+      },
       "editRole": "Editar Papel",
       "newRole": "Novo Papel",
       "selectRole": "Selecione um papel",
       "updateRole": "Atualizar Papel",
       "deleteUser": "Eliminar Utilizador",
-      "confirmDelete": "Tem a certeza que deseja eliminar o utilizador \"{{name}}\"? Esta ação não pode ser revertida.",
       "pagination": {
         "showing": "A mostrar",
         "to": "a",
         "of": "de",
         "users": "utilizadores",
         "previous": "Anterior",
-        "next": "Próximo"
+        "next": "Próximo",
+        "pageInfo": "Página {{page}} de {{pages}}"
       },
       "success": {
         "roleUpdated": "Papel de utilizador atualizado com sucesso!",

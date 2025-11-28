@@ -1525,15 +1525,28 @@
     },
     "users": {
       "title": "User Management",
-      "subtitle": "View and manage all system users",
+      "subtitle": "View and manage all system users ({{count}} total)",
       "search": "Search users...",
       "filterByRole": "Filter by role",
       "allRoles": "All Roles",
+      "confirmDelete": "Are you sure you want to delete the user \"{{userName}}\"? This action cannot be undone.",
+      "stats": {
+        "buyers": "Buyers",
+        "sellers": "Sellers",
+        "agents": "Agents",
+        "admins": "Admins"
+      },
+      "filters": {
+        "title": "Filters",
+        "searchPlaceholder": "Search by name or email...",
+        "allRoles": "All Roles"
+      },
       "table": {
         "user": "User",
         "email": "Email",
         "role": "Role",
         "joinedDate": "Joined Date",
+        "registrationDate": "Registration Date",
         "actions": "Actions"
       },
       "roles": {
@@ -1542,19 +1555,32 @@
         "seller": "Seller",
         "buyer": "Buyer"
       },
+      "actions": {
+        "edit": "Edit Role",
+        "delete": "Delete User"
+      },
+      "modal": {
+        "title": "Edit User Role",
+        "user": "User",
+        "email": "Email",
+        "newRole": "New Role",
+        "selectRole": "Select a role",
+        "cancel": "Cancel",
+        "update": "Update Role"
+      },
       "editRole": "Edit Role",
       "newRole": "New Role",
       "selectRole": "Select a role",
       "updateRole": "Update Role",
       "deleteUser": "Delete User",
-      "confirmDelete": "Are you sure you want to delete the user \"{{name}}\"? This action cannot be undone.",
       "pagination": {
         "showing": "Showing",
         "to": "to",
         "of": "of",
         "users": "users",
         "previous": "Previous",
-        "next": "Next"
+        "next": "Next",
+        "pageInfo": "Page {{page}} of {{pages}}"
       },
       "success": {
         "roleUpdated": "User role updated successfully!",
