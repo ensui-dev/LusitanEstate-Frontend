@@ -33,6 +33,7 @@ import Pricing from './pages/Pricing';
 import Terms from './pages/Terms';
 import Privacy from './pages/Privacy';
 import Cookies from './pages/Cookies';
+import RestfulDocs from './pages/RestfulDocs';
 
 // Admin Pages
 import AdminDashboard from './pages/admin/AdminDashboard';
@@ -80,6 +81,7 @@ const AppRoutes = () => {
       <Route path="/terms" element={<Terms />} />
       <Route path="/privacy" element={<Privacy />} />
       <Route path="/cookies" element={<Cookies />} />
+      <Route path="/restful" element={<RestfulDocs />} />
 
       {/* Protected routes */}
       <Route element={<PrivateRoute />}>
@@ -121,17 +123,17 @@ function App() {
               </main>
               <Footer />
             </div>
-          <ToastContainer
-            position="top-right"
-            autoClose={3000}
-            hideProgressBar={false}
-            newestOnTop
-            closeOnClick
-            rtl={false}
-            pauseOnFocusLoss
-            draggable
-            pauseOnHover
-          />
+            <ToastContainer
+              position="top-right"
+              autoClose={3000}
+              hideProgressBar={false}
+              newestOnTop
+              closeOnClick
+              rtl={false}
+              pauseOnFocusLoss
+              draggable
+              pauseOnHover
+            />
           </Router>
         </LanguageProvider>
       </AuthProvider>
