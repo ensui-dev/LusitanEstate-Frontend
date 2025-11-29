@@ -1794,8 +1794,8 @@
       "unknown": "Desconhecido",
       "cannotConnect": "Não é possível conectar ao servidor API",
       "testsPassing": "28 Testes a Passar",
-      "totalEndpoints": "66 Endpoints Totais",
-      "resources": "9 Recursos"
+      "totalEndpoints": "63 Endpoints Totais",
+      "resources": "10 Recursos"
     },
     "search": {
       "placeholder": "Pesquisar endpoints...",
@@ -1810,7 +1810,8 @@
       "inquiries": "Pedidos",
       "reviews": "Avaliações",
       "favorites": "Favoritos",
-      "upload": "Upload"
+      "upload": "Upload",
+      "health": "Saúde"
     },
     "access": {
       "public": "Público",
@@ -1858,6 +1859,21 @@
       },
       "me": {
         "description": "Obter perfil do utilizador atual"
+      },
+      "updateProfile": {
+        "description": "Atualizar informação do perfil"
+      },
+      "verifyEmail": {
+        "description": "Verificar endereço de email com token"
+      },
+      "resendVerification": {
+        "description": "Reenviar link de verificação de email"
+      },
+      "forgotPassword": {
+        "description": "Solicitar email de recuperação de password"
+      },
+      "resetPassword": {
+        "description": "Redefinir password com token"
       }
     },
     "propertyEndpoints": {
@@ -1866,6 +1882,181 @@
       },
       "create": {
         "description": "Criar novo anúncio de propriedade"
+      },
+      "getMyProperties": {
+        "description": "Obter propriedades do utilizador atual"
+      },
+      "getById": {
+        "description": "Obter detalhes da propriedade por ID"
+      },
+      "update": {
+        "description": "Atualizar informação da propriedade"
+      },
+      "delete": {
+        "description": "Eliminar anúncio de propriedade"
+      }
+    },
+    "agentEndpoints": {
+      "getAll": {
+        "description": "Obter todos os agentes"
+      },
+      "create": {
+        "description": "Criar perfil de agente"
+      },
+      "getMyProfile": {
+        "description": "Obter perfil de agente do utilizador atual"
+      },
+      "getById": {
+        "description": "Obter detalhes do agente por ID"
+      },
+      "update": {
+        "description": "Atualizar perfil de agente"
+      },
+      "delete": {
+        "description": "Eliminar perfil de agente"
+      }
+    },
+    "agencyEndpoints": {
+      "getAll": {
+        "description": "Obter todas as agências"
+      },
+      "getById": {
+        "description": "Obter detalhes da agência por ID"
+      },
+      "create": {
+        "description": "Criar nova agência (Apenas Admin)"
+      },
+      "update": {
+        "description": "Atualizar informação da agência"
+      },
+      "delete": {
+        "description": "Eliminar agência (Apenas Admin)"
+      },
+      "verify": {
+        "description": "Verificar agência (Apenas Admin)"
+      },
+      "unverify": {
+        "description": "Remover verificação da agência (Apenas Admin)"
+      },
+      "getStats": {
+        "description": "Obter estatísticas da agência"
+      },
+      "addAgent": {
+        "description": "Adicionar agente à agência"
+      },
+      "removeAgent": {
+        "description": "Remover agente da agência"
+      }
+    },
+    "adminEndpoints": {
+      "dashboard": {
+        "description": "Obter estatísticas do painel"
+      },
+      "getAllUsers": {
+        "description": "Obter todos os utilizadores com filtros"
+      },
+      "updateUserRole": {
+        "description": "Atualizar função do utilizador"
+      },
+      "deleteUser": {
+        "description": "Eliminar conta de utilizador"
+      },
+      "getAllProperties": {
+        "description": "Obter todas as propriedades para gestão"
+      },
+      "approveProperty": {
+        "description": "Aprovar anúncio de propriedade"
+      },
+      "rejectProperty": {
+        "description": "Rejeitar propriedade com motivo"
+      },
+      "bulkApprove": {
+        "description": "Aprovar múltiplas propriedades"
+      },
+      "getAllInquiries": {
+        "description": "Obter todos os pedidos"
+      },
+      "respondToInquiry": {
+        "description": "Responder a pedido"
+      },
+      "closeInquiry": {
+        "description": "Fechar pedido"
+      },
+      "getSettings": {
+        "description": "Obter definições do sistema"
+      },
+      "updateSettings": {
+        "description": "Atualizar definições do sistema"
+      }
+    },
+    "inquiryEndpoints": {
+      "create": {
+        "description": "Criar novo pedido"
+      },
+      "getMy": {
+        "description": "Obter os meus pedidos"
+      },
+      "getByProperty": {
+        "description": "Obter pedidos da propriedade"
+      },
+      "getById": {
+        "description": "Obter pedido por ID"
+      },
+      "update": {
+        "description": "Atualizar pedido"
+      },
+      "delete": {
+        "description": "Eliminar pedido"
+      }
+    },
+    "reviewEndpoints": {
+      "getByProperty": {
+        "description": "Obter avaliações da propriedade"
+      },
+      "getByAgent": {
+        "description": "Obter avaliações do agente"
+      },
+      "create": {
+        "description": "Criar nova avaliação"
+      },
+      "update": {
+        "description": "Atualizar avaliação"
+      },
+      "delete": {
+        "description": "Eliminar avaliação"
+      }
+    },
+    "favoriteEndpoints": {
+      "getAll": {
+        "description": "Obter todos os favoritos"
+      },
+      "add": {
+        "description": "Adicionar propriedade aos favoritos"
+      },
+      "remove": {
+        "description": "Remover propriedade dos favoritos"
+      },
+      "addSearch": {
+        "description": "Guardar filtros de pesquisa"
+      },
+      "removeSearch": {
+        "description": "Remover pesquisa guardada"
+      }
+    },
+    "uploadEndpoints": {
+      "propertyImages": {
+        "description": "Carregar imagens da propriedade (máx 10)"
+      },
+      "profileImage": {
+        "description": "Carregar imagem de perfil"
+      },
+      "deleteImage": {
+        "description": "Eliminar imagem do S3"
+      }
+    },
+    "healthEndpoints": {
+      "getStatus": {
+        "description": "Obter estado de saúde do sistema e disponibilidade dos serviços"
       }
     }
   }

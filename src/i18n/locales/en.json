@@ -1794,8 +1794,8 @@
       "unknown": "Unknown",
       "cannotConnect": "Cannot connect to API server",
       "testsPassing": "28 Tests Passing",
-      "totalEndpoints": "66 Total Endpoints",
-      "resources": "9 Resources"
+      "totalEndpoints": "63 Total Endpoints",
+      "resources": "10 Resources"
     },
     "search": {
       "placeholder": "Search endpoints...",
@@ -1810,7 +1810,8 @@
       "inquiries": "Inquiries",
       "reviews": "Reviews",
       "favorites": "Favorites",
-      "upload": "Upload"
+      "upload": "Upload",
+      "health": "Health"
     },
     "access": {
       "public": "Public",
@@ -1858,6 +1859,21 @@
       },
       "me": {
         "description": "Get current user profile"
+      },
+      "updateProfile": {
+        "description": "Update user profile information"
+      },
+      "verifyEmail": {
+        "description": "Verify email address with token"
+      },
+      "resendVerification": {
+        "description": "Resend email verification link"
+      },
+      "forgotPassword": {
+        "description": "Request password reset email"
+      },
+      "resetPassword": {
+        "description": "Reset password with token"
       }
     },
     "propertyEndpoints": {
@@ -1866,6 +1882,181 @@
       },
       "create": {
         "description": "Create new property listing"
+      },
+      "getMyProperties": {
+        "description": "Get current user's properties"
+      },
+      "getById": {
+        "description": "Get property details by ID"
+      },
+      "update": {
+        "description": "Update property information"
+      },
+      "delete": {
+        "description": "Delete property listing"
+      }
+    },
+    "agentEndpoints": {
+      "getAll": {
+        "description": "Get all agents"
+      },
+      "create": {
+        "description": "Create agent profile"
+      },
+      "getMyProfile": {
+        "description": "Get current user's agent profile"
+      },
+      "getById": {
+        "description": "Get agent details by ID"
+      },
+      "update": {
+        "description": "Update agent profile"
+      },
+      "delete": {
+        "description": "Delete agent profile"
+      }
+    },
+    "agencyEndpoints": {
+      "getAll": {
+        "description": "Get all agencies"
+      },
+      "getById": {
+        "description": "Get agency details by ID"
+      },
+      "create": {
+        "description": "Create new agency (Admin only)"
+      },
+      "update": {
+        "description": "Update agency information"
+      },
+      "delete": {
+        "description": "Delete agency (Admin only)"
+      },
+      "verify": {
+        "description": "Verify agency (Admin only)"
+      },
+      "unverify": {
+        "description": "Unverify agency (Admin only)"
+      },
+      "getStats": {
+        "description": "Get agency statistics"
+      },
+      "addAgent": {
+        "description": "Add agent to agency"
+      },
+      "removeAgent": {
+        "description": "Remove agent from agency"
+      }
+    },
+    "adminEndpoints": {
+      "dashboard": {
+        "description": "Get dashboard statistics"
+      },
+      "getAllUsers": {
+        "description": "Get all users with filters"
+      },
+      "updateUserRole": {
+        "description": "Update user role"
+      },
+      "deleteUser": {
+        "description": "Delete user account"
+      },
+      "getAllProperties": {
+        "description": "Get all properties for management"
+      },
+      "approveProperty": {
+        "description": "Approve property listing"
+      },
+      "rejectProperty": {
+        "description": "Reject property with reason"
+      },
+      "bulkApprove": {
+        "description": "Approve multiple properties"
+      },
+      "getAllInquiries": {
+        "description": "Get all inquiries"
+      },
+      "respondToInquiry": {
+        "description": "Respond to inquiry"
+      },
+      "closeInquiry": {
+        "description": "Close inquiry"
+      },
+      "getSettings": {
+        "description": "Get system settings"
+      },
+      "updateSettings": {
+        "description": "Update system settings"
+      }
+    },
+    "inquiryEndpoints": {
+      "create": {
+        "description": "Create new inquiry"
+      },
+      "getMy": {
+        "description": "Get my inquiries"
+      },
+      "getByProperty": {
+        "description": "Get inquiries for property"
+      },
+      "getById": {
+        "description": "Get inquiry by ID"
+      },
+      "update": {
+        "description": "Update inquiry"
+      },
+      "delete": {
+        "description": "Delete inquiry"
+      }
+    },
+    "reviewEndpoints": {
+      "getByProperty": {
+        "description": "Get reviews for property"
+      },
+      "getByAgent": {
+        "description": "Get reviews for agent"
+      },
+      "create": {
+        "description": "Create new review"
+      },
+      "update": {
+        "description": "Update review"
+      },
+      "delete": {
+        "description": "Delete review"
+      }
+    },
+    "favoriteEndpoints": {
+      "getAll": {
+        "description": "Get all favorites"
+      },
+      "add": {
+        "description": "Add property to favorites"
+      },
+      "remove": {
+        "description": "Remove property from favorites"
+      },
+      "addSearch": {
+        "description": "Save search filters"
+      },
+      "removeSearch": {
+        "description": "Remove saved search"
+      }
+    },
+    "uploadEndpoints": {
+      "propertyImages": {
+        "description": "Upload property images (max 10)"
+      },
+      "profileImage": {
+        "description": "Upload profile image"
+      },
+      "deleteImage": {
+        "description": "Delete image from S3"
+      }
+    },
+    "healthEndpoints": {
+      "getStatus": {
+        "description": "Get system health status and service availability"
       }
     }
   }

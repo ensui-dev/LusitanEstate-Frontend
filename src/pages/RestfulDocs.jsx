@@ -87,6 +87,42 @@ const RestfulDocs = () => {
                     description: t('apiDocs.authEndpoints.me.description'),
                     headers: { Authorization: 'Bearer <token>' },
                     response: { success: true, data: { user: {} } }
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/auth/updateprofile',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.authEndpoints.updateProfile.description'),
+                    headers: { Authorization: 'Bearer <token>' },
+                    body: { name: 'string', phone: 'string', avatar: 'string' }
+                },
+                {
+                    method: 'POST',
+                    path: '/api/auth/verify-email',
+                    access: t('apiDocs.access.public'),
+                    description: t('apiDocs.authEndpoints.verifyEmail.description'),
+                    body: { token: 'string' }
+                },
+                {
+                    method: 'POST',
+                    path: '/api/auth/resend-verification',
+                    access: t('apiDocs.access.public'),
+                    description: t('apiDocs.authEndpoints.resendVerification.description'),
+                    body: { email: 'string' }
+                },
+                {
+                    method: 'POST',
+                    path: '/api/auth/forgot-password',
+                    access: t('apiDocs.access.public'),
+                    description: t('apiDocs.authEndpoints.forgotPassword.description'),
+                    body: { email: 'string' }
+                },
+                {
+                    method: 'POST',
+                    path: '/api/auth/reset-password',
+                    access: t('apiDocs.access.public'),
+                    description: t('apiDocs.authEndpoints.resetPassword.description'),
+                    body: { token: 'string', password: 'string' }
                 }
             ]
         },
@@ -110,6 +146,451 @@ const RestfulDocs = () => {
                     description: t('apiDocs.propertyEndpoints.create.description'),
                     headers: { Authorization: 'Bearer <token>' },
                     body: { title: 'string', price: 'number', propertyType: 'string', address: {}, bedrooms: 'number' }
+                },
+                {
+                    method: 'GET',
+                    path: '/api/properties/user/my-properties',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.propertyEndpoints.getMyProperties.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'GET',
+                    path: '/api/properties/:id',
+                    access: t('apiDocs.access.public'),
+                    description: t('apiDocs.propertyEndpoints.getById.description')
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/properties/:id',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.propertyEndpoints.update.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'DELETE',
+                    path: '/api/properties/:id',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.propertyEndpoints.delete.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                }
+            ]
+        },
+        agents: {
+            title: t('apiDocs.categories.agents'),
+            icon: <FiShield className="w-5 h-5" />,
+            color: 'purple',
+            endpoints: [
+                {
+                    method: 'GET',
+                    path: '/api/agents',
+                    access: t('apiDocs.access.public'),
+                    description: t('apiDocs.agentEndpoints.getAll.description')
+                },
+                {
+                    method: 'POST',
+                    path: '/api/agents',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.agentEndpoints.create.description'),
+                    headers: { Authorization: 'Bearer <token>' },
+                    body: { bio: 'string', specialties: ['string'], languages: ['string'] }
+                },
+                {
+                    method: 'GET',
+                    path: '/api/agents/me',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.agentEndpoints.getMyProfile.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'GET',
+                    path: '/api/agents/:id',
+                    access: t('apiDocs.access.public'),
+                    description: t('apiDocs.agentEndpoints.getById.description')
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/agents/:id',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.agentEndpoints.update.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'DELETE',
+                    path: '/api/agents/:id',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.agentEndpoints.delete.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                }
+            ]
+        },
+        agencies: {
+            title: t('apiDocs.categories.agencies'),
+            icon: <FiServer className="w-5 h-5" />,
+            color: 'indigo',
+            endpoints: [
+                {
+                    method: 'GET',
+                    path: '/api/agencies',
+                    access: t('apiDocs.access.public'),
+                    description: t('apiDocs.agencyEndpoints.getAll.description')
+                },
+                {
+                    method: 'GET',
+                    path: '/api/agencies/:id',
+                    access: t('apiDocs.access.public'),
+                    description: t('apiDocs.agencyEndpoints.getById.description')
+                },
+                {
+                    method: 'POST',
+                    path: '/api/agencies',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.agencyEndpoints.create.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/agencies/:id',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.agencyEndpoints.update.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'DELETE',
+                    path: '/api/agencies/:id',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.agencyEndpoints.delete.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/agencies/:id/verify',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.agencyEndpoints.verify.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/agencies/:id/unverify',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.agencyEndpoints.unverify.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'GET',
+                    path: '/api/agencies/:id/stats',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.agencyEndpoints.getStats.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'POST',
+                    path: '/api/agencies/:id/agents',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.agencyEndpoints.addAgent.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'DELETE',
+                    path: '/api/agencies/:id/agents/:agentId',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.agencyEndpoints.removeAgent.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                }
+            ]
+        },
+        admin: {
+            title: t('apiDocs.categories.admin'),
+            icon: <FiShield className="w-5 h-5" />,
+            color: 'red',
+            endpoints: [
+                {
+                    method: 'GET',
+                    path: '/api/admin/dashboard',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.adminEndpoints.dashboard.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'GET',
+                    path: '/api/admin/users',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.adminEndpoints.getAllUsers.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/admin/users/:id/role',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.adminEndpoints.updateUserRole.description'),
+                    headers: { Authorization: 'Bearer <token>' },
+                    body: { role: 'buyer|seller|agent|admin' }
+                },
+                {
+                    method: 'DELETE',
+                    path: '/api/admin/users/:id',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.adminEndpoints.deleteUser.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'GET',
+                    path: '/api/admin/properties',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.adminEndpoints.getAllProperties.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/admin/properties/:id/approve',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.adminEndpoints.approveProperty.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/admin/properties/:id/reject',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.adminEndpoints.rejectProperty.description'),
+                    headers: { Authorization: 'Bearer <token>' },
+                    body: { reason: 'string' }
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/admin/properties/bulk-approve',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.adminEndpoints.bulkApprove.description'),
+                    headers: { Authorization: 'Bearer <token>' },
+                    body: { propertyIds: ['string'] }
+                },
+                {
+                    method: 'GET',
+                    path: '/api/admin/inquiries',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.adminEndpoints.getAllInquiries.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/admin/inquiries/:id/respond',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.adminEndpoints.respondToInquiry.description'),
+                    headers: { Authorization: 'Bearer <token>' },
+                    body: { response: 'string' }
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/admin/inquiries/:id/close',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.adminEndpoints.closeInquiry.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'GET',
+                    path: '/api/admin/settings',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.adminEndpoints.getSettings.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/admin/settings',
+                    access: t('apiDocs.access.admin'),
+                    description: t('apiDocs.adminEndpoints.updateSettings.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                }
+            ]
+        },
+        inquiries: {
+            title: t('apiDocs.categories.inquiries'),
+            icon: <FiCode className="w-5 h-5" />,
+            color: 'yellow',
+            endpoints: [
+                {
+                    method: 'POST',
+                    path: '/api/inquiries',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.inquiryEndpoints.create.description'),
+                    headers: { Authorization: 'Bearer <token>' },
+                    body: { property: 'id', inquiryType: 'string', message: 'string' }
+                },
+                {
+                    method: 'GET',
+                    path: '/api/inquiries/my-inquiries',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.inquiryEndpoints.getMy.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'GET',
+                    path: '/api/inquiries/property/:propertyId',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.inquiryEndpoints.getByProperty.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'GET',
+                    path: '/api/inquiries/:id',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.inquiryEndpoints.getById.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/inquiries/:id',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.inquiryEndpoints.update.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'DELETE',
+                    path: '/api/inquiries/:id',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.inquiryEndpoints.delete.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                }
+            ]
+        },
+        reviews: {
+            title: t('apiDocs.categories.reviews'),
+            icon: <FiCode className="w-5 h-5" />,
+            color: 'pink',
+            endpoints: [
+                {
+                    method: 'GET',
+                    path: '/api/reviews/property/:propertyId',
+                    access: t('apiDocs.access.public'),
+                    description: t('apiDocs.reviewEndpoints.getByProperty.description')
+                },
+                {
+                    method: 'GET',
+                    path: '/api/reviews/agent/:agentId',
+                    access: t('apiDocs.access.public'),
+                    description: t('apiDocs.reviewEndpoints.getByAgent.description')
+                },
+                {
+                    method: 'POST',
+                    path: '/api/reviews',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.reviewEndpoints.create.description'),
+                    headers: { Authorization: 'Bearer <token>' },
+                    body: { property: 'id', rating: 'number', comment: 'string' }
+                },
+                {
+                    method: 'PUT',
+                    path: '/api/reviews/:id',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.reviewEndpoints.update.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'DELETE',
+                    path: '/api/reviews/:id',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.reviewEndpoints.delete.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                }
+            ]
+        },
+        favorites: {
+            title: t('apiDocs.categories.favorites'),
+            icon: <FiCode className="w-5 h-5" />,
+            color: 'orange',
+            endpoints: [
+                {
+                    method: 'GET',
+                    path: '/api/favorites',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.favoriteEndpoints.getAll.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'POST',
+                    path: '/api/favorites/:propertyId',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.favoriteEndpoints.add.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'DELETE',
+                    path: '/api/favorites/:propertyId',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.favoriteEndpoints.remove.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                },
+                {
+                    method: 'POST',
+                    path: '/api/favorites/saved-search',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.favoriteEndpoints.addSearch.description'),
+                    headers: { Authorization: 'Bearer <token>' },
+                    body: { name: 'string', filters: {} }
+                },
+                {
+                    method: 'DELETE',
+                    path: '/api/favorites/saved-search/:searchId',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.favoriteEndpoints.removeSearch.description'),
+                    headers: { Authorization: 'Bearer <token>' }
+                }
+            ]
+        },
+        upload: {
+            title: t('apiDocs.categories.upload'),
+            icon: <FiCloud className="w-5 h-5" />,
+            color: 'teal',
+            endpoints: [
+                {
+                    method: 'POST',
+                    path: '/api/upload/property-images',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.uploadEndpoints.propertyImages.description'),
+                    headers: { Authorization: 'Bearer <token>', 'Content-Type': 'multipart/form-data' },
+                    body: { images: 'File[] (max 10)' }
+                },
+                {
+                    method: 'POST',
+                    path: '/api/upload/profile-image',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.uploadEndpoints.profileImage.description'),
+                    headers: { Authorization: 'Bearer <token>', 'Content-Type': 'multipart/form-data' },
+                    body: { image: 'File' }
+                },
+                {
+                    method: 'DELETE',
+                    path: '/api/upload/delete-image',
+                    access: t('apiDocs.access.protected'),
+                    description: t('apiDocs.uploadEndpoints.deleteImage.description'),
+                    headers: { Authorization: 'Bearer <token>' },
+                    body: { imageUrl: 'string' }
+                }
+            ]
+        },
+        health: {
+            title: t('apiDocs.categories.health'),
+            icon: <FiCheckCircle className="w-5 h-5" />,
+            color: 'emerald',
+            endpoints: [
+                {
+                    method: 'GET',
+                    path: '/api/health',
+                    access: t('apiDocs.access.public'),
+                    description: t('apiDocs.healthEndpoints.getStatus.description'),
+                    response: {
+                        success: true,
+                        data: {
+                            status: 'healthy',
+                            timestamp: '2025-11-29T...',
+                            services: {
+                                api: { status: 'online', uptime: 3600, message: 'API server is running' },
+                                database: { status: 'connected', message: 'MongoDB connected successfully' },
+                                aws: {
+                                    s3: { status: 'configured', message: 'S3 bucket: bucket-name' },
+                                    ses: { status: 'configured', message: 'SES region: eu-west-1' }
+                                }
+                            }
+                        }
+                    }
                 }
             ]
         }
