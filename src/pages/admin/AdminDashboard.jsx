@@ -41,7 +41,11 @@ const AdminDashboard = () => {
   };
 
   if (loading) {
-    return <Loading />;
+    return (
+      <div className="pt-28">
+        <Loading />
+      </div>
+    );
   }
 
   const { overview, recentActivity, distributions, performance, recent } = dashboardData || {};

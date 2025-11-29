@@ -119,7 +119,11 @@ const AdminInquiries = () => {
   };
 
   if (loading && inquiries.length === 0) {
-    return <Loading />;
+    return (
+      <div className="pt-28">
+        <Loading />
+      </div>
+    );
   }
 
   return (

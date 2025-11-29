@@ -95,7 +95,11 @@ const AdminUsers = () => {
   };
 
   if (loading && users.length === 0) {
-    return <Loading />;
+    return (
+      <div className="pt-28">
+        <Loading />
+      </div>
+    );
   }
 
   return (
