@@ -1774,5 +1774,99 @@
         "deleteInquiry": "Erro ao eliminar pedido"
       }
     }
+  },
+  "apiDocs": {
+    "title": "Documentação da API LusitanEstate",
+    "subtitle": "Referência de Endpoints da API RESTful",
+    "baseUrl": "URL Base",
+    "systemStatus": {
+      "title": "Monitor de Estado do Sistema",
+      "checking": "A verificar estado do sistema...",
+      "apiServer": "Servidor API",
+      "uptime": "Tempo Ativo",
+      "mongodb": "MongoDB",
+      "awsS3": "AWS S3",
+      "awsSes": "AWS SES",
+      "overall": "Estado Geral do Sistema",
+      "lastUpdated": "Última atualização",
+      "autoRefresh": "Atualização automática",
+      "offline": "Offline",
+      "unknown": "Desconhecido",
+      "cannotConnect": "Não é possível conectar ao servidor API",
+      "testsPassing": "28 Testes a Passar",
+      "totalEndpoints": "66 Endpoints Totais",
+      "resources": "9 Recursos"
+    },
+    "search": {
+      "placeholder": "Pesquisar endpoints...",
+      "allCategories": "Todas as Categorias"
+    },
+    "categories": {
+      "auth": "Autenticação",
+      "properties": "Propriedades",
+      "agents": "Agentes",
+      "agencies": "Agências",
+      "admin": "Admin",
+      "inquiries": "Pedidos",
+      "reviews": "Avaliações",
+      "favorites": "Favoritos",
+      "upload": "Upload"
+    },
+    "access": {
+      "public": "Público",
+      "protected": "Protegido",
+      "seller": "Vendedor",
+      "agent": "Agente",
+      "admin": "Admin",
+      "sellerAgentAdmin": "Vendedor/Agente/Admin"
+    },
+    "endpoints": {
+      "count": "endpoints",
+      "headers": "Cabeçalhos",
+      "queryParameters": "Parâmetros de Consulta",
+      "requestBody": "Corpo do Pedido",
+      "responseExample": "Exemplo de Resposta"
+    },
+    "auth": {
+      "title": "Autenticação",
+      "description": "A maioria dos endpoints requer um token JWT. Inclua-o no cabeçalho de Autorização:",
+      "roles": {
+        "buyer": {
+          "title": "Comprador",
+          "description": "Pesquisar, favoritar, inquirir"
+        },
+        "seller": {
+          "title": "Vendedor",
+          "description": "Criar/gerir propriedades"
+        },
+        "agent": {
+          "title": "Agente",
+          "description": "Perfil de agente + propriedades"
+        },
+        "admin": {
+          "title": "Admin",
+          "description": "Acesso total à plataforma"
+        }
+      }
+    },
+    "authEndpoints": {
+      "register": {
+        "description": "Registar nova conta de utilizador"
+      },
+      "login": {
+        "description": "Login com email e palavra-passe"
+      },
+      "me": {
+        "description": "Obter perfil do utilizador atual"
+      }
+    },
+    "propertyEndpoints": {
+      "getAll": {
+        "description": "Obter todas as propriedades com filtros opcionais"
+      },
+      "create": {
+        "description": "Criar novo anúncio de propriedade"
+      }
+    }
   }
 }

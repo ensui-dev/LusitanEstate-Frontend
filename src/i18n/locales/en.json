@@ -1774,5 +1774,99 @@
         "deleteInquiry": "Error deleting inquiry"
       }
     }
+  },
+  "apiDocs": {
+    "title": "LusitanEstate API Documentation",
+    "subtitle": "RESTful API Endpoints Reference",
+    "baseUrl": "Base URL",
+    "systemStatus": {
+      "title": "System Status Monitor",
+      "checking": "Checking system status...",
+      "apiServer": "API Server",
+      "uptime": "Uptime",
+      "mongodb": "MongoDB",
+      "awsS3": "AWS S3",
+      "awsSes": "AWS SES",
+      "overall": "Overall System Status",
+      "lastUpdated": "Last updated",
+      "autoRefresh": "Auto-refresh",
+      "offline": "Offline",
+      "unknown": "Unknown",
+      "cannotConnect": "Cannot connect to API server",
+      "testsPassing": "28 Tests Passing",
+      "totalEndpoints": "66 Total Endpoints",
+      "resources": "9 Resources"
+    },
+    "search": {
+      "placeholder": "Search endpoints...",
+      "allCategories": "All Categories"
+    },
+    "categories": {
+      "auth": "Authentication",
+      "properties": "Properties",
+      "agents": "Agents",
+      "agencies": "Agencies",
+      "admin": "Admin",
+      "inquiries": "Inquiries",
+      "reviews": "Reviews",
+      "favorites": "Favorites",
+      "upload": "Upload"
+    },
+    "access": {
+      "public": "Public",
+      "protected": "Protected",
+      "seller": "Seller",
+      "agent": "Agent",
+      "admin": "Admin",
+      "sellerAgentAdmin": "Seller/Agent/Admin"
+    },
+    "endpoints": {
+      "count": "endpoints",
+      "headers": "Headers",
+      "queryParameters": "Query Parameters",
+      "requestBody": "Request Body",
+      "responseExample": "Response Example"
+    },
+    "auth": {
+      "title": "Authentication",
+      "description": "Most endpoints require a JWT token. Include it in the Authorization header:",
+      "roles": {
+        "buyer": {
+          "title": "Buyer",
+          "description": "Search, favorite, inquire"
+        },
+        "seller": {
+          "title": "Seller",
+          "description": "Create/manage properties"
+        },
+        "agent": {
+          "title": "Agent",
+          "description": "Agent profile + properties"
+        },
+        "admin": {
+          "title": "Admin",
+          "description": "Full platform access"
+        }
+      }
+    },
+    "authEndpoints": {
+      "register": {
+        "description": "Register a new user account"
+      },
+      "login": {
+        "description": "Login with email and password"
+      },
+      "me": {
+        "description": "Get current user profile"
+      }
+    },
+    "propertyEndpoints": {
+      "getAll": {
+        "description": "Get all properties with optional filters"
+      },
+      "create": {
+        "description": "Create new property listing"
+      }
+    }
   }
 }
